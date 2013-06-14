@@ -89,54 +89,7 @@ public class StudentPanel extends javax.swing.JPanel {
         emailStudent.setText("E-mail");
 
         nameTextField.setToolTipText("teste");
-        nameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameTextFieldActionPerformed(evt);
-            }
-        });
-
-        motherTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                motherTextFieldActionPerformed(evt);
-            }
-        });
-
-        fatherTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fatherTextFieldActionPerformed(evt);
-            }
-        });
-
-        phoneTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                phoneTextFieldActionPerformed(evt);
-            }
-        });
-
-        adressTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adressTextFieldActionPerformed(evt);
-            }
-        });
-
-        cellphoneTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cellphoneTextFieldActionPerformed(evt);
-            }
-        });
-
-        emailTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailTextFieldActionPerformed(evt);
-            }
-        });
-
-        birthdaylTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                birthdaylTextFieldActionPerformed(evt);
-            }
-        });
-
+        
         jButton2.setText("Cadastrar");
 
         javax.swing.GroupLayout newStudentPanelLayout = new javax.swing.GroupLayout(newStudentPanel);
@@ -146,10 +99,9 @@ public class StudentPanel extends javax.swing.JPanel {
             .addGroup(newStudentPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(newStudentPanelLayout.createSequentialGroup()
-                        .addComponent(birthdayStudent)
-                        .addGap(18, 18, 18)
-                        .addComponent(birthdaylTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newStudentPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(newStudentPanelLayout.createSequentialGroup()
                         .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nameStudent)
@@ -158,22 +110,21 @@ public class StudentPanel extends javax.swing.JPanel {
                             .addComponent(emailStudent)
                             .addComponent(cellphoneStudent)
                             .addComponent(phoneStudent)
-                            .addComponent(adressStudent))
-                        .addGap(49, 49, 49)
+                            .addComponent(adressStudent)
+                            .addComponent(birthdayStudent))
+                        .addGap(4, 4, 4)
                         .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cellphoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(phoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(adressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(motherTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(fatherTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(28, Short.MAX_VALUE))
+                            .addComponent(emailTextField)
+                            .addComponent(cellphoneTextField)
+                            .addComponent(phoneTextField)
+                            .addComponent(adressTextField)
+                            .addComponent(motherTextField)
+                            .addComponent(fatherTextField)
+                            .addGroup(newStudentPanelLayout.createSequentialGroup()
+                                .addComponent(birthdaylTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 280, Short.MAX_VALUE))
+                            .addComponent(nameTextField))))
+                .addContainerGap())
         );
         newStudentPanelLayout.setVerticalGroup(
             newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,9 +161,9 @@ public class StudentPanel extends javax.swing.JPanel {
                 .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailStudent))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Cadastrar Aluno", newStudentPanel);
@@ -232,48 +183,6 @@ public class StudentPanel extends javax.swing.JPanel {
         birthdayStudent2.setText("Data de Nascimento");
 
         emailStudent2.setText("E-mail");
-
-        motherTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                motherTextField2ActionPerformed(evt);
-            }
-        });
-
-        fatherTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fatherTextField2ActionPerformed(evt);
-            }
-        });
-
-        phoneTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                phoneTextField2ActionPerformed(evt);
-            }
-        });
-
-        adressTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                adressTextField2ActionPerformed(evt);
-            }
-        });
-
-        cellphoneTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cellphoneTextField2ActionPerformed(evt);
-            }
-        });
-
-        emailTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailTextField2ActionPerformed(evt);
-            }
-        });
-
-        birthdaylTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                birthdaylTextField2ActionPerformed(evt);
-            }
-        });
 
         saveStudent.setText("Salvar");
 
@@ -302,11 +211,11 @@ public class StudentPanel extends javax.swing.JPanel {
                     .addComponent(emailTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                     .addComponent(birthdaylTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(studentComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(124, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editStudentPanelLayout.createSequentialGroup()
-                .addContainerGap(280, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(saveStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addContainerGap())
         );
         editStudentPanelLayout.setVerticalGroup(
             editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,9 +252,9 @@ public class StudentPanel extends javax.swing.JPanel {
                 .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailStudent2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(saveStudent)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Editar Informações do Aluno", editStudentPanel);
@@ -353,27 +262,23 @@ public class StudentPanel extends javax.swing.JPanel {
         nameStudentDelete.setText("Nome");
 
         jButton1.setText("Excluir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+
 
         javax.swing.GroupLayout deleteStudentPanelLayout = new javax.swing.GroupLayout(deleteStudentPanel);
         deleteStudentPanel.setLayout(deleteStudentPanelLayout);
         deleteStudentPanelLayout.setHorizontalGroup(
             deleteStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(deleteStudentPanelLayout.createSequentialGroup()
-                .addGroup(deleteStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(deleteStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(deleteStudentPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, deleteStudentPanelLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(nameStudentDelete)
-                        .addGap(48, 48, 48)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox1, 0, 447, Short.MAX_VALUE))
+                    .addGroup(deleteStudentPanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         deleteStudentPanelLayout.setVerticalGroup(
             deleteStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -382,7 +287,7 @@ public class StudentPanel extends javax.swing.JPanel {
                 .addGroup(deleteStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nameStudentDelete))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 261, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -393,77 +298,14 @@ public class StudentPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
-
-        // TODO add your handling code here:}//GEN-LAST:event_nameTextFieldActionPerformed
-
-        private void motherTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motherTextFieldActionPerformed
-
-        // TODO add your handling code here:}//GEN-LAST:event_motherTextFieldActionPerformed
-
-        private void fatherTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fatherTextFieldActionPerformed
-
-        // TODO add your handling code here:}//GEN-LAST:event_fatherTextFieldActionPerformed
-
-        private void phoneTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneTextFieldActionPerformed
-
-        // TODO add your handling code here:}//GEN-LAST:event_phoneTextFieldActionPerformed
-
-        private void adressTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adressTextFieldActionPerformed
-
-        // TODO add your handling code here:}//GEN-LAST:event_adressTextFieldActionPerformed
-
-        private void cellphoneTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cellphoneTextFieldActionPerformed
-
-        // TODO add your handling code here:}//GEN-LAST:event_cellphoneTextFieldActionPerformed
-
-        private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
-
-        // TODO add your handling code here:}//GEN-LAST:event_emailTextFieldActionPerformed
-
-        private void birthdaylTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthdaylTextFieldActionPerformed
-
-        // TODO add your handling code here:}//GEN-LAST:event_birthdaylTextFieldActionPerformed
-
-    private void motherTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motherTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_motherTextField2ActionPerformed
-
-    private void fatherTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fatherTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fatherTextField2ActionPerformed
-
-    private void phoneTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_phoneTextField2ActionPerformed
-
-    private void adressTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adressTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_adressTextField2ActionPerformed
-
-    private void cellphoneTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cellphoneTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cellphoneTextField2ActionPerformed
-
-    private void emailTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailTextField2ActionPerformed
-
-    private void birthdaylTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birthdaylTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_birthdaylTextField2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel adressStudent;
