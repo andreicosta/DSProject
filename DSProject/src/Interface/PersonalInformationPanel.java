@@ -57,7 +57,7 @@ public class PersonalInformationPanel extends javax.swing.JPanel {
 
         cpf1.setText("CPF");
 
-        name1.setText("Nome");
+        name1.setText("Nome Completo");
 
         adress1.setText("Endereço");
 
@@ -123,14 +123,14 @@ public class PersonalInformationPanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(email1)
                     .addComponent(emailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Visualizar Informações Pessoais", jPanel2);
 
         cpf.setText("CPF");
 
-        name.setText("Nome");
+        name.setText("Nome Completo");
 
         adress.setText("Endereço");
 
@@ -163,9 +163,9 @@ public class PersonalInformationPanel extends javax.swing.JPanel {
                     .addComponent(phoneTextField)
                     .addComponent(cellphoneTextField)
                     .addComponent(emilTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(470, Short.MAX_VALUE)
                 .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -200,7 +200,7 @@ public class PersonalInformationPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(email)
                     .addComponent(emilTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(saveButton)
                 .addContainerGap())
         );

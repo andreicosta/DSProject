@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.1" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <AuxValues>
@@ -21,7 +21,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jTabbedPane1" alignment="0" pref="381" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -46,33 +46,34 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="458" max="32767" attributes="0"/>
                               <Component id="jButton2" min="-2" pref="90" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="nameStudent" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fatherStudent" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="motherStudent" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nameStudent" min="-2" max="-2" attributes="0"/>
+                                  <Component id="birthdayStudent" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="emailStudent" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="cellphoneStudent" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="phoneStudent" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="adressStudent" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="birthdayStudent" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="motherStudent" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fatherStudent" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="emailTextField" max="32767" attributes="0"/>
-                                  <Component id="cellphoneTextField" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="phoneTextField" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="adressTextField" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="motherTextField" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="fatherTextField" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="birthdaylTextField" min="-2" pref="89" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="280" max="32767" attributes="0"/>
+                                  <Component id="nameTextField" alignment="0" pref="431" max="32767" attributes="0"/>
+                                  <Component id="emailTextField" alignment="0" pref="431" max="32767" attributes="0"/>
+                                  <Component id="cellphoneTextField" alignment="0" pref="431" max="32767" attributes="0"/>
+                                  <Component id="phoneTextField" alignment="0" pref="431" max="32767" attributes="0"/>
+                                  <Component id="adressTextField" alignment="0" pref="431" max="32767" attributes="0"/>
+                                  <Component id="motherTextField" alignment="0" pref="431" max="32767" attributes="0"/>
+                                  <Component id="fatherTextField" alignment="0" pref="431" max="32767" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jComboBox2" alignment="0" max="32767" attributes="1"/>
+                                      <Component id="birthdaylTextField1" alignment="0" pref="89" max="32767" attributes="1"/>
                                   </Group>
-                                  <Component id="nameTextField" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -90,18 +91,23 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="birthdayStudent" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="birthdaylTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="birthdaylTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="fatherStudent" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                           <Component id="fatherTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fatherStudent" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="motherStudent" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="motherTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="motherStudent" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -123,7 +129,7 @@
                           <Component id="emailTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="emailStudent" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="39" max="32767" attributes="0"/>
+                      <EmptySpace pref="65" max="32767" attributes="0"/>
                       <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -133,17 +139,17 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="nameStudent">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nome"/>
+                <Property name="text" type="java.lang.String" value="Nome Completo"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="fatherStudent">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nome do Pai"/>
+                <Property name="text" type="java.lang.String" value="Nome Completo do Pai"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="motherStudent">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nome da M&#xe3;e"/>
+                <Property name="text" type="java.lang.String" value="Nome Completo da M&#xe3;e"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="adressStudent">
@@ -175,48 +181,39 @@
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="teste"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameTextFieldActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="motherTextField">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="motherTextFieldActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="fatherTextField">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fatherTextFieldActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="phoneTextField">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="phoneTextFieldActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="adressTextField">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adressTextFieldActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="cellphoneTextField">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cellphoneTextFieldActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="emailTextField">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailTextFieldActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="birthdaylTextField">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="birthdaylTextFieldActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="birthdaylTextField1">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Sexo"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox2">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="2">
+                    <StringItem index="0" value="Masculino"/>
+                    <StringItem index="1" value="Feminino"/>
+                  </StringArray>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
@@ -233,17 +230,23 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="471" max="32767" attributes="0"/>
+                      <Component id="saveStudent" min="-2" pref="87" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="birthdayStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="nameStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="fatherStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="motherStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="emailStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="cellphoneStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="phoneStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="adressStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="nameStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -251,27 +254,28 @@
                           <Component id="phoneTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
                           <Component id="adressTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
                           <Component id="motherTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
-                          <Component id="fatherTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
                           <Component id="emailTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
                           <Component id="birthdaylTextField2" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
-                          <Component id="studentComboBox" alignment="0" max="32767" attributes="1"/>
+                          <Component id="fatherTextField2" alignment="1" pref="417" max="32767" attributes="1"/>
+                          <Component id="studentComboBox" alignment="1" max="32767" attributes="1"/>
+                          <Component id="studentComboBox1" alignment="0" min="-2" pref="100" max="-2" attributes="1"/>
                       </Group>
-                      <EmptySpace pref="124" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="saveStudent" min="-2" pref="87" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="nameStudent2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="studentComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="studentComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -308,7 +312,7 @@
                           <Component id="emailTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="emailStudent2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="39" max="32767" attributes="0"/>
+                      <EmptySpace pref="62" max="32767" attributes="0"/>
                       <Component id="saveStudent" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -323,12 +327,12 @@
             </Component>
             <Component class="javax.swing.JLabel" name="fatherStudent2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nome do Pai"/>
+                <Property name="text" type="java.lang.String" value="Nome Completo do Pai"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="motherStudent2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nome da M&#xe3;e"/>
+                <Property name="text" type="java.lang.String" value="Nome Completo da M&#xe3;e"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="adressStudent2">
@@ -357,39 +361,18 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="motherTextField2">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="motherTextField2ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="fatherTextField2">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fatherTextField2ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="phoneTextField2">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="phoneTextField2ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="adressTextField2">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="adressTextField2ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="cellphoneTextField2">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cellphoneTextField2ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="emailTextField2">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailTextField2ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="birthdaylTextField2">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="birthdaylTextField2ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="studentComboBox">
               <Properties>
@@ -401,6 +384,21 @@
             <Component class="javax.swing.JButton" name="saveStudent">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salvar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Sexo"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="studentComboBox1">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="2">
+                    <StringItem index="0" value="Masculino"/>
+                    <StringItem index="1" value="Feminino"/>
+                  </StringArray>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
@@ -420,13 +418,13 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                               <Component id="nameStudentDelete" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jComboBox1" pref="447" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="470" max="32767" attributes="0"/>
                               <Component id="jButton1" min="-2" pref="88" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -437,7 +435,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="nameStudentDelete" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -466,9 +464,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Excluir"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
