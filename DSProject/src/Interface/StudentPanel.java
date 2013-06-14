@@ -47,8 +47,10 @@ public class StudentPanel extends javax.swing.JPanel {
         adressTextField = new javax.swing.JTextField();
         cellphoneTextField = new javax.swing.JTextField();
         emailTextField = new javax.swing.JTextField();
-        birthdaylTextField = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        birthdaylTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox();
         editStudentPanel = new javax.swing.JPanel();
         nameStudent2 = new javax.swing.JLabel();
         fatherStudent2 = new javax.swing.JLabel();
@@ -67,16 +69,18 @@ public class StudentPanel extends javax.swing.JPanel {
         birthdaylTextField2 = new javax.swing.JTextField();
         studentComboBox = new javax.swing.JComboBox();
         saveStudent = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        studentComboBox1 = new javax.swing.JComboBox();
         deleteStudentPanel = new javax.swing.JPanel();
         nameStudentDelete = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
 
-        nameStudent.setText("Nome");
+        nameStudent.setText("Nome Completo");
 
-        fatherStudent.setText("Nome do Pai");
+        fatherStudent.setText("Nome Completo do Pai");
 
-        motherStudent.setText("Nome da Mãe");
+        motherStudent.setText("Nome Completo da Mãe");
 
         adressStudent.setText("Endereço");
 
@@ -89,8 +93,12 @@ public class StudentPanel extends javax.swing.JPanel {
         emailStudent.setText("E-mail");
 
         nameTextField.setToolTipText("teste");
-        
+
         jButton2.setText("Cadastrar");
+
+        jLabel1.setText("Sexo");
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
 
         javax.swing.GroupLayout newStudentPanelLayout = new javax.swing.GroupLayout(newStudentPanel);
         newStudentPanel.setLayout(newStudentPanelLayout);
@@ -100,30 +108,31 @@ public class StudentPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newStudentPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 458, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(newStudentPanelLayout.createSequentialGroup()
                         .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nameStudent)
-                            .addComponent(fatherStudent)
-                            .addComponent(motherStudent)
+                            .addComponent(birthdayStudent)
                             .addComponent(emailStudent)
                             .addComponent(cellphoneStudent)
                             .addComponent(phoneStudent)
                             .addComponent(adressStudent)
-                            .addComponent(birthdayStudent))
-                        .addGap(4, 4, 4)
+                            .addComponent(motherStudent)
+                            .addComponent(fatherStudent)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(emailTextField)
-                            .addComponent(cellphoneTextField)
-                            .addComponent(phoneTextField)
-                            .addComponent(adressTextField)
-                            .addComponent(motherTextField)
-                            .addComponent(fatherTextField)
-                            .addGroup(newStudentPanelLayout.createSequentialGroup()
-                                .addComponent(birthdaylTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 280, Short.MAX_VALUE))
-                            .addComponent(nameTextField))))
+                            .addComponent(nameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+                            .addComponent(emailTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+                            .addComponent(cellphoneTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+                            .addComponent(phoneTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+                            .addComponent(adressTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+                            .addComponent(motherTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+                            .addComponent(fatherTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+                            .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(birthdaylTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         newStudentPanelLayout.setVerticalGroup(
@@ -135,16 +144,20 @@ public class StudentPanel extends javax.swing.JPanel {
                     .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(birthdayStudent)
-                    .addComponent(birthdaylTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(birthdaylTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fatherStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fatherTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fatherTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fatherStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(motherStudent)
-                    .addComponent(motherTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(motherTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(motherStudent))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(adressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -161,7 +174,7 @@ public class StudentPanel extends javax.swing.JPanel {
                 .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailStudent))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addContainerGap())
         );
@@ -170,9 +183,9 @@ public class StudentPanel extends javax.swing.JPanel {
 
         nameStudent2.setText("Nome");
 
-        fatherStudent2.setText("Nome do Pai");
+        fatherStudent2.setText("Nome Completo do Pai");
 
-        motherStudent2.setText("Nome da Mãe");
+        motherStudent2.setText("Nome Completo da Mãe");
 
         adressStudent2.setText("Endereço");
 
@@ -186,44 +199,54 @@ public class StudentPanel extends javax.swing.JPanel {
 
         saveStudent.setText("Salvar");
 
+        jLabel2.setText("Sexo");
+
+        studentComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
+
         javax.swing.GroupLayout editStudentPanelLayout = new javax.swing.GroupLayout(editStudentPanel);
         editStudentPanel.setLayout(editStudentPanelLayout);
         editStudentPanelLayout.setHorizontalGroup(
             editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editStudentPanelLayout.createSequentialGroup()
+                .addContainerGap(471, Short.MAX_VALUE)
+                .addComponent(saveStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(editStudentPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(birthdayStudent2)
-                    .addComponent(nameStudent2)
                     .addComponent(fatherStudent2)
                     .addComponent(motherStudent2)
                     .addComponent(emailStudent2)
                     .addComponent(cellphoneStudent2)
                     .addComponent(phoneStudent2)
-                    .addComponent(adressStudent2))
+                    .addComponent(adressStudent2)
+                    .addComponent(nameStudent2)
+                    .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cellphoneTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                     .addComponent(phoneTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                     .addComponent(adressTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                     .addComponent(motherTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                    .addComponent(fatherTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                     .addComponent(emailTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                     .addComponent(birthdaylTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(studentComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(124, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editStudentPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(saveStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addComponent(fatherTextField2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
+                    .addComponent(studentComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(studentComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         editStudentPanelLayout.setVerticalGroup(
             editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editStudentPanelLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(28, 28, 28)
                 .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameStudent2)
                     .addComponent(studentComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(studentComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(birthdayStudent2)
@@ -252,7 +275,7 @@ public class StudentPanel extends javax.swing.JPanel {
                 .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(emailStudent2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(saveStudent)
                 .addContainerGap())
         );
@@ -263,7 +286,6 @@ public class StudentPanel extends javax.swing.JPanel {
 
         jButton1.setText("Excluir");
 
-
         javax.swing.GroupLayout deleteStudentPanelLayout = new javax.swing.GroupLayout(deleteStudentPanel);
         deleteStudentPanel.setLayout(deleteStudentPanelLayout);
         deleteStudentPanelLayout.setHorizontalGroup(
@@ -271,19 +293,19 @@ public class StudentPanel extends javax.swing.JPanel {
             .addGroup(deleteStudentPanelLayout.createSequentialGroup()
                 .addGroup(deleteStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(deleteStudentPanelLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(66, 66, 66)
                         .addComponent(nameStudentDelete)
                         .addGap(18, 18, 18)
                         .addComponent(jComboBox1, 0, 447, Short.MAX_VALUE))
                     .addGroup(deleteStudentPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(470, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         deleteStudentPanelLayout.setVerticalGroup(
             deleteStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(deleteStudentPanelLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(38, 38, 38)
                 .addGroup(deleteStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nameStudentDelete))
@@ -302,7 +324,7 @@ public class StudentPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -314,7 +336,7 @@ public class StudentPanel extends javax.swing.JPanel {
     private javax.swing.JTextField adressTextField2;
     private javax.swing.JLabel birthdayStudent;
     private javax.swing.JLabel birthdayStudent2;
-    private javax.swing.JTextField birthdaylTextField;
+    private javax.swing.JTextField birthdaylTextField1;
     private javax.swing.JTextField birthdaylTextField2;
     private javax.swing.JLabel cellphoneStudent;
     private javax.swing.JLabel cellphoneStudent2;
@@ -333,6 +355,9 @@ public class StudentPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel motherStudent;
     private javax.swing.JLabel motherStudent2;
@@ -349,5 +374,6 @@ public class StudentPanel extends javax.swing.JPanel {
     private javax.swing.JTextField phoneTextField2;
     private javax.swing.JButton saveStudent;
     private javax.swing.JComboBox studentComboBox;
+    private javax.swing.JComboBox studentComboBox1;
     // End of variables declaration//GEN-END:variables
 }
