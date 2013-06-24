@@ -1,4 +1,4 @@
-<?xml version="1.1" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <AuxValues>
@@ -21,7 +21,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" alignment="0" pref="381" max="32767" attributes="0"/>
+          <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -45,35 +45,40 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="458" max="32767" attributes="0"/>
-                              <Component id="jButton2" min="-2" pref="90" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="buttonRegister" min="-2" pref="90" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="nameStudent" min="-2" max="-2" attributes="0"/>
-                                  <Component id="birthdayStudent" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="emailStudent" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cellphoneStudent" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="phoneStudent" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="adressStudent" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="motherStudent" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="fatherStudent" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelCellPhone" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelTelephone" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelAddress" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelNameOfMother" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelGender" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelCity" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelState" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelDateOfBirth" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelNameOfFather" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="nameTextField" alignment="0" pref="431" max="32767" attributes="0"/>
-                                  <Component id="emailTextField" alignment="0" pref="431" max="32767" attributes="0"/>
-                                  <Component id="cellphoneTextField" alignment="0" pref="431" max="32767" attributes="0"/>
-                                  <Component id="phoneTextField" alignment="0" pref="431" max="32767" attributes="0"/>
-                                  <Component id="adressTextField" alignment="0" pref="431" max="32767" attributes="0"/>
-                                  <Component id="motherTextField" alignment="0" pref="431" max="32767" attributes="0"/>
-                                  <Component id="fatherTextField" alignment="0" pref="431" max="32767" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jComboBox2" alignment="0" max="32767" attributes="1"/>
-                                      <Component id="birthdaylTextField1" alignment="0" pref="89" max="32767" attributes="1"/>
+                                  <Component id="fieldNameOfFather" max="32767" attributes="0"/>
+                                  <Component id="fieldName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="fieldEmail" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="fieldCellPhone" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="fieldTelephone" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="fieldAddress" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="fieldNameOfMother" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="fieldCity" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="comboGender" min="-2" max="-2" attributes="1"/>
+                                      <EmptySpace min="0" pref="316" max="32767" attributes="0"/>
                                   </Group>
+                                  <Component id="fieldState" max="32767" attributes="0"/>
+                                  <Component id="fieldDateOfBirth" alignment="0" max="32767" attributes="1"/>
                               </Group>
                           </Group>
                       </Group>
@@ -86,135 +91,232 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="nameStudent" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="nameTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldName" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelDateOfBirth" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldDateOfBirth" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="birthdayStudent" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="birthdaylTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboGender" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="fatherTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="fatherStudent" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="fieldAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelAddress" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="motherTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="motherStudent" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelCity" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="adressTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="adressStudent" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldState" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelState" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="phoneTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="phoneStudent" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldNameOfMother" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelNameOfMother" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cellphoneTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cellphoneStudent" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldNameOfFather" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelNameOfFather" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="fieldTelephone" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelTelephone" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="fieldCellPhone" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelCellPhone" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="emailTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="emailStudent" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="65" max="32767" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="31" max="32767" attributes="0"/>
+                      <Component id="buttonRegister" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="nameStudent">
+            <Component class="javax.swing.JLabel" name="labelName">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nome Completo"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="fatherStudent">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nome Completo do Pai"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="motherStudent">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nome Completo da M&#xe3;e"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="adressStudent">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Endere&#xe7;o"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="phoneStudent">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Telefone"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="cellphoneStudent">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Celular"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="birthdayStudent">
+            <Component class="javax.swing.JLabel" name="labelDateOfBirth">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Data de Nascimento"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="emailStudent">
+            <Component class="javax.swing.JLabel" name="labelNameOfFather">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nome Completo do Pai"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelNameOfMother">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nome Completo da M&#xe3;e"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelAddress">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Endere&#xe7;o"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelTelephone">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Telefone"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelCellPhone">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Celular"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelEmail">
               <Properties>
                 <Property name="text" type="java.lang.String" value="E-mail"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="nameTextField">
+            <Component class="javax.swing.JTextField" name="fieldName">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="teste"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="motherTextField">
+            <Component class="javax.swing.JTextField" name="fieldNameOfMother">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="fatherTextField">
+            <Component class="javax.swing.JTextField" name="fieldNameOfFather">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="phoneTextField">
+            <Component class="javax.swing.JTextField" name="fieldTelephone">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="adressTextField">
+            <Component class="javax.swing.JTextField" name="fieldAddress">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="cellphoneTextField">
+            <Component class="javax.swing.JTextField" name="fieldCellPhone">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="emailTextField">
+            <Component class="javax.swing.JTextField" name="fieldEmail">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="buttonRegister">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRegisterActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="birthdaylTextField1">
+            <Component class="javax.swing.JTextField" name="fieldDateOfBirth">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldDateOfBirthKeyTyped"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="labelGender">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Sexo"/>
+                <Property name="text" type="java.lang.String" value="G&#xea;nero"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox2">
+            <Component class="javax.swing.JComboBox" name="comboGender">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="2">
+                  <StringArray count="3">
                     <StringItem index="0" value="Masculino"/>
                     <StringItem index="1" value="Feminino"/>
+                    <StringItem index="2" value="Outro"/>
                   </StringArray>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelCity">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cidade"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="fieldCity">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="fieldState">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelState">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Estado"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -231,7 +333,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="471" max="32767" attributes="0"/>
+                      <EmptySpace pref="527" max="32767" attributes="0"/>
                       <Component id="saveStudent" min="-2" pref="87" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -312,7 +414,7 @@
                           <Component id="emailTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="emailStudent2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="62" max="32767" attributes="0"/>
+                      <EmptySpace pref="94" max="32767" attributes="0"/>
                       <Component id="saveStudent" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -421,10 +523,10 @@
                               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                               <Component id="nameStudentDelete" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jComboBox1" pref="447" max="32767" attributes="0"/>
+                              <Component id="jComboBox1" pref="488" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <EmptySpace pref="470" max="32767" attributes="0"/>
+                              <EmptySpace pref="526" max="32767" attributes="0"/>
                               <Component id="jButton1" min="-2" pref="88" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -440,7 +542,7 @@
                           <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="nameStudentDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="261" max="32767" attributes="0"/>
+                      <EmptySpace pref="349" max="32767" attributes="0"/>
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
