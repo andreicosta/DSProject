@@ -4,7 +4,7 @@
  */
 package Interface;
 
-import dsproject.Student;
+import dsproject.Aluno;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -619,11 +619,11 @@ public class TestPanel extends javax.swing.JPanel
       java.sql.Date sqlTestDate = null;
       String timeOfTest = null;
       String temperature;
-      String birthday = "13/04/1999"; //aqui vai Student.getDateOfBirth()
+      String birthday = "13/04/1999"; //aqui vai Aluno.getDateOfBirth()
       SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
       SimpleDateFormat sh = new SimpleDateFormat("HH:mm");
       
-      ArrayList<Student> students = new ArrayList<>();
+      ArrayList<Aluno> students = new ArrayList<>();
       ObjectInputStream in = null;
       ObjectOutputStream out = null;
       
@@ -636,9 +636,9 @@ public class TestPanel extends javax.swing.JPanel
          {
             file = new FileInputStream(fileStudents);
             in = new ObjectInputStream(file);
-            students = (ArrayList<Student>)in.readObject();
-            System.out.println(students.get(0).getName());
-            System.out.println(students.get(1).getName());
+            students = (ArrayList<Aluno>)in.readObject();
+            for(int i = 0; i < students.size(); i++)
+               System.out.println(students.get(i).getName());
             in.close();
             file.close();
          }
@@ -698,7 +698,7 @@ public class TestPanel extends javax.swing.JPanel
 
                      time = sh.parse(timeOfTest);
 
-                     dsproject.Student student = new dsproject.Student("Maria", "Joao", "Miguel", sqlDateOfBirth, "sdfgdfsg", "Masculino", "Pelotas", "RS");
+                     dsproject.Aluno student = new dsproject.Aluno("Maria", "Joao", "Miguel", sqlDateOfBirth, "sdfgdfsg", "Masculino", "Pelotas", "RS");
                      if(student.saveTest(sqlTestDate, timeOfTest, temperature))
                      {
                         // daqui até o catch salva objeto aluno
@@ -709,7 +709,7 @@ public class TestPanel extends javax.swing.JPanel
                            {
                               FileInputStream file = new FileInputStream(fileStudents);
                               in = new ObjectInputStream(file);
-                              students = (ArrayList<Student>)in.readObject();
+                              students = (ArrayList<Aluno>)in.readObject();
                               students.add(student);
                               out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
                               out.writeObject(students);

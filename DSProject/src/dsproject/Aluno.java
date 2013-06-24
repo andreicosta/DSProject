@@ -5,14 +5,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-public class Student extends People implements Serializable
+public class Aluno extends Pessoa implements Serializable
 {
    private String nameOfMother;
    private String nameOfFather;
    private String classId;
-   private ArrayList<Test> tests = new ArrayList<>();
+   private ArrayList<Avaliacao> tests = new ArrayList<>();
 
-   public Student(String nameOfMother, String nameOfFather, String name, java.sql.Date dateOfBirth, 
+   public Aluno(String nameOfMother, String nameOfFather, String name, java.sql.Date dateOfBirth, 
                   String gender, String address, String city, String state)
    {
       super(name, dateOfBirth, gender, address, city, state);
@@ -24,7 +24,7 @@ public class Student extends People implements Serializable
    {
       SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
 
-      Test test = new Test(testDate, time, temperature);
+      Avaliacao test = new Avaliacao(testDate, time, temperature);
 
       /* aqui tem que fazer um teste para ver se o campo do teste correspondente na interface não é nulo
        * caso seja nulo entao deve colocar o teste como não feito ou não preenchido.
@@ -36,7 +36,7 @@ public class Student extends People implements Serializable
             return false;
         }
         if (Interface.TestPanel.getFieldHeight() == -1) {
-            JOptionPane.showMessageDialog(null, "Erro na Estrutura", "Erro", JOptionPane.ERROR_MESSAGE);
+            System.out.println("Estatura faltando");
             return false;
         }
         if (Interface.TestPanel.getFieldHeight() > 257) {
@@ -153,7 +153,7 @@ public class Student extends People implements Serializable
       return nameOfFather;
    }
 
-   public ArrayList<Test> getTestes()
+   public ArrayList<Avaliacao> getTestes()
    {
       return tests;
    }
@@ -163,7 +163,7 @@ public class Student extends People implements Serializable
       this.classId = classId;
    }
 
-   public void setTests(Test test)
+   public void setTests(Avaliacao test)
    {
       this.tests.add(test);
    }

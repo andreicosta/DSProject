@@ -46,7 +46,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="527" max="32767" attributes="0"/>
                               <Component id="buttonRegister" min="-2" pref="90" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
@@ -64,22 +64,20 @@
                                   <Component id="labelNameOfFather" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="fieldNameOfFather" max="32767" attributes="0"/>
-                                  <Component id="fieldName" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="fieldEmail" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="fieldCellPhone" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="fieldCellPhone" alignment="0" pref="396" max="32767" attributes="0"/>
                                   <Component id="fieldTelephone" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="fieldAddress" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="fieldNameOfFather" alignment="0" max="32767" attributes="0"/>
                                   <Component id="fieldNameOfMother" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="fieldCity" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="comboGender" min="-2" max="-2" attributes="1"/>
-                                      <EmptySpace min="0" pref="316" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="fieldState" max="32767" attributes="0"/>
+                                  <Component id="fieldState" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="fieldCity" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="fieldAddress" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="comboGender" alignment="0" max="32767" attributes="1"/>
                                   <Component id="fieldDateOfBirth" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="fieldName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="fieldEmail" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -333,7 +331,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="527" max="32767" attributes="0"/>
+                      <EmptySpace pref="542" max="32767" attributes="0"/>
                       <Component id="saveStudent" min="-2" pref="87" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -350,17 +348,19 @@
                           <Component id="nameStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="cellphoneTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
-                          <Component id="phoneTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
-                          <Component id="adressTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
-                          <Component id="motherTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
-                          <Component id="emailTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
-                          <Component id="birthdaylTextField2" alignment="0" min="-2" pref="89" max="-2" attributes="0"/>
-                          <Component id="fatherTextField2" alignment="1" pref="417" max="32767" attributes="1"/>
-                          <Component id="studentComboBox" alignment="1" max="32767" attributes="1"/>
-                          <Component id="studentComboBox1" alignment="0" min="-2" pref="100" max="-2" attributes="1"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="cellphoneTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
+                              <Component id="phoneTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
+                              <Component id="adressTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
+                              <Component id="emailTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
+                              <Component id="comboStudent" alignment="1" pref="417" max="32767" attributes="1"/>
+                              <Component id="birthdaylTextField2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="studentComboBox1" alignment="0" max="32767" attributes="1"/>
+                          </Group>
+                          <Component id="motherTextField2" min="-2" pref="417" max="-2" attributes="1"/>
+                          <Component id="fatherTextField2" min="-2" pref="417" max="-2" attributes="1"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -372,7 +372,7 @@
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="nameStudent2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="studentComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboStudent" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -476,12 +476,15 @@
             </Component>
             <Component class="javax.swing.JTextField" name="birthdaylTextField2">
             </Component>
-            <Component class="javax.swing.JComboBox" name="studentComboBox">
+            <Component class="javax.swing.JComboBox" name="comboStudent">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="popupMenuWillBecomeVisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="comboStudentPopupMenuWillBecomeVisible"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="saveStudent">
               <Properties>
@@ -518,16 +521,17 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="0" pref="529" max="32767" attributes="0"/>
+                              <Component id="jButton1" min="-2" pref="88" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="nameStudentDelete" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jComboBox1" pref="488" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace pref="526" max="32767" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="88" max="-2" attributes="0"/>
+                              <Component id="comboName" min="-2" pref="421" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -537,12 +541,12 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="nameStudentDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboName" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="349" max="32767" attributes="0"/>
+                      <EmptySpace pref="359" max="32767" attributes="0"/>
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -555,12 +559,18 @@
                 <Property name="text" type="java.lang.String" value="Nome"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JComboBox" name="comboName">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="popupMenuWillBecomeVisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="comboNamePopupMenuWillBecomeVisible"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>

@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author vinicius
  */
-public class Test implements Serializable
+public class Avaliacao implements Serializable
 {
    private java.sql.Date data;
    private String horario;
@@ -32,7 +32,7 @@ public class Test implements Serializable
    private float corrida20Metros; //tempo do percurso em segundos e centésimos de segundos (duas casas após a vírgula).
    
 
-   public Test(java.sql.Date data, String horario, String temperatura)
+   public Avaliacao(java.sql.Date data, String horario, String temperatura)
    {
       this.data = data;
       this.horario = horario;

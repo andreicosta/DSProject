@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author vinicius
  */
-public abstract class People implements Serializable
+public abstract class Pessoa implements Serializable
 {
    private String name;
    private java.util.Date dateOfBirth;
@@ -19,7 +19,7 @@ public abstract class People implements Serializable
    private String city;
    private String state;
 
-   public People(String name, java.util.Date dateOfBirth, String gender, String address, String city, 
+   public Pessoa(String name, java.util.Date dateOfBirth, String gender, String address, String city, 
                  String state)
    {
       this.name = name;

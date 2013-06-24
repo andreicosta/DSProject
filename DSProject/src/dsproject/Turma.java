@@ -7,12 +7,21 @@ package dsproject;
 import java.util.ArrayList;
 
 
-public class Class implements Cloneable
+public class Turma implements Cloneable
 {
    private String id;
    private int ano;
    private Professor professor;
-   private ArrayList<Student> alunos;
+   private ArrayList<Aluno> alunos;
+
+   public Turma(String id, int ano, Professor professor)
+   {
+      this.id = id;
+      this.ano = ano;
+      this.professor = professor;
+      this.alunos = new ArrayList<>();
+      //cadastrarTurma();
+   }
 
    public String getId()
    {
@@ -29,54 +38,45 @@ public class Class implements Cloneable
       return professor;
    }
 
-   public void setId(String _id)
+   public void setId(String id)
    {
-      id = _id;
+      this.id = id;
    }
 
-   public void setAno(int _ano)
+   public void setAno(int ano)
    {
-      ano = _ano;
+      this.ano = ano;
    }
 
-   public void setProfessor(Professor _professor)
+   public void setProfessor(Professor professor)
    {
-      professor = _professor;
-   }
-
-   public Class(String _id, int _ano, Professor _professor)
-   {
-      id = _id;
-      ano = _ano;
-      professor = _professor;
-      alunos = new ArrayList<>();
-
-      cadastrarTurma();
+      this.professor = professor;
    }
    
-   public void inserirAluno(Student aluno)
+   public void inserirAluno(Aluno aluno)
    {
-      alunos.add(aluno);
+      this.alunos.add(aluno);
    }
    
-   public void removeAluno(Student aluno)
+   public void removeAluno(Aluno aluno)
    {
       int idaluno;
       idaluno = buscaAluno(aluno);
 
-      alunos.remove(idaluno);
+      this.alunos.remove(idaluno);
    }
 
-   public int buscaAluno(Student aluno)
+   public int buscaAluno(Aluno aluno)
    {
-      for (int i = 0; alunos.lenght; i++)
+      for (int i = 0; i < alunos.size(); i++)
       {
-         if (alunos[i] == aluno)
+         if (alunos.get(i).getName().equals(aluno.getName()))
             return i;
       }
+      return -1;
    }
 
-   public void buscaTodosAlunos()
+   /*public void buscaTodosAlunos()
    {
       java.util.Arrays.sort(alunos);
       for (int i = 0; alunos.lenght; i++)
@@ -85,9 +85,9 @@ public class Class implements Cloneable
 
    public void cadastrarTurma()
    {
-      while(/*quer inserir aluno && (alunos.lenght != 0)*/)
+      while(/*quer inserir aluno && (alunos.lenght != 0)*//*)
       {
-         Student tmpAluno();
+         Aluno tmpAluno();
          //cria aluno
          inserirAluno(tmpAluno);
       }
@@ -96,10 +96,10 @@ public class Class implements Cloneable
 
    public void editarTurma()
    {
-      Student tmpAluno;
-      while(/*quer editar turma*/)
+      Aluno tmpAluno;
+      while(/*quer editar turma*//*)
       {
-         if(/*quer inserir ou remover aluno*/)
+         if(/*quer inserir ou remover aluno*//*)
          {
             //cria aluno
             inserirAluno(tmpAluno);
@@ -118,11 +118,11 @@ public class Class implements Cloneable
 
 
    @Override
-   public Class clone() throws CloneNotSupportedException
+   public Turma clone() throws CloneNotSupportedException
    {
-      Class clone = (Class) super.clone();
+      Turma clone = (Turma) super.clone();
       clone.Alunos = new ArrayList<>(Alunos);
       return clone;
-   }
+   }*/
 
 }
