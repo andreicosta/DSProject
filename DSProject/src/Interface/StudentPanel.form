@@ -21,7 +21,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jTabbedPane1" alignment="0" pref="492" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -72,10 +72,10 @@
                                   <Component id="fieldState" alignment="0" max="32767" attributes="0"/>
                                   <Component id="fieldCity" alignment="0" max="32767" attributes="0"/>
                                   <Component id="fieldAddress" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="comboGender" alignment="0" max="32767" attributes="1"/>
                                   <Component id="fieldDateOfBirth" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="fieldName" alignment="0" max="32767" attributes="0"/>
                                   <Component id="fieldEmail" max="32767" attributes="0"/>
+                                  <Component id="comboGender" alignment="0" min="-2" max="-2" attributes="1"/>
+                                  <Component id="fieldName" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -87,7 +87,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="labelName" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="fieldName" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -142,7 +142,7 @@
                           <Component id="fieldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="31" max="32767" attributes="0"/>
+                      <EmptySpace pref="28" max="32767" attributes="0"/>
                       <Component id="buttonRegister" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -330,54 +330,55 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="542" max="32767" attributes="0"/>
-                      <Component id="saveStudent" min="-2" pref="87" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="birthdayStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="fatherStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="motherStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="emailStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="cellphoneStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="phoneStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="adressStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="nameStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="cellphoneTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
-                              <Component id="phoneTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
-                              <Component id="adressTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
-                              <Component id="emailTextField2" alignment="0" pref="243" max="32767" attributes="1"/>
-                              <Component id="comboStudent" alignment="1" pref="417" max="32767" attributes="1"/>
-                              <Component id="birthdaylTextField2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="studentComboBox1" alignment="0" max="32767" attributes="1"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="530" max="32767" attributes="0"/>
+                              <Component id="saveStudent" min="-2" pref="87" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="motherTextField2" min="-2" pref="417" max="-2" attributes="1"/>
-                          <Component id="fatherTextField2" min="-2" pref="417" max="-2" attributes="1"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="fatherStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="motherStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="emailStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cellphoneStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="phoneStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nameStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="birthdayStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="adressStudent2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="studentComboBox1" min="-2" max="-2" attributes="1"/>
+                                  <Component id="cellphoneTextField2" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="phoneTextField2" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="fatherTextField2" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="motherTextField2" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="adressTextField2" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="birthdaylTextField2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="comboStudent" alignment="0" pref="396" max="32767" attributes="1"/>
+                                  <Component id="emailTextField2" alignment="0" max="32767" attributes="1"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="nameStudent2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="comboStudent" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="studentComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -386,8 +387,23 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="fatherStudent2" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
-                          <Component id="fatherTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="studentComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="adressTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="adressStudent2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -396,8 +412,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="adressTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="adressStudent2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fatherStudent2" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="fatherTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -414,7 +430,7 @@
                           <Component id="emailTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="emailStudent2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="94" max="32767" attributes="0"/>
+                      <EmptySpace pref="26" max="32767" attributes="0"/>
                       <Component id="saveStudent" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -493,7 +509,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Sexo"/>
+                <Property name="text" type="java.lang.String" value="G&#xea;nero"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="studentComboBox1">
@@ -505,6 +521,20 @@
                   </StringArray>
                 </Property>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cidade"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Estado"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField1">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField2">
             </Component>
           </SubComponents>
         </Container>
@@ -541,12 +571,12 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="nameStudentDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="comboName" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="359" max="32767" attributes="0"/>
+                      <EmptySpace pref="357" max="32767" attributes="0"/>
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
