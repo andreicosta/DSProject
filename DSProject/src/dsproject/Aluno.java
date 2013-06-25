@@ -224,9 +224,9 @@ public class Aluno extends Pessoa implements Serializable
       return tests;
    }
 
-   public void setClassId(String classId)
+   public void setTurmaId(String turmaId)
    {
-      this.turmaId = classId;
+      this.turmaId = turmaId;
    }
 
    public void setTests(Avaliacao test)

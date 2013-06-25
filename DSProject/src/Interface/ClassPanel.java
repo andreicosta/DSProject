@@ -13,10 +13,13 @@ package Interface;
 import static Interface.StudentPanel.isStudentAddedComboStudent;
 import static Interface.StudentPanel.setStudentAddedComboStudent;
 import dsproject.Aluno;
+import dsproject.Turma;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -61,7 +64,7 @@ public class ClassPanel extends javax.swing.JPanel {
       fieldClass = new javax.swing.JTextField();
       labelSchoolYear = new javax.swing.JLabel();
       fieldSchoolYear = new javax.swing.JTextField();
-      buttonRegister = new javax.swing.JButton();
+      botaoCadastrar = new javax.swing.JButton();
       buttonRemoveStudent = new javax.swing.JButton();
       editClassPanel = new javax.swing.JPanel();
       jLabel5 = new javax.swing.JLabel();
@@ -101,8 +104,8 @@ public class ClassPanel extends javax.swing.JPanel {
          listClassesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(listClassesPanelLayout.createSequentialGroup()
             .addGap(33, 33, 33)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(238, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(72, Short.MAX_VALUE))
       );
 
       jTabbedPane1.addTab("Lista de Turmas", listClassesPanel);
@@ -152,12 +155,12 @@ public class ClassPanel extends javax.swing.JPanel {
          }
       });
 
-      buttonRegister.setText("Cadastrar");
-      buttonRegister.addActionListener(new java.awt.event.ActionListener()
+      botaoCadastrar.setText("Cadastrar");
+      botaoCadastrar.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
          {
-            buttonRegisterActionPerformed(evt);
+            botaoCadastrarActionPerformed(evt);
          }
       });
 
@@ -206,7 +209,7 @@ public class ClassPanel extends javax.swing.JPanel {
                      .addGroup(newClassPanelLayout.createSequentialGroup()
                         .addComponent(buttonRemoveStudent)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonRegister))
+                        .addComponent(botaoCadastrar))
                      .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))))
             .addContainerGap())
       );
@@ -234,7 +237,7 @@ public class ClassPanel extends javax.swing.JPanel {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(18, 18, 18)
             .addGroup(newClassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(buttonRegister)
+               .addComponent(botaoCadastrar)
                .addComponent(buttonRemoveStudent))
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
       );
@@ -560,16 +563,94 @@ public class ClassPanel extends javax.swing.JPanel {
       }
    }//GEN-LAST:event_buttonRemoveStudentActionPerformed
 
-   private void buttonRegisterActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_buttonRegisterActionPerformed
-   {//GEN-HEADEREND:event_buttonRegisterActionPerformed
-      String classField = getFieldClass();
-      String textoCampo = getFieldSchoolYear();
-      if(classField != null)
+   private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botaoCadastrarActionPerformed
+   {//GEN-HEADEREND:event_botaoCadastrarActionPerformed
+      String campoTurma = getFieldClass();
+      String campoAnoLetivo = getFieldSchoolYear();
+      if(campoTurma != null)
       {
-         if(textoCampo != null)
+         if(campoAnoLetivo != null)
          {
-            //criar nova turma com os alunos selecionados na lista
-            dsproject.Turma newClass = new dsproject.Turma(classField, Integer.parseInt(textoCampo), null);
+            ArrayList<dsproject.Aluno> alunosLidos = new ArrayList<>();
+            ArrayList<dsproject.Turma> turmas = new ArrayList<>();
+            ArrayList<String> alunos = new ArrayList<>();
+            ObjectInputStream in;
+            ObjectOutputStream out;
+            int i;
+            int y;
+            
+            //criar nova turma com os alunos selecionados na lista falta adicionar o professor na turma
+            Turma novaTurma = new Turma(campoTurma, Integer.parseInt(campoAnoLetivo), null);
+            try
+            {
+               if(listStudentsEnrolled.getModel().getSize() != 0)
+               {
+                  for(i = 0; i < listStudentsEnrolled.getModel().getSize(); i++)
+                  {
+                     alunos.add(listStudentsEnrolled.getModel().getElementAt(i).toString());
+                  }
+                  //daqui até o catch le um objeto gravado no arquivo alunos.txt
+                  File arquivoAlunos = new File("alunos.txt");
+                  if(arquivoAlunos.exists())
+                  {
+                     FileInputStream arquivo;
+                     try
+                     {
+                        arquivo = new FileInputStream(arquivoAlunos);
+                        in = new ObjectInputStream(arquivo);
+                        alunosLidos = (ArrayList<Aluno>)in.readObject();
+                        i = 0;
+                        y = 0;
+                        while(i < alunos.size())
+                        {
+                           if(alunosLidos.get(y).getName().equals(alunos.get(i)))
+                           {
+                              alunosLidos.get(y).setTurmaId(campoTurma);
+                              novaTurma.inserirAluno(alunosLidos.get(y));
+                              i++;
+                              y = 0;
+                           }
+                           y++;
+                        }
+                        File arquivoTurma = new File("turmas.txt");
+                        if(arquivoTurma.exists())
+                        {
+                           arquivo = new FileInputStream(arquivoTurma);
+                           in = new ObjectInputStream(arquivo);
+                           turmas = (ArrayList<Turma>)in.readObject();
+                           turmas.add(novaTurma);
+                           out = new ObjectOutputStream(new FileOutputStream("turmas.txt"));
+                           out.writeObject(turmas);
+                           out.close();
+                           JOptionPane.showMessageDialog(null, "Turma salva com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+                        }
+                        else
+                        {
+                           turmas.add(novaTurma);
+                           out = new ObjectOutputStream(new FileOutputStream("turmas.txt"));
+                           out.writeObject(turmas);
+                           out.close();
+                           JOptionPane.showMessageDialog(null, "Turma salva com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+                        }
+                     }
+                     catch (IOException | ClassNotFoundException ex)
+                     {
+                        System.err.println(ex);
+                     }
+                  }
+                  else
+                  {
+                     JOptionPane.showMessageDialog(null, "Não existem alunos cadastrados", "Erro", JOptionPane.ERROR_MESSAGE);
+                  }
+               }
+               else
+                  JOptionPane.showMessageDialog(null, "Adicione algum aluno na lista", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+            catch(ClassCastException ex)
+            {
+               
+               System.err.println(ex);
+            }
          }
          else
          {
@@ -580,7 +661,7 @@ public class ClassPanel extends javax.swing.JPanel {
       {
          System.err.println("Falta Nome da Turma");
       }
-   }//GEN-LAST:event_buttonRegisterActionPerformed
+   }//GEN-LAST:event_botaoCadastrarActionPerformed
 
    private void fieldSchoolYearKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldSchoolYearKeyTyped
    {//GEN-HEADEREND:event_fieldSchoolYearKeyTyped
@@ -795,9 +876,9 @@ public class ClassPanel extends javax.swing.JPanel {
    }//GEN-LAST:event_comboStudentNamePopupMenuWillBecomeVisible
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
+   private javax.swing.JButton botaoCadastrar;
    private static javax.swing.JButton buttonAdd;
    private javax.swing.ButtonGroup buttonGroup1;
-   private javax.swing.JButton buttonRegister;
    private javax.swing.JButton buttonRemoveStudent;
    private javax.swing.JLabel classLabel;
    private javax.swing.JList classList2;

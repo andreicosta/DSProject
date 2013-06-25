@@ -1058,7 +1058,6 @@ public class StudentPanel extends javax.swing.JPanel {
             }
          }
       }
-      //System.out.println(comboNome.getSelectedItem());
    }//GEN-LAST:event_comboNomeItemStateChanged
 
 

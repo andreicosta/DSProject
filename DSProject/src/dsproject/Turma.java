@@ -4,10 +4,11 @@
  */
 package dsproject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class Turma implements Cloneable
+public class Turma implements Serializable, Cloneable
 {
    private String id;
    private int ano;

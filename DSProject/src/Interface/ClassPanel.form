@@ -57,8 +57,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="238" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="296" max="-2" attributes="0"/>
+                      <EmptySpace pref="72" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -134,7 +134,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="buttonRemoveStudent" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="buttonRegister" min="-2" max="-2" attributes="0"/>
+                                      <Component id="botaoCadastrar" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jScrollPane1" min="-2" pref="530" max="-2" attributes="0"/>
                               </Group>
@@ -170,7 +170,7 @@
                       <Component id="jScrollPane1" min="-2" pref="155" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="buttonRegister" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoCadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="buttonRemoveStudent" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -276,12 +276,12 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonRegister">
+            <Component class="javax.swing.JButton" name="botaoCadastrar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRegisterActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCadastrarActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="buttonRemoveStudent">
