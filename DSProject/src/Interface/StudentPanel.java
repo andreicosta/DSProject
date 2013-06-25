@@ -71,29 +71,29 @@ public class StudentPanel extends javax.swing.JPanel {
       fieldState = new javax.swing.JTextField();
       labelState = new javax.swing.JLabel();
       editStudentPanel = new javax.swing.JPanel();
-      nameStudent2 = new javax.swing.JLabel();
-      fatherStudent2 = new javax.swing.JLabel();
-      motherStudent2 = new javax.swing.JLabel();
-      adressStudent2 = new javax.swing.JLabel();
-      phoneStudent2 = new javax.swing.JLabel();
-      cellphoneStudent2 = new javax.swing.JLabel();
-      birthdayStudent2 = new javax.swing.JLabel();
-      emailStudent2 = new javax.swing.JLabel();
-      motherTextField2 = new javax.swing.JTextField();
-      fatherTextField2 = new javax.swing.JTextField();
-      phoneTextField2 = new javax.swing.JTextField();
-      adressTextField2 = new javax.swing.JTextField();
-      cellphoneTextField2 = new javax.swing.JTextField();
-      emailTextField2 = new javax.swing.JTextField();
-      birthdaylTextField2 = new javax.swing.JTextField();
-      comboStudent = new javax.swing.JComboBox();
+      labelNome = new javax.swing.JLabel();
+      labelNomeDoPai = new javax.swing.JLabel();
+      labelNomeDaMae = new javax.swing.JLabel();
+      labelEndereco = new javax.swing.JLabel();
+      labelTelefone = new javax.swing.JLabel();
+      labelCelular = new javax.swing.JLabel();
+      labelDataDeNascimento = new javax.swing.JLabel();
+      labelE_mail = new javax.swing.JLabel();
+      campoNomeDaMae = new javax.swing.JTextField();
+      campoNomeDoPai = new javax.swing.JTextField();
+      campoTelefone = new javax.swing.JTextField();
+      campoEndereco = new javax.swing.JTextField();
+      campoCelular = new javax.swing.JTextField();
+      campoEmail = new javax.swing.JTextField();
+      campoDataDeNascimento = new javax.swing.JTextField();
+      comboNome = new javax.swing.JComboBox();
       saveStudent = new javax.swing.JButton();
-      jLabel2 = new javax.swing.JLabel();
-      studentComboBox1 = new javax.swing.JComboBox();
-      jLabel1 = new javax.swing.JLabel();
-      jLabel3 = new javax.swing.JLabel();
-      jTextField1 = new javax.swing.JTextField();
-      jTextField2 = new javax.swing.JTextField();
+      labelGenero = new javax.swing.JLabel();
+      comboGenero = new javax.swing.JComboBox();
+      labelCidade = new javax.swing.JLabel();
+      labelEstado = new javax.swing.JLabel();
+      campoCidade = new javax.swing.JTextField();
+      campoEstado = new javax.swing.JTextField();
       deleteStudentPanel = new javax.swing.JPanel();
       nameStudentDelete = new javax.swing.JLabel();
       comboName = new javax.swing.JComboBox();
@@ -235,23 +235,23 @@ public class StudentPanel extends javax.swing.JPanel {
 
       jTabbedPane1.addTab("Cadastrar Aluno", newStudentPanel);
 
-      nameStudent2.setText("Nome");
+      labelNome.setText("Nome");
 
-      fatherStudent2.setText("Nome Completo do Pai");
+      labelNomeDoPai.setText("Nome Completo do Pai");
 
-      motherStudent2.setText("Nome Completo da Mãe");
+      labelNomeDaMae.setText("Nome Completo da Mãe");
 
-      adressStudent2.setText("Endereço");
+      labelEndereco.setText("Endereço");
 
-      phoneStudent2.setText("Telefone");
+      labelTelefone.setText("Telefone");
 
-      cellphoneStudent2.setText("Celular");
+      labelCelular.setText("Celular");
 
-      birthdayStudent2.setText("Data de Nascimento");
+      labelDataDeNascimento.setText("Data de Nascimento");
 
-      emailStudent2.setText("E-mail");
+      labelE_mail.setText("E-mail");
 
-      comboStudent.addPopupMenuListener(new javax.swing.event.PopupMenuListener()
+      comboNome.addPopupMenuListener(new javax.swing.event.PopupMenuListener()
       {
          public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt)
          {
@@ -261,19 +261,26 @@ public class StudentPanel extends javax.swing.JPanel {
          }
          public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)
          {
-            comboStudentPopupMenuWillBecomeVisible(evt);
+            comboNomePopupMenuWillBecomeVisible(evt);
+         }
+      });
+      comboNome.addItemListener(new java.awt.event.ItemListener()
+      {
+         public void itemStateChanged(java.awt.event.ItemEvent evt)
+         {
+            comboNomeItemStateChanged(evt);
          }
       });
 
       saveStudent.setText("Salvar");
 
-      jLabel2.setText("Gênero");
+      labelGenero.setText("Gênero");
 
-      studentComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
+      comboGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino", "Outro" }));
 
-      jLabel1.setText("Cidade");
+      labelCidade.setText("Cidade");
 
-      jLabel3.setText("Estado");
+      labelEstado.setText("Estado");
 
       javax.swing.GroupLayout editStudentPanelLayout = new javax.swing.GroupLayout(editStudentPanel);
       editStudentPanel.setLayout(editStudentPanelLayout);
@@ -287,30 +294,30 @@ public class StudentPanel extends javax.swing.JPanel {
                   .addComponent(saveStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                .addGroup(editStudentPanelLayout.createSequentialGroup()
                   .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(fatherStudent2)
-                     .addComponent(motherStudent2)
-                     .addComponent(emailStudent2)
-                     .addComponent(cellphoneStudent2)
-                     .addComponent(phoneStudent2)
-                     .addComponent(nameStudent2)
-                     .addComponent(jLabel2)
-                     .addComponent(birthdayStudent2)
-                     .addComponent(adressStudent2)
-                     .addComponent(jLabel1)
-                     .addComponent(jLabel3))
+                     .addComponent(labelNomeDoPai)
+                     .addComponent(labelNomeDaMae)
+                     .addComponent(labelE_mail)
+                     .addComponent(labelCelular)
+                     .addComponent(labelTelefone)
+                     .addComponent(labelNome)
+                     .addComponent(labelGenero)
+                     .addComponent(labelDataDeNascimento)
+                     .addComponent(labelEndereco)
+                     .addComponent(labelCidade)
+                     .addComponent(labelEstado))
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                   .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                     .addComponent(studentComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                     .addComponent(cellphoneTextField2)
-                     .addComponent(phoneTextField2)
-                     .addComponent(fatherTextField2)
-                     .addComponent(motherTextField2)
-                     .addComponent(jTextField2)
-                     .addComponent(jTextField1)
-                     .addComponent(adressTextField2)
-                     .addComponent(birthdaylTextField2)
-                     .addComponent(comboStudent, 0, 396, Short.MAX_VALUE)
-                     .addComponent(emailTextField2))
+                     .addComponent(comboGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(campoCelular)
+                     .addComponent(campoTelefone)
+                     .addComponent(campoNomeDoPai)
+                     .addComponent(campoNomeDaMae)
+                     .addComponent(campoEstado)
+                     .addComponent(campoCidade)
+                     .addComponent(campoEndereco)
+                     .addComponent(campoDataDeNascimento)
+                     .addComponent(comboNome, 0, 396, Short.MAX_VALUE)
+                     .addComponent(campoEmail))
                   .addGap(0, 0, Short.MAX_VALUE)))
             .addContainerGap())
       );
@@ -319,48 +326,48 @@ public class StudentPanel extends javax.swing.JPanel {
          .addGroup(editStudentPanelLayout.createSequentialGroup()
             .addGap(30, 30, 30)
             .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(nameStudent2)
-               .addComponent(comboStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(labelNome)
+               .addComponent(comboNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(birthdayStudent2)
-               .addComponent(birthdaylTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(labelDataDeNascimento)
+               .addComponent(campoDataDeNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(jLabel2)
-               .addComponent(studentComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(labelGenero)
+               .addComponent(comboGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(adressTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(adressStudent2))
+               .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(labelEndereco))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(jLabel1))
+               .addComponent(campoCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(labelCidade))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(jLabel3))
+               .addComponent(campoEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(labelEstado))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(motherStudent2)
-               .addComponent(motherTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(labelNomeDaMae)
+               .addComponent(campoNomeDaMae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(fatherStudent2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(fatherTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(labelNomeDoPai, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(campoNomeDoPai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(phoneTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(phoneStudent2))
+               .addComponent(campoTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(labelTelefone))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(cellphoneTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(cellphoneStudent2))
+               .addComponent(campoCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(labelCelular))
             .addGap(7, 7, 7)
             .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(emailTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(emailStudent2))
+               .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(labelE_mail))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
             .addComponent(saveStudent)
             .addContainerGap())
@@ -425,7 +432,7 @@ public class StudentPanel extends javax.swing.JPanel {
       );
       layout.setVerticalGroup(
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-         .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
+         .addComponent(jTabbedPane1)
       );
    }// </editor-fold>//GEN-END:initComponents
 
@@ -444,42 +451,42 @@ public class StudentPanel extends javax.swing.JPanel {
       months.add("Outubro");
       months.add("Novembro");
       months.add("Dezembro");
-      String name = getFieldName();
-      String dateOfBirth = getFieldDateOfBirth();
-      String gender = getComboGender();
-      String address = getFieldAddress();
-      String city = getFieldCity();
-      String state = getFieldState();
-      String nameOfMother = getFieldNameOfMother();
-      String nameOfFather = getFieldNameOfFather();
-      String telephone = getFieldTelephone();
-      String cellphone = getFieldCellPhone();
+      String nome = getFieldName();
+      String dataDeNascimento = getFieldDateOfBirth();
+      String genero = getComboGender();
+      String endereco = getFieldAddress();
+      String cidade = getFieldCity();
+      String estado = getFieldState();
+      String nomeDaMae = getFieldNameOfMother();
+      String nomeDoPai = getFieldNameOfFather();
+      String telefone = getFieldTelephone();
+      String celular = getFieldCellPhone();
       String email = getFieldEmail();
       SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
       ArrayList<dsproject.Aluno> students = new ArrayList<>();
       ObjectInputStream in;
       ObjectOutputStream out;
       
-      if(name == null)
+      if(nome == null)
       {
          System.err.println("Nome faltando");
       }
       else
       {
-         if(dateOfBirth == null)
+         if(dataDeNascimento == null)
          {
             System.err.println("Data de nascimento faltando");
          }
          else
          {
-            if(dateOfBirth.length() != 10)
+            if(dataDeNascimento.length() != 10)
             {
                JOptionPane.showMessageDialog(null, "Digite uma " + labelDateOfBirth.getText() + " no formato dd/mm/aaaa", 
                                              "Erro", JOptionPane.ERROR_MESSAGE);
             }
             else
             {
-               String splitedDateOfBirth[] = dateOfBirth.split("/");
+               String splitedDateOfBirth[] = dataDeNascimento.split("/");
                if(Integer.parseInt(splitedDateOfBirth[0]) > 31)
                {
                   JOptionPane.showMessageDialog(null, "Não existe mês com mais de 31 dias", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -503,121 +510,132 @@ public class StudentPanel extends javax.swing.JPanel {
                         }
                         else
                         {
-                           if(gender == null)
+                           if(genero == null)
                            {
                               System.err.println("Gênero faltando");
                            }
                            else
                            {
-                              if(address == null)
+                              if(endereco == null)
                               {
                                  System.err.println("Endereço faltando");
                               }
                               else
                               {
-                                 if(city == null)
+                                 if(cidade == null)
                                  {
                                     System.err.println("Cidade faltando");
                                  }
                                  else
                                  {
-                                    if(state == null)
+                                    if(estado == null)
                                     {
                                        System.err.println("Estado faltando");
                                     }
                                     else
                                     {
-                                       if(nameOfMother == null)
+                                       if(nomeDaMae == null)
                                        {
                                           System.err.println("Nome da Mãe faltando");
                                        }
                                        else
                                        {
-                                          if(nameOfFather == null)
+                                          if(nomeDoPai == null)
                                           {
                                              System.err.println("Nome do Pai faltando");
                                           }
                                           else
                                           {
-                                             if(telephone == null)
+                                             try
                                              {
-                                                System.err.println("Telephone faltando");
-                                             }
-                                             else
-                                             {
-                                                if(cellphone == null)
+                                                java.util.Date birthday = sd.parse(dataDeNascimento);
+                                                java.sql.Date sqlDateOfBirth = new java.sql.Date(birthday.getTime());
+                                                dsproject.Aluno student = null;
+                                                if(telefone == null && celular == null && email == null)
                                                 {
-                                                   System.err.println("Celular faltando");
+                                                   student = new Aluno(nomeDaMae, nomeDoPai, nome, sqlDateOfBirth, genero, endereco, cidade, estado);
                                                 }
                                                 else
                                                 {
-                                                   if(email == null)
+                                                   if(telefone == null && !celular.isEmpty() && !email.isEmpty())
                                                    {
-                                                      System.err.println("Email faltando");
+                                                      student = new Aluno(nomeDaMae, nomeDoPai, null, null, celular, email, nome, birthday, genero, endereco, cidade, estado);
                                                    }
                                                    else
                                                    {
-                                                      try
+                                                      if(telefone == null && celular == null && !email.isEmpty())
                                                       {
-                                                         java.util.Date birthday = sd.parse(dateOfBirth);
-                                                         java.sql.Date sqlDateOfBirth = new java.sql.Date(birthday.getTime());
-                                                         dsproject.Aluno student = new Aluno(nameOfMother, nameOfFather, name, sqlDateOfBirth, gender, address, city, state);
-                                                         File fileStudents = new File("alunos.txt");
-                                                         if(fileStudents.exists())
+                                                         student = new Aluno(nomeDaMae, nomeDoPai, null, null, null, email, nome, birthday, genero, endereco, cidade, estado);
+                                                      }
+                                                      else
+                                                      {
+                                                         if(telefone == null && !celular.isEmpty() && email == null)
                                                          {
-                                                            FileInputStream file = new FileInputStream(fileStudents);
-                                                            in = new ObjectInputStream(file);
-                                                            students = (ArrayList<Aluno>)in.readObject();
-                                                            students.add(student);
-                                                            out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
-                                                            out.writeObject(students);
-                                                            out.close();
-                                                            JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-                                                            Interface.ClassPanel.setStudentAddedComboStudent(true);
-                                                            Interface.ClassPanel.setStudentAddedComboAddStudent(true);
-                                                            Interface.ClassPanel.setStudentAddedComboStudentName(true);
-                                                            setStudentAddedComboName(true);
-                                                            setStudentAddedComboStudent(true);
-                                                            setNumeroDeAlunosAdicionadosComboName(getNumeroDeAlunosAdicionadosComboName() + 1);
-                                                            setNumeroDeAlunosAdicionadosComboStudent(getNumeroDeAlunosAdicionadosComboStudent() + 1);
-                                                            Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAddStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAddStudent() 
-                                                                                                                             + 1);
-                                                            Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudent()
-                                                                                                                             + 1);
-                                                            Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudentName(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudentName()
-                                                                                                                             + 1);
-                                                            clearFields();
+                                                            student = new Aluno(nomeDaMae, nomeDoPai, null, null, celular, null, nome, birthday, genero, endereco, cidade, estado);
                                                          }
                                                          else
                                                          {
-                                                            students.add(student);
-                                                            out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
-                                                            out.writeObject(students);
-                                                            out.close();
-                                                            JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-                                                            Interface.ClassPanel.setStudentAddedComboStudent(true);
-                                                            Interface.ClassPanel.setStudentAddedComboAddStudent(true);
-                                                            Interface.ClassPanel.setStudentAddedComboStudentName(true);
-                                                            setStudentAddedComboName(true);
-                                                            setStudentAddedComboStudent(true);
-                                                            setNumeroDeAlunosAdicionadosComboName(getNumeroDeAlunosAdicionadosComboName() + 1);
-                                                            setNumeroDeAlunosAdicionadosComboStudent(getNumeroDeAlunosAdicionadosComboStudent() + 1);
-                                                            Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAddStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAddStudent() 
-                                                                                                                             + 1);
-                                                            Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudent()
-                                                                                                                             + 1);
-                                                            Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudentName(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudentName()
-                                                                                                                             + 1);
-                                                            clearFields();
+                                                            if(!telefone.isEmpty() && celular == null && email == null)
+                                                            {
+                                                               student = new Aluno(nomeDaMae, nomeDoPai, null, telefone, null, null, nome, birthday, genero, endereco, cidade, estado);
+                                                            }
                                                          }
-                                                         
-                                                      }
-                                                      catch (ParseException | IOException | ClassNotFoundException ex)
-                                                      {
-                                                         System.err.println(ex);
                                                       }
                                                    }
                                                 }
+                                                File fileStudents = new File("alunos.txt");
+                                                if(fileStudents.exists())
+                                                {
+                                                   FileInputStream file = new FileInputStream(fileStudents);
+                                                   in = new ObjectInputStream(file);
+                                                   students = (ArrayList<Aluno>)in.readObject();
+                                                   students.add(student);
+                                                   out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
+                                                   out.writeObject(students);
+                                                   out.close();
+                                                   JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+                                                   Interface.ClassPanel.setStudentAddedComboStudent(true);
+                                                   Interface.ClassPanel.setStudentAddedComboAddStudent(true);
+                                                   Interface.ClassPanel.setStudentAddedComboStudentName(true);
+                                                   setStudentAddedComboName(true);
+                                                   setStudentAddedComboStudent(true);
+                                                   setNumeroDeAlunosAdicionadosComboName(getNumeroDeAlunosAdicionadosComboName() + 1);
+                                                   setNumeroDeAlunosAdicionadosComboStudent(getNumeroDeAlunosAdicionadosComboStudent() + 1);
+                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAddStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAddStudent() 
+                                                                                                                    + 1);
+                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudent()
+                                                                                                                    + 1);
+                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudentName(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudentName()
+                                                                                                                    + 1);
+                                                   limpaCamposCadastrarAluno();
+                                                }
+                                                else
+                                                {
+                                                   students.add(student);
+                                                   out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
+                                                   out.writeObject(students);
+                                                   out.close();
+                                                   JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+                                                   Interface.ClassPanel.setStudentAddedComboStudent(true);
+                                                   Interface.ClassPanel.setStudentAddedComboAddStudent(true);
+                                                   Interface.ClassPanel.setStudentAddedComboStudentName(true);
+                                                   setStudentAddedComboName(true);
+                                                   setStudentAddedComboStudent(true);
+                                                   setNumeroDeAlunosAdicionadosComboName(getNumeroDeAlunosAdicionadosComboName() + 1);
+                                                   setNumeroDeAlunosAdicionadosComboStudent(getNumeroDeAlunosAdicionadosComboStudent() + 1);
+                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAddStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAddStudent() 
+                                                                                                                    + 1);
+                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudent()
+                                                                                                                    + 1);
+                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudentName(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudentName()
+                                                                                                                    + 1);
+                                                   limpaCamposCadastrarAluno();
+                                                }
+
+                                             }
+                                             catch (ParseException | IOException | ClassNotFoundException ex)
+                                             {
+                                                System.err.println(ex);
                                              }
                                           }
                                        }
@@ -629,121 +647,132 @@ public class StudentPanel extends javax.swing.JPanel {
                      }
                      else
                      {
-                        if(gender == null)
+                        if(genero == null)
                         {
                            System.err.println("Gênero faltando");
                         }
                         else
                         {
-                           if(address == null)
+                           if(endereco == null)
                            {
                               System.err.println("Endereço faltando");
                            }
                            else
                            {
-                              if(city == null)
+                              if(cidade == null)
                               {
                                  System.err.println("Cidade faltando");
                               }
                               else
                               {
-                                 if(state == null)
+                                 if(estado == null)
                                  {
                                     System.err.println("Estado faltando");
                                  }
                                  else
                                  {
-                                    if(nameOfMother == null)
+                                    if(nomeDaMae == null)
                                     {
                                        System.err.println("Nome da Mãe faltando");
                                     }
                                     else
                                     {
-                                       if(nameOfFather == null)
+                                       if(nomeDoPai == null)
                                        {
                                           System.err.println("Nome do Pai faltando");
                                        }
                                        else
                                        {
-                                          if(telephone == null)
+                                          try
                                           {
-                                             System.err.println("Telephone faltando");
-                                          }
-                                          else
-                                          {
-                                             if(cellphone == null)
+                                             java.util.Date birthday = sd.parse(dataDeNascimento);
+                                             java.sql.Date sqlDateOfBirth = new java.sql.Date(birthday.getTime());
+                                             dsproject.Aluno student = null;
+                                             if(telefone == null && celular == null && email == null)
                                              {
-                                                System.err.println("Celular faltando");
+                                                student = new Aluno(nomeDaMae, nomeDoPai, nome, sqlDateOfBirth, genero, endereco, cidade, estado);
                                              }
                                              else
                                              {
-                                                if(email == null)
+                                                if(telefone == null && !celular.isEmpty() && !email.isEmpty())
                                                 {
-                                                   System.err.println("Email faltando");
+                                                   student = new Aluno(nomeDaMae, nomeDoPai, null, null, celular, email, nome, birthday, genero, endereco, cidade, estado);
                                                 }
                                                 else
                                                 {
-                                                   try
+                                                   if(telefone == null && celular == null && !email.isEmpty())
                                                    {
-                                                      java.util.Date birthday = sd.parse(dateOfBirth);
-                                                      java.sql.Date sqlDateOfBirth = new java.sql.Date(birthday.getTime());
-                                                      dsproject.Aluno student = new Aluno(nameOfMother, nameOfFather, name, sqlDateOfBirth, gender, address, city, state);
-                                                      File fileStudents = new File("alunos.txt");
-                                                      if(fileStudents.exists())
+                                                      student = new Aluno(nomeDaMae, nomeDoPai, null, null, null, email, nome, birthday, genero, endereco, cidade, estado);
+                                                   }
+                                                   else
+                                                   {
+                                                      if(telefone == null && !celular.isEmpty() && email == null)
                                                       {
-                                                         FileInputStream file = new FileInputStream(fileStudents);
-                                                         in = new ObjectInputStream(file);
-                                                         students = (ArrayList<Aluno>)in.readObject();
-                                                         students.add(student);
-                                                         out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
-                                                         out.writeObject(students);
-                                                         out.close();
-                                                         JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-                                                         Interface.ClassPanel.setStudentAddedComboStudent(true);
-                                                         Interface.ClassPanel.setStudentAddedComboAddStudent(true);
-                                                         Interface.ClassPanel.setStudentAddedComboStudentName(true);
-                                                         setStudentAddedComboName(true);
-                                                         setStudentAddedComboStudent(true);
-                                                         setNumeroDeAlunosAdicionadosComboName(getNumeroDeAlunosAdicionadosComboName() + 1);
-                                                         setNumeroDeAlunosAdicionadosComboStudent(getNumeroDeAlunosAdicionadosComboStudent() + 1);
-                                                         Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAddStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAddStudent() 
-                                                                                                                             + 1);
-                                                         Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudent()
-                                                                                                                          + 1);
-                                                         Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudentName(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudentName()
-                                                                                                                          + 1);
-                                                         clearFields();
+                                                         student = new Aluno(nomeDaMae, nomeDoPai, null, null, celular, null, nome, birthday, genero, endereco, cidade, estado);
                                                       }
                                                       else
                                                       {
-                                                         students.add(student);
-                                                         out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
-                                                         out.writeObject(students);
-                                                         out.close();
-                                                         JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-                                                         Interface.ClassPanel.setStudentAddedComboStudent(true);
-                                                         Interface.ClassPanel.setStudentAddedComboAddStudent(true);
-                                                         Interface.ClassPanel.setStudentAddedComboStudentName(true);
-                                                         setStudentAddedComboName(true);
-                                                         setStudentAddedComboStudent(true);
-                                                         setNumeroDeAlunosAdicionadosComboName(getNumeroDeAlunosAdicionadosComboName() + 1);
-                                                         setNumeroDeAlunosAdicionadosComboStudent(getNumeroDeAlunosAdicionadosComboStudent() + 1);
-                                                         Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAddStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAddStudent() 
-                                                                                                                             + 1);
-                                                         Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudent()
-                                                                                                                          + 1);
-                                                         Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudentName(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudentName()
-                                                                                                                          + 1);
-                                                         clearFields();
+                                                         if(!telefone.isEmpty() && celular == null && email == null)
+                                                         {
+                                                            student = new Aluno(nomeDaMae, nomeDoPai, null, telefone, null, null, nome, birthday, genero, endereco, cidade, estado);
+                                                         }
                                                       }
-
-                                                   }
-                                                   catch (ParseException | IOException | ClassNotFoundException ex)
-                                                   {
-                                                      System.err.println(ex);
                                                    }
                                                 }
                                              }
+                                             File fileStudents = new File("alunos.txt");
+                                             if(fileStudents.exists())
+                                             {
+                                                FileInputStream file = new FileInputStream(fileStudents);
+                                                in = new ObjectInputStream(file);
+                                                students = (ArrayList<Aluno>)in.readObject();
+                                                students.add(student);
+                                                out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
+                                                out.writeObject(students);
+                                                out.close();
+                                                JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+                                                Interface.ClassPanel.setStudentAddedComboStudent(true);
+                                                Interface.ClassPanel.setStudentAddedComboAddStudent(true);
+                                                Interface.ClassPanel.setStudentAddedComboStudentName(true);
+                                                setStudentAddedComboName(true);
+                                                setStudentAddedComboStudent(true);
+                                                setNumeroDeAlunosAdicionadosComboName(getNumeroDeAlunosAdicionadosComboName() + 1);
+                                                setNumeroDeAlunosAdicionadosComboStudent(getNumeroDeAlunosAdicionadosComboStudent() + 1);
+                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAddStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAddStudent() 
+                                                                                                                 + 1);
+                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudent()
+                                                                                                                 + 1);
+                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudentName(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudentName()
+                                                                                                                 + 1);
+                                                limpaCamposCadastrarAluno();
+                                             }
+                                             else
+                                             {
+                                                students.add(student);
+                                                out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
+                                                out.writeObject(students);
+                                                out.close();
+                                                JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+                                                Interface.ClassPanel.setStudentAddedComboStudent(true);
+                                                Interface.ClassPanel.setStudentAddedComboAddStudent(true);
+                                                Interface.ClassPanel.setStudentAddedComboStudentName(true);
+                                                setStudentAddedComboName(true);
+                                                setStudentAddedComboStudent(true);
+                                                setNumeroDeAlunosAdicionadosComboName(getNumeroDeAlunosAdicionadosComboName() + 1);
+                                                setNumeroDeAlunosAdicionadosComboStudent(getNumeroDeAlunosAdicionadosComboStudent() + 1);
+                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAddStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAddStudent() 
+                                                                                                                 + 1);
+                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudent()
+                                                                                                                 + 1);
+                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudentName(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudentName()
+                                                                                                                 + 1);
+                                                limpaCamposCadastrarAluno();
+                                             }
+
+                                          }
+                                          catch (ParseException | IOException | ClassNotFoundException ex)
+                                          {
+                                             System.err.println(ex);
                                           }
                                        }
                                     }
@@ -783,10 +812,10 @@ public class StudentPanel extends javax.swing.JPanel {
       }
    }//GEN-LAST:event_fieldDateOfBirthKeyTyped
 
-   private void comboStudentPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboStudentPopupMenuWillBecomeVisible
-   {//GEN-HEADEREND:event_comboStudentPopupMenuWillBecomeVisible
+   private void comboNomePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboNomePopupMenuWillBecomeVisible
+   {//GEN-HEADEREND:event_comboNomePopupMenuWillBecomeVisible
       Object isNull;
-      isNull = comboStudent.getItemAt(0);
+      isNull = comboNome.getItemAt(0);
       int i = 0;
       ArrayList<Aluno> students = null;
       ObjectInputStream in;
@@ -803,10 +832,10 @@ public class StudentPanel extends javax.swing.JPanel {
                in = new ObjectInputStream(file);
                students = (ArrayList<Aluno>)in.readObject();
                i = 0;
-               comboStudent.addItem("");
+               comboNome.addItem("");
                while(i < students.size())
                {
-                  comboStudent.addItem(students.get(i).getName());
+                  comboNome.addItem(students.get(i).getName());
                   i++;
                }
             }
@@ -836,7 +865,7 @@ public class StudentPanel extends javax.swing.JPanel {
                   i = (students.size() - getNumeroDeAlunosAdicionadosComboStudent());
                   while(i < students.size())
                   {
-                     comboStudent.addItem(students.get(i).getName());
+                     comboNome.addItem(students.get(i).getName());
                      i++;
                   }
                }
@@ -865,10 +894,10 @@ public class StudentPanel extends javax.swing.JPanel {
                      file = new FileInputStream(fileStudents);
                      in = new ObjectInputStream(file);
                      students = (ArrayList<Aluno>)in.readObject();
-                     comboStudent.addItem("");
+                     comboNome.addItem("");
                      while(i < students.size())
                      {
-                        comboStudent.addItem(students.get(i).getName());
+                        comboNome.addItem(students.get(i).getName());
                         i++;
                      }
                   }
@@ -880,7 +909,7 @@ public class StudentPanel extends javax.swing.JPanel {
             }
          }
       }
-   }//GEN-LAST:event_comboStudentPopupMenuWillBecomeVisible
+   }//GEN-LAST:event_comboNomePopupMenuWillBecomeVisible
 
    private void comboNamePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboNamePopupMenuWillBecomeVisible
    {//GEN-HEADEREND:event_comboNamePopupMenuWillBecomeVisible
@@ -981,24 +1010,75 @@ public class StudentPanel extends javax.swing.JPanel {
       }
    }//GEN-LAST:event_comboNamePopupMenuWillBecomeVisible
 
+   private void comboNomeItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_comboNomeItemStateChanged
+   {//GEN-HEADEREND:event_comboNomeItemStateChanged
+      if (evt.getStateChange() == 1)
+      {
+         if(evt.getItem().equals(""))
+         {
+            System.out.println("espaço em branco"); 
+            limpaCamposEditarInformacoesAluno();
+         }
+         else
+         {
+            int i = 0;
+            ArrayList<Aluno> students = null;
+            ObjectInputStream in;
+            SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
+            File fileStudents = new File("alunos.txt");
+            if(fileStudents.exists())
+            {
+               FileInputStream file;
+               try
+               {
+                  file = new FileInputStream(fileStudents);
+                  in = new ObjectInputStream(file);
+                  students = (ArrayList<Aluno>)in.readObject();
+                  for(i = 0; i < students.size(); i++)
+                  {
+                     if(students.get(i).getName().equals(evt.getItem().toString()))
+                     {
+                        campoDataDeNascimento.setText(sd.format(students.get(i).getDateOfBirth()).toString());
+                        comboGenero.setSelectedItem(students.get(i).getGender());
+                        campoEndereco.setText(students.get(i).getAddress());
+                        campoCidade.setText(students.get(i).getCity());
+                        campoEstado.setText(students.get(i).getState());
+                        campoNomeDaMae.setText(students.get(i).getNomeDaMae());
+                        campoNomeDoPai.setText(students.get(i).getNomeDoPai());
+                        campoTelefone.setText(students.get(i).getTelefone());
+                        campoCelular.setText(students.get(i).getCelular());
+                        campoEmail.setText(students.get(i).getEmail());
+                     }
+                  }
+               }
+               catch (IOException | ClassNotFoundException ex)
+               {
+                  System.err.println(ex);
+               }
+            }
+         }
+      }
+      //System.out.println(comboNome.getSelectedItem());
+   }//GEN-LAST:event_comboNomeItemStateChanged
+
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
-   private javax.swing.JLabel adressStudent2;
-   private javax.swing.JTextField adressTextField2;
-   private javax.swing.JLabel birthdayStudent2;
-   private javax.swing.JTextField birthdaylTextField2;
    private javax.swing.JButton buttonRegister;
-   private javax.swing.JLabel cellphoneStudent2;
-   private javax.swing.JTextField cellphoneTextField2;
+   private javax.swing.JTextField campoCelular;
+   private javax.swing.JTextField campoCidade;
+   private javax.swing.JTextField campoDataDeNascimento;
+   private javax.swing.JTextField campoEmail;
+   private javax.swing.JTextField campoEndereco;
+   private javax.swing.JTextField campoEstado;
+   private javax.swing.JTextField campoNomeDaMae;
+   private javax.swing.JTextField campoNomeDoPai;
+   private javax.swing.JTextField campoTelefone;
    private static javax.swing.JComboBox comboGender;
+   private javax.swing.JComboBox comboGenero;
    private static javax.swing.JComboBox comboName;
-   private javax.swing.JComboBox comboStudent;
+   private javax.swing.JComboBox comboNome;
    private javax.swing.JPanel deleteStudentPanel;
    private javax.swing.JPanel editStudentPanel;
-   private javax.swing.JLabel emailStudent2;
-   private javax.swing.JTextField emailTextField2;
-   private javax.swing.JLabel fatherStudent2;
-   private javax.swing.JTextField fatherTextField2;
    private static javax.swing.JTextField fieldAddress;
    private static javax.swing.JTextField fieldCellPhone;
    private static javax.swing.JTextField fieldCity;
@@ -1010,32 +1090,32 @@ public class StudentPanel extends javax.swing.JPanel {
    private static javax.swing.JTextField fieldState;
    private static javax.swing.JTextField fieldTelephone;
    private javax.swing.JButton jButton1;
-   private javax.swing.JLabel jLabel1;
-   private javax.swing.JLabel jLabel2;
-   private javax.swing.JLabel jLabel3;
    private javax.swing.JTabbedPane jTabbedPane1;
-   private javax.swing.JTextField jTextField1;
-   private javax.swing.JTextField jTextField2;
    private static javax.swing.JLabel labelAddress;
    private static javax.swing.JLabel labelCellPhone;
+   private javax.swing.JLabel labelCelular;
+   private javax.swing.JLabel labelCidade;
    private static javax.swing.JLabel labelCity;
+   private javax.swing.JLabel labelDataDeNascimento;
    private static javax.swing.JLabel labelDateOfBirth;
+   private javax.swing.JLabel labelE_mail;
    private static javax.swing.JLabel labelEmail;
+   private javax.swing.JLabel labelEndereco;
+   private javax.swing.JLabel labelEstado;
    private static javax.swing.JLabel labelGender;
+   private javax.swing.JLabel labelGenero;
    private static javax.swing.JLabel labelName;
    private static javax.swing.JLabel labelNameOfFather;
    private static javax.swing.JLabel labelNameOfMother;
+   private javax.swing.JLabel labelNome;
+   private javax.swing.JLabel labelNomeDaMae;
+   private javax.swing.JLabel labelNomeDoPai;
    private static javax.swing.JLabel labelState;
+   private javax.swing.JLabel labelTelefone;
    private static javax.swing.JLabel labelTelephone;
-   private javax.swing.JLabel motherStudent2;
-   private javax.swing.JTextField motherTextField2;
-   private javax.swing.JLabel nameStudent2;
    private javax.swing.JLabel nameStudentDelete;
    private javax.swing.JPanel newStudentPanel;
-   private javax.swing.JLabel phoneStudent2;
-   private javax.swing.JTextField phoneTextField2;
    private javax.swing.JButton saveStudent;
-   private javax.swing.JComboBox studentComboBox1;
    // End of variables declaration//GEN-END:variables
    private static boolean studentAddedComboStudent;
    private static boolean studentAddedComboName;
@@ -1189,43 +1269,28 @@ public class StudentPanel extends javax.swing.JPanel {
    public static String getFieldTelephone()
    {
       if(fieldTelephone.getText().isEmpty())
-      {
-         JOptionPane.showMessageDialog(null, "Digite um " + labelTelephone.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
-      }
       else
-      {
-         return fieldTelephone.getText();
-      }
+         return fieldTelephone.getText();  
    }
 
    public static String getFieldCellPhone()
    {
       if(fieldCellPhone.getText().isEmpty())
-      {
-         JOptionPane.showMessageDialog(null, "Digite um " + labelCellPhone.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
-      }
       else
-      {
          return fieldCellPhone.getText();
-      }
    }
 
    public static String getFieldEmail()
    {
       if(fieldEmail.getText().isEmpty())
-      {
-         JOptionPane.showMessageDialog(null, "Digite um " + labelEmail.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
-      }
       else
-      {
          return fieldEmail.getText();
-      }
    }
    
-   public void clearFields()
+   public void limpaCamposCadastrarAluno()
    {
       fieldName.setText("");
       fieldAddress.setText("");
@@ -1237,5 +1302,18 @@ public class StudentPanel extends javax.swing.JPanel {
       fieldNameOfMother.setText("");
       fieldState.setText("");
       fieldTelephone.setText("");
+   }
+   
+   public void limpaCamposEditarInformacoesAluno()
+   {
+      campoCelular.setText("");
+      campoCidade.setText("");
+      campoDataDeNascimento.setText("");
+      campoEmail.setText("");
+      campoEndereco.setText("");
+      campoEstado.setText("");
+      campoNomeDaMae.setText("");
+      campoNomeDoPai.setText("");
+      campoTelefone.setText("");
    }
 }
