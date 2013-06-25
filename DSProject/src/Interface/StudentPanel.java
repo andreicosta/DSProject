@@ -10,8 +10,8 @@
  */
 package Interface;
 
-import static Interface.ClassPanel.isStudentAddedComboStudent;
-import static Interface.ClassPanel.setStudentAddedComboStudent;
+import static Interface.ClassPanel.isStudentAddedComboAluno;
+import static Interface.ClassPanel.setStudentAddedComboAluno;
 import dsproject.Aluno;
 import java.io.File;
 import java.io.FileInputStream;
@@ -598,18 +598,18 @@ public class StudentPanel extends javax.swing.JPanel {
                                                    out.writeObject(students);
                                                    out.close();
                                                    JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-                                                   Interface.ClassPanel.setStudentAddedComboStudent(true);
-                                                   Interface.ClassPanel.setStudentAddedComboAddStudent(true);
-                                                   Interface.ClassPanel.setStudentAddedComboStudentName(true);
+                                                   Interface.ClassPanel.setStudentAddedComboAluno(true);
+                                                   Interface.ClassPanel.setStudentAddedComboAdicionarAluno(true);
+                                                   Interface.ClassPanel.setStudentAddedCombonomeDoAluno(true);
                                                    setStudentAddedComboName(true);
                                                    setStudentAddedComboStudent(true);
                                                    setNumeroDeAlunosAdicionadosComboName(getNumeroDeAlunosAdicionadosComboName() + 1);
                                                    setNumeroDeAlunosAdicionadosComboStudent(getNumeroDeAlunosAdicionadosComboStudent() + 1);
-                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAddStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAddStudent() 
+                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAdicionarAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAdicionarAluno() 
                                                                                                                     + 1);
-                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudent()
+                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAluno()
                                                                                                                     + 1);
-                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudentName(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudentName()
+                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboNomeDoAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboNomeDoAluno()
                                                                                                                     + 1);
                                                    limpaCamposCadastrarAluno();
                                                 }
@@ -621,18 +621,18 @@ public class StudentPanel extends javax.swing.JPanel {
                                                    out.writeObject(students);
                                                    out.close();
                                                    JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-                                                   Interface.ClassPanel.setStudentAddedComboStudent(true);
-                                                   Interface.ClassPanel.setStudentAddedComboAddStudent(true);
-                                                   Interface.ClassPanel.setStudentAddedComboStudentName(true);
+                                                   Interface.ClassPanel.setStudentAddedComboAluno(true);
+                                                   Interface.ClassPanel.setStudentAddedComboAdicionarAluno(true);
+                                                   Interface.ClassPanel.setStudentAddedCombonomeDoAluno(true);
                                                    setStudentAddedComboName(true);
                                                    setStudentAddedComboStudent(true);
                                                    setNumeroDeAlunosAdicionadosComboName(getNumeroDeAlunosAdicionadosComboName() + 1);
                                                    setNumeroDeAlunosAdicionadosComboStudent(getNumeroDeAlunosAdicionadosComboStudent() + 1);
-                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAddStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAddStudent() 
+                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAdicionarAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAdicionarAluno() 
                                                                                                                     + 1);
-                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudent()
+                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAluno()
                                                                                                                     + 1);
-                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudentName(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudentName()
+                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboNomeDoAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboNomeDoAluno()
                                                                                                                     + 1);
                                                    limpaCamposCadastrarAluno();
                                                 }
@@ -740,18 +740,18 @@ public class StudentPanel extends javax.swing.JPanel {
                                                 out.writeObject(students);
                                                 out.close();
                                                 JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-                                                Interface.ClassPanel.setStudentAddedComboStudent(true);
-                                                Interface.ClassPanel.setStudentAddedComboAddStudent(true);
-                                                Interface.ClassPanel.setStudentAddedComboStudentName(true);
+                                                Interface.ClassPanel.setStudentAddedComboAluno(true);
+                                                Interface.ClassPanel.setStudentAddedComboAdicionarAluno(true);
+                                                Interface.ClassPanel.setStudentAddedCombonomeDoAluno(true);
                                                 setStudentAddedComboName(true);
                                                 setStudentAddedComboStudent(true);
                                                 setNumeroDeAlunosAdicionadosComboName(getNumeroDeAlunosAdicionadosComboName() + 1);
                                                 setNumeroDeAlunosAdicionadosComboStudent(getNumeroDeAlunosAdicionadosComboStudent() + 1);
-                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAddStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAddStudent() 
+                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAdicionarAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAdicionarAluno() 
                                                                                                                  + 1);
-                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudent()
+                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAluno()
                                                                                                                  + 1);
-                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudentName(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudentName()
+                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboNomeDoAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboNomeDoAluno()
                                                                                                                  + 1);
                                                 limpaCamposCadastrarAluno();
                                              }
@@ -763,18 +763,18 @@ public class StudentPanel extends javax.swing.JPanel {
                                                 out.writeObject(students);
                                                 out.close();
                                                 JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-                                                Interface.ClassPanel.setStudentAddedComboStudent(true);
-                                                Interface.ClassPanel.setStudentAddedComboAddStudent(true);
-                                                Interface.ClassPanel.setStudentAddedComboStudentName(true);
+                                                Interface.ClassPanel.setStudentAddedComboAluno(true);
+                                                Interface.ClassPanel.setStudentAddedComboAdicionarAluno(true);
+                                                Interface.ClassPanel.setStudentAddedCombonomeDoAluno(true);
                                                 setStudentAddedComboName(true);
                                                 setStudentAddedComboStudent(true);
                                                 setNumeroDeAlunosAdicionadosComboName(getNumeroDeAlunosAdicionadosComboName() + 1);
                                                 setNumeroDeAlunosAdicionadosComboStudent(getNumeroDeAlunosAdicionadosComboStudent() + 1);
-                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAddStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAddStudent() 
+                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAdicionarAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAdicionarAluno() 
                                                                                                                  + 1);
-                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudent(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudent()
+                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAluno()
                                                                                                                  + 1);
-                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboStudentName(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboStudentName()
+                                                Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboNomeDoAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboNomeDoAluno()
                                                                                                                  + 1);
                                                 limpaCamposCadastrarAluno();
                                              }

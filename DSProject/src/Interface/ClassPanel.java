@@ -10,9 +10,6 @@
  */
 package Interface;
 
-import static Interface.StudentPanel.isStudentAddedComboStudent;
-import static Interface.StudentPanel.setStudentAddedComboStudent;
-import dsproject.Aluno;
 import dsproject.Turma;
 import java.io.File;
 import java.io.FileInputStream;
@@ -54,40 +51,40 @@ public class ClassPanel extends javax.swing.JPanel {
       newClassPanel = new javax.swing.JPanel();
       jLabel2 = new javax.swing.JLabel();
       jSeparator1 = new javax.swing.JSeparator();
-      labelStudent = new javax.swing.JLabel();
-      comboStudent = new javax.swing.JComboBox();
-      buttonAdd = new javax.swing.JButton();
+      labelAluno = new javax.swing.JLabel();
+      comboAluno = new javax.swing.JComboBox();
+      botaoAdicionar = new javax.swing.JButton();
       jLabel4 = new javax.swing.JLabel();
       jScrollPane1 = new javax.swing.JScrollPane();
       listaAlunosMatriculados = new DefaultListModel();
-      listStudentsEnrolled = new javax.swing.JList(listaAlunosMatriculados);
-      labelClass = new javax.swing.JLabel();
-      fieldClass = new javax.swing.JTextField();
-      labelSchoolYear = new javax.swing.JLabel();
-      fieldSchoolYear = new javax.swing.JTextField();
+      listaAlunosMatriculadosNaTurma = new javax.swing.JList(listaAlunosMatriculados);
+      labelTurma = new javax.swing.JLabel();
+      campoTurma = new javax.swing.JTextField();
+      labelAnoLetivo = new javax.swing.JLabel();
+      campoAnoLetivo = new javax.swing.JTextField();
       botaoCadastrar = new javax.swing.JButton();
-      buttonRemoveStudent = new javax.swing.JButton();
+      botaoRemoverAluno = new javax.swing.JButton();
       editClassPanel = new javax.swing.JPanel();
-      jLabel5 = new javax.swing.JLabel();
-      jComboBox2 = new javax.swing.JComboBox();
-      jLabel7 = new javax.swing.JLabel();
-      classTextField3 = new javax.swing.JTextField();
+      labelTurmaEditarTurma = new javax.swing.JLabel();
+      comboTurmaEditarTurma = new javax.swing.JComboBox();
+      labelAnoLetivoEditarTurma = new javax.swing.JLabel();
+      campoAnoLetivoEditarTurma = new javax.swing.JTextField();
       jLabel8 = new javax.swing.JLabel();
-      comboAddStudent = new javax.swing.JComboBox();
-      jButton3 = new javax.swing.JButton();
-      jButton4 = new javax.swing.JButton();
-      jComboBox4 = new javax.swing.JComboBox();
+      comboAdicionarAluno = new javax.swing.JComboBox();
+      botaoRemoverEditarTurma = new javax.swing.JButton();
+      botaoAdicionarEditarTurma = new javax.swing.JButton();
+      comboRemoverAluno = new javax.swing.JComboBox();
       jLabel9 = new javax.swing.JLabel();
-      jButton5 = new javax.swing.JButton();
+      botaoSalvar = new javax.swing.JButton();
       findClassPanel = new javax.swing.JPanel();
-      nameStudentClassLabel = new javax.swing.JLabel();
-      comboStudentName = new javax.swing.JComboBox();
-      classLabel = new javax.swing.JLabel();
+      labelNomeDoAluno = new javax.swing.JLabel();
+      comboNomeDoAluno = new javax.swing.JComboBox();
+      labelTurmaBuscarTurmaPorAluno = new javax.swing.JLabel();
       returnClassLabel = new javax.swing.JLabel();
       deleteClassPanel = new javax.swing.JPanel();
-      jLabel10 = new javax.swing.JLabel();
-      jComboBox5 = new javax.swing.JComboBox();
-      jButton6 = new javax.swing.JButton();
+      labelTurmaRemoverTurma = new javax.swing.JLabel();
+      comboTurma = new javax.swing.JComboBox();
+      botaoRemover = new javax.swing.JButton();
 
       listClassesPanel.addComponentListener(new java.awt.event.ComponentAdapter()
       {
@@ -121,9 +118,9 @@ public class ClassPanel extends javax.swing.JPanel {
 
       jLabel2.setText("Adicionar Alunos");
 
-      labelStudent.setText("Aluno");
+      labelAluno.setText("Aluno");
 
-      comboStudent.addPopupMenuListener(new javax.swing.event.PopupMenuListener()
+      comboAluno.addPopupMenuListener(new javax.swing.event.PopupMenuListener()
       {
          public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt)
          {
@@ -133,34 +130,34 @@ public class ClassPanel extends javax.swing.JPanel {
          }
          public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)
          {
-            comboStudentPopupMenuWillBecomeVisible(evt);
+            comboAlunoPopupMenuWillBecomeVisible(evt);
          }
       });
 
-      buttonAdd.setText("Adicionar");
-      buttonAdd.addActionListener(new java.awt.event.ActionListener()
+      botaoAdicionar.setText("Adicionar");
+      botaoAdicionar.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
          {
-            buttonAddActionPerformed(evt);
+            botaoAdicionarActionPerformed(evt);
          }
       });
 
       jLabel4.setText("Alunos matriculados na turma");
 
-      listStudentsEnrolled.setBackground(new java.awt.Color(240, 240, 240));
-      listStudentsEnrolled.setForeground(new java.awt.Color(51, 51, 51));
-      jScrollPane1.setViewportView(listStudentsEnrolled);
+      listaAlunosMatriculadosNaTurma.setBackground(new java.awt.Color(240, 240, 240));
+      listaAlunosMatriculadosNaTurma.setForeground(new java.awt.Color(51, 51, 51));
+      jScrollPane1.setViewportView(listaAlunosMatriculadosNaTurma);
 
-      labelClass.setText("Turma");
+      labelTurma.setText("Turma");
 
-      labelSchoolYear.setText("Ano Letivo");
+      labelAnoLetivo.setText("Ano Letivo");
 
-      fieldSchoolYear.addKeyListener(new java.awt.event.KeyAdapter()
+      campoAnoLetivo.addKeyListener(new java.awt.event.KeyAdapter()
       {
          public void keyTyped(java.awt.event.KeyEvent evt)
          {
-            fieldSchoolYearKeyTyped(evt);
+            campoAnoLetivoKeyTyped(evt);
          }
       });
 
@@ -173,12 +170,12 @@ public class ClassPanel extends javax.swing.JPanel {
          }
       });
 
-      buttonRemoveStudent.setText("Remover Aluno");
-      buttonRemoveStudent.addActionListener(new java.awt.event.ActionListener()
+      botaoRemoverAluno.setText("Remover Aluno");
+      botaoRemoverAluno.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
          {
-            buttonRemoveStudentActionPerformed(evt);
+            botaoRemoverAlunoActionPerformed(evt);
          }
       });
 
@@ -190,13 +187,13 @@ public class ClassPanel extends javax.swing.JPanel {
             .addGroup(newClassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(newClassPanelLayout.createSequentialGroup()
                   .addContainerGap()
-                  .addComponent(labelClass)
+                  .addComponent(labelTurma)
                   .addGap(32, 32, 32)
-                  .addComponent(fieldClass, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addComponent(campoTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                   .addGap(70, 70, 70)
-                  .addComponent(labelSchoolYear)
+                  .addComponent(labelAnoLetivo)
                   .addGap(41, 41, 41)
-                  .addComponent(fieldSchoolYear, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                  .addComponent(campoAnoLetivo, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newClassPanelLayout.createSequentialGroup()
                   .addContainerGap()
                   .addComponent(jSeparator1))
@@ -205,18 +202,18 @@ public class ClassPanel extends javax.swing.JPanel {
                   .addGroup(newClassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                      .addGroup(newClassPanelLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addComponent(labelStudent)
+                        .addComponent(labelAluno)
                         .addGap(18, 18, 18)
-                        .addComponent(comboStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(buttonAdd))
+                        .addComponent(botaoAdicionar))
                      .addComponent(jLabel2)
                      .addComponent(jLabel4)))
                .addGroup(newClassPanelLayout.createSequentialGroup()
                   .addGap(29, 29, 29)
                   .addGroup(newClassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                      .addGroup(newClassPanelLayout.createSequentialGroup()
-                        .addComponent(buttonRemoveStudent)
+                        .addComponent(botaoRemoverAluno)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(botaoCadastrar))
                      .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -227,19 +224,19 @@ public class ClassPanel extends javax.swing.JPanel {
          .addGroup(newClassPanelLayout.createSequentialGroup()
             .addGap(21, 21, 21)
             .addGroup(newClassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(labelClass)
-               .addComponent(labelSchoolYear)
-               .addComponent(fieldSchoolYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(fieldClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(labelTurma)
+               .addComponent(labelAnoLetivo)
+               .addComponent(campoAnoLetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(campoTurma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(jLabel2)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addGroup(newClassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(comboStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(buttonAdd)
-               .addComponent(labelStudent))
+               .addComponent(comboAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(botaoAdicionar)
+               .addComponent(labelAluno))
             .addGap(18, 18, 18)
             .addComponent(jLabel4)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -247,19 +244,19 @@ public class ClassPanel extends javax.swing.JPanel {
             .addGap(18, 18, 18)
             .addGroup(newClassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                .addComponent(botaoCadastrar)
-               .addComponent(buttonRemoveStudent))
+               .addComponent(botaoRemoverAluno))
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
       );
 
       jTabbedPane1.addTab("Cadastrar Turma", newClassPanel);
 
-      jLabel5.setText("Turma");
+      labelTurmaEditarTurma.setText("Turma");
 
-      jLabel7.setText("Ano Letivo");
+      labelAnoLetivoEditarTurma.setText("Ano Letivo");
 
       jLabel8.setText("Adicionar Aluno");
 
-      comboAddStudent.addPopupMenuListener(new javax.swing.event.PopupMenuListener()
+      comboAdicionarAluno.addPopupMenuListener(new javax.swing.event.PopupMenuListener()
       {
          public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt)
          {
@@ -269,24 +266,24 @@ public class ClassPanel extends javax.swing.JPanel {
          }
          public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)
          {
-            comboAddStudentPopupMenuWillBecomeVisible(evt);
+            comboAdicionarAlunoPopupMenuWillBecomeVisible(evt);
          }
       });
 
-      jButton3.setText("Remover");
+      botaoRemoverEditarTurma.setText("Remover");
 
-      jButton4.setText("Adicionar");
-      jButton4.addActionListener(new java.awt.event.ActionListener()
+      botaoAdicionarEditarTurma.setText("Adicionar");
+      botaoAdicionarEditarTurma.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
          {
-            jButton4ActionPerformed(evt);
+            botaoAdicionarEditarTurmaActionPerformed(evt);
          }
       });
 
       jLabel9.setText(" Remover Aluno");
 
-      jButton5.setText("Salvar");
+      botaoSalvar.setText("Salvar");
 
       javax.swing.GroupLayout editClassPanelLayout = new javax.swing.GroupLayout(editClassPanel);
       editClassPanel.setLayout(editClassPanelLayout);
@@ -299,23 +296,23 @@ public class ClassPanel extends javax.swing.JPanel {
                   .addGroup(editClassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                      .addComponent(jLabel8)
                      .addComponent(jLabel9)
-                     .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                     .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                     .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(botaoRemoverEditarTurma, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(botaoAdicionarEditarTurma, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(botaoSalvar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addGroup(editClassPanelLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(editClassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                           .addComponent(comboAddStudent, 0, 544, Short.MAX_VALUE)
-                           .addComponent(jComboBox4, 0, 544, Short.MAX_VALUE))))
+                           .addComponent(comboAdicionarAluno, 0, 544, Short.MAX_VALUE)
+                           .addComponent(comboRemoverAluno, 0, 544, Short.MAX_VALUE))))
                   .addGap(18, 18, 18))
                .addGroup(editClassPanelLayout.createSequentialGroup()
-                  .addComponent(jLabel5)
+                  .addComponent(labelTurmaEditarTurma)
                   .addGap(31, 31, 31)
-                  .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addComponent(comboTurmaEditarTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                   .addGap(56, 56, 56)
-                  .addComponent(jLabel7)
+                  .addComponent(labelAnoLetivoEditarTurma)
                   .addGap(32, 32, 32)
-                  .addComponent(classTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addComponent(campoAnoLetivoEditarTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                   .addContainerGap(137, Short.MAX_VALUE))))
       );
       editClassPanelLayout.setVerticalGroup(
@@ -323,32 +320,32 @@ public class ClassPanel extends javax.swing.JPanel {
          .addGroup(editClassPanelLayout.createSequentialGroup()
             .addGap(24, 24, 24)
             .addGroup(editClassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(jLabel5)
-               .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(jLabel7)
-               .addComponent(classTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(labelTurmaEditarTurma)
+               .addComponent(comboTurmaEditarTurma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(labelAnoLetivoEditarTurma)
+               .addComponent(campoAnoLetivoEditarTurma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(39, 39, 39)
             .addComponent(jLabel8)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(comboAddStudent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(comboAdicionarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jButton4)
+            .addComponent(botaoAdicionarEditarTurma)
             .addGap(18, 18, 18)
             .addComponent(jLabel9)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(comboRemoverAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jButton3)
+            .addComponent(botaoRemoverEditarTurma)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-            .addComponent(jButton5)
+            .addComponent(botaoSalvar)
             .addGap(22, 22, 22))
       );
 
       jTabbedPane1.addTab("Editar Turma", editClassPanel);
 
-      nameStudentClassLabel.setText("Nome do Aluno");
+      labelNomeDoAluno.setText("Nome do Aluno");
 
-      comboStudentName.addPopupMenuListener(new javax.swing.event.PopupMenuListener()
+      comboNomeDoAluno.addPopupMenuListener(new javax.swing.event.PopupMenuListener()
       {
          public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt)
          {
@@ -358,11 +355,11 @@ public class ClassPanel extends javax.swing.JPanel {
          }
          public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)
          {
-            comboStudentNamePopupMenuWillBecomeVisible(evt);
+            comboNomeDoAlunoPopupMenuWillBecomeVisible(evt);
          }
       });
 
-      classLabel.setText("Turma");
+      labelTurmaBuscarTurmaPorAluno.setText("Turma");
 
       javax.swing.GroupLayout findClassPanelLayout = new javax.swing.GroupLayout(findClassPanel);
       findClassPanel.setLayout(findClassPanelLayout);
@@ -372,15 +369,15 @@ public class ClassPanel extends javax.swing.JPanel {
             .addGroup(findClassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(findClassPanelLayout.createSequentialGroup()
                   .addContainerGap()
-                  .addComponent(nameStudentClassLabel)
+                  .addComponent(labelNomeDoAluno)
                   .addGap(18, 18, 18)
-                  .addComponent(comboStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))
+                  .addComponent(comboNomeDoAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))
                .addGroup(findClassPanelLayout.createSequentialGroup()
                   .addGap(77, 77, 77)
                   .addComponent(returnClassLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                .addGroup(findClassPanelLayout.createSequentialGroup()
                   .addContainerGap()
-                  .addComponent(classLabel)))
+                  .addComponent(labelTurmaBuscarTurmaPorAluno)))
             .addContainerGap(60, Short.MAX_VALUE))
       );
       findClassPanelLayout.setVerticalGroup(
@@ -388,20 +385,20 @@ public class ClassPanel extends javax.swing.JPanel {
          .addGroup(findClassPanelLayout.createSequentialGroup()
             .addGap(21, 21, 21)
             .addGroup(findClassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(nameStudentClassLabel)
-               .addComponent(comboStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(labelNomeDoAluno)
+               .addComponent(comboNomeDoAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(49, 49, 49)
             .addGroup(findClassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addComponent(returnClassLabel)
-               .addComponent(classLabel))
+               .addComponent(labelTurmaBuscarTurmaPorAluno))
             .addContainerGap(287, Short.MAX_VALUE))
       );
 
       jTabbedPane1.addTab("Buscar Turma por Aluno", findClassPanel);
 
-      jLabel10.setText("Turma");
+      labelTurmaRemoverTurma.setText("Turma");
 
-      jButton6.setText("Remover");
+      botaoRemover.setText("Remover");
 
       javax.swing.GroupLayout deleteClassPanelLayout = new javax.swing.GroupLayout(deleteClassPanel);
       deleteClassPanel.setLayout(deleteClassPanelLayout);
@@ -409,13 +406,13 @@ public class ClassPanel extends javax.swing.JPanel {
          deleteClassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(deleteClassPanelLayout.createSequentialGroup()
             .addGap(18, 18, 18)
-            .addComponent(jLabel10)
+            .addComponent(labelTurmaRemoverTurma)
             .addGap(45, 45, 45)
-            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(comboTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addContainerGap(359, Short.MAX_VALUE))
          .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deleteClassPanelLayout.createSequentialGroup()
             .addContainerGap(446, Short.MAX_VALUE)
-            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(botaoRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(50, 50, 50))
       );
       deleteClassPanelLayout.setVerticalGroup(
@@ -423,10 +420,10 @@ public class ClassPanel extends javax.swing.JPanel {
          .addGroup(deleteClassPanelLayout.createSequentialGroup()
             .addGap(22, 22, 22)
             .addGroup(deleteClassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(jLabel10)
-               .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(labelTurmaRemoverTurma)
+               .addComponent(comboTurma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
-            .addComponent(jButton6)
+            .addComponent(botaoRemover)
             .addContainerGap(305, Short.MAX_VALUE))
       );
 
@@ -444,34 +441,34 @@ public class ClassPanel extends javax.swing.JPanel {
       );
    }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void botaoAdicionarEditarTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAdicionarEditarTurmaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_botaoAdicionarEditarTurmaActionPerformed
 
-   private void comboStudentPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboStudentPopupMenuWillBecomeVisible
-   {//GEN-HEADEREND:event_comboStudentPopupMenuWillBecomeVisible
+   private void comboAlunoPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboAlunoPopupMenuWillBecomeVisible
+   {//GEN-HEADEREND:event_comboAlunoPopupMenuWillBecomeVisible
       Object isNull;
-      isNull = comboStudent.getItemAt(0);
+      isNull = comboAluno.getItemAt(0);
       int i = 0;
-      ArrayList<dsproject.Aluno> students = null;
+      ArrayList<dsproject.Aluno> alunos = null;
+      File arquivoAlunos = new File("alunos.txt");
+      FileInputStream arquivo;
       ObjectInputStream in;
-      if(isStudentAddedComboStudent() && isNull == null)
+      if(isStudentAddedComboAluno() && isNull == null)
       {
          //daqui até o catch le um objeto gravado no arquivo alunos.txt
-         File fileStudents = new File("alunos.txt");
-         if(fileStudents.exists())
+         if(arquivoAlunos.exists())
          {
-            FileInputStream file;
             try
             {
-               file = new FileInputStream(fileStudents);
-               in = new ObjectInputStream(file);
-               students = (ArrayList<dsproject.Aluno>)in.readObject();
+               arquivo = new FileInputStream(arquivoAlunos);
+               in = new ObjectInputStream(arquivo);
+               alunos = (ArrayList<dsproject.Aluno>)in.readObject();
                i = 0;
-               comboStudent.addItem("");
-               while(i < students.size())
+               comboAluno.addItem("");
+               while(i < alunos.size())
                {
-                  comboStudent.addItem(students.get(i).getNome());
+                  comboAluno.addItem(alunos.get(i).getNome());
                   i++;
                }
             }
@@ -481,27 +478,25 @@ public class ClassPanel extends javax.swing.JPanel {
             }
 
          }
-         setStudentAddedComboStudent(false);
-         setNumeroDeAlunosAdicionadosComboStudent(0);
+         setStudentAddedComboAluno(false);
+         setNumeroDeAlunosAdicionadosComboAluno(0);
       }
       else
       {
-         if(isStudentAddedComboStudent() && isNull != null)
+         if(isStudentAddedComboAluno() && isNull != null)
          {
             //daqui até o catch le um objeto gravado no arquivo alunos.txt
-            File fileStudents = new File("alunos.txt");
-            if(fileStudents.exists())
+            if(arquivoAlunos.exists())
             {
-               FileInputStream file;
                try
                {
-                  file = new FileInputStream(fileStudents);
-                  in = new ObjectInputStream(file);
-                  students = (ArrayList<dsproject.Aluno>)in.readObject();
-                  i = (students.size() - getNumeroDeAlunosAdicionadosComboStudent());
-                  while(i < students.size())
+                  arquivo = new FileInputStream(arquivoAlunos);
+                  in = new ObjectInputStream(arquivo);
+                  alunos = (ArrayList<dsproject.Aluno>)in.readObject();
+                  i = (alunos.size() - getNumeroDeAlunosAdicionadosComboAluno());
+                  while(i < alunos.size())
                   {
-                     comboStudent.addItem(students.get(i).getNome());
+                     comboAluno.addItem(alunos.get(i).getNome());
                      i++;
                   }
                }
@@ -511,8 +506,8 @@ public class ClassPanel extends javax.swing.JPanel {
                }
 
             }
-            setStudentAddedComboStudent(false);
-            setNumeroDeAlunosAdicionadosComboStudent(0);
+            setStudentAddedComboAluno(false);
+            setNumeroDeAlunosAdicionadosComboAluno(0);
          }
          else
          {
@@ -521,19 +516,18 @@ public class ClassPanel extends javax.swing.JPanel {
                i = 0;
 
                //daqui até o catch le um objeto gravado no arquivo alunos.txt
-               File fileStudents = new File("alunos.txt");
-               if(fileStudents.exists())
+               if(arquivoAlunos.exists())
                {
-                  FileInputStream file;
+                  //FileInputStream file;
                   try
                   {
-                     file = new FileInputStream(fileStudents);
-                     in = new ObjectInputStream(file);
-                     students = (ArrayList<dsproject.Aluno>)in.readObject();
-                     comboStudent.addItem("");
-                     while(i < students.size())
+                     arquivo = new FileInputStream(arquivoAlunos);
+                     in = new ObjectInputStream(arquivo);
+                     alunos = (ArrayList<dsproject.Aluno>)in.readObject();
+                     comboAluno.addItem("");
+                     while(i < alunos.size())
                      {
-                        comboStudent.addItem(students.get(i).getNome());
+                        comboAluno.addItem(alunos.get(i).getNome());
                         i++;
                      }
                   }
@@ -545,23 +539,21 @@ public class ClassPanel extends javax.swing.JPanel {
             }
          }
       }
-   }//GEN-LAST:event_comboStudentPopupMenuWillBecomeVisible
+   }//GEN-LAST:event_comboAlunoPopupMenuWillBecomeVisible
 
-   private void buttonAddActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_buttonAddActionPerformed
-   {//GEN-HEADEREND:event_buttonAddActionPerformed
-      //DefaultListModel listaAlunosMatriculados = new DefaultListModel();
-      //listStudentsEnrolled.getModel().(comboStudent.getSelectedItem().toString());
-      if(comboStudent.getSelectedItem() != null && comboStudent.getSelectedItem() != "")
+   private void botaoAdicionarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botaoAdicionarActionPerformed
+   {//GEN-HEADEREND:event_botaoAdicionarActionPerformed
+      if(comboAluno.getSelectedItem() != null && comboAluno.getSelectedItem() != "")
       {
-         listaAlunosMatriculados.addElement(comboStudent.getSelectedItem());
+         listaAlunosMatriculados.addElement(comboAluno.getSelectedItem());
       }
-   }//GEN-LAST:event_buttonAddActionPerformed
+   }//GEN-LAST:event_botaoAdicionarActionPerformed
 
-   private void buttonRemoveStudentActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_buttonRemoveStudentActionPerformed
-   {//GEN-HEADEREND:event_buttonRemoveStudentActionPerformed
+   private void botaoRemoverAlunoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botaoRemoverAlunoActionPerformed
+   {//GEN-HEADEREND:event_botaoRemoverAlunoActionPerformed
       try
       {
-         ArrayList<dsproject.Aluno> students = (ArrayList<dsproject.Aluno>) listStudentsEnrolled.getSelectedValuesList();
+         ArrayList<dsproject.Aluno> students = (ArrayList<dsproject.Aluno>) listaAlunosMatriculadosNaTurma.getSelectedValuesList();
          for(int i = 0; i < students.size(); i++)
             listaAlunosMatriculados.removeElement(students.get(i));
       }
@@ -570,19 +562,22 @@ public class ClassPanel extends javax.swing.JPanel {
          JOptionPane.showMessageDialog(null, "Selecione algum aluno na lista", "Erro", JOptionPane.ERROR_MESSAGE);
          System.err.println(ex);
       }
-   }//GEN-LAST:event_buttonRemoveStudentActionPerformed
+   }//GEN-LAST:event_botaoRemoverAlunoActionPerformed
 
    private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botaoCadastrarActionPerformed
    {//GEN-HEADEREND:event_botaoCadastrarActionPerformed
-      String campoTurma = getFieldClass();
-      String campoAnoLetivo = getFieldSchoolYear();
+      String campoTurma = getCampoTurma();
+      String campoAnoLetivo = getCampoAnoLetivo();
+      File arquivoAlunos = new File("alunos.txt");
+      File arquivoTurma = new File("turmas.txt");
+      FileInputStream arquivo;
       if(campoTurma != null)
       {
          if(campoAnoLetivo != null)
          {
-            ArrayList<dsproject.Aluno> alunosLidos = new ArrayList<>();
-            ArrayList<dsproject.Turma> turmas = new ArrayList<>();
-            ArrayList<String> alunos = new ArrayList<>();
+            ArrayList<dsproject.Aluno> alunosLidos;
+            ArrayList<dsproject.Turma> turmas;
+            ArrayList<String> alunosMatriculados = new ArrayList<>();
             ObjectInputStream in;
             ObjectOutputStream out;
             int i;
@@ -592,17 +587,15 @@ public class ClassPanel extends javax.swing.JPanel {
             Turma novaTurma = new Turma(campoTurma, Integer.parseInt(campoAnoLetivo), null);
             try
             {
-               if(listStudentsEnrolled.getModel().getSize() != 0)
+               if(listaAlunosMatriculadosNaTurma.getModel().getSize() != 0)
                {
-                  for(i = 0; i < listStudentsEnrolled.getModel().getSize(); i++)
+                  for(i = 0; i < listaAlunosMatriculadosNaTurma.getModel().getSize(); i++)
                   {
-                     alunos.add(listStudentsEnrolled.getModel().getElementAt(i).toString());
+                     alunosMatriculados.add(listaAlunosMatriculadosNaTurma.getModel().getElementAt(i).toString());
                   }
                   //daqui até o catch le um objeto gravado no arquivo alunos.txt
-                  File arquivoAlunos = new File("alunos.txt");
                   if(arquivoAlunos.exists())
                   {
-                     FileInputStream arquivo;
                      try
                      {
                         arquivo = new FileInputStream(arquivoAlunos);
@@ -610,9 +603,9 @@ public class ClassPanel extends javax.swing.JPanel {
                         alunosLidos = (ArrayList<dsproject.Aluno>)in.readObject();
                         i = 0;
                         y = 0;
-                        while(i < alunos.size())
+                        while(i < alunosMatriculados.size())
                         {
-                           if(alunosLidos.get(y).getNome().equals(alunos.get(i)))
+                           if(alunosLidos.get(y).getNome().equals(alunosMatriculados.get(i)))
                            {
                               alunosLidos.get(y).setTurmaId(campoTurma);
                               novaTurma.inserirAluno(alunosLidos.get(y));
@@ -621,7 +614,6 @@ public class ClassPanel extends javax.swing.JPanel {
                            }
                            y++;
                         }
-                        File arquivoTurma = new File("turmas.txt");
                         if(arquivoTurma.exists())
                         {
                            arquivo = new FileInputStream(arquivoTurma);
@@ -637,6 +629,7 @@ public class ClassPanel extends javax.swing.JPanel {
                         }
                         else
                         {
+                           turmas = new ArrayList<>();
                            turmas.add(novaTurma);
                            out = new ObjectOutputStream(new FileOutputStream("turmas.txt"));
                            out.writeObject(turmas);
@@ -676,44 +669,44 @@ public class ClassPanel extends javax.swing.JPanel {
       }
    }//GEN-LAST:event_botaoCadastrarActionPerformed
 
-   private void fieldSchoolYearKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldSchoolYearKeyTyped
-   {//GEN-HEADEREND:event_fieldSchoolYearKeyTyped
+   private void campoAnoLetivoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_campoAnoLetivoKeyTyped
+   {//GEN-HEADEREND:event_campoAnoLetivoKeyTyped
       if(!Character.isDigit(evt.getKeyChar()))
       {
          evt.setKeyChar('\0');
       }
       else
       {
-         String textoCampo = fieldSchoolYear.getText();
+         String textoCampo = campoAnoLetivo.getText();
          if(textoCampo.length() > 3)
             evt.setKeyChar('\0');
       }
-   }//GEN-LAST:event_fieldSchoolYearKeyTyped
+   }//GEN-LAST:event_campoAnoLetivoKeyTyped
 
-   private void comboAddStudentPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboAddStudentPopupMenuWillBecomeVisible
-   {//GEN-HEADEREND:event_comboAddStudentPopupMenuWillBecomeVisible
+   private void comboAdicionarAlunoPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboAdicionarAlunoPopupMenuWillBecomeVisible
+   {//GEN-HEADEREND:event_comboAdicionarAlunoPopupMenuWillBecomeVisible
       Object isNull;
-      isNull = comboAddStudent.getItemAt(0);
+      isNull = comboAdicionarAluno.getItemAt(0);
       int i = 0;
-      ArrayList<dsproject.Aluno> students = null;
+      ArrayList<dsproject.Aluno> alunos;
+      FileInputStream arquivo;
+      File arquivoAlunos = new File("alunos.txt");
       ObjectInputStream in;
-      if(isStudentAddedComboAddStudent() && isNull == null)
+      if(isStudentAddedComboAdicionarAluno() && isNull == null)
       {
          //daqui até o catch le um objeto gravado no arquivo alunos.txt
-         File fileStudents = new File("alunos.txt");
-         if(fileStudents.exists())
+         if(arquivoAlunos.exists())
          {
-            FileInputStream file;
             try
             {
-               file = new FileInputStream(fileStudents);
-               in = new ObjectInputStream(file);
-               students = (ArrayList<dsproject.Aluno>)in.readObject();
+               arquivo = new FileInputStream(arquivoAlunos);
+               in = new ObjectInputStream(arquivo);
+               alunos = (ArrayList<dsproject.Aluno>)in.readObject();
                i = 0;
-               comboAddStudent.addItem("");
-               while(i < students.size())
+               comboAdicionarAluno.addItem("");
+               while(i < alunos.size())
                {
-                  comboAddStudent.addItem(students.get(i).getNome());
+                  comboAdicionarAluno.addItem(alunos.get(i).getNome());
                   i++;
                }
             }
@@ -723,27 +716,25 @@ public class ClassPanel extends javax.swing.JPanel {
             }
 
          }
-         setStudentAddedComboAddStudent(false);
-         setNumeroDeAlunosAdicionadosComboAddStudent(0);
+         setStudentAddedComboAdicionarAluno(false);
+         setNumeroDeAlunosAdicionadosComboAdicionarAluno(0);
       }
       else
       {
-         if(isStudentAddedComboAddStudent() && isNull != null)
+         if(isStudentAddedComboAdicionarAluno() && isNull != null)
          {
             //daqui até o catch le um objeto gravado no arquivo alunos.txt
-            File fileStudents = new File("alunos.txt");
-            if(fileStudents.exists())
+            if(arquivoAlunos.exists())
             {
-               FileInputStream file;
                try
                {
-                  file = new FileInputStream(fileStudents);
-                  in = new ObjectInputStream(file);
-                  students = (ArrayList<dsproject.Aluno>)in.readObject();
-                  i = (students.size() - getNumeroDeAlunosAdicionadosComboAddStudent());
-                  while(i < students.size())
+                  arquivo = new FileInputStream(arquivoAlunos);
+                  in = new ObjectInputStream(arquivo);
+                  alunos = (ArrayList<dsproject.Aluno>)in.readObject();
+                  i = (alunos.size() - getNumeroDeAlunosAdicionadosComboAdicionarAluno());
+                  while(i < alunos.size())
                   {
-                     comboAddStudent.addItem(students.get(i).getNome());
+                     comboAdicionarAluno.addItem(alunos.get(i).getNome());
                      i++;
                   }
                }
@@ -753,8 +744,8 @@ public class ClassPanel extends javax.swing.JPanel {
                }
 
             }
-            setStudentAddedComboAddStudent(false);
-            setNumeroDeAlunosAdicionadosComboAddStudent(0);
+            setStudentAddedComboAdicionarAluno(false);
+            setNumeroDeAlunosAdicionadosComboAdicionarAluno(0);
          }
          else
          {
@@ -763,19 +754,17 @@ public class ClassPanel extends javax.swing.JPanel {
                i = 0;
 
                //daqui até o catch le um objeto gravado no arquivo alunos.txt
-               File fileStudents = new File("alunos.txt");
-               if(fileStudents.exists())
+               if(arquivoAlunos.exists())
                {
-                  FileInputStream file;
                   try
                   {
-                     file = new FileInputStream(fileStudents);
-                     in = new ObjectInputStream(file);
-                     students = (ArrayList<dsproject.Aluno>)in.readObject();
-                     comboAddStudent.addItem("");
-                     while(i < students.size())
+                     arquivo = new FileInputStream(arquivoAlunos);
+                     in = new ObjectInputStream(arquivo);
+                     alunos = (ArrayList<dsproject.Aluno>)in.readObject();
+                     comboAdicionarAluno.addItem("");
+                     while(i < alunos.size())
                      {
-                        comboAddStudent.addItem(students.get(i).getNome());
+                        comboAdicionarAluno.addItem(alunos.get(i).getNome());
                         i++;
                      }
                   }
@@ -787,32 +776,33 @@ public class ClassPanel extends javax.swing.JPanel {
             }
          }
       }
-   }//GEN-LAST:event_comboAddStudentPopupMenuWillBecomeVisible
+   }//GEN-LAST:event_comboAdicionarAlunoPopupMenuWillBecomeVisible
 
-   private void comboStudentNamePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboStudentNamePopupMenuWillBecomeVisible
-   {//GEN-HEADEREND:event_comboStudentNamePopupMenuWillBecomeVisible
+   private void comboNomeDoAlunoPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboNomeDoAlunoPopupMenuWillBecomeVisible
+   {//GEN-HEADEREND:event_comboNomeDoAlunoPopupMenuWillBecomeVisible
       Object isNull;
-      isNull = comboStudentName.getItemAt(0);
+      isNull = comboNomeDoAluno.getItemAt(0);
       int i = 0;
-      ArrayList<dsproject.Aluno> students = null;
+      ArrayList<dsproject.Aluno> students;
+      File arquivoAlunos = new File("alunos.txt");
+      FileInputStream arquivo;
       ObjectInputStream in;
-      if(isStudentAddedComboStudentName() && isNull == null)
+      if(isStudentAddedComboNomeDoAluno() && isNull == null)
       {
          //daqui até o catch le um objeto gravado no arquivo alunos.txt
-         File fileStudents = new File("alunos.txt");
-         if(fileStudents.exists())
+         if(arquivoAlunos.exists())
          {
             FileInputStream file;
             try
             {
-               file = new FileInputStream(fileStudents);
+               file = new FileInputStream(arquivoAlunos);
                in = new ObjectInputStream(file);
                students = (ArrayList<dsproject.Aluno>)in.readObject();
                i = 0;
-               comboStudentName.addItem("");
+               comboNomeDoAluno.addItem("");
                while(i < students.size())
                {
-                  comboStudentName.addItem(students.get(i).getNome());
+                  comboNomeDoAluno.addItem(students.get(i).getNome());
                   i++;
                }
             }
@@ -822,27 +812,25 @@ public class ClassPanel extends javax.swing.JPanel {
             }
 
          }
-         setStudentAddedComboStudentName(false);
-         setNumeroDeAlunosAdicionadosComboStudentName(0);
+         setStudentAddedCombonomeDoAluno(false);
+         setNumeroDeAlunosAdicionadosComboNomeDoAluno(0);
       }
       else
       {
-         if(isStudentAddedComboStudentName() && isNull != null)
+         if(isStudentAddedComboNomeDoAluno() && isNull != null)
          {
             //daqui até o catch le um objeto gravado no arquivo alunos.txt
-            File fileStudents = new File("alunos.txt");
-            if(fileStudents.exists())
+            if(arquivoAlunos.exists())
             {
-               FileInputStream file;
                try
                {
-                  file = new FileInputStream(fileStudents);
-                  in = new ObjectInputStream(file);
+                  arquivo = new FileInputStream(arquivoAlunos);
+                  in = new ObjectInputStream(arquivo);
                   students = (ArrayList<dsproject.Aluno>)in.readObject();
-                  i = (students.size() - getNumeroDeAlunosAdicionadosComboStudentName());
+                  i = (students.size() - getNumeroDeAlunosAdicionadosComboNomeDoAluno());
                   while(i < students.size())
                   {
-                     comboStudentName.addItem(students.get(i).getNome());
+                     comboNomeDoAluno.addItem(students.get(i).getNome());
                      i++;
                   }
                }
@@ -852,8 +840,8 @@ public class ClassPanel extends javax.swing.JPanel {
                }
 
             }
-            setStudentAddedComboStudentName(false);
-            setNumeroDeAlunosAdicionadosComboStudentName(0);
+            setStudentAddedCombonomeDoAluno(false);
+            setNumeroDeAlunosAdicionadosComboNomeDoAluno(0);
          }
          else
          {
@@ -862,19 +850,17 @@ public class ClassPanel extends javax.swing.JPanel {
                i = 0;
 
                //daqui até o catch le um objeto gravado no arquivo alunos.txt
-               File fileStudents = new File("alunos.txt");
-               if(fileStudents.exists())
+               if(arquivoAlunos.exists())
                {
-                  FileInputStream file;
                   try
                   {
-                     file = new FileInputStream(fileStudents);
-                     in = new ObjectInputStream(file);
+                     arquivo = new FileInputStream(arquivoAlunos);
+                     in = new ObjectInputStream(arquivo);
                      students = (ArrayList<dsproject.Aluno>)in.readObject();
-                     comboStudentName.addItem("");
+                     comboNomeDoAluno.addItem("");
                      while(i < students.size())
                      {
-                        comboStudentName.addItem(students.get(i).getNome());
+                        comboNomeDoAluno.addItem(students.get(i).getNome());
                         i++;
                      }
                   }
@@ -886,19 +872,19 @@ public class ClassPanel extends javax.swing.JPanel {
             }
          }
       }
-   }//GEN-LAST:event_comboStudentNamePopupMenuWillBecomeVisible
+   }//GEN-LAST:event_comboNomeDoAlunoPopupMenuWillBecomeVisible
 
    private void listClassesPanelComponentShown(java.awt.event.ComponentEvent evt)//GEN-FIRST:event_listClassesPanelComponentShown
    {//GEN-HEADEREND:event_listClassesPanelComponentShown
       Object isNull;
       isNull = listaListaDeTurmas.getSize();
       int i = 0;
-      ArrayList<dsproject.Turma> turmas = null;
+      ArrayList<dsproject.Turma> turmas;
+      File arquivoTurmas = new File("turmas.txt");
       ObjectInputStream in;
       if(isTurmaAdicionada() && isNull == 0)
       {
          //daqui até o catch le um objeto gravado no arquivo turmas.txt
-         File arquivoTurmas = new File("turmas.txt");
          if(arquivoTurmas.exists())
          {
             FileInputStream file;
@@ -928,7 +914,6 @@ public class ClassPanel extends javax.swing.JPanel {
          if(isTurmaAdicionada() && isNull != 0)
          {
             //daqui até o catch le um objeto gravado no arquivo alunos.txt
-            File arquivoTurmas = new File("turmas.txt");
             if(arquivoTurmas.exists())
             {
                FileInputStream arquivo;
@@ -958,9 +943,7 @@ public class ClassPanel extends javax.swing.JPanel {
             if(isNull == 0)
             {
                i = 0;
-
                //daqui até o catch le um objeto gravado no arquivo alunos.txt
-               File arquivoTurmas = new File("turmas.txt");
                if(arquivoTurmas.exists())
                {
                   FileInputStream arquivo;
@@ -990,58 +973,58 @@ public class ClassPanel extends javax.swing.JPanel {
    }//GEN-LAST:event_listClassesPanelComponentShown
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
+   private static javax.swing.JButton botaoAdicionar;
+   private javax.swing.JButton botaoAdicionarEditarTurma;
    private javax.swing.JButton botaoCadastrar;
-   private static javax.swing.JButton buttonAdd;
+   private javax.swing.JButton botaoRemover;
+   private javax.swing.JButton botaoRemoverAluno;
+   private javax.swing.JButton botaoRemoverEditarTurma;
+   private javax.swing.JButton botaoSalvar;
    private javax.swing.ButtonGroup buttonGroup1;
-   private javax.swing.JButton buttonRemoveStudent;
-   private javax.swing.JLabel classLabel;
-   private javax.swing.JTextField classTextField3;
-   private static javax.swing.JComboBox comboAddStudent;
-   private static javax.swing.JComboBox comboStudent;
-   private javax.swing.JComboBox comboStudentName;
+   private static javax.swing.JTextField campoAnoLetivo;
+   private javax.swing.JTextField campoAnoLetivoEditarTurma;
+   private static javax.swing.JTextField campoTurma;
+   private static javax.swing.JComboBox comboAdicionarAluno;
+   private static javax.swing.JComboBox comboAluno;
+   private javax.swing.JComboBox comboNomeDoAluno;
+   private javax.swing.JComboBox comboRemoverAluno;
+   private javax.swing.JComboBox comboTurma;
+   private javax.swing.JComboBox comboTurmaEditarTurma;
    private javax.swing.JPanel deleteClassPanel;
    private javax.swing.JPanel editClassPanel;
-   private static javax.swing.JTextField fieldClass;
-   private static javax.swing.JTextField fieldSchoolYear;
    private javax.swing.JPanel findClassPanel;
-   private javax.swing.JButton jButton3;
-   private javax.swing.JButton jButton4;
-   private javax.swing.JButton jButton5;
-   private javax.swing.JButton jButton6;
-   private javax.swing.JComboBox jComboBox2;
-   private javax.swing.JComboBox jComboBox4;
-   private javax.swing.JComboBox jComboBox5;
-   private javax.swing.JLabel jLabel10;
    private javax.swing.JLabel jLabel2;
    private javax.swing.JLabel jLabel4;
-   private javax.swing.JLabel jLabel5;
-   private javax.swing.JLabel jLabel7;
    private javax.swing.JLabel jLabel8;
    private javax.swing.JLabel jLabel9;
    private javax.swing.JScrollPane jScrollPane1;
    private javax.swing.JScrollPane jScrollPane2;
    private javax.swing.JSeparator jSeparator1;
    private javax.swing.JTabbedPane jTabbedPane1;
-   private static javax.swing.JLabel labelClass;
-   private static javax.swing.JLabel labelSchoolYear;
-   private javax.swing.JLabel labelStudent;
+   private javax.swing.JLabel labelAluno;
+   private static javax.swing.JLabel labelAnoLetivo;
+   private javax.swing.JLabel labelAnoLetivoEditarTurma;
+   private javax.swing.JLabel labelNomeDoAluno;
+   private static javax.swing.JLabel labelTurma;
+   private javax.swing.JLabel labelTurmaBuscarTurmaPorAluno;
+   private javax.swing.JLabel labelTurmaEditarTurma;
+   private javax.swing.JLabel labelTurmaRemoverTurma;
    private javax.swing.JPanel listClassesPanel;
-   private static javax.swing.JList listStudentsEnrolled;
+   private static javax.swing.JList listaAlunosMatriculadosNaTurma;
    private javax.swing.JList listaDeTurmas;
-   private javax.swing.JLabel nameStudentClassLabel;
    private javax.swing.JPanel newClassPanel;
    private javax.swing.JLabel returnClassLabel;
    // End of variables declaration//GEN-END:variables
    private static DefaultListModel listaAlunosMatriculados;
    private static DefaultListModel listaListaDeTurmas;
-   private static boolean studentAddedComboStudent;
-   private static boolean studentAddedComboStudentName;
-   private static boolean studentAddedComboAddStudent;
+   private static boolean alunoAdicionadoComboAluno;
+   private static boolean alunoAdicionadoComboNomeDoAluno;
+   private static boolean alunoAdicionadoComboAdicionarAluno;
    private static boolean turmaAdicionada;
    private static int numeroDeTurmasAdicionadas = 0;
-   private static int numeroDeAlunosAdicionadosComboStudent = 0;
-   private static int numeroDeAlunosAdicionadosComboStudentName = 0;
-   private static int numeroDeAlunosAdicionadosComboAddStudent = 0;
+   private static int numeroDeAlunosAdicionadosComboAluno = 0;
+   private static int numeroDeAlunosAdicionadosComboNomeDoAluno = 0;
+   private static int numeroDeAlunosAdicionadosComboAdicionarAluno = 0;
 
    public static boolean isTurmaAdicionada()
    {
@@ -1063,89 +1046,89 @@ public class ClassPanel extends javax.swing.JPanel {
       ClassPanel.numeroDeTurmasAdicionadas = numeroDeTurmasAdicionadas;
    }
    
-   public static int getNumeroDeAlunosAdicionadosComboStudent()
+   public static int getNumeroDeAlunosAdicionadosComboAluno()
    {
-      return numeroDeAlunosAdicionadosComboStudent;
+      return numeroDeAlunosAdicionadosComboAluno;
    }
 
-   public static void setNumeroDeAlunosAdicionadosComboStudent(int numeroDeAlunosAdicionadosComboStudent)
+   public static void setNumeroDeAlunosAdicionadosComboAluno(int numeroDeAlunosAdicionadosComboStudent)
    {
-      ClassPanel.numeroDeAlunosAdicionadosComboStudent = numeroDeAlunosAdicionadosComboStudent;
+      ClassPanel.numeroDeAlunosAdicionadosComboAluno = numeroDeAlunosAdicionadosComboStudent;
    }
 
-   public static int getNumeroDeAlunosAdicionadosComboStudentName()
+   public static int getNumeroDeAlunosAdicionadosComboNomeDoAluno()
    {
-      return numeroDeAlunosAdicionadosComboStudentName;
+      return numeroDeAlunosAdicionadosComboNomeDoAluno;
    }
 
-   public static void setNumeroDeAlunosAdicionadosComboStudentName(int numeroDeAlunosAdicionadosComboStudentName)
+   public static void setNumeroDeAlunosAdicionadosComboNomeDoAluno(int numeroDeAlunosAdicionadosComboStudentName)
    {
-      ClassPanel.numeroDeAlunosAdicionadosComboStudentName = numeroDeAlunosAdicionadosComboStudentName;
+      ClassPanel.numeroDeAlunosAdicionadosComboNomeDoAluno = numeroDeAlunosAdicionadosComboStudentName;
    }
 
-   public static int getNumeroDeAlunosAdicionadosComboAddStudent()
+   public static int getNumeroDeAlunosAdicionadosComboAdicionarAluno()
    {
-      return numeroDeAlunosAdicionadosComboAddStudent;
+      return numeroDeAlunosAdicionadosComboAdicionarAluno;
    }
 
-   public static void setNumeroDeAlunosAdicionadosComboAddStudent(int numeroDeAlunosAdicionadosComboAddStudent)
+   public static void setNumeroDeAlunosAdicionadosComboAdicionarAluno(int numeroDeAlunosAdicionadosComboAddStudent)
    {
-      ClassPanel.numeroDeAlunosAdicionadosComboAddStudent = numeroDeAlunosAdicionadosComboAddStudent;
+      ClassPanel.numeroDeAlunosAdicionadosComboAdicionarAluno = numeroDeAlunosAdicionadosComboAddStudent;
    }
    
-   public static boolean isStudentAddedComboStudent()
+   public static boolean isStudentAddedComboAluno()
    {
-      return studentAddedComboStudent;
+      return alunoAdicionadoComboAluno;
    }
 
-   public static boolean isStudentAddedComboStudentName()
+   public static boolean isStudentAddedComboNomeDoAluno()
    {
-      return studentAddedComboStudentName;
+      return alunoAdicionadoComboNomeDoAluno;
    }
 
-   public static boolean isStudentAddedComboAddStudent()
+   public static boolean isStudentAddedComboAdicionarAluno()
    {
-      return studentAddedComboAddStudent;
+      return alunoAdicionadoComboAdicionarAluno;
    }
 
-   public static void setStudentAddedComboStudentName(boolean studentAddedComboStudentName)
+   public static void setStudentAddedCombonomeDoAluno(boolean studentAddedComboStudentName)
    {
-      ClassPanel.studentAddedComboStudentName = studentAddedComboStudentName;
+      ClassPanel.alunoAdicionadoComboNomeDoAluno = studentAddedComboStudentName;
    }
 
-   public static void setStudentAddedComboAddStudent(boolean studentAddedComboAddStudent)
+   public static void setStudentAddedComboAdicionarAluno(boolean studentAddedComboAddStudent)
    {
-      ClassPanel.studentAddedComboAddStudent = studentAddedComboAddStudent;
+      ClassPanel.alunoAdicionadoComboAdicionarAluno = studentAddedComboAddStudent;
    }
    
-   public static void setStudentAddedComboStudent(boolean studentAdded)
+   public static void setStudentAddedComboAluno(boolean studentAdded)
    {
-      ClassPanel.studentAddedComboStudent = studentAdded;
+      ClassPanel.alunoAdicionadoComboAluno = studentAdded;
    }
 
-   public static String getFieldClass()
+   public static String getCampoTurma()
    {
-      if(fieldClass.getText().isEmpty())
+      if(campoTurma.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite um nome para a " + labelClass.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         JOptionPane.showMessageDialog(null, "Digite um nome para a " + labelTurma.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
       }
       else
       {
-         return fieldClass.getText();
+         return campoTurma.getText();
       }
    }
 
-   public static String getFieldSchoolYear()
+   public static String getCampoAnoLetivo()
    {
-      if(fieldSchoolYear.getText().isEmpty())
+      if(campoAnoLetivo.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite um " + labelSchoolYear.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         JOptionPane.showMessageDialog(null, "Digite um " + labelAnoLetivo.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
       }
       else
       {
-         return fieldSchoolYear.getText();
+         return campoAnoLetivo.getText();
       }
    }
    

@@ -108,13 +108,13 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="labelClass" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelTurma" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              <Component id="fieldClass" min="-2" pref="77" max="-2" attributes="0"/>
+                              <Component id="campoTurma" min="-2" pref="77" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                              <Component id="labelSchoolYear" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelAnoLetivo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="fieldSchoolYear" min="-2" pref="77" max="-2" attributes="0"/>
+                              <Component id="campoAnoLetivo" min="-2" pref="77" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
@@ -125,11 +125,11 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                      <Component id="labelStudent" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelAluno" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="comboStudent" min="-2" pref="400" max="-2" attributes="0"/>
+                                      <Component id="comboAluno" min="-2" pref="400" max="-2" attributes="0"/>
                                       <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                                      <Component id="buttonAdd" min="-2" max="-2" attributes="0"/>
+                                      <Component id="botaoAdicionar" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -139,7 +139,7 @@
                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="buttonRemoveStudent" min="-2" max="-2" attributes="0"/>
+                                      <Component id="botaoRemoverAluno" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="botaoCadastrar" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -156,10 +156,10 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelClass" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelSchoolYear" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="fieldSchoolYear" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="fieldClass" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelTurma" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelAnoLetivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="campoAnoLetivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="campoTurma" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
@@ -167,9 +167,9 @@
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="comboStudent" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonAdd" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelStudent" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboAluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoAdicionar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelAluno" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
@@ -178,7 +178,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="botaoCadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="buttonRemoveStudent" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoRemoverAluno" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -193,30 +193,30 @@
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator1">
             </Component>
-            <Component class="javax.swing.JLabel" name="labelStudent">
+            <Component class="javax.swing.JLabel" name="labelAluno">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Aluno"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="comboStudent">
+            <Component class="javax.swing.JComboBox" name="comboAluno">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="popupMenuWillBecomeVisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="comboStudentPopupMenuWillBecomeVisible"/>
+                <EventHandler event="popupMenuWillBecomeVisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="comboAlunoPopupMenuWillBecomeVisible"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonAdd">
+            <Component class="javax.swing.JButton" name="botaoAdicionar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Adicionar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoAdicionarActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
@@ -234,7 +234,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JList" name="listStudentsEnrolled">
+                <Component class="javax.swing.JList" name="listaAlunosMatriculadosNaTurma">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="f0" green="f0" red="f0" type="rgb"/>
@@ -254,7 +254,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="labelClass">
+            <Component class="javax.swing.JLabel" name="labelTurma">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Turma"/>
               </Properties>
@@ -262,12 +262,12 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="fieldClass">
+            <Component class="javax.swing.JTextField" name="campoTurma">
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="labelSchoolYear">
+            <Component class="javax.swing.JLabel" name="labelAnoLetivo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ano Letivo"/>
               </Properties>
@@ -275,9 +275,9 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="fieldSchoolYear">
+            <Component class="javax.swing.JTextField" name="campoAnoLetivo">
               <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fieldSchoolYearKeyTyped"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoAnoLetivoKeyTyped"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
@@ -291,12 +291,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCadastrarActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="buttonRemoveStudent">
+            <Component class="javax.swing.JButton" name="botaoRemoverAluno">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Remover Aluno"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRemoveStudentActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoRemoverAlunoActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -320,27 +320,27 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton3" alignment="1" min="-2" pref="85" max="-2" attributes="1"/>
-                                  <Component id="jButton4" alignment="1" min="-2" pref="87" max="-2" attributes="0"/>
-                                  <Component id="jButton5" alignment="1" min="-2" pref="85" max="-2" attributes="1"/>
+                                  <Component id="botaoRemoverEditarTurma" alignment="1" min="-2" pref="85" max="-2" attributes="1"/>
+                                  <Component id="botaoAdicionarEditarTurma" alignment="1" min="-2" pref="87" max="-2" attributes="0"/>
+                                  <Component id="botaoSalvar" alignment="1" min="-2" pref="85" max="-2" attributes="1"/>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="comboAddStudent" alignment="0" pref="544" max="32767" attributes="0"/>
-                                          <Component id="jComboBox4" alignment="0" pref="544" max="32767" attributes="0"/>
+                                          <Component id="comboAdicionarAluno" alignment="0" pref="544" max="32767" attributes="0"/>
+                                          <Component id="comboRemoverAluno" alignment="0" pref="544" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelTurmaEditarTurma" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Component id="jComboBox2" min="-2" pref="109" max="-2" attributes="0"/>
+                              <Component id="comboTurmaEditarTurma" min="-2" pref="109" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelAnoLetivoEditarTurma" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              <Component id="classTextField3" min="-2" pref="85" max="-2" attributes="0"/>
+                              <Component id="campoAnoLetivoEditarTurma" min="-2" pref="85" max="-2" attributes="0"/>
                               <EmptySpace pref="137" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -352,82 +352,82 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="classTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelTurmaEditarTurma" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboTurmaEditarTurma" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelAnoLetivoEditarTurma" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="campoAnoLetivoEditarTurma" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="comboAddStudent" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboAdicionarAluno" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                      <Component id="botaoAdicionarEditarTurma" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jComboBox4" min="-2" max="-2" attributes="0"/>
+                      <Component id="comboRemoverAluno" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botaoRemoverEditarTurma" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="48" max="32767" attributes="0"/>
-                      <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                      <Component id="botaoSalvar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="labelTurmaEditarTurma">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Turma"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox2">
+            <Component class="javax.swing.JComboBox" name="comboTurmaEditarTurma">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel7">
+            <Component class="javax.swing.JLabel" name="labelAnoLetivoEditarTurma">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ano Letivo"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="classTextField3">
+            <Component class="javax.swing.JTextField" name="campoAnoLetivoEditarTurma">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Adicionar Aluno"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="comboAddStudent">
+            <Component class="javax.swing.JComboBox" name="comboAdicionarAluno">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="popupMenuWillBecomeVisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="comboAddStudentPopupMenuWillBecomeVisible"/>
+                <EventHandler event="popupMenuWillBecomeVisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="comboAdicionarAlunoPopupMenuWillBecomeVisible"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="botaoRemoverEditarTurma">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Remover"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton4">
+            <Component class="javax.swing.JButton" name="botaoAdicionarEditarTurma">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Adicionar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoAdicionarEditarTurmaActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox4">
+            <Component class="javax.swing.JComboBox" name="comboRemoverAluno">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
@@ -439,7 +439,7 @@
                 <Property name="text" type="java.lang.String" value=" Remover Aluno"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
+            <Component class="javax.swing.JButton" name="botaoSalvar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salvar"/>
               </Properties>
@@ -462,9 +462,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="nameStudentClassLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelNomeDoAluno" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="comboStudentName" min="-2" pref="383" max="-2" attributes="0"/>
+                              <Component id="comboNomeDoAluno" min="-2" pref="383" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
@@ -472,7 +472,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="classLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelTurmaBuscarTurmaPorAluno" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="60" max="32767" attributes="0"/>
@@ -484,13 +484,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="nameStudentClassLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="comboStudentName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelNomeDoAluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboNomeDoAluno" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="returnClassLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="classLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelTurmaBuscarTurmaPorAluno" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="287" max="32767" attributes="0"/>
                   </Group>
@@ -498,22 +498,22 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="nameStudentClassLabel">
+            <Component class="javax.swing.JLabel" name="labelNomeDoAluno">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nome do Aluno"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="comboStudentName">
+            <Component class="javax.swing.JComboBox" name="comboNomeDoAluno">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="popupMenuWillBecomeVisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="comboStudentNamePopupMenuWillBecomeVisible"/>
+                <EventHandler event="popupMenuWillBecomeVisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="comboNomeDoAlunoPopupMenuWillBecomeVisible"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="classLabel">
+            <Component class="javax.swing.JLabel" name="labelTurmaBuscarTurmaPorAluno">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Turma"/>
               </Properties>
@@ -536,14 +536,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelTurmaRemoverTurma" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="jComboBox5" min="-2" pref="112" max="-2" attributes="0"/>
+                      <Component id="comboTurma" min="-2" pref="112" max="-2" attributes="0"/>
                       <EmptySpace pref="359" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="446" max="32767" attributes="0"/>
-                      <Component id="jButton6" min="-2" pref="86" max="-2" attributes="0"/>
+                      <Component id="botaoRemover" min="-2" pref="86" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -553,30 +553,30 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBox5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelTurmaRemoverTurma" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboTurma" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                      <Component id="botaoRemover" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="305" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel10">
+            <Component class="javax.swing.JLabel" name="labelTurmaRemoverTurma">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Turma"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox5">
+            <Component class="javax.swing.JComboBox" name="comboTurma">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton6">
+            <Component class="javax.swing.JButton" name="botaoRemover">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Remover"/>
               </Properties>
