@@ -62,7 +62,7 @@ public class StudentPanel extends javax.swing.JPanel {
       fieldAddress = new javax.swing.JTextField();
       fieldCellPhone = new javax.swing.JTextField();
       fieldEmail = new javax.swing.JTextField();
-      buttonRegister = new javax.swing.JButton();
+      botaoCadastrar = new javax.swing.JButton();
       fieldDateOfBirth = new javax.swing.JTextField();
       labelGender = new javax.swing.JLabel();
       comboGender = new javax.swing.JComboBox();
@@ -117,12 +117,12 @@ public class StudentPanel extends javax.swing.JPanel {
 
       fieldName.setToolTipText("teste");
 
-      buttonRegister.setText("Cadastrar");
-      buttonRegister.addActionListener(new java.awt.event.ActionListener()
+      botaoCadastrar.setText("Cadastrar");
+      botaoCadastrar.addActionListener(new java.awt.event.ActionListener()
       {
          public void actionPerformed(java.awt.event.ActionEvent evt)
          {
-            buttonRegisterActionPerformed(evt);
+            botaoCadastrarActionPerformed(evt);
          }
       });
 
@@ -151,7 +151,7 @@ public class StudentPanel extends javax.swing.JPanel {
             .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(newStudentPanelLayout.createSequentialGroup()
                   .addGap(0, 527, Short.MAX_VALUE)
-                  .addComponent(buttonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                  .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                .addGroup(newStudentPanelLayout.createSequentialGroup()
                   .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                      .addComponent(labelName)
@@ -229,7 +229,7 @@ public class StudentPanel extends javax.swing.JPanel {
                .addComponent(fieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                .addComponent(labelEmail))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-            .addComponent(buttonRegister)
+            .addComponent(botaoCadastrar)
             .addContainerGap())
       );
 
@@ -436,8 +436,8 @@ public class StudentPanel extends javax.swing.JPanel {
       );
    }// </editor-fold>//GEN-END:initComponents
 
-   private void buttonRegisterActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_buttonRegisterActionPerformed
-   {//GEN-HEADEREND:event_buttonRegisterActionPerformed
+   private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botaoCadastrarActionPerformed
+   {//GEN-HEADEREND:event_botaoCadastrarActionPerformed
       ArrayList<String> months = new ArrayList<>();
       months.add("Janeiro");
       months.add("Fevereiro");
@@ -463,7 +463,7 @@ public class StudentPanel extends javax.swing.JPanel {
       String celular = getFieldCellPhone();
       String email = getFieldEmail();
       SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
-      ArrayList<dsproject.Aluno> students = new ArrayList<>();
+      ArrayList<dsproject.Aluno> students;
       ObjectInputStream in;
       ObjectOutputStream out;
       
@@ -579,15 +579,19 @@ public class StudentPanel extends javax.swing.JPanel {
                                                             {
                                                                student = new Aluno(nomeDaMae, nomeDoPai, null, telefone, null, null, nome, birthday, genero, endereco, cidade, estado);
                                                             }
+                                                            else
+                                                            {
+                                                               student = new Aluno(nomeDaMae, nomeDoPai, null, telefone, celular, email, nome, birthday, genero, endereco, cidade, estado);
+                                                            }
                                                          }
                                                       }
                                                    }
                                                 }
-                                                File fileStudents = new File("alunos.txt");
-                                                if(fileStudents.exists())
+                                                File arquivoAlunos = new File("alunos.txt");
+                                                if(arquivoAlunos.exists())
                                                 {
-                                                   FileInputStream file = new FileInputStream(fileStudents);
-                                                   in = new ObjectInputStream(file);
+                                                   FileInputStream arquivo = new FileInputStream(arquivoAlunos);
+                                                   in = new ObjectInputStream(arquivo);
                                                    students = (ArrayList<Aluno>)in.readObject();
                                                    students.add(student);
                                                    out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
@@ -611,6 +615,7 @@ public class StudentPanel extends javax.swing.JPanel {
                                                 }
                                                 else
                                                 {
+                                                   students = new ArrayList<>();
                                                    students.add(student);
                                                    out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
                                                    out.writeObject(students);
@@ -716,15 +721,19 @@ public class StudentPanel extends javax.swing.JPanel {
                                                          {
                                                             student = new Aluno(nomeDaMae, nomeDoPai, null, telefone, null, null, nome, birthday, genero, endereco, cidade, estado);
                                                          }
+                                                         else
+                                                         {
+                                                            student = new Aluno(nomeDaMae, nomeDoPai, null, telefone, celular, email, nome, birthday, genero, endereco, cidade, estado);
+                                                         }
                                                       }
                                                    }
                                                 }
                                              }
-                                             File fileStudents = new File("alunos.txt");
-                                             if(fileStudents.exists())
+                                             File arquivoAluno = new File("alunos.txt");
+                                             if(arquivoAluno.exists())
                                              {
-                                                FileInputStream file = new FileInputStream(fileStudents);
-                                                in = new ObjectInputStream(file);
+                                                FileInputStream arquivo = new FileInputStream(arquivoAluno);
+                                                in = new ObjectInputStream(arquivo);
                                                 students = (ArrayList<Aluno>)in.readObject();
                                                 students.add(student);
                                                 out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
@@ -748,6 +757,7 @@ public class StudentPanel extends javax.swing.JPanel {
                                              }
                                              else
                                              {
+                                                students = new ArrayList<>();
                                                 students.add(student);
                                                 out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
                                                 out.writeObject(students);
@@ -786,7 +796,7 @@ public class StudentPanel extends javax.swing.JPanel {
             }
          }
       }
-   }//GEN-LAST:event_buttonRegisterActionPerformed
+   }//GEN-LAST:event_botaoCadastrarActionPerformed
 
    private void fieldDateOfBirthKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldDateOfBirthKeyTyped
    {//GEN-HEADEREND:event_fieldDateOfBirthKeyTyped
@@ -817,7 +827,7 @@ public class StudentPanel extends javax.swing.JPanel {
       Object isNull;
       isNull = comboNome.getItemAt(0);
       int i = 0;
-      ArrayList<Aluno> students = null;
+      ArrayList<dsproject.Aluno> students;
       ObjectInputStream in;
       if(isStudentAddedComboStudent() && isNull == null)
       {
@@ -830,12 +840,12 @@ public class StudentPanel extends javax.swing.JPanel {
             {
                file = new FileInputStream(fileStudents);
                in = new ObjectInputStream(file);
-               students = (ArrayList<Aluno>)in.readObject();
+               students = (ArrayList<dsproject.Aluno>)in.readObject();
                i = 0;
                comboNome.addItem("");
                while(i < students.size())
                {
-                  comboNome.addItem(students.get(i).getName());
+                  comboNome.addItem(students.get(i).getNome());
                   i++;
                }
             }
@@ -865,7 +875,7 @@ public class StudentPanel extends javax.swing.JPanel {
                   i = (students.size() - getNumeroDeAlunosAdicionadosComboStudent());
                   while(i < students.size())
                   {
-                     comboNome.addItem(students.get(i).getName());
+                     comboNome.addItem(students.get(i).getNome());
                      i++;
                   }
                }
@@ -897,7 +907,7 @@ public class StudentPanel extends javax.swing.JPanel {
                      comboNome.addItem("");
                      while(i < students.size())
                      {
-                        comboNome.addItem(students.get(i).getName());
+                        comboNome.addItem(students.get(i).getNome());
                         i++;
                      }
                   }
@@ -934,7 +944,7 @@ public class StudentPanel extends javax.swing.JPanel {
                comboName.addItem("");
                while(i < students.size())
                {
-                  comboName.addItem(students.get(i).getName());
+                  comboName.addItem(students.get(i).getNome());
                   i++;
                }
             }
@@ -964,7 +974,7 @@ public class StudentPanel extends javax.swing.JPanel {
                   i = (students.size() - getNumeroDeAlunosAdicionadosComboName());
                   while(i < students.size())
                   {
-                     comboName.addItem(students.get(i).getName());
+                     comboName.addItem(students.get(i).getNome());
                      i++;
                   }
                }
@@ -996,7 +1006,7 @@ public class StudentPanel extends javax.swing.JPanel {
                      comboName.addItem("");
                      while(i < students.size())
                      {
-                        comboName.addItem(students.get(i).getName());
+                        comboName.addItem(students.get(i).getNome());
                         i++;
                      }
                   }
@@ -1036,13 +1046,13 @@ public class StudentPanel extends javax.swing.JPanel {
                   students = (ArrayList<Aluno>)in.readObject();
                   for(i = 0; i < students.size(); i++)
                   {
-                     if(students.get(i).getName().equals(evt.getItem().toString()))
+                     if(students.get(i).getNome().equals(evt.getItem().toString()))
                      {
-                        campoDataDeNascimento.setText(sd.format(students.get(i).getDateOfBirth()).toString());
-                        comboGenero.setSelectedItem(students.get(i).getGender());
-                        campoEndereco.setText(students.get(i).getAddress());
-                        campoCidade.setText(students.get(i).getCity());
-                        campoEstado.setText(students.get(i).getState());
+                        campoDataDeNascimento.setText(sd.format(students.get(i).getDataDeNascimento()).toString());
+                        comboGenero.setSelectedItem(students.get(i).getGenero());
+                        campoEndereco.setText(students.get(i).getEndereco());
+                        campoCidade.setText(students.get(i).getCidade());
+                        campoEstado.setText(students.get(i).getEstado());
                         campoNomeDaMae.setText(students.get(i).getNomeDaMae());
                         campoNomeDoPai.setText(students.get(i).getNomeDoPai());
                         campoTelefone.setText(students.get(i).getTelefone());
@@ -1062,7 +1072,7 @@ public class StudentPanel extends javax.swing.JPanel {
 
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
-   private javax.swing.JButton buttonRegister;
+   private javax.swing.JButton botaoCadastrar;
    private javax.swing.JTextField campoCelular;
    private javax.swing.JTextField campoCidade;
    private javax.swing.JTextField campoDataDeNascimento;

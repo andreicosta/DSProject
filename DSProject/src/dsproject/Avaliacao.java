@@ -32,10 +32,10 @@ public class Avaliacao implements Serializable
    private float corrida20Metros; //tempo do percurso em segundos e centésimos de segundos (duas casas após a vírgula).
    
 
-   public Avaliacao(java.sql.Date data, String horario, String temperatura)
+   public Avaliacao(java.sql.Date dataDaAvaliacao, String horaDaAvaliacao, String temperatura)
    {
-      this.data = data;
-      this.horario = horario;
+      this.data = dataDaAvaliacao;
+      this.horario = horaDaAvaliacao;
       this.temperatura = temperatura;
    }
 

@@ -15,7 +15,7 @@ public class Aluno extends Pessoa implements Serializable
    private String telefone;
    private String celular;
    private String email;
-   private ArrayList<Avaliacao> tests;
+   private ArrayList<Avaliacao> avaliacoes;
 
    public Aluno(String nomeDaMae, String nomeDoPai, String nome, java.sql.Date dataDeNascimento,
                 String genero, String endereco, String cidade, String estado)
@@ -27,7 +27,7 @@ public class Aluno extends Pessoa implements Serializable
       this.telefone = null;
       this.celular = null;
       this.email = null;
-      this.tests = new ArrayList<>();
+      this.avaliacoes = new ArrayList<>();
    }
 
    public Aluno(String nomeDaMae, String nomeDoPai, String turmaId, String telefone, String celular, String email, 
@@ -40,16 +40,16 @@ public class Aluno extends Pessoa implements Serializable
       this.telefone = telefone;
       this.celular = celular;
       this.email = email;
-      this.tests = new ArrayList<>();
+      this.avaliacoes = new ArrayList<>();
    }
    
    
 
-   public boolean saveTest(java.sql.Date testDate, String time, String temperature)
+   public boolean salvaAvaliacao(java.sql.Date dataDaAvaliacao, String horaDaAvaliacao, String temperatura)
    {
       SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
 
-      Avaliacao test = new Avaliacao(testDate, time, temperature);
+      Avaliacao test = new Avaliacao(dataDaAvaliacao, horaDaAvaliacao, temperatura);
 
       /* aqui tem que fazer um teste para ver se o campo do teste correspondente na interface não é nulo
        * caso seja nulo entao deve colocar o teste como não feito ou não preenchido.
@@ -184,7 +184,7 @@ public class Aluno extends Pessoa implements Serializable
       System.out.println("arremesso medicine ball = " + test.getArremessoMedicineBall() + "cm");
       System.out.println("teste do quadrado = " + test.getTesteDoQuadrado());
       System.out.println("corrida de 20 metros = " + test.getCorrida20Metros());
-      this.setTests(test);
+      this.setAvaliacoes(test);
 
       return true;
    }
@@ -219,9 +219,9 @@ public class Aluno extends Pessoa implements Serializable
       return nomeDoPai;
    }
 
-   public ArrayList<Avaliacao> getTestes()
+   public ArrayList<Avaliacao> getAvaliacoes()
    {
-      return tests;
+      return avaliacoes;
    }
 
    public void setTurmaId(String turmaId)
@@ -229,8 +229,8 @@ public class Aluno extends Pessoa implements Serializable
       this.turmaId = turmaId;
    }
 
-   public void setTests(Avaliacao test)
+   public void setAvaliacoes(Avaliacao avaliacao)
    {
-      this.tests.add(test);
+      this.avaliacoes.add(avaliacao);
    }
 }

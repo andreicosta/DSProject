@@ -71,7 +71,7 @@ public class Turma implements Serializable, Cloneable
    {
       for (int i = 0; i < alunos.size(); i++)
       {
-         if (alunos.get(i).getName().equals(aluno.getName()))
+         if (alunos.get(i).getNome().equals(aluno.getNome()))
             return i;
       }
       return -1;

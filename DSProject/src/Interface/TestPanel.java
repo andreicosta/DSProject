@@ -619,7 +619,7 @@ public class TestPanel extends javax.swing.JPanel
       java.sql.Date sqlTestDate = null;
       String timeOfTest = null;
       String temperature;
-      String birthday = "13/04/1999"; //aqui vai Aluno.getDateOfBirth()
+      String birthday = "13/04/1999"; //aqui vai Aluno.getDataDeNascimento()
       SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
       SimpleDateFormat sh = new SimpleDateFormat("HH:mm");
       
@@ -638,7 +638,7 @@ public class TestPanel extends javax.swing.JPanel
             in = new ObjectInputStream(file);
             students = (ArrayList<Aluno>)in.readObject();
             for(int i = 0; i < students.size(); i++)
-               System.out.println(students.get(i).getName());
+               System.out.println(students.get(i).getNome());
             in.close();
             file.close();
          }
@@ -650,11 +650,11 @@ public class TestPanel extends javax.swing.JPanel
       
       //imprime objeto lido do arquivo alunos.txt
       
-      /*System.out.println(studentRead.getDateOfBirth());
-      System.out.println(studentRead.getAddress());
-      System.out.println(studentRead.getGender());
-      System.out.println(studentRead.getCity());
-      System.out.println(studentRead.getState());
+      /*System.out.println(studentRead.getDataDeNascimento());
+      System.out.println(studentRead.getEndereco());
+      System.out.println(studentRead.getGenero());
+      System.out.println(studentRead.getCidade());
+      System.out.println(studentRead.getEstado());
       System.out.println(studentRead.getNomeDoPai());
       System.out.println(studentRead.getNomeDaMae());*/
 
@@ -699,7 +699,7 @@ public class TestPanel extends javax.swing.JPanel
                      time = sh.parse(timeOfTest);
 
                      dsproject.Aluno student = new dsproject.Aluno("Maria", "Joao", "Miguel", sqlDateOfBirth, "sdfgdfsg", "Masculino", "Pelotas", "RS");
-                     if(student.saveTest(sqlTestDate, timeOfTest, temperature))
+                     if(student.salvaAvaliacao(sqlTestDate, timeOfTest, temperature))
                      {
                         // daqui até o catch salva objeto aluno
                         try

@@ -12,51 +12,51 @@ import java.io.Serializable;
  */
 public abstract class Pessoa implements Serializable
 {
-   private String name;
-   private java.util.Date dateOfBirth;
-   private String gender;
-   private String address;
-   private String city;
-   private String state;
+   private String nome;
+   private java.util.Date dataDenascimento;
+   private String genero;
+   private String endereco;
+   private String cidade;
+   private String estado;
 
-   public Pessoa(String name, java.util.Date dateOfBirth, String gender, String address, String city, 
-                 String state)
+   public Pessoa(String nome, java.util.Date dataDeNascimento, String genero, String endereco, String cidade, 
+                 String estado)
    {
-      this.name = name;
-      this.dateOfBirth = dateOfBirth;
-      this.gender = gender;
-      this.address = address;
-      this.city = city;
-      this.state = state;
+      this.nome = nome;
+      this.dataDenascimento = dataDeNascimento;
+      this.genero = genero;
+      this.endereco = endereco;
+      this.cidade = cidade;
+      this.estado = estado;
    }
 
-   public String getName()
+   public String getNome()
    {
-      return name;
+      return nome;
    }
    
-   public java.util.Date getDateOfBirth()
+   public java.util.Date getDataDeNascimento()
    {
-      return dateOfBirth;
+      return dataDenascimento;
    }
 
-   public String getAddress()
+   public String getEndereco()
    {
-      return address;
+      return endereco;
    }
 
-   public String getGender()
+   public String getGenero()
    {
-      return gender;
+      return genero;
    }
 
-   public String getCity()
+   public String getCidade()
    {
-      return city;
+      return cidade;
    }
 
-   public String getState()
+   public String getEstado()
    {
-      return state;
+      return estado;
    }
 }
