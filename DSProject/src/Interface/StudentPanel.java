@@ -21,6 +21,7 @@ import java.io.ObjectOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 
 /**
@@ -480,8 +481,8 @@ public class StudentPanel extends javax.swing.JPanel {
          {
             if(dataDeNascimento.length() != 10)
             {
-               JOptionPane.showMessageDialog(null, "Digite uma " + labelDataDeNascimentoCadastrarAluno.getText() + " no formato dd/mm/aaaa", 
-                                             "Erro", JOptionPane.ERROR_MESSAGE);
+               JOptionPane.showMessageDialog(null, "Digite uma " + labelDataDeNascimentoCadastrarAluno.getText() + 
+						   " no formato dd/mm/aaaa", "Erro", JOptionPane.ERROR_MESSAGE);
                labelDataDeNascimentoCadastrarAluno.setForeground(Color.red);
             }
             else
@@ -503,177 +504,192 @@ public class StudentPanel extends javax.swing.JPanel {
                   {
                      if(Integer.parseInt(splitedDateOfBirth[0]) > 28)
                      {
-                        int answer = JOptionPane.showConfirmDialog(null, months.get(Integer.parseInt(splitedDateOfBirth[1]) - 1)
-                                                                     + " realmente tem " + splitedDateOfBirth[0] + " dias?", "Aviso", JOptionPane.YES_NO_OPTION);
-                        if(answer == JOptionPane.CLOSED_OPTION || answer == JOptionPane.NO_OPTION)
-                        {
-                           System.err.println("Não foi confirmado se " + months.get(Integer.parseInt(splitedDateOfBirth[1]) - 1)
-                                                + " tem " + splitedDateOfBirth[0] + " dias");
-                           labelDataDeNascimentoCadastrarAluno.setForeground(Color.red);
-                        }
-                        else
-                        {
-                           if(genero == null)
-                           {
-                              System.err.println("Gênero faltando");
-                           }
-                           else
-                           {
-                              if(endereco == null)
-                              {
-                                 System.err.println("Endereço faltando");
-                              }
-                              else
-                              {
-                                 if(cidade == null)
-                                 {
-                                    System.err.println("Cidade faltando");
-                                 }
-                                 else
-                                 {
-                                    if(estado == null)
-                                    {
-                                       System.err.println("Estado faltando");
-                                    }
-                                    else
-                                    {
-                                       if(nomeDaMae == null)
-                                       {
-                                          System.err.println("Nome da Mãe faltando");
-                                       }
-                                       else
-                                       {
-                                          if(nomeDoPai == null)
-                                          {
-                                             System.err.println("Nome do Pai faltando");
-                                          }
-                                          else
-                                          {
-                                             try
-                                             {
-                                                java.util.Date birthday = sd.parse(dataDeNascimento);
-                                                java.sql.Date sqlDateOfBirth = new java.sql.Date(birthday.getTime());
-                                                dsproject.Aluno student = null;
-                                                if(telefone == null && celular == null && email == null)
-                                                {
-                                                   student = new Aluno(nomeDaMae, nomeDoPai, nome, sqlDateOfBirth, genero, endereco, cidade, estado);
-                                                }
-                                                else
-                                                {
-                                                   if(telefone == null && !celular.isEmpty() && !email.isEmpty())
-                                                   {
-                                                      student = new Aluno(nomeDaMae, nomeDoPai, null, null, celular, email, nome, birthday, genero, endereco, cidade, estado);
-                                                   }
-                                                   else
-                                                   {
-                                                      if(telefone == null && celular == null && !email.isEmpty())
-                                                      {
-                                                         student = new Aluno(nomeDaMae, nomeDoPai, null, null, null, email, nome, birthday, genero, endereco, cidade, estado);
-                                                      }
-                                                      else
-                                                      {
-                                                         if(telefone == null && !celular.isEmpty() && email == null)
-                                                         {
-                                                            student = new Aluno(nomeDaMae, nomeDoPai, null, null, celular, null, nome, birthday, genero, endereco, cidade, estado);
-                                                         }
-                                                         else
-                                                         {
-                                                            if(!telefone.isEmpty() && celular == null && email == null)
-                                                            {
-                                                               student = new Aluno(nomeDaMae, nomeDoPai, null, telefone, null, null, nome, birthday, genero, endereco, cidade, estado);
-                                                            }
-                                                            else
-                                                            {
-                                                               student = new Aluno(nomeDaMae, nomeDoPai, null, telefone, celular, email, nome, birthday, genero, endereco, cidade, estado);
-                                                            }
-                                                         }
-                                                      }
-                                                   }
-                                                }
-                                                File arquivoAlunos = new File("alunos.txt");
-                                                if(arquivoAlunos.exists())
-                                                {
-                                                   FileInputStream arquivo = new FileInputStream(arquivoAlunos);
-                                                   in = new ObjectInputStream(arquivo);
-                                                   students = (ArrayList<Aluno>)in.readObject();
-                                                   students.add(student);
-                                                   out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
-                                                   out.writeObject(students);
-                                                   out.close();
-                                                   JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-                                                   labelCelularCadastrarAluno.setForeground(Color.black);
-                                                   labelCidadeCadastrarAluno.setForeground(Color.black);
-                                                   labelDataDeNascimentoCadastrarAluno.setForeground(Color.black);
-                                                   labelEmailCadastrarAluno.setForeground(Color.black);
-                                                   labelEnderecoCadastrarAluno.setForeground(Color.black);
-                                                   labelEstadoCadastrarAluno.setForeground(Color.black);
-                                                   labelGeneroCadastrarAluno.setForeground(Color.black);
-                                                   labelNomeDaMaeCadastrarAluno.setForeground(Color.black);
-                                                   labelNomeDoPaiCadastrarAluno.setForeground(Color.black);
-                                                   labelTelefoneCadastrarAluno.setForeground(Color.black);
-                                                   labelNomeCompleto.setForeground(Color.black);
-                                                   Interface.ClassPanel.setStudentAddedComboAluno(true);
-                                                   Interface.ClassPanel.setStudentAddedComboAdicionarAluno(true);
-                                                   Interface.ClassPanel.setStudentAddedCombonomeDoAluno(true);
-                                                   setStudentAddedComboName(true);
-                                                   setStudentAddedComboStudent(true);
-                                                   setNumeroDeAlunosAdicionadosComboName(getNumeroDeAlunosAdicionadosComboName() + 1);
-                                                   setNumeroDeAlunosAdicionadosComboStudent(getNumeroDeAlunosAdicionadosComboStudent() + 1);
-                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAdicionarAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAdicionarAluno() 
-                                                                                                                    + 1);
-                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAluno()
-                                                                                                                    + 1);
-                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboNomeDoAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboNomeDoAluno()
-                                                                                                                    + 1);
-                                                   limpaCamposCadastrarAluno();
-                                                }
-                                                else
-                                                {
-                                                   students = new ArrayList<>();
-                                                   students.add(student);
-                                                   out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
-                                                   out.writeObject(students);
-                                                   out.close();
-                                                   JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-                                                   labelCelularCadastrarAluno.setForeground(Color.black);
-                                                   labelCidadeCadastrarAluno.setForeground(Color.black);
-                                                   labelDataDeNascimentoCadastrarAluno.setForeground(Color.black);
-                                                   labelEmailCadastrarAluno.setForeground(Color.black);
-                                                   labelEnderecoCadastrarAluno.setForeground(Color.black);
-                                                   labelEstadoCadastrarAluno.setForeground(Color.black);
-                                                   labelGeneroCadastrarAluno.setForeground(Color.black);
-                                                   labelNomeDaMaeCadastrarAluno.setForeground(Color.black);
-                                                   labelNomeDoPaiCadastrarAluno.setForeground(Color.black);
-                                                   labelTelefoneCadastrarAluno.setForeground(Color.black);
-                                                   labelNomeCompleto.setForeground(Color.black);
-                                                   Interface.ClassPanel.setStudentAddedComboAluno(true);
-                                                   Interface.ClassPanel.setStudentAddedComboAdicionarAluno(true);
-                                                   Interface.ClassPanel.setStudentAddedCombonomeDoAluno(true);
-                                                   setStudentAddedComboName(true);
-                                                   setStudentAddedComboStudent(true);
-                                                   setNumeroDeAlunosAdicionadosComboName(getNumeroDeAlunosAdicionadosComboName() + 1);
-                                                   setNumeroDeAlunosAdicionadosComboStudent(getNumeroDeAlunosAdicionadosComboStudent() + 1);
-                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAdicionarAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAdicionarAluno() 
-                                                                                                                    + 1);
-                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAluno()
-                                                                                                                    + 1);
-                                                   Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboNomeDoAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboNomeDoAluno()
-                                                                                                                    + 1);
-                                                   limpaCamposCadastrarAluno();
-                                                }
+			int dia = Integer.parseInt(splitedDateOfBirth[0]);
+			int mes = Integer.parseInt(splitedDateOfBirth[1]);
+			int ano = Integer.parseInt(splitedDateOfBirth[2]);
+			if(!new GregorianCalendar().isLeapYear(ano) && dia == 29 && mes == 2)
+			{
+			   labelDataDeNascimentoCadastrarAluno.setForeground(Color.red);
+			   JOptionPane.showMessageDialog(null, months.get(mes - 1) + " não tem " + dia + " dias", "Erro", JOptionPane.ERROR_MESSAGE);
+			}
+			else
+			{
+			   if(mes == 2 && dia == 31 || dia == 30)
+			   {
+			      JOptionPane.showMessageDialog(null, months.get(mes - 1) + " não tem " + dia + " dias", "Erro", JOptionPane.ERROR_MESSAGE);
+			   }
+			   else
+			   {
+			      if(dia == 31 && mes == 4 || mes == 6 || mes == 9 || mes == 11)
+			      {
+				 JOptionPane.showMessageDialog(null, months.get(mes - 1) + " não tem " + dia + " dias", "Erro", JOptionPane.ERROR_MESSAGE);
+			      }
+			      else
+			      {
+				 labelDataDeNascimentoCadastrarAluno.setForeground(Color.black);
+				 if(genero == null)
+				 {
+				    System.err.println("Gênero faltando");
+				 }
+				 else
+				 {
+				    if(endereco == null)
+				    {
+				       System.err.println("Endereço faltando");
+				    }
+				    else
+				    {
+				       if(cidade == null)
+				       {
+					  System.err.println("Cidade faltando");
+				       }
+				       else
+				       {
+					  if(estado == null)
+					  {
+					     System.err.println("Estado faltando");
+					  }
+					  else
+					  {
+					     if(nomeDaMae == null)
+					     {
+						System.err.println("Nome da Mãe faltando");
+					     }
+					     else
+					     {
+						if(nomeDoPai == null)
+						{
+						   System.err.println("Nome do Pai faltando");
+						}
+						else
+						{
+						   try
+						   {
+						      java.util.Date birthday = sd.parse(dataDeNascimento);
+						      java.sql.Date sqlDateOfBirth = new java.sql.Date(birthday.getTime());
+						      dsproject.Aluno student = null;
+						      if(telefone == null && celular == null && email == null)
+						      {
+							 student = new Aluno(nomeDaMae, nomeDoPai, nome, sqlDateOfBirth, genero, endereco, cidade, estado);
+						      }
+						      else
+						      {
+							 if(telefone == null && !celular.isEmpty() && !email.isEmpty())
+							 {
+							    student = new Aluno(nomeDaMae, nomeDoPai, null, null, celular, email, nome, birthday, genero, endereco, cidade, estado);
+							 }
+							 else
+							 {
+							    if(telefone == null && celular == null && !email.isEmpty())
+							    {
+							       student = new Aluno(nomeDaMae, nomeDoPai, null, null, null, email, nome, birthday, genero, endereco, cidade, estado);
+							    }
+							    else
+							    {
+							       if(telefone == null && !celular.isEmpty() && email == null)
+							       {
+								  student = new Aluno(nomeDaMae, nomeDoPai, null, null, celular, null, nome, birthday, genero, endereco, cidade, estado);
+							       }
+							       else
+							       {
+								  if(!telefone.isEmpty() && celular == null && email == null)
+								  {
+								     student = new Aluno(nomeDaMae, nomeDoPai, null, telefone, null, null, nome, birthday, genero, endereco, cidade, estado);
+								  }
+								  else
+								  {
+								     student = new Aluno(nomeDaMae, nomeDoPai, null, telefone, celular, email, nome, birthday, genero, endereco, cidade, estado);
+								  }
+							       }
+							    }
+							 }
+						      }
+						      File arquivoAlunos = new File("alunos.txt");
+						      if(arquivoAlunos.exists())
+						      {
+							 FileInputStream arquivo = new FileInputStream(arquivoAlunos);
+							 in = new ObjectInputStream(arquivo);
+							 students = (ArrayList<Aluno>)in.readObject();
+							 students.add(student);
+							 out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
+							 out.writeObject(students);
+							 out.close();
+							 JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+							 labelCelularCadastrarAluno.setForeground(Color.black);
+							 labelCidadeCadastrarAluno.setForeground(Color.black);
+							 labelDataDeNascimentoCadastrarAluno.setForeground(Color.black);
+							 labelEmailCadastrarAluno.setForeground(Color.black);
+							 labelEnderecoCadastrarAluno.setForeground(Color.black);
+							 labelEstadoCadastrarAluno.setForeground(Color.black);
+							 labelGeneroCadastrarAluno.setForeground(Color.black);
+							 labelNomeDaMaeCadastrarAluno.setForeground(Color.black);
+							 labelNomeDoPaiCadastrarAluno.setForeground(Color.black);
+							 labelTelefoneCadastrarAluno.setForeground(Color.black);
+							 labelNomeCompleto.setForeground(Color.black);
+							 Interface.ClassPanel.setStudentAddedComboAluno(true);
+							 Interface.ClassPanel.setStudentAddedComboAdicionarAluno(true);
+							 Interface.ClassPanel.setStudentAddedCombonomeDoAluno(true);
+							 setStudentAddedComboName(true);
+							 setStudentAddedComboStudent(true);
+							 setNumeroDeAlunosAdicionadosComboName(getNumeroDeAlunosAdicionadosComboName() + 1);
+							 setNumeroDeAlunosAdicionadosComboStudent(getNumeroDeAlunosAdicionadosComboStudent() + 1);
+							 Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAdicionarAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAdicionarAluno() 
+															  + 1);
+							 Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAluno()
+															  + 1);
+							 Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboNomeDoAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboNomeDoAluno()
+															  + 1);
+							 limpaCamposCadastrarAluno();
+						      }
+						      else
+						      {
+							 students = new ArrayList<>();
+							 students.add(student);
+							 out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
+							 out.writeObject(students);
+							 out.close();
+							 JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+							 labelCelularCadastrarAluno.setForeground(Color.black);
+							 labelCidadeCadastrarAluno.setForeground(Color.black);
+							 labelDataDeNascimentoCadastrarAluno.setForeground(Color.black);
+							 labelEmailCadastrarAluno.setForeground(Color.black);
+							 labelEnderecoCadastrarAluno.setForeground(Color.black);
+							 labelEstadoCadastrarAluno.setForeground(Color.black);
+							 labelGeneroCadastrarAluno.setForeground(Color.black);
+							 labelNomeDaMaeCadastrarAluno.setForeground(Color.black);
+							 labelNomeDoPaiCadastrarAluno.setForeground(Color.black);
+							 labelTelefoneCadastrarAluno.setForeground(Color.black);
+							 labelNomeCompleto.setForeground(Color.black);
+							 Interface.ClassPanel.setStudentAddedComboAluno(true);
+							 Interface.ClassPanel.setStudentAddedComboAdicionarAluno(true);
+							 Interface.ClassPanel.setStudentAddedCombonomeDoAluno(true);
+							 setStudentAddedComboName(true);
+							 setStudentAddedComboStudent(true);
+							 setNumeroDeAlunosAdicionadosComboName(getNumeroDeAlunosAdicionadosComboName() + 1);
+							 setNumeroDeAlunosAdicionadosComboStudent(getNumeroDeAlunosAdicionadosComboStudent() + 1);
+							 Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAdicionarAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAdicionarAluno() 
+															  + 1);
+							 Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboAluno()
+															  + 1);
+							 Interface.ClassPanel.setNumeroDeAlunosAdicionadosComboNomeDoAluno(Interface.ClassPanel.getNumeroDeAlunosAdicionadosComboNomeDoAluno()
+															  + 1);
+							 limpaCamposCadastrarAluno();
+						      }
 
-                                             }
-                                             catch (ParseException | IOException | ClassNotFoundException ex)
-                                             {
-                                                System.err.println(ex);
-                                             }
-                                          }
-                                       }
-                                    }
-                                 }
-                              }
-                           }
-                        }
+						   }
+						   catch (ParseException | IOException | ClassNotFoundException ex)
+						   {
+						      System.err.println(ex);
+						   }
+						}
+					     }
+					  }
+				       }
+				    }
+				 }
+			      }
+			   }
+			}
                      }
                      else
                      {
