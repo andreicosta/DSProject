@@ -388,6 +388,10 @@
                   <StringArray count="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="popupMenuWillBecomeVisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="comboTurmaEditarTurmaPopupMenuWillBecomeVisible"/>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="comboTurmaEditarTurmaItemStateChanged"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelAnoLetivoEditarTurma">
               <Properties>
@@ -575,6 +579,9 @@
                   <StringArray count="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="popupMenuWillBecomeVisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="comboTurmaPopupMenuWillBecomeVisible"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="botaoRemover">
               <Properties>

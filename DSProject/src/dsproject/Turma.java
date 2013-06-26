@@ -77,14 +77,12 @@ public class Turma implements Serializable, Cloneable
       return -1;
    }
 
-   /*public void buscaTodosAlunos()
+   public ArrayList<dsproject.Aluno> buscaTodosAlunos()
    {
-      java.util.Arrays.sort(alunos);
-      for (int i = 0; alunos.lenght; i++)
-            System.out.printf("%s", alunos[i].getNome());
+      return alunos;
    }
 
-   public void cadastrarTurma()
+   /*public void cadastrarTurma()
    {
       while(/*quer inserir aluno && (alunos.lenght != 0)*//*)
       {

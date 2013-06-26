@@ -329,7 +329,7 @@ public class TestPanel extends javax.swing.JPanel
                         .addComponent(jLabel4)
                         .addGap(310, 310, 310))
                      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newEditPanelLayout.createSequentialGroup()
-                        .addComponent(buttonSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buttonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
                .addGroup(newEditPanelLayout.createSequentialGroup()
                   .addGroup(newEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)

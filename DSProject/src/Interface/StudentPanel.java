@@ -10,9 +10,8 @@
  */
 package Interface;
 
-import static Interface.ClassPanel.isStudentAddedComboAluno;
-import static Interface.ClassPanel.setStudentAddedComboAluno;
 import dsproject.Aluno;
+import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -47,29 +46,29 @@ public class StudentPanel extends javax.swing.JPanel {
 
       jTabbedPane1 = new javax.swing.JTabbedPane();
       newStudentPanel = new javax.swing.JPanel();
-      labelName = new javax.swing.JLabel();
-      labelDateOfBirth = new javax.swing.JLabel();
-      labelNameOfFather = new javax.swing.JLabel();
-      labelNameOfMother = new javax.swing.JLabel();
-      labelAddress = new javax.swing.JLabel();
-      labelTelephone = new javax.swing.JLabel();
-      labelCellPhone = new javax.swing.JLabel();
-      labelEmail = new javax.swing.JLabel();
-      fieldName = new javax.swing.JTextField();
-      fieldNameOfMother = new javax.swing.JTextField();
-      fieldNameOfFather = new javax.swing.JTextField();
-      fieldTelephone = new javax.swing.JTextField();
-      fieldAddress = new javax.swing.JTextField();
-      fieldCellPhone = new javax.swing.JTextField();
-      fieldEmail = new javax.swing.JTextField();
+      labelNomeCompleto = new javax.swing.JLabel();
+      labelDataDeNascimentoCadastrarAluno = new javax.swing.JLabel();
+      labelNomeDoPaiCadastrarAluno = new javax.swing.JLabel();
+      labelNomeDaMaeCadastrarAluno = new javax.swing.JLabel();
+      labelEnderecoCadastrarAluno = new javax.swing.JLabel();
+      labelTelefoneCadastrarAluno = new javax.swing.JLabel();
+      labelCelularCadastrarAluno = new javax.swing.JLabel();
+      labelEmailCadastrarAluno = new javax.swing.JLabel();
+      campoNomeCompleto = new javax.swing.JTextField();
+      campoNomeDaMaeCadastrarAluno = new javax.swing.JTextField();
+      campoNomeDoPaiCadastrarAluno = new javax.swing.JTextField();
+      campoTelefoneCadastrarAluno = new javax.swing.JTextField();
+      campoEnderecoCadastrarAluno = new javax.swing.JTextField();
+      campoCelularCadastrarAluno = new javax.swing.JTextField();
+      campoEmailCadastrarAluno = new javax.swing.JTextField();
       botaoCadastrar = new javax.swing.JButton();
-      fieldDateOfBirth = new javax.swing.JTextField();
-      labelGender = new javax.swing.JLabel();
-      comboGender = new javax.swing.JComboBox();
-      labelCity = new javax.swing.JLabel();
-      fieldCity = new javax.swing.JTextField();
-      fieldState = new javax.swing.JTextField();
-      labelState = new javax.swing.JLabel();
+      campoDataDeNascimentoCadastrarAluno = new javax.swing.JTextField();
+      labelGeneroCadastrarAluno = new javax.swing.JLabel();
+      comboGeneroCadastrarAluno = new javax.swing.JComboBox();
+      labelCidadeCadastrarAluno = new javax.swing.JLabel();
+      campoCidadeCadastrarAluno = new javax.swing.JTextField();
+      campoEstadoCadastrarAluno = new javax.swing.JTextField();
+      labelEstadoCadastrarAluno = new javax.swing.JLabel();
       editStudentPanel = new javax.swing.JPanel();
       labelNome = new javax.swing.JLabel();
       labelNomeDoPai = new javax.swing.JLabel();
@@ -95,27 +94,27 @@ public class StudentPanel extends javax.swing.JPanel {
       campoCidade = new javax.swing.JTextField();
       campoEstado = new javax.swing.JTextField();
       deleteStudentPanel = new javax.swing.JPanel();
-      nameStudentDelete = new javax.swing.JLabel();
-      comboName = new javax.swing.JComboBox();
+      labelNomeExcluirCadastroAluno = new javax.swing.JLabel();
+      comboNomeExcluirCadastroAluno = new javax.swing.JComboBox();
       jButton1 = new javax.swing.JButton();
 
-      labelName.setText("Nome Completo");
+      labelNomeCompleto.setText("Nome Completo");
 
-      labelDateOfBirth.setText("Data de Nascimento");
+      labelDataDeNascimentoCadastrarAluno.setText("Data de Nascimento");
 
-      labelNameOfFather.setText("Nome Completo do Pai");
+      labelNomeDoPaiCadastrarAluno.setText("Nome Completo do Pai");
 
-      labelNameOfMother.setText("Nome Completo da Mãe");
+      labelNomeDaMaeCadastrarAluno.setText("Nome Completo da Mãe");
 
-      labelAddress.setText("Endereço");
+      labelEnderecoCadastrarAluno.setText("Endereço");
 
-      labelTelephone.setText("Telefone");
+      labelTelefoneCadastrarAluno.setText("Telefone");
 
-      labelCellPhone.setText("Celular");
+      labelCelularCadastrarAluno.setText("Celular");
 
-      labelEmail.setText("E-mail");
+      labelEmailCadastrarAluno.setText("E-mail");
 
-      fieldName.setToolTipText("teste");
+      campoNomeCompleto.setToolTipText("teste");
 
       botaoCadastrar.setText("Cadastrar");
       botaoCadastrar.addActionListener(new java.awt.event.ActionListener()
@@ -126,21 +125,21 @@ public class StudentPanel extends javax.swing.JPanel {
          }
       });
 
-      fieldDateOfBirth.addKeyListener(new java.awt.event.KeyAdapter()
+      campoDataDeNascimentoCadastrarAluno.addKeyListener(new java.awt.event.KeyAdapter()
       {
          public void keyTyped(java.awt.event.KeyEvent evt)
          {
-            fieldDateOfBirthKeyTyped(evt);
+            campoDataDeNascimentoCadastrarAlunoKeyTyped(evt);
          }
       });
 
-      labelGender.setText("Gênero");
+      labelGeneroCadastrarAluno.setText("Gênero");
 
-      comboGender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino", "Outro" }));
+      comboGeneroCadastrarAluno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino", "Outro" }));
 
-      labelCity.setText("Cidade");
+      labelCidadeCadastrarAluno.setText("Cidade");
 
-      labelState.setText("Estado");
+      labelEstadoCadastrarAluno.setText("Estado");
 
       javax.swing.GroupLayout newStudentPanelLayout = new javax.swing.GroupLayout(newStudentPanel);
       newStudentPanel.setLayout(newStudentPanelLayout);
@@ -154,30 +153,30 @@ public class StudentPanel extends javax.swing.JPanel {
                   .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                .addGroup(newStudentPanelLayout.createSequentialGroup()
                   .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(labelName)
-                     .addComponent(labelEmail)
-                     .addComponent(labelCellPhone)
-                     .addComponent(labelTelephone)
-                     .addComponent(labelAddress)
-                     .addComponent(labelNameOfMother)
-                     .addComponent(labelGender)
-                     .addComponent(labelCity)
-                     .addComponent(labelState)
-                     .addComponent(labelDateOfBirth)
-                     .addComponent(labelNameOfFather))
+                     .addComponent(labelNomeCompleto)
+                     .addComponent(labelEmailCadastrarAluno)
+                     .addComponent(labelCelularCadastrarAluno)
+                     .addComponent(labelTelefoneCadastrarAluno)
+                     .addComponent(labelEnderecoCadastrarAluno)
+                     .addComponent(labelNomeDaMaeCadastrarAluno)
+                     .addComponent(labelGeneroCadastrarAluno)
+                     .addComponent(labelCidadeCadastrarAluno)
+                     .addComponent(labelEstadoCadastrarAluno)
+                     .addComponent(labelDataDeNascimentoCadastrarAluno)
+                     .addComponent(labelNomeDoPaiCadastrarAluno))
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                   .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                     .addComponent(fieldCellPhone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
-                     .addComponent(fieldTelephone, javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(fieldNameOfFather, javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(fieldNameOfMother, javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(fieldState, javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(fieldCity, javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(fieldAddress, javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(fieldDateOfBirth, javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(fieldEmail)
-                     .addComponent(comboGender, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                     .addComponent(fieldName, javax.swing.GroupLayout.Alignment.LEADING))
+                     .addComponent(campoCelularCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
+                     .addComponent(campoTelefoneCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING)
+                     .addComponent(campoNomeDoPaiCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING)
+                     .addComponent(campoNomeDaMaeCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING)
+                     .addComponent(campoEstadoCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING)
+                     .addComponent(campoCidadeCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING)
+                     .addComponent(campoEnderecoCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING)
+                     .addComponent(campoDataDeNascimentoCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING)
+                     .addComponent(campoEmailCadastrarAluno)
+                     .addComponent(comboGeneroCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(campoNomeCompleto, javax.swing.GroupLayout.Alignment.LEADING))
                   .addGap(0, 0, Short.MAX_VALUE)))
             .addContainerGap())
       );
@@ -186,48 +185,48 @@ public class StudentPanel extends javax.swing.JPanel {
          .addGroup(newStudentPanelLayout.createSequentialGroup()
             .addGap(28, 28, 28)
             .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(labelName)
-               .addComponent(fieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(labelNomeCompleto)
+               .addComponent(campoNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(labelDateOfBirth)
-               .addComponent(fieldDateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(labelDataDeNascimentoCadastrarAluno)
+               .addComponent(campoDataDeNascimentoCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(labelGender)
-               .addComponent(comboGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(labelGeneroCadastrarAluno)
+               .addComponent(comboGeneroCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(fieldAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(labelAddress))
+               .addComponent(campoEnderecoCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(labelEnderecoCadastrarAluno))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(fieldCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(labelCity))
+               .addComponent(campoCidadeCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(labelCidadeCadastrarAluno))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(fieldState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(labelState))
+               .addComponent(campoEstadoCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(labelEstadoCadastrarAluno))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(fieldNameOfMother, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(labelNameOfMother))
+               .addComponent(campoNomeDaMaeCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(labelNomeDaMaeCadastrarAluno))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(fieldNameOfFather, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(labelNameOfFather, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(campoNomeDoPaiCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(labelNomeDoPaiCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(fieldTelephone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(labelTelephone))
+               .addComponent(campoTelefoneCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(labelTelefoneCadastrarAluno))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(fieldCellPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(labelCellPhone))
+               .addComponent(campoCelularCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(labelCelularCadastrarAluno))
             .addGap(7, 7, 7)
             .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(fieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(labelEmail))
+               .addComponent(campoEmailCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(labelEmailCadastrarAluno))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
             .addComponent(botaoCadastrar)
             .addContainerGap())
@@ -290,8 +289,8 @@ public class StudentPanel extends javax.swing.JPanel {
             .addContainerGap()
             .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editStudentPanelLayout.createSequentialGroup()
-                  .addGap(0, 530, Short.MAX_VALUE)
-                  .addComponent(saveStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                  .addGap(0, 527, Short.MAX_VALUE)
+                  .addComponent(saveStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                .addGroup(editStudentPanelLayout.createSequentialGroup()
                   .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                      .addComponent(labelNomeDoPai)
@@ -375,9 +374,9 @@ public class StudentPanel extends javax.swing.JPanel {
 
       jTabbedPane1.addTab("Editar Informações do Aluno", editStudentPanel);
 
-      nameStudentDelete.setText("Nome");
+      labelNomeExcluirCadastroAluno.setText("Nome");
 
-      comboName.addPopupMenuListener(new javax.swing.event.PopupMenuListener()
+      comboNomeExcluirCadastroAluno.addPopupMenuListener(new javax.swing.event.PopupMenuListener()
       {
          public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt)
          {
@@ -387,7 +386,7 @@ public class StudentPanel extends javax.swing.JPanel {
          }
          public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)
          {
-            comboNamePopupMenuWillBecomeVisible(evt);
+            comboNomeExcluirCadastroAlunoPopupMenuWillBecomeVisible(evt);
          }
       });
 
@@ -401,12 +400,12 @@ public class StudentPanel extends javax.swing.JPanel {
             .addContainerGap()
             .addGroup(deleteStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(deleteStudentPanelLayout.createSequentialGroup()
-                  .addGap(0, 529, Short.MAX_VALUE)
-                  .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                  .addGap(0, 527, Short.MAX_VALUE)
+                  .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                .addGroup(deleteStudentPanelLayout.createSequentialGroup()
-                  .addComponent(nameStudentDelete)
+                  .addComponent(labelNomeExcluirCadastroAluno)
                   .addGap(18, 18, 18)
-                  .addComponent(comboName, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addComponent(comboNomeExcluirCadastroAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
                   .addGap(0, 0, Short.MAX_VALUE)))
             .addContainerGap())
       );
@@ -415,8 +414,8 @@ public class StudentPanel extends javax.swing.JPanel {
          .addGroup(deleteStudentPanelLayout.createSequentialGroup()
             .addGap(30, 30, 30)
             .addGroup(deleteStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(nameStudentDelete)
-               .addComponent(comboName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(labelNomeExcluirCadastroAluno)
+               .addComponent(comboNomeExcluirCadastroAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 357, Short.MAX_VALUE)
             .addComponent(jButton1)
             .addContainerGap())
@@ -428,7 +427,7 @@ public class StudentPanel extends javax.swing.JPanel {
       this.setLayout(layout);
       layout.setHorizontalGroup(
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-         .addComponent(jTabbedPane1)
+         .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 649, Short.MAX_VALUE)
       );
       layout.setVerticalGroup(
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -451,14 +450,14 @@ public class StudentPanel extends javax.swing.JPanel {
       months.add("Outubro");
       months.add("Novembro");
       months.add("Dezembro");
-      String nome = getFieldName();
-      String dataDeNascimento = getFieldDateOfBirth();
-      String genero = getComboGender();
-      String endereco = getFieldAddress();
-      String cidade = getFieldCity();
-      String estado = getFieldState();
-      String nomeDaMae = getFieldNameOfMother();
-      String nomeDoPai = getFieldNameOfFather();
+      String nome = getCampoNome();
+      String dataDeNascimento = getCampoDataDeNascimento();
+      String genero = getComboGenero();
+      String endereco = getCampoEndereco();
+      String cidade = getCampoCidade();
+      String estado = getCampoEstado();
+      String nomeDaMae = getCampoNomeDaMae();
+      String nomeDoPai = getCampoNomeDoPai();
       String telefone = getFieldTelephone();
       String celular = getFieldCellPhone();
       String email = getFieldEmail();
@@ -481,8 +480,9 @@ public class StudentPanel extends javax.swing.JPanel {
          {
             if(dataDeNascimento.length() != 10)
             {
-               JOptionPane.showMessageDialog(null, "Digite uma " + labelDateOfBirth.getText() + " no formato dd/mm/aaaa", 
+               JOptionPane.showMessageDialog(null, "Digite uma " + labelDataDeNascimentoCadastrarAluno.getText() + " no formato dd/mm/aaaa", 
                                              "Erro", JOptionPane.ERROR_MESSAGE);
+               labelDataDeNascimentoCadastrarAluno.setForeground(Color.red);
             }
             else
             {
@@ -490,12 +490,14 @@ public class StudentPanel extends javax.swing.JPanel {
                if(Integer.parseInt(splitedDateOfBirth[0]) > 31)
                {
                   JOptionPane.showMessageDialog(null, "Não existe mês com mais de 31 dias", "Erro", JOptionPane.ERROR_MESSAGE);
+                  labelDataDeNascimentoCadastrarAluno.setForeground(Color.red);
                }
                else
                {
                   if(Integer.parseInt(splitedDateOfBirth[1]) > 12)
                   {
                      JOptionPane.showMessageDialog(null, "Não existe mês maior que 12", "Erro", JOptionPane.ERROR_MESSAGE);
+                     labelDataDeNascimentoCadastrarAluno.setForeground(Color.red);
                   }
                   else
                   {
@@ -507,6 +509,7 @@ public class StudentPanel extends javax.swing.JPanel {
                         {
                            System.err.println("Não foi confirmado se " + months.get(Integer.parseInt(splitedDateOfBirth[1]) - 1)
                                                 + " tem " + splitedDateOfBirth[0] + " dias");
+                           labelDataDeNascimentoCadastrarAluno.setForeground(Color.red);
                         }
                         else
                         {
@@ -598,6 +601,17 @@ public class StudentPanel extends javax.swing.JPanel {
                                                    out.writeObject(students);
                                                    out.close();
                                                    JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+                                                   labelCelularCadastrarAluno.setForeground(Color.black);
+                                                   labelCidadeCadastrarAluno.setForeground(Color.black);
+                                                   labelDataDeNascimentoCadastrarAluno.setForeground(Color.black);
+                                                   labelEmailCadastrarAluno.setForeground(Color.black);
+                                                   labelEnderecoCadastrarAluno.setForeground(Color.black);
+                                                   labelEstadoCadastrarAluno.setForeground(Color.black);
+                                                   labelGeneroCadastrarAluno.setForeground(Color.black);
+                                                   labelNomeDaMaeCadastrarAluno.setForeground(Color.black);
+                                                   labelNomeDoPaiCadastrarAluno.setForeground(Color.black);
+                                                   labelTelefoneCadastrarAluno.setForeground(Color.black);
+                                                   labelNomeCompleto.setForeground(Color.black);
                                                    Interface.ClassPanel.setStudentAddedComboAluno(true);
                                                    Interface.ClassPanel.setStudentAddedComboAdicionarAluno(true);
                                                    Interface.ClassPanel.setStudentAddedCombonomeDoAluno(true);
@@ -621,6 +635,17 @@ public class StudentPanel extends javax.swing.JPanel {
                                                    out.writeObject(students);
                                                    out.close();
                                                    JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+                                                   labelCelularCadastrarAluno.setForeground(Color.black);
+                                                   labelCidadeCadastrarAluno.setForeground(Color.black);
+                                                   labelDataDeNascimentoCadastrarAluno.setForeground(Color.black);
+                                                   labelEmailCadastrarAluno.setForeground(Color.black);
+                                                   labelEnderecoCadastrarAluno.setForeground(Color.black);
+                                                   labelEstadoCadastrarAluno.setForeground(Color.black);
+                                                   labelGeneroCadastrarAluno.setForeground(Color.black);
+                                                   labelNomeDaMaeCadastrarAluno.setForeground(Color.black);
+                                                   labelNomeDoPaiCadastrarAluno.setForeground(Color.black);
+                                                   labelTelefoneCadastrarAluno.setForeground(Color.black);
+                                                   labelNomeCompleto.setForeground(Color.black);
                                                    Interface.ClassPanel.setStudentAddedComboAluno(true);
                                                    Interface.ClassPanel.setStudentAddedComboAdicionarAluno(true);
                                                    Interface.ClassPanel.setStudentAddedCombonomeDoAluno(true);
@@ -740,6 +765,17 @@ public class StudentPanel extends javax.swing.JPanel {
                                                 out.writeObject(students);
                                                 out.close();
                                                 JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+                                                labelCelularCadastrarAluno.setForeground(Color.black);
+                                                labelCidadeCadastrarAluno.setForeground(Color.black);
+                                                labelDataDeNascimentoCadastrarAluno.setForeground(Color.black);
+                                                labelEmailCadastrarAluno.setForeground(Color.black);
+                                                labelEnderecoCadastrarAluno.setForeground(Color.black);
+                                                labelEstadoCadastrarAluno.setForeground(Color.black);
+                                                labelGeneroCadastrarAluno.setForeground(Color.black);
+                                                labelNomeDaMaeCadastrarAluno.setForeground(Color.black);
+                                                labelNomeDoPaiCadastrarAluno.setForeground(Color.black);
+                                                labelTelefoneCadastrarAluno.setForeground(Color.black);
+                                                labelNomeCompleto.setForeground(Color.black);
                                                 Interface.ClassPanel.setStudentAddedComboAluno(true);
                                                 Interface.ClassPanel.setStudentAddedComboAdicionarAluno(true);
                                                 Interface.ClassPanel.setStudentAddedCombonomeDoAluno(true);
@@ -763,6 +799,17 @@ public class StudentPanel extends javax.swing.JPanel {
                                                 out.writeObject(students);
                                                 out.close();
                                                 JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+                                                labelCelularCadastrarAluno.setForeground(Color.black);
+                                                labelCidadeCadastrarAluno.setForeground(Color.black);
+                                                labelDataDeNascimentoCadastrarAluno.setForeground(Color.black);
+                                                labelEmailCadastrarAluno.setForeground(Color.black);
+                                                labelEnderecoCadastrarAluno.setForeground(Color.black);
+                                                labelEstadoCadastrarAluno.setForeground(Color.black);
+                                                labelGeneroCadastrarAluno.setForeground(Color.black);
+                                                labelNomeDaMaeCadastrarAluno.setForeground(Color.black);
+                                                labelNomeDoPaiCadastrarAluno.setForeground(Color.black);
+                                                labelTelefoneCadastrarAluno.setForeground(Color.black);
+                                                labelNomeCompleto.setForeground(Color.black);
                                                 Interface.ClassPanel.setStudentAddedComboAluno(true);
                                                 Interface.ClassPanel.setStudentAddedComboAdicionarAluno(true);
                                                 Interface.ClassPanel.setStudentAddedCombonomeDoAluno(true);
@@ -798,21 +845,21 @@ public class StudentPanel extends javax.swing.JPanel {
       }
    }//GEN-LAST:event_botaoCadastrarActionPerformed
 
-   private void fieldDateOfBirthKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldDateOfBirthKeyTyped
-   {//GEN-HEADEREND:event_fieldDateOfBirthKeyTyped
+   private void campoDataDeNascimentoCadastrarAlunoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_campoDataDeNascimentoCadastrarAlunoKeyTyped
+   {//GEN-HEADEREND:event_campoDataDeNascimentoCadastrarAlunoKeyTyped
       if(!Character.isDigit(evt.getKeyChar()))
       {
          evt.setKeyChar('\0');
       }
       else
       {
-         String textoCampo = fieldDateOfBirth.getText();
+         String textoCampo = campoDataDeNascimentoCadastrarAluno.getText();
          if(textoCampo.length() == 2)
-            fieldDateOfBirth.setText(textoCampo + "/");
+            campoDataDeNascimentoCadastrarAluno.setText(textoCampo + "/");
          else
          {
             if(textoCampo.length() == 5)
-               fieldDateOfBirth.setText(textoCampo + "/");
+               campoDataDeNascimentoCadastrarAluno.setText(textoCampo + "/");
             else
             {
                if(textoCampo.length() > 9)
@@ -820,7 +867,7 @@ public class StudentPanel extends javax.swing.JPanel {
             }
          }
       }
-   }//GEN-LAST:event_fieldDateOfBirthKeyTyped
+   }//GEN-LAST:event_campoDataDeNascimentoCadastrarAlunoKeyTyped
 
    private void comboNomePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboNomePopupMenuWillBecomeVisible
    {//GEN-HEADEREND:event_comboNomePopupMenuWillBecomeVisible
@@ -921,10 +968,10 @@ public class StudentPanel extends javax.swing.JPanel {
       }
    }//GEN-LAST:event_comboNomePopupMenuWillBecomeVisible
 
-   private void comboNamePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboNamePopupMenuWillBecomeVisible
-   {//GEN-HEADEREND:event_comboNamePopupMenuWillBecomeVisible
+   private void comboNomeExcluirCadastroAlunoPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboNomeExcluirCadastroAlunoPopupMenuWillBecomeVisible
+   {//GEN-HEADEREND:event_comboNomeExcluirCadastroAlunoPopupMenuWillBecomeVisible
       Object isNull;
-      isNull = comboName.getItemAt(0);
+      isNull = comboNomeExcluirCadastroAluno.getItemAt(0);
       int i = 0;
       ArrayList<Aluno> students = null;
       ObjectInputStream in;
@@ -941,10 +988,10 @@ public class StudentPanel extends javax.swing.JPanel {
                in = new ObjectInputStream(file);
                students = (ArrayList<Aluno>)in.readObject();
                i = 0;
-               comboName.addItem("");
+               comboNomeExcluirCadastroAluno.addItem("");
                while(i < students.size())
                {
-                  comboName.addItem(students.get(i).getNome());
+                  comboNomeExcluirCadastroAluno.addItem(students.get(i).getNome());
                   i++;
                }
             }
@@ -974,7 +1021,7 @@ public class StudentPanel extends javax.swing.JPanel {
                   i = (students.size() - getNumeroDeAlunosAdicionadosComboName());
                   while(i < students.size())
                   {
-                     comboName.addItem(students.get(i).getNome());
+                     comboNomeExcluirCadastroAluno.addItem(students.get(i).getNome());
                      i++;
                   }
                }
@@ -1003,10 +1050,10 @@ public class StudentPanel extends javax.swing.JPanel {
                      file = new FileInputStream(fileStudents);
                      in = new ObjectInputStream(file);
                      students = (ArrayList<Aluno>)in.readObject();
-                     comboName.addItem("");
+                     comboNomeExcluirCadastroAluno.addItem("");
                      while(i < students.size())
                      {
-                        comboName.addItem(students.get(i).getNome());
+                        comboNomeExcluirCadastroAluno.addItem(students.get(i).getNome());
                         i++;
                      }
                   }
@@ -1018,7 +1065,7 @@ public class StudentPanel extends javax.swing.JPanel {
             }
          }
       }
-   }//GEN-LAST:event_comboNamePopupMenuWillBecomeVisible
+   }//GEN-LAST:event_comboNomeExcluirCadastroAlunoPopupMenuWillBecomeVisible
 
    private void comboNomeItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_comboNomeItemStateChanged
    {//GEN-HEADEREND:event_comboNomeItemStateChanged
@@ -1074,55 +1121,55 @@ public class StudentPanel extends javax.swing.JPanel {
    // Variables declaration - do not modify//GEN-BEGIN:variables
    private javax.swing.JButton botaoCadastrar;
    private javax.swing.JTextField campoCelular;
+   private static javax.swing.JTextField campoCelularCadastrarAluno;
    private javax.swing.JTextField campoCidade;
+   private static javax.swing.JTextField campoCidadeCadastrarAluno;
    private javax.swing.JTextField campoDataDeNascimento;
+   private static javax.swing.JTextField campoDataDeNascimentoCadastrarAluno;
    private javax.swing.JTextField campoEmail;
+   private static javax.swing.JTextField campoEmailCadastrarAluno;
    private javax.swing.JTextField campoEndereco;
+   private static javax.swing.JTextField campoEnderecoCadastrarAluno;
    private javax.swing.JTextField campoEstado;
+   private static javax.swing.JTextField campoEstadoCadastrarAluno;
+   private static javax.swing.JTextField campoNomeCompleto;
    private javax.swing.JTextField campoNomeDaMae;
+   private static javax.swing.JTextField campoNomeDaMaeCadastrarAluno;
    private javax.swing.JTextField campoNomeDoPai;
+   private static javax.swing.JTextField campoNomeDoPaiCadastrarAluno;
    private javax.swing.JTextField campoTelefone;
-   private static javax.swing.JComboBox comboGender;
+   private static javax.swing.JTextField campoTelefoneCadastrarAluno;
    private javax.swing.JComboBox comboGenero;
-   private static javax.swing.JComboBox comboName;
+   private static javax.swing.JComboBox comboGeneroCadastrarAluno;
    private javax.swing.JComboBox comboNome;
+   private static javax.swing.JComboBox comboNomeExcluirCadastroAluno;
    private javax.swing.JPanel deleteStudentPanel;
    private javax.swing.JPanel editStudentPanel;
-   private static javax.swing.JTextField fieldAddress;
-   private static javax.swing.JTextField fieldCellPhone;
-   private static javax.swing.JTextField fieldCity;
-   private static javax.swing.JTextField fieldDateOfBirth;
-   private static javax.swing.JTextField fieldEmail;
-   private static javax.swing.JTextField fieldName;
-   private static javax.swing.JTextField fieldNameOfFather;
-   private static javax.swing.JTextField fieldNameOfMother;
-   private static javax.swing.JTextField fieldState;
-   private static javax.swing.JTextField fieldTelephone;
    private javax.swing.JButton jButton1;
    private javax.swing.JTabbedPane jTabbedPane1;
-   private static javax.swing.JLabel labelAddress;
-   private static javax.swing.JLabel labelCellPhone;
    private javax.swing.JLabel labelCelular;
+   private static javax.swing.JLabel labelCelularCadastrarAluno;
    private javax.swing.JLabel labelCidade;
-   private static javax.swing.JLabel labelCity;
+   private static javax.swing.JLabel labelCidadeCadastrarAluno;
    private javax.swing.JLabel labelDataDeNascimento;
-   private static javax.swing.JLabel labelDateOfBirth;
+   private static javax.swing.JLabel labelDataDeNascimentoCadastrarAluno;
    private javax.swing.JLabel labelE_mail;
-   private static javax.swing.JLabel labelEmail;
+   private static javax.swing.JLabel labelEmailCadastrarAluno;
    private javax.swing.JLabel labelEndereco;
+   private static javax.swing.JLabel labelEnderecoCadastrarAluno;
    private javax.swing.JLabel labelEstado;
-   private static javax.swing.JLabel labelGender;
+   private static javax.swing.JLabel labelEstadoCadastrarAluno;
    private javax.swing.JLabel labelGenero;
-   private static javax.swing.JLabel labelName;
-   private static javax.swing.JLabel labelNameOfFather;
-   private static javax.swing.JLabel labelNameOfMother;
+   private static javax.swing.JLabel labelGeneroCadastrarAluno;
    private javax.swing.JLabel labelNome;
+   private static javax.swing.JLabel labelNomeCompleto;
    private javax.swing.JLabel labelNomeDaMae;
+   private static javax.swing.JLabel labelNomeDaMaeCadastrarAluno;
    private javax.swing.JLabel labelNomeDoPai;
-   private static javax.swing.JLabel labelState;
+   private static javax.swing.JLabel labelNomeDoPaiCadastrarAluno;
+   private javax.swing.JLabel labelNomeExcluirCadastroAluno;
    private javax.swing.JLabel labelTelefone;
-   private static javax.swing.JLabel labelTelephone;
-   private javax.swing.JLabel nameStudentDelete;
+   private static javax.swing.JLabel labelTelefoneCadastrarAluno;
    private javax.swing.JPanel newStudentPanel;
    private javax.swing.JButton saveStudent;
    // End of variables declaration//GEN-END:variables
@@ -1171,146 +1218,154 @@ public class StudentPanel extends javax.swing.JPanel {
       StudentPanel.studentAddedComboName = studentAddedComboName;
    }
    
-   public static String getFieldName()
+   public static String getCampoNome()
    {
-      if(fieldName.getText().isEmpty())
+      if(campoNomeCompleto.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite um " + labelName.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         JOptionPane.showMessageDialog(null, "Digite um " + labelNomeCompleto.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         labelNomeCompleto.setForeground(Color.red);
          return null;
       }
       else
       {
-         return fieldName.getText();
+         return campoNomeCompleto.getText();
       }
    }
 
-   public static String getFieldDateOfBirth()
+   public static String getCampoDataDeNascimento()
    {
-      if(fieldDateOfBirth.getText().isEmpty())
+      if(campoDataDeNascimentoCadastrarAluno.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite uma " + labelDateOfBirth.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         JOptionPane.showMessageDialog(null, "Digite uma " + labelDataDeNascimentoCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         labelDataDeNascimentoCadastrarAluno.setForeground(Color.red);
          return null;
       }
       else
       {
-         return fieldDateOfBirth.getText();
+         return campoDataDeNascimentoCadastrarAluno.getText();
       }
    }
 
-   public static String getComboGender()
+   public static String getComboGenero()
    {
-      if(comboGender.getSelectedIndex() == -1)
+      if(comboGeneroCadastrarAluno.getSelectedIndex() == -1)
       {
-         JOptionPane.showMessageDialog(null, "Escolha um " + labelGender.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         JOptionPane.showMessageDialog(null, "Escolha um " + labelGeneroCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         labelGeneroCadastrarAluno.setForeground(Color.red);
          return null;
       }
       else
       {
-         return comboGender.getSelectedItem().toString();
+         return comboGeneroCadastrarAluno.getSelectedItem().toString();
       }
    }
    
-   public static String getFieldAddress()
+   public static String getCampoEndereco()
    {
-      if(fieldAddress.getText().isEmpty())
+      if(campoEnderecoCadastrarAluno.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite um " + labelAddress.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         JOptionPane.showMessageDialog(null, "Digite um " + labelEnderecoCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         labelEnderecoCadastrarAluno.setForeground(Color.red);
          return null;
       }
       else
       {
-         return fieldAddress.getText();
+         return campoEnderecoCadastrarAluno.getText();
       }
    }
    
-   public static String getFieldCity()
+   public static String getCampoCidade()
    {
-      if(fieldCity.getText().isEmpty())
+      if(campoCidadeCadastrarAluno.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite uma " + labelCity.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         JOptionPane.showMessageDialog(null, "Digite uma " + labelCidadeCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         labelCidadeCadastrarAluno.setForeground(Color.red);
          return null;
       }
       else
       {
-         return fieldCity.getText();
+         return campoCidadeCadastrarAluno.getText();
       }
    }
    
-   public static String getFieldState()
+   public static String getCampoEstado()
    {
-      if(fieldState.getText().isEmpty())
+      if(campoEstadoCadastrarAluno.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite um " + labelState.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         JOptionPane.showMessageDialog(null, "Digite um " + labelEstadoCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         labelEstadoCadastrarAluno.setForeground(Color.red);
          return null;
       }
       else
       {
-         return fieldState.getText();
+         return campoEstadoCadastrarAluno.getText();
       }
    }
    
-   public static String getFieldNameOfMother()
+   public static String getCampoNomeDaMae()
    {
-      if(fieldNameOfMother.getText().isEmpty())
+      if(campoNomeDaMaeCadastrarAluno.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite um " + labelNameOfMother.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         JOptionPane.showMessageDialog(null, "Digite um " + labelNomeDaMaeCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         labelNomeDaMaeCadastrarAluno.setForeground(Color.red);
          return null;
       }
       else
       {
-         return fieldNameOfMother.getText();
+         return campoNomeDaMaeCadastrarAluno.getText();
       }
    }
    
-   public static String getFieldNameOfFather()
+   public static String getCampoNomeDoPai()
    {
-      if(fieldNameOfFather.getText().isEmpty())
+      if(campoNomeDoPaiCadastrarAluno.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite um " + labelNameOfFather.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         JOptionPane.showMessageDialog(null, "Digite um " + labelNomeDoPaiCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         labelNomeDoPaiCadastrarAluno.setForeground(Color.red);
          return null;
       }
       else
       {
-         return fieldNameOfFather.getText();
+         return campoNomeDoPaiCadastrarAluno.getText();
       }
    }
    
    public static String getFieldTelephone()
    {
-      if(fieldTelephone.getText().isEmpty())
+      if(campoTelefoneCadastrarAluno.getText().isEmpty())
          return null;
       else
-         return fieldTelephone.getText();  
+         return campoTelefoneCadastrarAluno.getText();  
    }
 
    public static String getFieldCellPhone()
    {
-      if(fieldCellPhone.getText().isEmpty())
+      if(campoCelularCadastrarAluno.getText().isEmpty())
          return null;
       else
-         return fieldCellPhone.getText();
+         return campoCelularCadastrarAluno.getText();
    }
 
    public static String getFieldEmail()
    {
-      if(fieldEmail.getText().isEmpty())
+      if(campoEmailCadastrarAluno.getText().isEmpty())
          return null;
       else
-         return fieldEmail.getText();
+         return campoEmailCadastrarAluno.getText();
    }
    
    public void limpaCamposCadastrarAluno()
    {
-      fieldName.setText("");
-      fieldAddress.setText("");
-      fieldCellPhone.setText("");
-      fieldCity.setText("");
-      fieldDateOfBirth.setText("");
-      fieldEmail.setText("");
-      fieldNameOfFather.setText("");
-      fieldNameOfMother.setText("");
-      fieldState.setText("");
-      fieldTelephone.setText("");
+      campoNomeCompleto.setText("");
+      campoEnderecoCadastrarAluno.setText("");
+      campoCelularCadastrarAluno.setText("");
+      campoCidadeCadastrarAluno.setText("");
+      campoDataDeNascimentoCadastrarAluno.setText("");
+      campoEmailCadastrarAluno.setText("");
+      campoNomeDoPaiCadastrarAluno.setText("");
+      campoNomeDaMaeCadastrarAluno.setText("");
+      campoEstadoCadastrarAluno.setText("");
+      campoTelefoneCadastrarAluno.setText("");
    }
    
    public void limpaCamposEditarInformacoesAluno()
