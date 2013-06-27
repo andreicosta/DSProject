@@ -38,13 +38,13 @@ public class MainPanel extends javax.swing.JPanel {
         sendButton = new javax.swing.JButton();
         displayPanel = new javax.swing.JPanel();
         welcomePanel1 = new Interface.WelcomePanel();
-        studentPanel1 = new Interface.StudentPanel();
-        sendPanel1 = new Interface.SendPanel();
-        personalInformationPanel1 = new Interface.PersonalInformationPanel();
-        importPanel1 = new Interface.ImportPanel();
-        exportPanel1 = new Interface.ExportPanel();
         classPanel1 = new Interface.ClassPanel();
+        importPanel1 = new Interface.ImportPanel();
+        personalInformationPanel1 = new Interface.PersonalInformationPanel();
+        sendPanel1 = new Interface.SendPanel();
+        studentPanel1 = new Interface.StudentPanel();
         testPanel1 = new Interface.TestPanel();
+        exportPanel1 = new Interface.ExportPanel();
 
         piButton.setText("<html><center>Informações Pessoais</center></html>");
         piButton.setPreferredSize(new java.awt.Dimension(57, 30));
@@ -128,14 +128,14 @@ public class MainPanel extends javax.swing.JPanel {
         );
 
         displayPanel.setLayout(new java.awt.CardLayout());
-        displayPanel.add(welcomePanel1, "welcomeCard");
-        displayPanel.add(studentPanel1, "studentCard");
-        displayPanel.add(sendPanel1, "sendCard");
-        displayPanel.add(personalInformationPanel1, "personalInformationCard");
-        displayPanel.add(importPanel1, "importCard");
-        displayPanel.add(exportPanel1, "exportCard");
-        displayPanel.add(classPanel1, "classCard");
-        displayPanel.add(testPanel1, "testCard");
+        displayPanel.add(welcomePanel1, "cardWelcome");
+        displayPanel.add(classPanel1, "cardClass");
+        displayPanel.add(importPanel1, "cardImport");
+        displayPanel.add(personalInformationPanel1, "cardPersonalInformation");
+        displayPanel.add(sendPanel1, "Send");
+        displayPanel.add(studentPanel1, "cardStudent");
+        displayPanel.add(testPanel1, "cardTest");
+        displayPanel.add(exportPanel1, "cardExport");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -144,7 +144,7 @@ public class MainPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 688, Short.MAX_VALUE))
+                .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 833, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,37 +155,38 @@ public class MainPanel extends javax.swing.JPanel {
 
     private void piButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_piButtonActionPerformed
         CardLayout card = (CardLayout) displayPanel.getLayout();
-        card.show(displayPanel, "personalInformationCard");
+        card.show(displayPanel, "cardPersonalInformation");
     }//GEN-LAST:event_piButtonActionPerformed
 
     private void studentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentButtonActionPerformed
         CardLayout card = (CardLayout) displayPanel.getLayout();
-        card.show(displayPanel, "studentCard");
+        card.show(displayPanel, "cardStudent");
     }//GEN-LAST:event_studentButtonActionPerformed
 
     private void classButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classButtonActionPerformed
         CardLayout card = (CardLayout) displayPanel.getLayout();
-        card.show(displayPanel, "classCard");
+        card.show(displayPanel, "cardClass");
     }//GEN-LAST:event_classButtonActionPerformed
 
     private void testButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testButtonActionPerformed
         CardLayout card = (CardLayout) displayPanel.getLayout();
-        card.show(displayPanel, "testCard");
+        card.show(displayPanel, "cardTest");
     }//GEN-LAST:event_testButtonActionPerformed
 
     private void exportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportButtonActionPerformed
         CardLayout card = (CardLayout) displayPanel.getLayout();
-        card.show(displayPanel, "exportCard");
+        card.show(displayPanel, "cardExport");
     }//GEN-LAST:event_exportButtonActionPerformed
 
     private void importButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importButtonActionPerformed
         CardLayout card = (CardLayout) displayPanel.getLayout();
-        card.show(displayPanel, "importCard");
+        card.show(displayPanel, "cardImport");
     }//GEN-LAST:event_importButtonActionPerformed
 
     private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButtonActionPerformed
         CardLayout card = (CardLayout) displayPanel.getLayout();
-        card.show(displayPanel, "sendCard");
+        card.show(displayPanel, "cardSend"
+                + "");
     }//GEN-LAST:event_sendButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

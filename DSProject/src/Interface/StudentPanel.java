@@ -98,23 +98,40 @@ public class StudentPanel extends javax.swing.JPanel {
         comboNomeExcluirCadastroAluno = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
 
+        newStudentPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         labelNomeCompletoCadastrarAluno.setText("Nome Completo");
+        newStudentPanel.add(labelNomeCompletoCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 45, -1, -1));
 
         labelDataDeNascimentoCadastrarAluno.setText("Data de Nascimento");
+        newStudentPanel.add(labelDataDeNascimentoCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 83, -1, -1));
 
         labelNomeDoPaiCadastrarAluno.setText("Nome Completo do Pai");
+        newStudentPanel.add(labelNomeDoPaiCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 277, -1, 14));
 
         labelNomeDaMaeCadastrarAluno.setText("Nome Completo da Mãe");
+        newStudentPanel.add(labelNomeDaMaeCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 243, -1, -1));
 
         labelEnderecoCadastrarAluno.setText("Endereço");
+        newStudentPanel.add(labelEnderecoCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 144, -1, -1));
 
         labelTelefoneCadastrarAluno.setText("Telefone");
+        newStudentPanel.add(labelTelefoneCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 309, -1, -1));
 
         labelCelularCadastrarAluno.setText("Celular");
+        newStudentPanel.add(labelCelularCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 342, -1, -1));
 
         labelEmailCadastrarAluno.setText("E-mail");
+        newStudentPanel.add(labelEmailCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 376, -1, -1));
 
         campoNomeCompletoCadastrarAluno.setToolTipText("teste");
+        newStudentPanel.add(campoNomeCompletoCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 40, 396, -1));
+        newStudentPanel.add(campoNomeDaMaeCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 238, 396, -1));
+        newStudentPanel.add(campoNomeDoPaiCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 271, 396, -1));
+        newStudentPanel.add(campoTelefoneCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 304, 396, -1));
+        newStudentPanel.add(campoEnderecoCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 139, 396, -1));
+        newStudentPanel.add(campoCelularCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 337, 396, -1));
+        newStudentPanel.add(campoEmailCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 371, 396, -1));
 
         botaoCadastrar.setText("Cadastrar");
         botaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -122,133 +139,56 @@ public class StudentPanel extends javax.swing.JPanel {
                 botaoCadastrarActionPerformed(evt);
             }
         });
+        newStudentPanel.add(botaoCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 417, 90, -1));
 
         labelGeneroCadastrarAluno.setText("Gênero");
+        newStudentPanel.add(labelGeneroCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 111, -1, -1));
 
         comboGeneroCadastrarAluno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino", "Outro" }));
+        newStudentPanel.add(comboGeneroCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 106, 396, -1));
 
         labelCidadeCadastrarAluno.setText("Cidade");
+        newStudentPanel.add(labelCidadeCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 177, -1, -1));
+        newStudentPanel.add(campoCidadeCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 172, 396, -1));
+        newStudentPanel.add(campoEstadoCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 205, 396, -1));
 
         labelEstadoCadastrarAluno.setText("Estado");
-
-        javax.swing.GroupLayout newStudentPanelLayout = new javax.swing.GroupLayout(newStudentPanel);
-        newStudentPanel.setLayout(newStudentPanelLayout);
-        newStudentPanelLayout.setHorizontalGroup(
-            newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(newStudentPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(newStudentPanelLayout.createSequentialGroup()
-                        .addGap(0, 527, Short.MAX_VALUE)
-                        .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(newStudentPanelLayout.createSequentialGroup()
-                        .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(newStudentPanelLayout.createSequentialGroup()
-                                .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelNomeCompletoCadastrarAluno)
-                                    .addComponent(labelDataDeNascimentoCadastrarAluno))
-                                .addGap(39, 39, 39)
-                                .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(campoNomeCompletoCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(newStudentPanelLayout.createSequentialGroup()
-                                .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelEmailCadastrarAluno)
-                                    .addComponent(labelCelularCadastrarAluno)
-                                    .addComponent(labelTelefoneCadastrarAluno)
-                                    .addComponent(labelEnderecoCadastrarAluno)
-                                    .addComponent(labelNomeDaMaeCadastrarAluno)
-                                    .addComponent(labelGeneroCadastrarAluno)
-                                    .addComponent(labelCidadeCadastrarAluno)
-                                    .addComponent(labelEstadoCadastrarAluno)
-                                    .addComponent(labelNomeDoPaiCadastrarAluno))
-                                .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(newStudentPanelLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(campoCelularCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
-                                            .addComponent(campoTelefoneCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(campoNomeDoPaiCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(campoNomeDaMaeCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(campoEstadoCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(campoCidadeCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(campoEnderecoCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(campoEmailCadastrarAluno)))
-                                    .addGroup(newStudentPanelLayout.createSequentialGroup()
-                                        .addGap(12, 12, 12)
-                                        .addComponent(comboGeneroCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        newStudentPanelLayout.setVerticalGroup(
-            newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(newStudentPanelLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNomeCompletoCadastrarAluno)
-                    .addComponent(campoNomeCompletoCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelDataDeNascimentoCadastrarAluno)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelGeneroCadastrarAluno)
-                    .addComponent(comboGeneroCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoEnderecoCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelEnderecoCadastrarAluno))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoCidadeCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelCidadeCadastrarAluno))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoEstadoCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelEstadoCadastrarAluno))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoNomeDaMaeCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelNomeDaMaeCadastrarAluno))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoNomeDoPaiCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelNomeDoPaiCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoTelefoneCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelTelefoneCadastrarAluno))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoCelularCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelCelularCadastrarAluno))
-                .addGap(7, 7, 7)
-                .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoEmailCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelEmailCadastrarAluno))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(botaoCadastrar)
-                .addContainerGap())
-        );
+        newStudentPanel.add(labelEstadoCadastrarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 210, -1, -1));
+        newStudentPanel.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 73, 396, -1));
 
         jTabbedPane1.addTab("Cadastrar Aluno", newStudentPanel);
 
-        labelNome.setText("Nome");
+        editStudentPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        labelNome.setText("Nome Completo");
+        editStudentPanel.add(labelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 45, -1, -1));
 
         labelNomeDoPai.setText("Nome Completo do Pai");
+        editStudentPanel.add(labelNomeDoPai, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 277, -1, 14));
 
         labelNomeDaMae.setText("Nome Completo da Mãe");
+        editStudentPanel.add(labelNomeDaMae, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 243, -1, -1));
 
         labelEndereco.setText("Endereço");
+        editStudentPanel.add(labelEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 144, -1, -1));
 
         labelTelefone.setText("Telefone");
+        editStudentPanel.add(labelTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 309, -1, -1));
 
         labelCelular.setText("Celular");
+        editStudentPanel.add(labelCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 342, -1, -1));
 
         labelDataDeNascimento.setText("Data de Nascimento");
+        editStudentPanel.add(labelDataDeNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 83, -1, -1));
 
         labelE_mail.setText("E-mail");
+        editStudentPanel.add(labelE_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 376, -1, -1));
+        editStudentPanel.add(campoNomeDaMae, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 238, 396, -1));
+        editStudentPanel.add(campoNomeDoPai, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 271, 396, -1));
+        editStudentPanel.add(campoTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 304, 396, -1));
+        editStudentPanel.add(campoEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 139, 396, -1));
+        editStudentPanel.add(campoCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 337, 396, -1));
+        editStudentPanel.add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 371, 396, -1));
 
         comboNome.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
@@ -264,119 +204,34 @@ public class StudentPanel extends javax.swing.JPanel {
                 comboNomeItemStateChanged(evt);
             }
         });
+        editStudentPanel.add(comboNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 40, 396, -1));
 
         saveStudent.setText("Salvar");
+        editStudentPanel.add(saveStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 416, 90, -1));
 
         labelGenero.setText("Gênero");
+        editStudentPanel.add(labelGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 111, -1, -1));
 
         comboGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino", "Outro" }));
+        editStudentPanel.add(comboGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 106, 396, -1));
 
         labelCidade.setText("Cidade");
+        editStudentPanel.add(labelCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 177, -1, -1));
 
         labelEstado.setText("Estado");
+        editStudentPanel.add(labelEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 210, -1, -1));
+        editStudentPanel.add(campoCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 172, 396, -1));
+        editStudentPanel.add(campoEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 205, 396, -1));
 
-        javax.swing.GroupLayout editStudentPanelLayout = new javax.swing.GroupLayout(editStudentPanel);
-        editStudentPanel.setLayout(editStudentPanelLayout);
-        editStudentPanelLayout.setHorizontalGroup(
-            editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(editStudentPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editStudentPanelLayout.createSequentialGroup()
-                        .addGap(0, 527, Short.MAX_VALUE)
-                        .addComponent(saveStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(editStudentPanelLayout.createSequentialGroup()
-                        .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(editStudentPanelLayout.createSequentialGroup()
-                                .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelNome)
-                                    .addComponent(labelDataDeNascimento))
-                                .addGap(39, 39, 39)
-                                .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(comboNome, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(editStudentPanelLayout.createSequentialGroup()
-                                .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelNomeDoPai)
-                                    .addComponent(labelNomeDaMae)
-                                    .addComponent(labelE_mail)
-                                    .addComponent(labelCelular)
-                                    .addComponent(labelTelefone)
-                                    .addComponent(labelGenero)
-                                    .addComponent(labelEndereco)
-                                    .addComponent(labelCidade)
-                                    .addComponent(labelEstado))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(campoCelular)
-                                    .addComponent(campoTelefone)
-                                    .addComponent(campoNomeDoPai)
-                                    .addComponent(campoNomeDaMae)
-                                    .addComponent(campoEstado)
-                                    .addComponent(campoEmail)
-                                    .addGroup(editStudentPanelLayout.createSequentialGroup()
-                                        .addComponent(comboGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(campoCidade)
-                                    .addComponent(campoEndereco))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        editStudentPanelLayout.setVerticalGroup(
-            editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(editStudentPanelLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNome)
-                    .addComponent(comboNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelDataDeNascimento))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelGenero)
-                    .addComponent(comboGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelEndereco))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelCidade))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelEstado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNomeDaMae)
-                    .addComponent(campoNomeDaMae, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNomeDoPai, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoNomeDoPai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelTelefone))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelCelular))
-                .addGap(7, 7, 7)
-                .addGroup(editStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelE_mail))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(saveStudent)
-                .addContainerGap())
-        );
+        jDateChooser2.setPreferredSize(new java.awt.Dimension(396, 27));
+        editStudentPanel.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 73, 396, -1));
 
         jTabbedPane1.addTab("Editar Informações do Aluno", editStudentPanel);
 
-        labelNomeExcluirCadastroAluno.setText("Nome");
+        deleteStudentPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        labelNomeExcluirCadastroAluno.setText("Selecione um Aluno");
+        deleteStudentPanel.add(labelNomeExcluirCadastroAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 45, -1, -1));
 
         comboNomeExcluirCadastroAluno.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
@@ -387,37 +242,10 @@ public class StudentPanel extends javax.swing.JPanel {
                 comboNomeExcluirCadastroAlunoPopupMenuWillBecomeVisible(evt);
             }
         });
+        deleteStudentPanel.add(comboNomeExcluirCadastroAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 536, -1));
 
         jButton1.setText("Excluir");
-
-        javax.swing.GroupLayout deleteStudentPanelLayout = new javax.swing.GroupLayout(deleteStudentPanel);
-        deleteStudentPanel.setLayout(deleteStudentPanelLayout);
-        deleteStudentPanelLayout.setHorizontalGroup(
-            deleteStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(deleteStudentPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(deleteStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(deleteStudentPanelLayout.createSequentialGroup()
-                        .addGap(0, 527, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(deleteStudentPanelLayout.createSequentialGroup()
-                        .addComponent(labelNomeExcluirCadastroAluno)
-                        .addGap(18, 18, 18)
-                        .addComponent(comboNomeExcluirCadastroAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        deleteStudentPanelLayout.setVerticalGroup(
-            deleteStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(deleteStudentPanelLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(deleteStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNomeExcluirCadastroAluno)
-                    .addComponent(comboNomeExcluirCadastroAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 357, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
-        );
+        deleteStudentPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 80, 90, -1));
 
         jTabbedPane1.addTab("Excluir Cadastro do Aluno", deleteStudentPanel);
 
@@ -425,11 +253,11 @@ public class StudentPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 833, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

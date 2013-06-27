@@ -19,7 +19,7 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="displayPanel" pref="688" max="32767" attributes="0"/>
+              <Component id="displayPanel" pref="833" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -137,56 +137,56 @@
         <Component class="Interface.WelcomePanel" name="welcomePanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="welcomeCard"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="Interface.StudentPanel" name="studentPanel1">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="studentCard"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="Interface.SendPanel" name="sendPanel1">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="sendCard"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="Interface.PersonalInformationPanel" name="personalInformationPanel1">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="personalInformationCard"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="Interface.ImportPanel" name="importPanel1">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="importCard"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="Interface.ExportPanel" name="exportPanel1">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="exportCard"/>
+              <CardConstraints cardName="cardWelcome"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="Interface.ClassPanel" name="classPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="classCard"/>
+              <CardConstraints cardName="cardClass"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="Interface.ImportPanel" name="importPanel1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="cardImport"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="Interface.PersonalInformationPanel" name="personalInformationPanel1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="cardPersonalInformation"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="Interface.SendPanel" name="sendPanel1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="Send"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="Interface.StudentPanel" name="studentPanel1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="cardStudent"/>
             </Constraint>
           </Constraints>
         </Component>
         <Component class="Interface.TestPanel" name="testPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="testCard"/>
+              <CardConstraints cardName="cardTest"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="Interface.ExportPanel" name="exportPanel1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="cardExport"/>
             </Constraint>
           </Constraints>
         </Component>
