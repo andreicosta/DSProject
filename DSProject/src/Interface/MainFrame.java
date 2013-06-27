@@ -4,8 +4,6 @@
  */
 package Interface;
 
-import java.awt.CardLayout;
-
 /**
  *
  * @author pazuti
@@ -28,23 +26,27 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        mainPanel = new javax.swing.JPanel();
+        loginJPanel1 = new Interface.LoginJPanel(mainPanel);
         mainPanel1 = new Interface.MainPanel();
+        newTeacherPanel1 = new Interface.NewTeacherPanel(mainPanel);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setLayout(new java.awt.CardLayout());
-        jPanel2.add(mainPanel1, "card2");
+        mainPanel.setLayout(new java.awt.CardLayout());
+        mainPanel.add(loginJPanel1, "cardLogin");
+        mainPanel.add(mainPanel1, "cardMain");
+        mainPanel.add(newTeacherPanel1, "cardNewTeacher");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -86,7 +88,9 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel2;
+    private Interface.LoginJPanel loginJPanel1;
+    private javax.swing.JPanel mainPanel;
     private Interface.MainPanel mainPanel1;
+    private Interface.NewTeacherPanel newTeacherPanel1;
     // End of variables declaration//GEN-END:variables
 }

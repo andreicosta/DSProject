@@ -940,7 +940,7 @@ public class ClassPanel extends javax.swing.JPanel {
 
    private void listClassesPanelComponentShown(java.awt.event.ComponentEvent evt)//GEN-FIRST:event_listClassesPanelComponentShown
    {//GEN-HEADEREND:event_listClassesPanelComponentShown
-      Object isNull;
+      /*Object isNull;
       isNull = listaListaDeTurmas.getSize();
       int i = 0;
       ArrayList<dsproject.Turma> turmas;
@@ -1033,7 +1033,7 @@ public class ClassPanel extends javax.swing.JPanel {
                }
             }
          }
-      }
+      }*/
    }//GEN-LAST:event_listClassesPanelComponentShown
 
    private void comboTurmaEditarTurmaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
