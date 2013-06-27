@@ -481,24 +481,24 @@ public class StudentPanel extends javax.swing.JPanel {
          {
             if(dataDeNascimento.length() != 10)
             {
+               labelDataDeNascimentoCadastrarAluno.setForeground(Color.red);
                JOptionPane.showMessageDialog(null, "Digite uma " + labelDataDeNascimentoCadastrarAluno.getText() + 
 						   " no formato dd/mm/aaaa", "Erro", JOptionPane.ERROR_MESSAGE);
-               labelDataDeNascimentoCadastrarAluno.setForeground(Color.red);
             }
             else
             {
                String splitedDateOfBirth[] = dataDeNascimento.split("/");
                if(Integer.parseInt(splitedDateOfBirth[0]) > 31)
                {
-                  JOptionPane.showMessageDialog(null, "Não existe mês com mais de 31 dias", "Erro", JOptionPane.ERROR_MESSAGE);
                   labelDataDeNascimentoCadastrarAluno.setForeground(Color.red);
+                  JOptionPane.showMessageDialog(null, "Não existe mês com mais de 31 dias", "Erro", JOptionPane.ERROR_MESSAGE);
                }
                else
                {
                   if(Integer.parseInt(splitedDateOfBirth[1]) > 12)
                   {
-                     JOptionPane.showMessageDialog(null, "Não existe mês maior que 12", "Erro", JOptionPane.ERROR_MESSAGE);
                      labelDataDeNascimentoCadastrarAluno.setForeground(Color.red);
+                     JOptionPane.showMessageDialog(null, "Não existe mês maior que 12", "Erro", JOptionPane.ERROR_MESSAGE);
                   }
                   else
                   {
@@ -516,12 +516,14 @@ public class StudentPanel extends javax.swing.JPanel {
 			{
 			   if(mes == 2 && dia == 31 || dia == 30)
 			   {
+                              labelDataDeNascimentoCadastrarAluno.setForeground(Color.red);
 			      JOptionPane.showMessageDialog(null, months.get(mes - 1) + " não tem " + dia + " dias", "Erro", JOptionPane.ERROR_MESSAGE);
 			   }
 			   else
 			   {
 			      if(dia == 31 && mes == 4 || mes == 6 || mes == 9 || mes == 11)
 			      {
+                                 labelDataDeNascimentoCadastrarAluno.setForeground(Color.red);
 				 JOptionPane.showMessageDialog(null, months.get(mes - 1) + " não tem " + dia + " dias", "Erro", JOptionPane.ERROR_MESSAGE);
 			      }
 			      else
@@ -693,6 +695,7 @@ public class StudentPanel extends javax.swing.JPanel {
                      }
                      else
                      {
+                        labelDataDeNascimentoCadastrarAluno.setForeground(Color.black);
                         if(genero == null)
                         {
                            System.err.println("Gênero faltando");
@@ -1238,12 +1241,13 @@ public class StudentPanel extends javax.swing.JPanel {
    {
       if(campoNomeCompleto.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite um " + labelNomeCompleto.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          labelNomeCompleto.setForeground(Color.red);
+         //JOptionPane.showMessageDialog(null, "Digite um " + labelNomeCompleto.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
       }
       else
       {
+         labelNomeCompleto.setForeground(Color.black);
          return campoNomeCompleto.getText();
       }
    }
@@ -1252,8 +1256,8 @@ public class StudentPanel extends javax.swing.JPanel {
    {
       if(campoDataDeNascimentoCadastrarAluno.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite uma " + labelDataDeNascimentoCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          labelDataDeNascimentoCadastrarAluno.setForeground(Color.red);
+         //JOptionPane.showMessageDialog(null, "Digite uma " + labelDataDeNascimentoCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
       }
       else
@@ -1266,12 +1270,13 @@ public class StudentPanel extends javax.swing.JPanel {
    {
       if(comboGeneroCadastrarAluno.getSelectedIndex() == -1)
       {
-         JOptionPane.showMessageDialog(null, "Escolha um " + labelGeneroCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          labelGeneroCadastrarAluno.setForeground(Color.red);
+         //JOptionPane.showMessageDialog(null, "Escolha um " + labelGeneroCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
       }
       else
       {
+         labelGeneroCadastrarAluno.setForeground(Color.black);
          return comboGeneroCadastrarAluno.getSelectedItem().toString();
       }
    }
@@ -1280,12 +1285,13 @@ public class StudentPanel extends javax.swing.JPanel {
    {
       if(campoEnderecoCadastrarAluno.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite um " + labelEnderecoCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          labelEnderecoCadastrarAluno.setForeground(Color.red);
+         //JOptionPane.showMessageDialog(null, "Digite um " + labelEnderecoCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
       }
       else
       {
+         labelEnderecoCadastrarAluno.setForeground(Color.black);
          return campoEnderecoCadastrarAluno.getText();
       }
    }
@@ -1294,12 +1300,13 @@ public class StudentPanel extends javax.swing.JPanel {
    {
       if(campoCidadeCadastrarAluno.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite uma " + labelCidadeCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          labelCidadeCadastrarAluno.setForeground(Color.red);
+         //JOptionPane.showMessageDialog(null, "Digite uma " + labelCidadeCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
       }
       else
       {
+         labelCidadeCadastrarAluno.setForeground(Color.black);
          return campoCidadeCadastrarAluno.getText();
       }
    }
@@ -1308,12 +1315,13 @@ public class StudentPanel extends javax.swing.JPanel {
    {
       if(campoEstadoCadastrarAluno.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite um " + labelEstadoCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          labelEstadoCadastrarAluno.setForeground(Color.red);
+         //JOptionPane.showMessageDialog(null, "Digite um " + labelEstadoCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
       }
       else
       {
+         labelEstadoCadastrarAluno.setForeground(Color.black);
          return campoEstadoCadastrarAluno.getText();
       }
    }
@@ -1322,12 +1330,13 @@ public class StudentPanel extends javax.swing.JPanel {
    {
       if(campoNomeDaMaeCadastrarAluno.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite um " + labelNomeDaMaeCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          labelNomeDaMaeCadastrarAluno.setForeground(Color.red);
+         //JOptionPane.showMessageDialog(null, "Digite um " + labelNomeDaMaeCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
       }
       else
       {
+         labelNomeDaMaeCadastrarAluno.setForeground(Color.black);
          return campoNomeDaMaeCadastrarAluno.getText();
       }
    }
@@ -1336,12 +1345,13 @@ public class StudentPanel extends javax.swing.JPanel {
    {
       if(campoNomeDoPaiCadastrarAluno.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite um " + labelNomeDoPaiCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          labelNomeDoPaiCadastrarAluno.setForeground(Color.red);
+         //JOptionPane.showMessageDialog(null, "Digite um " + labelNomeDoPaiCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
       }
       else
       {
+         labelNomeDoPaiCadastrarAluno.setForeground(Color.black);
          return campoNomeDoPaiCadastrarAluno.getText();
       }
    }
