@@ -1087,7 +1087,7 @@ public class StudentPanel extends javax.swing.JPanel {
                   {
                      if(students.get(i).getNome().equals(evt.getItem().toString()))
                      {
-                        campoDataDeNascimento.setText(sd.format(students.get(i).getDataDeNascimento()).toString());
+                        //campoDataDeNascimento.setText(sd.format(students.get(i).getDataDeNascimento()).toString());
                         comboGenero.setSelectedItem(students.get(i).getGenero());
                         campoEndereco.setText(students.get(i).getEndereco());
                         campoCidade.setText(students.get(i).getCidade());
@@ -1227,7 +1227,7 @@ public class StudentPanel extends javax.swing.JPanel {
 
    public static String getCampoDataDeNascimento()
    {
-      if(campoDataDeNascimentoCadastrarAluno.getText().isEmpty())
+      /*if(campoDataDeNascimentoCadastrarAluno.getText().isEmpty())
       {
          labelDataDeNascimentoCadastrarAluno.setForeground(Color.red);
          //JOptionPane.showMessageDialog(null, "Digite uma " + labelDataDeNascimentoCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
@@ -1236,7 +1236,8 @@ public class StudentPanel extends javax.swing.JPanel {
       else
       {
          return campoDataDeNascimentoCadastrarAluno.getText();
-      }
+      }*/
+       return null;
    }
 
    public static String getComboGenero()
@@ -1359,7 +1360,7 @@ public class StudentPanel extends javax.swing.JPanel {
       campoEnderecoCadastrarAluno.setText("");
       campoCelularCadastrarAluno.setText("");
       campoCidadeCadastrarAluno.setText("");
-      campoDataDeNascimentoCadastrarAluno.setText("");
+      //campoDataDeNascimentoCadastrarAluno.setText("");
       campoEmailCadastrarAluno.setText("");
       campoNomeDoPaiCadastrarAluno.setText("");
       campoNomeDaMaeCadastrarAluno.setText("");
@@ -1371,7 +1372,7 @@ public class StudentPanel extends javax.swing.JPanel {
    {
       campoCelular.setText("");
       campoCidade.setText("");
-      campoDataDeNascimento.setText("");
+      //campoDataDeNascimento.setText("");
       campoEmail.setText("");
       campoEndereco.setText("");
       campoEstado.setText("");

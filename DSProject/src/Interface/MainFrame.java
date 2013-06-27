@@ -27,20 +27,26 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
+        loginJPanel1 = new Interface.LoginJPanel(mainPanel);
+        mainPanel1 = new Interface.MainPanel();
+        newTeacherPanel1 = new Interface.NewTeacherPanel(mainPanel);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         mainPanel.setLayout(new java.awt.CardLayout());
+        mainPanel.add(loginJPanel1, "cardLogin");
+        mainPanel.add(mainPanel1, "cardMain");
+        mainPanel.add(newTeacherPanel1, "cardNewTeacher");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -82,6 +88,9 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private Interface.LoginJPanel loginJPanel1;
     private javax.swing.JPanel mainPanel;
+    private Interface.MainPanel mainPanel1;
+    private Interface.NewTeacherPanel newTeacherPanel1;
     // End of variables declaration//GEN-END:variables
 }
