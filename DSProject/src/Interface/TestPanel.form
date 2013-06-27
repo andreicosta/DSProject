@@ -106,9 +106,9 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="labelClass" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelTurma" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="comboBoxClass" min="-2" pref="137" max="-2" attributes="0"/>
+                                      <Component id="comboTurma" min="-2" pref="137" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                       <Component id="labelStudentName" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -229,8 +229,8 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="comboBoxClass" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelClass" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboTurma" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelTurma" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="comboBoxStudentName" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="labelStudentName" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -322,12 +322,15 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JComboBox" name="comboBoxClass">
+            <Component class="javax.swing.JComboBox" name="comboTurma">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="popupMenuWillBecomeVisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="comboTurmaPopupMenuWillBecomeVisible"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="comboBoxStudentName">
               <Properties>
@@ -336,7 +339,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="labelClass">
+            <Component class="javax.swing.JLabel" name="labelTurma">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Turma"/>
               </Properties>

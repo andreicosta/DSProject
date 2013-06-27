@@ -77,7 +77,7 @@ public class Turma implements Serializable, Cloneable
       return -1;
    }
 
-   public ArrayList<dsproject.Aluno> buscaTodosAlunos()
+   public ArrayList<Aluno> buscaTodosAlunos()
    {
       return alunos;
    }

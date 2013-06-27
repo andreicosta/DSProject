@@ -672,6 +672,8 @@ public class ClassPanel extends javax.swing.JPanel {
                            setTurmaAdicionada(true);
                            setTurmaAdicionadaComboTurmaEditarTurmas(true);
                            setTurmaAdicionadaComboTurma(true);
+                           Interface.TestPanel.setTurmaAdicionada(true);
+                           Interface.TestPanel.setNumeroDeTurmasAdicionadas(Interface.TestPanel.getNumeroDeTurmasAdicionadas() + 1);
                            setNumeroDeTurmasAdicionadasComboTurma(getNumeroDeTurmasAdicionadasComboTurma() + 1);
                            setNumeroDeTurmasAdicionadas(getNumeroDeTurmasAdicionadas() + 1);
                            setNumeroDeTurmasAdicionadasComboTurmaEditarTurmas(getNumeroDeTurmasAdicionadasComboTurmaEditarTurmas() + 1);
@@ -694,6 +696,8 @@ public class ClassPanel extends javax.swing.JPanel {
                            setTurmaAdicionada(true);
                            setTurmaAdicionadaComboTurmaEditarTurmas(true);
                            setTurmaAdicionadaComboTurma(true);
+                           Interface.TestPanel.setTurmaAdicionada(true);
+                           Interface.TestPanel.setNumeroDeTurmasAdicionadas(Interface.TestPanel.getNumeroDeTurmasAdicionadas() + 1);
                            setNumeroDeTurmasAdicionadasComboTurma(getNumeroDeTurmasAdicionadasComboTurma() + 1);
                            setNumeroDeTurmasAdicionadas(getNumeroDeTurmasAdicionadas() + 1);
                            setNumeroDeTurmasAdicionadasComboTurmaEditarTurmas(getNumeroDeTurmasAdicionadasComboTurmaEditarTurmas() + 1);

@@ -43,9 +43,7 @@ public class Aluno extends Pessoa implements Serializable
       this.avaliacoes = new ArrayList<>();
    }
    
-   
-
-   public boolean salvaAvaliacao(java.sql.Date dataDaAvaliacao, String horaDaAvaliacao, String temperatura)
+   public boolean inserirAvaliacao(java.sql.Date dataDaAvaliacao, String horaDaAvaliacao, String temperatura)
    {
       SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -56,113 +54,113 @@ public class Aluno extends Pessoa implements Serializable
        * Depois da verificação de cada campo deve colocar o valor do campo no teste ou null
        */
 
-      if (Interface.TestPanel.getFieldBodyMass() == -1)
+      if (Interface.TestPanel.getCampoMassaCorporal() == -1)
       {
          JOptionPane.showMessageDialog(null, "Erro na Massa Corporal", "Erro", JOptionPane.ERROR_MESSAGE);
          return false;
       }
-      if (Interface.TestPanel.getFieldHeight() == -1)
+      if (Interface.TestPanel.getCampoEstatura() == -1)
       {
          System.out.println("Estatura faltando");
          return false;
       }
-      if (Interface.TestPanel.getFieldHeight() > 257)
+      if (Interface.TestPanel.getCampoEstatura() > 257)
       {
          JOptionPane.showMessageDialog(null, "Digite uma estatura real", "Erro", JOptionPane.ERROR_MESSAGE);
          return false;
       }
-      if (Interface.TestPanel.getFieldIMC() == -1)
+      if (Interface.TestPanel.getCampoIMC() == -1)
       {
          System.out.println("IMC faltando");
          return false;
       }
-      if (Interface.TestPanel.getFieldSpread() == -1)
+      if (Interface.TestPanel.getCampoEnvergadura() == -1)
       {
          System.out.println("Envergadura faltando");
          return false;
       }
-      if (Interface.TestPanel.getFieldSpread() > 272)
+      if (Interface.TestPanel.getCampoEnvergadura() > 272)
       {
          JOptionPane.showMessageDialog(null, "Digite uma envergadura real", "Erro", JOptionPane.ERROR_MESSAGE);
          return false;
       }
-      if (Interface.TestPanel.getFieldSitUp() == -1)
+      if (Interface.TestPanel.getCampoAbdominal() == -1)
       {
          System.out.println("Abdominal faltando");
          return false;
       }
-      if (Interface.TestPanel.getFieldSitAndAchieve() == -1)
+      if (Interface.TestPanel.getCampoSentarEAlcancar() == -1)
       {
          System.out.println("Sentar-e-Alcançar faltando");
          return false;
       }
-      if (!Interface.TestPanel.getRadioSitAndAchieveWithSeat() && !Interface.TestPanel.getRadioSitAndAchieveWithoutSeat())
+      if (!Interface.TestPanel.getRadioSentarEAlcancarComBanco() && !Interface.TestPanel.getRadioSentarEAlcancarSemBanco())
       {
          JOptionPane.showMessageDialog(null, "Marque se sentar e alcançar é com banco ou sem banco", "Erro", JOptionPane.ERROR_MESSAGE);
          return false;
       }
 
-      test.setSentarEAlcancarComBanco(Interface.TestPanel.getRadioSitAndAchieveWithSeat());
+      test.setSentarEAlcancarComBanco(Interface.TestPanel.getRadioSentarEAlcancarComBanco());
 
-      if (Interface.TestPanel.getFieldRun6Or9Minutes() == -1)
+      if (Interface.TestPanel.getCampoCorrida6Ou9Minutos() == -1)
       {
          System.out.println("Corrida faltando");
          return false;
       }
 
-      if (!Interface.TestPanel.getRadio6Minutes() && !Interface.TestPanel.getRadio9Minutes())
+      if (!Interface.TestPanel.getRadio6Minutos() && !Interface.TestPanel.getRadio9Minutos())
       {
          JOptionPane.showMessageDialog(null, "Marque se corrida é de 6 ou 9 minutos", "Erro", JOptionPane.ERROR_MESSAGE);
          return false;
       }
 
-      if (Interface.TestPanel.getFieldHorizontalJump() == -1)
+      if (Interface.TestPanel.getCampoSaltoHorizontal() == -1)
       {
          System.out.println("Salto Horizontal faltando");
          return false;
       }
 
-      if (Interface.TestPanel.getFieldThrowOfMedicineBall() == -1)
+      if (Interface.TestPanel.getCampoArremessoDeMedicineBall() == -1)
       {
          System.out.println("Medicineball faltando");
          return false;
       }
 
-      if (Interface.TestPanel.getFieldSquareTest() == -1)
+      if (Interface.TestPanel.getCampoQuadrado() == -1)
       {
          System.out.println("Quadrado faltando");
          return false;
       }
 
-      if (Interface.TestPanel.getField20MetersRun() == -1)
+      if (Interface.TestPanel.getCampoCorridaDe20Metros() == -1)
       {
          System.out.println("Corrida de 20 Metros faltando");
          return false;
       }
 
-      test.setMassaCorporal(Interface.TestPanel.getFieldBodyMass());
-      test.setEstatura(Interface.TestPanel.getFieldHeight());
-      test.setIMC(Interface.TestPanel.getFieldIMC());
-      test.setEnvergadura(Interface.TestPanel.getFieldSpread());
-      test.setAbdominal(Interface.TestPanel.getFieldSitUp());
-      test.setSentarEAlcancar(Interface.TestPanel.getFieldSitAndAchieve());
-      if (Interface.TestPanel.getRadio6Minutes())
+      test.setMassaCorporal(Interface.TestPanel.getCampoMassaCorporal());
+      test.setEstatura(Interface.TestPanel.getCampoEstatura());
+      test.setIMC(Interface.TestPanel.getCampoIMC());
+      test.setEnvergadura(Interface.TestPanel.getCampoEnvergadura());
+      test.setAbdominal(Interface.TestPanel.getCampoAbdominal());
+      test.setSentarEAlcancar(Interface.TestPanel.getCampoSentarEAlcancar());
+      if (Interface.TestPanel.getRadio6Minutos())
       {
-         test.set6Minutos(Interface.TestPanel.getFieldRun6Or9Minutes());
+         test.set6Minutos(Interface.TestPanel.getCampoCorrida6Ou9Minutos());
          //se avaliação 9 minutos é -1 então a avaliação realizada foi a de 6 minutos
          test.set9Minutos(-1);
       }
       else
       {
-         test.set9Minutos(Interface.TestPanel.getFieldRun6Or9Minutes());
+         test.set9Minutos(Interface.TestPanel.getCampoCorrida6Ou9Minutos());
          //se avaliação 6 minutos é -1 então a avaliação realizada foi a de 9 minutos
          test.set6Minutos(-1);
       }
 
-      test.setSaltoHorizontal(Interface.TestPanel.getFieldHorizontalJump());
-      test.setArremessoMedicineBall(Interface.TestPanel.getFieldThrowOfMedicineBall());
-      test.setTesteDoQuadrado(Interface.TestPanel.getFieldSquareTest());
-      test.setCorrida20Metros(Interface.TestPanel.getField20MetersRun());
+      test.setSaltoHorizontal(Interface.TestPanel.getCampoSaltoHorizontal());
+      test.setArremessoMedicineBall(Interface.TestPanel.getCampoArremessoDeMedicineBall());
+      test.setTesteDoQuadrado(Interface.TestPanel.getCampoQuadrado());
+      test.setCorrida20Metros(Interface.TestPanel.getCampoCorridaDe20Metros());
       System.out.println("data = " + sd.format(test.getData()));
       System.out.println("horario = " + test.getHorario());
       System.out.println("temperatura = " + test.getTemperatura() + "°C");
@@ -232,5 +230,10 @@ public class Aluno extends Pessoa implements Serializable
    public void setAvaliacoes(Avaliacao avaliacao)
    {
       this.avaliacoes.add(avaliacao);
+   }
+   
+   public Avaliacao buscarUltimaAvaliacao()
+   {
+      return avaliacoes.get(avaliacoes.size() - 1);
    }
 }

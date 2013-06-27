@@ -4,6 +4,10 @@
  */
 package Interface;
 
+import static Interface.ClassPanel.getNumeroDeTurmasAdicionadasComboTurmaEditarTurmas;
+import static Interface.ClassPanel.isTurmaAdicionadaComboTurmaEditarTurmas;
+import static Interface.ClassPanel.setNumeroDeTurmasAdicionadasComboTurmaEditarTurmas;
+import static Interface.ClassPanel.setTurmaAdicionadaComboTurmaEditarTurmas;
 import dsproject.Aluno;
 import java.io.File;
 import java.io.FileInputStream;
@@ -58,9 +62,9 @@ public class TestPanel extends javax.swing.JPanel
       runningButtonGroup = new javax.swing.ButtonGroup();
       jTabbedPane1 = new javax.swing.JTabbedPane();
       newEditPanel = new javax.swing.JPanel();
-      comboBoxClass = new javax.swing.JComboBox();
+      comboTurma = new javax.swing.JComboBox();
       comboBoxStudentName = new javax.swing.JComboBox();
-      labelClass = new javax.swing.JLabel();
+      labelTurma = new javax.swing.JLabel();
       labelStudentName = new javax.swing.JLabel();
       jSeparator1 = new javax.swing.JSeparator();
       labelTestDate = new javax.swing.JLabel();
@@ -128,7 +132,21 @@ public class TestPanel extends javax.swing.JPanel
 
       setPreferredSize(new java.awt.Dimension(700, 515));
 
-      labelClass.setText("Turma");
+      comboTurma.addPopupMenuListener(new javax.swing.event.PopupMenuListener()
+      {
+         public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt)
+         {
+         }
+         public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt)
+         {
+         }
+         public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)
+         {
+            comboTurmaPopupMenuWillBecomeVisible(evt);
+         }
+      });
+
+      labelTurma.setText("Turma");
 
       labelStudentName.setText("Nome do Aluno");
 
@@ -299,9 +317,9 @@ public class TestPanel extends javax.swing.JPanel
                .addGroup(newEditPanelLayout.createSequentialGroup()
                   .addGroup(newEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                      .addGroup(newEditPanelLayout.createSequentialGroup()
-                        .addComponent(labelClass)
+                        .addComponent(labelTurma)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboBoxClass, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboTurma, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
                         .addComponent(labelStudentName)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -392,8 +410,8 @@ public class TestPanel extends javax.swing.JPanel
             .addGroup(newEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                .addGroup(newEditPanelLayout.createSequentialGroup()
                   .addGroup(newEditPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                     .addComponent(comboBoxClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                     .addComponent(labelClass)
+                     .addComponent(comboTurma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(labelTurma)
                      .addComponent(comboBoxStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addComponent(labelStudentName))
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -612,69 +630,58 @@ public class TestPanel extends javax.swing.JPanel
 
    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_buttonSaveActionPerformed
    {//GEN-HEADEREND:event_buttonSaveActionPerformed
-      java.util.Date dateOfBirth;
-      java.util.Date testDate;
-      java.util.Date time = null;
-      java.sql.Date sqlDateOfBirth = null;
-      java.sql.Date sqlTestDate = null;
-      String timeOfTest = null;
-      String temperature;
-      String birthday = "13/04/1999"; //aqui vai Aluno.getDataDeNascimento()
-      SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
-      SimpleDateFormat sh = new SimpleDateFormat("HH:mm");
-      
-      ArrayList<Aluno> students = new ArrayList<>();
-      ObjectInputStream in = null;
-      ObjectOutputStream out = null;
+      java.util.Date dataDeNascimento;
+      java.util.Date dataDaAvaliacao;
+      java.util.Date horaDaAvaliacao = null;
+      java.sql.Date sqlDataDeNascimento = null;
+      java.sql.Date sqlDataDaAvaliacao = null;
+      String horaDaAvaliacaoString = null;
+      String temperatura;
+      String dataDeNascimentoString = "13/04/1999"; //aqui vai Aluno.getDataDeNascimento()
+      SimpleDateFormat formatoDaData = new SimpleDateFormat("dd/MM/yyyy");
+      SimpleDateFormat formatoDaHora = new SimpleDateFormat("HH:mm");
+      FileInputStream arquivo;
+      ArrayList<Aluno> alunos;
+      ObjectInputStream entrada = null;
+      ObjectOutputStream saida = null;
       
       //daqui até o catch le um objeto gravado no arquivo alunos.txt
-      File fileStudents = new File("alunos.txt");
-      if(fileStudents.exists())
+      File arquivoAlunos = new File("alunos.txt");
+      if(arquivoAlunos.exists())
       {
-         FileInputStream file;
          try
          {
-            file = new FileInputStream(fileStudents);
-            in = new ObjectInputStream(file);
-            students = (ArrayList<Aluno>)in.readObject();
-            for(int i = 0; i < students.size(); i++)
-               System.out.println(students.get(i).getNome());
-            in.close();
-            file.close();
+            arquivo = new FileInputStream(arquivoAlunos);
+            entrada = new ObjectInputStream(arquivo);
+            alunos = (ArrayList<Aluno>)entrada.readObject();
+            for(int i = 0; i < alunos.size(); i++)
+               System.out.println(alunos.get(i).getNome());
+            entrada.close();
+            arquivo.close();
          }
          catch (IOException | ClassNotFoundException ex)
          {
             System.err.println(ex);
          }
       }
-      
-      //imprime objeto lido do arquivo alunos.txt
-      
-      /*System.out.println(studentRead.getDataDeNascimento());
-      System.out.println(studentRead.getEndereco());
-      System.out.println(studentRead.getGenero());
-      System.out.println(studentRead.getCidade());
-      System.out.println(studentRead.getEstado());
-      System.out.println(studentRead.getNomeDoPai());
-      System.out.println(studentRead.getNomeDaMae());*/
 
       try
       {
-         testDate = getFieldTestDate();
-         timeOfTest = getFieldTime();
-         temperature = getFieldTemperature();
+         dataDaAvaliacao = getCampoDataDaAvaliacao();
+         horaDaAvaliacaoString = getCampoHora();
+         temperatura = getCampoTemperatura();
          
-         if(testDate != null && timeOfTest != null && temperature != null)
+         if(dataDaAvaliacao != null && horaDaAvaliacaoString != null && temperatura != null)
          {
             //testa se foi digitado uma hora mais : mais minutos
-            if(timeOfTest.length() != 5)
+            if(horaDaAvaliacaoString.length() != 5)
             {
                JOptionPane.showMessageDialog(null, "Digite um horario correto", "Erro", JOptionPane.ERROR_MESSAGE);
             }
             else
             {
                //pega o que esta antes e depois dos dois pontos e põe no vetor horarioDividido
-               String splitedTime[] = timeOfTest.split(":");
+               String splitedTime[] = horaDaAvaliacaoString.split(":");
                //testa se a hora é maior que 23
                if(Integer.parseInt(splitedTime[0]) > 23)
                {
@@ -690,38 +697,39 @@ public class TestPanel extends javax.swing.JPanel
                   else
                   {
                      //converte uma data escrita no formato de string para o formato de data do java
-                     dateOfBirth = sd.parse(birthday);
+                     dataDeNascimento = formatoDaData.parse(dataDeNascimentoString);
 
                      //converte a data em formato do java para o formato do mysql
-                     sqlTestDate = new java.sql.Date(testDate.getTime());
-                     sqlDateOfBirth = new java.sql.Date(dateOfBirth.getTime());
+                     sqlDataDaAvaliacao = new java.sql.Date(dataDaAvaliacao.getTime());
+                     sqlDataDeNascimento = new java.sql.Date(dataDeNascimento.getTime());
 
-                     time = sh.parse(timeOfTest);
+                     horaDaAvaliacao = formatoDaHora.parse(horaDaAvaliacaoString);
 
-                     dsproject.Aluno student = new dsproject.Aluno("Maria", "Joao", "Miguel", sqlDateOfBirth, "sdfgdfsg", "Masculino", "Pelotas", "RS");
-                     if(student.salvaAvaliacao(sqlTestDate, timeOfTest, temperature))
+                     dsproject.Aluno aluno = new dsproject.Aluno("Maria", "Joao", "Miguel", sqlDataDeNascimento, "sdfgdfsg", "Masculino", "Pelotas", "RS");
+                     if(aluno.inserirAvaliacao(sqlDataDaAvaliacao, horaDaAvaliacaoString, temperatura))
                      {
                         // daqui até o catch salva objeto aluno
                         try
                         {
                            //fileStudents = new File("alunos.txt");
-                           if(fileStudents.exists())
+                           if(arquivoAlunos.exists())
                            {
-                              FileInputStream file = new FileInputStream(fileStudents);
-                              in = new ObjectInputStream(file);
-                              students = (ArrayList<Aluno>)in.readObject();
-                              students.add(student);
-                              out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
-                              out.writeObject(students);
-                              out.close();
+                              FileInputStream file = new FileInputStream(arquivoAlunos);
+                              entrada = new ObjectInputStream(file);
+                              alunos = (ArrayList<Aluno>)entrada.readObject();
+                              alunos.add(aluno);
+                              saida = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
+                              saida.writeObject(alunos);
+                              saida.close();
                               JOptionPane.showMessageDialog(null, "Avaliação salva", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
                            }
                            else
                            {
-                              students.add(student);
-                              out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
-                              out.writeObject(students);
-                              out.close();
+                              alunos = new ArrayList<>();
+                              alunos.add(aluno);
+                              saida = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
+                              saida.writeObject(alunos);
+                              saida.close();
                               JOptionPane.showMessageDialog(null, "Avaliação salva com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
                            }
                         }
@@ -855,11 +863,106 @@ public class TestPanel extends javax.swing.JPanel
       }
    }//GEN-LAST:event_fieldSitUpKeyTyped
 
+   private void comboTurmaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboTurmaPopupMenuWillBecomeVisible
+   {//GEN-HEADEREND:event_comboTurmaPopupMenuWillBecomeVisible
+      Object isNull;
+      isNull = comboTurma.getItemAt(0);
+      int i = 0;
+      ArrayList<dsproject.Turma> turmas;
+      File arquivoTurmas = new File("turmas.txt");
+      FileInputStream arquivo;
+      ObjectInputStream in;
+      if(isTurmaAdicionada() && isNull == null)
+      {
+         //daqui até o catch le um objeto gravado no arquivo alunos.txt
+         if(arquivoTurmas.exists())
+         {
+            try
+            {
+               arquivo = new FileInputStream(arquivoTurmas);
+               in = new ObjectInputStream(arquivo);
+               turmas = (ArrayList<dsproject.Turma>)in.readObject();
+               i = 0;
+               comboTurma.addItem("");
+               while(i < turmas.size())
+               {
+                  comboTurma.addItem(turmas.get(i).getId());
+                  i++;
+               }
+            }
+            catch (IOException | ClassNotFoundException ex)
+            {
+               System.err.println(ex);
+            }
+
+         }
+         setTurmaAdicionada(false);
+         setNumeroDeTurmasAdicionadas(0);
+      }
+      else
+      {
+         if(isTurmaAdicionada()&& isNull != null)
+         {
+            //daqui até o catch le um objeto gravado no arquivo alunos.txt
+            if(arquivoTurmas.exists())
+            {
+               try
+               {
+                  arquivo = new FileInputStream(arquivoTurmas);
+                  in = new ObjectInputStream(arquivo);
+                  turmas = (ArrayList<dsproject.Turma>)in.readObject();
+                  i = (turmas.size() - getNumeroDeTurmasAdicionadas());
+                  while(i < turmas.size())
+                  {
+                     comboTurma.addItem(turmas.get(i).getId());
+                     i++;
+                  }
+               }
+               catch (IOException | ClassNotFoundException ex)
+               {
+                  System.err.println(ex);
+               }
+
+            }
+            setTurmaAdicionada(false);
+            setNumeroDeTurmasAdicionadas(0);
+         }
+         else
+         {
+            if(isNull == null)
+            {
+               i = 0;
+
+               //daqui até o catch le um objeto gravado no arquivo alunos.txt
+               if(arquivoTurmas.exists())
+               {
+                  try
+                  {
+                     arquivo = new FileInputStream(arquivoTurmas);
+                     in = new ObjectInputStream(arquivo);
+                     turmas = (ArrayList<dsproject.Turma>)in.readObject();
+                     comboTurma.addItem("");
+                     while(i < turmas.size())
+                     {
+                        comboTurma.addItem(turmas.get(i).getId());
+                        i++;
+                     }
+                  }
+                  catch (IOException | ClassNotFoundException ex)
+                  {
+                     System.err.println(ex);
+                  }
+               }
+            }
+         }
+      }
+   }//GEN-LAST:event_comboTurmaPopupMenuWillBecomeVisible
+
    // Variables declaration - do not modify//GEN-BEGIN:variables
    private javax.swing.JButton buttonSave;
    private javax.swing.ButtonGroup chairButtonGroup;
-   private javax.swing.JComboBox comboBoxClass;
    private javax.swing.JComboBox comboBoxStudentName;
+   private javax.swing.JComboBox comboTurma;
    private javax.swing.JPanel controlPanel;
    private static javax.swing.JTextField fiedlSquareTest;
    private static javax.swing.JTextField field20MetersRun;
@@ -900,7 +1003,6 @@ public class TestPanel extends javax.swing.JPanel
    private javax.swing.JTable jTable2;
    private static javax.swing.JLabel label20MetersRun;
    private static javax.swing.JLabel labelBodyMass;
-   private javax.swing.JLabel labelClass;
    private static javax.swing.JLabel labelHeight;
    private static javax.swing.JLabel labelHorizontalJump;
    private static javax.swing.JLabel labelIMC;
@@ -914,6 +1016,7 @@ public class TestPanel extends javax.swing.JPanel
    private static javax.swing.JLabel labelTestDate;
    private static javax.swing.JLabel labelThrowOfMedicineBall;
    private static javax.swing.JLabel labelTime;
+   private javax.swing.JLabel labelTurma;
    private javax.swing.JPanel loadPanel;
    private javax.swing.JPanel newEditPanel;
    private static javax.swing.JRadioButton radio6Minutes;
@@ -922,8 +1025,30 @@ public class TestPanel extends javax.swing.JPanel
    private static javax.swing.JRadioButton radioSitAndAchieveWithoutSeat;
    private javax.swing.ButtonGroup runningButtonGroup;
    // End of variables declaration//GEN-END:variables
+   private static boolean turmaAdicionada;
+   private static int numeroDeTurmasAdicionadas = 0;
 
-   public static Date getFieldTestDate()
+   public static boolean isTurmaAdicionada()
+   {
+      return turmaAdicionada;
+   }
+
+   public static void setTurmaAdicionada(boolean turmaAdicionada)
+   {
+      TestPanel.turmaAdicionada = turmaAdicionada;
+   }
+
+   public static int getNumeroDeTurmasAdicionadas()
+   {
+      return numeroDeTurmasAdicionadas;
+   }
+
+   public static void setNumeroDeTurmasAdicionadas(int numeroDeTurmasAdicionadas)
+   {
+      TestPanel.numeroDeTurmasAdicionadas = numeroDeTurmasAdicionadas;
+   }
+   
+   public static Date getCampoDataDaAvaliacao()
    {
       if(fieldTestDate.getDate() == null)
       {
@@ -936,7 +1061,7 @@ public class TestPanel extends javax.swing.JPanel
       }
    }
 
-   public static String getFieldTime()
+   public static String getCampoHora()
    {
       if(fieldTime.getText().isEmpty())
       {
@@ -949,7 +1074,7 @@ public class TestPanel extends javax.swing.JPanel
       }
    }
 
-   public static String getFieldTemperature()
+   public static String getCampoTemperatura()
    {
       if(fieldTemperature.getText().isEmpty())
       {
@@ -962,7 +1087,7 @@ public class TestPanel extends javax.swing.JPanel
       }
    }
 
-   public static float getFieldBodyMass()
+   public static float getCampoMassaCorporal()
    {
       try
       {
@@ -975,7 +1100,7 @@ public class TestPanel extends javax.swing.JPanel
       }
    }
 
-   public static float getFieldHeight()
+   public static float getCampoEstatura()
    {
       try
       {
@@ -988,7 +1113,7 @@ public class TestPanel extends javax.swing.JPanel
       }
    }
 
-   public static float getFieldIMC()
+   public static float getCampoIMC()
    {
       try
       {
@@ -1001,7 +1126,7 @@ public class TestPanel extends javax.swing.JPanel
       }
    }
 
-   public static float getFieldSpread()
+   public static float getCampoEnvergadura()
    {
       try
       {
@@ -1014,7 +1139,7 @@ public class TestPanel extends javax.swing.JPanel
       }
    }
 
-   public static int getFieldSitUp()
+   public static int getCampoAbdominal()
    {
       try
       {
@@ -1027,7 +1152,7 @@ public class TestPanel extends javax.swing.JPanel
       }
    }
 
-   public static float getFieldSitAndAchieve()
+   public static float getCampoSentarEAlcancar()
    {
       try
       {
@@ -1040,7 +1165,7 @@ public class TestPanel extends javax.swing.JPanel
       }
    }
    
-   public static boolean getRadioSitAndAchieveWithSeat()
+   public static boolean getRadioSentarEAlcancarComBanco()
    {
       if(radioSitAndAchieveWithSeat.isSelected())
          return true;
@@ -1048,7 +1173,7 @@ public class TestPanel extends javax.swing.JPanel
          return false;
    }
 
-   public static boolean getRadioSitAndAchieveWithoutSeat()
+   public static boolean getRadioSentarEAlcancarSemBanco()
    {
       if(radioSitAndAchieveWithoutSeat.isSelected())
          return true;
@@ -1056,7 +1181,7 @@ public class TestPanel extends javax.swing.JPanel
          return false;
    }
 
-   public static float getFieldRun6Or9Minutes()
+   public static float getCampoCorrida6Ou9Minutos()
    {
       try
       {
@@ -1069,7 +1194,7 @@ public class TestPanel extends javax.swing.JPanel
       }
    }
 
-   public static boolean getRadio6Minutes()
+   public static boolean getRadio6Minutos()
    {
       if(radio6Minutes.isSelected())
          return true;
@@ -1077,7 +1202,7 @@ public class TestPanel extends javax.swing.JPanel
          return false;
    }
 
-   public static boolean getRadio9Minutes()
+   public static boolean getRadio9Minutos()
    {
       if(radio9Minutes.isSelected())
          return true;
@@ -1085,7 +1210,7 @@ public class TestPanel extends javax.swing.JPanel
          return false;
    }
    
-   public static float getFieldHorizontalJump()
+   public static float getCampoSaltoHorizontal()
    {
       try
       {
@@ -1098,7 +1223,7 @@ public class TestPanel extends javax.swing.JPanel
       }
    }
 
-   public static float getFieldSquareTest()
+   public static float getCampoQuadrado()
    {
       try
       {
@@ -1111,7 +1236,7 @@ public class TestPanel extends javax.swing.JPanel
       }
    }
    
-   public static float getFieldThrowOfMedicineBall()
+   public static float getCampoArremessoDeMedicineBall()
    {
       try
       {
@@ -1124,7 +1249,7 @@ public class TestPanel extends javax.swing.JPanel
       }
    }
    
-   public static float getField20MetersRun()
+   public static float getCampoCorridaDe20Metros()
    {
       try
       {
