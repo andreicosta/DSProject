@@ -4,10 +4,6 @@
  */
 package Interface;
 
-import static Interface.ClassPanel.getNumeroDeTurmasAdicionadasComboTurmaEditarTurmas;
-import static Interface.ClassPanel.isTurmaAdicionadaComboTurmaEditarTurmas;
-import static Interface.ClassPanel.setNumeroDeTurmasAdicionadasComboTurmaEditarTurmas;
-import static Interface.ClassPanel.setTurmaAdicionadaComboTurmaEditarTurmas;
 import dsproject.Aluno;
 import java.io.File;
 import java.io.FileInputStream;
@@ -644,26 +640,7 @@ public class TestPanel extends javax.swing.JPanel
       ArrayList<Aluno> alunos;
       ObjectInputStream entrada = null;
       ObjectOutputStream saida = null;
-      
-      //daqui até o catch le um objeto gravado no arquivo alunos.txt
       File arquivoAlunos = new File("alunos.txt");
-      if(arquivoAlunos.exists())
-      {
-         try
-         {
-            arquivo = new FileInputStream(arquivoAlunos);
-            entrada = new ObjectInputStream(arquivo);
-            alunos = (ArrayList<Aluno>)entrada.readObject();
-            for(int i = 0; i < alunos.size(); i++)
-               System.out.println(alunos.get(i).getNome());
-            entrada.close();
-            arquivo.close();
-         }
-         catch (IOException | ClassNotFoundException ex)
-         {
-            System.err.println(ex);
-         }
-      }
 
       try
       {
@@ -705,7 +682,7 @@ public class TestPanel extends javax.swing.JPanel
 
                      horaDaAvaliacao = formatoDaHora.parse(horaDaAvaliacaoString);
 
-                     dsproject.Aluno aluno = new dsproject.Aluno("Maria", "Joao", "Miguel", sqlDataDeNascimento, "sdfgdfsg", "Masculino", "Pelotas", "RS");
+                     dsproject.Aluno aluno = new dsproject.Aluno("Maria", "Joao", null, null, null, null, "Miguel", sqlDataDeNascimento, "sdfgdfsg", "Masculino", "Pelotas", "RS");
                      if(aluno.inserirAvaliacao(sqlDataDaAvaliacao, horaDaAvaliacaoString, temperatura))
                      {
                         // daqui até o catch salva objeto aluno

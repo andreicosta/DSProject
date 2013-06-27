@@ -10,15 +10,14 @@
  */
 package Interface;
 
-import dsproject.Aluno;
 import dsproject.Turma;
+import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -715,7 +714,7 @@ public class ClassPanel extends javax.swing.JPanel {
                   }
                }
                else
-                  JOptionPane.showMessageDialog(null, "Adicione algum aluno na lista", "Erro", JOptionPane.ERROR_MESSAGE);
+                  JOptionPane.showMessageDialog(null, "Adicione algum aluno na lista de alunos matriculados", "Erro", JOptionPane.ERROR_MESSAGE);
             }
             catch(ClassCastException ex)
             {
@@ -1030,7 +1029,7 @@ public class ClassPanel extends javax.swing.JPanel {
                }
                else
                {
-                  JOptionPane.showMessageDialog(null, "Não existe nenhuma turma cadastrada", "Erro", JOptionPane.ERROR_MESSAGE);
+                  JOptionPane.showMessageDialog(null, "Não existe nenhuma turma cadastrada", "Aviso", JOptionPane.WARNING_MESSAGE);
                }
             }
          }
@@ -1467,11 +1466,13 @@ public class ClassPanel extends javax.swing.JPanel {
    {
       if(campoTurma.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite um nome para a " + labelTurma.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         labelTurma.setForeground(Color.red);
+         //JOptionPane.showMessageDialog(null, "Digite um nome para a " + labelTurma.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
       }
       else
       {
+         labelTurma.setForeground(Color.black);
          return campoTurma.getText();
       }
    }
@@ -1480,11 +1481,13 @@ public class ClassPanel extends javax.swing.JPanel {
    {
       if(campoAnoLetivo.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite um " + labelAnoLetivo.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         labelAnoLetivo.setForeground(Color.red);
+         //JOptionPane.showMessageDialog(null, "Digite um " + labelAnoLetivo.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
       }
       else
       {
+         labelAnoLetivo.setForeground(Color.black);
          return campoAnoLetivo.getText();
       }
    }

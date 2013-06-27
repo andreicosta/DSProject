@@ -47,7 +47,7 @@ public class StudentPanel extends javax.swing.JPanel {
 
       jTabbedPane1 = new javax.swing.JTabbedPane();
       newStudentPanel = new javax.swing.JPanel();
-      labelNomeCompleto = new javax.swing.JLabel();
+      labelNomeCompletoCadastrarAluno = new javax.swing.JLabel();
       labelDataDeNascimentoCadastrarAluno = new javax.swing.JLabel();
       labelNomeDoPaiCadastrarAluno = new javax.swing.JLabel();
       labelNomeDaMaeCadastrarAluno = new javax.swing.JLabel();
@@ -55,7 +55,7 @@ public class StudentPanel extends javax.swing.JPanel {
       labelTelefoneCadastrarAluno = new javax.swing.JLabel();
       labelCelularCadastrarAluno = new javax.swing.JLabel();
       labelEmailCadastrarAluno = new javax.swing.JLabel();
-      campoNomeCompleto = new javax.swing.JTextField();
+      campoNomeCompletoCadastrarAluno = new javax.swing.JTextField();
       campoNomeDaMaeCadastrarAluno = new javax.swing.JTextField();
       campoNomeDoPaiCadastrarAluno = new javax.swing.JTextField();
       campoTelefoneCadastrarAluno = new javax.swing.JTextField();
@@ -99,7 +99,7 @@ public class StudentPanel extends javax.swing.JPanel {
       comboNomeExcluirCadastroAluno = new javax.swing.JComboBox();
       jButton1 = new javax.swing.JButton();
 
-      labelNomeCompleto.setText("Nome Completo");
+      labelNomeCompletoCadastrarAluno.setText("Nome Completo");
 
       labelDataDeNascimentoCadastrarAluno.setText("Data de Nascimento");
 
@@ -115,7 +115,7 @@ public class StudentPanel extends javax.swing.JPanel {
 
       labelEmailCadastrarAluno.setText("E-mail");
 
-      campoNomeCompleto.setToolTipText("teste");
+      campoNomeCompletoCadastrarAluno.setToolTipText("teste");
 
       botaoCadastrar.setText("Cadastrar");
       botaoCadastrar.addActionListener(new java.awt.event.ActionListener()
@@ -154,7 +154,7 @@ public class StudentPanel extends javax.swing.JPanel {
                   .addComponent(botaoCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                .addGroup(newStudentPanelLayout.createSequentialGroup()
                   .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(labelNomeCompleto)
+                     .addComponent(labelNomeCompletoCadastrarAluno)
                      .addComponent(labelEmailCadastrarAluno)
                      .addComponent(labelCelularCadastrarAluno)
                      .addComponent(labelTelefoneCadastrarAluno)
@@ -177,7 +177,7 @@ public class StudentPanel extends javax.swing.JPanel {
                      .addComponent(campoDataDeNascimentoCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING)
                      .addComponent(campoEmailCadastrarAluno)
                      .addComponent(comboGeneroCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                     .addComponent(campoNomeCompleto, javax.swing.GroupLayout.Alignment.LEADING))
+                     .addComponent(campoNomeCompletoCadastrarAluno, javax.swing.GroupLayout.Alignment.LEADING))
                   .addGap(0, 0, Short.MAX_VALUE)))
             .addContainerGap())
       );
@@ -186,8 +186,8 @@ public class StudentPanel extends javax.swing.JPanel {
          .addGroup(newStudentPanelLayout.createSequentialGroup()
             .addGap(28, 28, 28)
             .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(labelNomeCompleto)
-               .addComponent(campoNomeCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(labelNomeCompletoCadastrarAluno)
+               .addComponent(campoNomeCompletoCadastrarAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(newStudentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                .addComponent(labelDataDeNascimentoCadastrarAluno)
@@ -428,7 +428,7 @@ public class StudentPanel extends javax.swing.JPanel {
       this.setLayout(layout);
       layout.setHorizontalGroup(
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-         .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 649, Short.MAX_VALUE)
+         .addComponent(jTabbedPane1)
       );
       layout.setVerticalGroup(
          layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -451,7 +451,7 @@ public class StudentPanel extends javax.swing.JPanel {
       months.add("Outubro");
       months.add("Novembro");
       months.add("Dezembro");
-      String nome = getCampoNome();
+      String nome = getCampoNomeCompleto();
       String dataDeNascimento = getCampoDataDeNascimento();
       String genero = getComboGenero();
       String endereco = getCampoEndereco();
@@ -572,7 +572,7 @@ public class StudentPanel extends javax.swing.JPanel {
 						      dsproject.Aluno student = null;
 						      if(telefone == null && celular == null && email == null)
 						      {
-							 student = new Aluno(nomeDaMae, nomeDoPai, nome, sqlDateOfBirth, genero, endereco, cidade, estado);
+							 student = new Aluno(nomeDaMae, nomeDoPai, null, null, null, null, nome, sqlDateOfBirth, genero, endereco, cidade, estado);
 						      }
 						      else
 						      {
@@ -627,7 +627,7 @@ public class StudentPanel extends javax.swing.JPanel {
 							 labelNomeDaMaeCadastrarAluno.setForeground(Color.black);
 							 labelNomeDoPaiCadastrarAluno.setForeground(Color.black);
 							 labelTelefoneCadastrarAluno.setForeground(Color.black);
-							 labelNomeCompleto.setForeground(Color.black);
+							 labelNomeCompletoCadastrarAluno.setForeground(Color.black);
 							 Interface.ClassPanel.setStudentAddedComboAluno(true);
 							 Interface.ClassPanel.setStudentAddedComboAdicionarAluno(true);
 							 Interface.ClassPanel.setStudentAddedCombonomeDoAluno(true);
@@ -661,7 +661,7 @@ public class StudentPanel extends javax.swing.JPanel {
 							 labelNomeDaMaeCadastrarAluno.setForeground(Color.black);
 							 labelNomeDoPaiCadastrarAluno.setForeground(Color.black);
 							 labelTelefoneCadastrarAluno.setForeground(Color.black);
-							 labelNomeCompleto.setForeground(Color.black);
+							 labelNomeCompletoCadastrarAluno.setForeground(Color.black);
 							 Interface.ClassPanel.setStudentAddedComboAluno(true);
 							 Interface.ClassPanel.setStudentAddedComboAdicionarAluno(true);
 							 Interface.ClassPanel.setStudentAddedCombonomeDoAluno(true);
@@ -739,7 +739,7 @@ public class StudentPanel extends javax.swing.JPanel {
                                              dsproject.Aluno student = null;
                                              if(telefone == null && celular == null && email == null)
                                              {
-                                                student = new Aluno(nomeDaMae, nomeDoPai, nome, sqlDateOfBirth, genero, endereco, cidade, estado);
+                                                student = new Aluno(nomeDaMae, nomeDoPai, null, null, null, null, nome, sqlDateOfBirth, genero, endereco, cidade, estado);
                                              }
                                              else
                                              {
@@ -794,7 +794,7 @@ public class StudentPanel extends javax.swing.JPanel {
                                                 labelNomeDaMaeCadastrarAluno.setForeground(Color.black);
                                                 labelNomeDoPaiCadastrarAluno.setForeground(Color.black);
                                                 labelTelefoneCadastrarAluno.setForeground(Color.black);
-                                                labelNomeCompleto.setForeground(Color.black);
+                                                labelNomeCompletoCadastrarAluno.setForeground(Color.black);
                                                 Interface.ClassPanel.setStudentAddedComboAluno(true);
                                                 Interface.ClassPanel.setStudentAddedComboAdicionarAluno(true);
                                                 Interface.ClassPanel.setStudentAddedCombonomeDoAluno(true);
@@ -828,7 +828,7 @@ public class StudentPanel extends javax.swing.JPanel {
                                                 labelNomeDaMaeCadastrarAluno.setForeground(Color.black);
                                                 labelNomeDoPaiCadastrarAluno.setForeground(Color.black);
                                                 labelTelefoneCadastrarAluno.setForeground(Color.black);
-                                                labelNomeCompleto.setForeground(Color.black);
+                                                labelNomeCompletoCadastrarAluno.setForeground(Color.black);
                                                 Interface.ClassPanel.setStudentAddedComboAluno(true);
                                                 Interface.ClassPanel.setStudentAddedComboAdicionarAluno(true);
                                                 Interface.ClassPanel.setStudentAddedCombonomeDoAluno(true);
@@ -1151,7 +1151,7 @@ public class StudentPanel extends javax.swing.JPanel {
    private static javax.swing.JTextField campoEnderecoCadastrarAluno;
    private javax.swing.JTextField campoEstado;
    private static javax.swing.JTextField campoEstadoCadastrarAluno;
-   private static javax.swing.JTextField campoNomeCompleto;
+   private static javax.swing.JTextField campoNomeCompletoCadastrarAluno;
    private javax.swing.JTextField campoNomeDaMae;
    private static javax.swing.JTextField campoNomeDaMaeCadastrarAluno;
    private javax.swing.JTextField campoNomeDoPai;
@@ -1181,7 +1181,7 @@ public class StudentPanel extends javax.swing.JPanel {
    private javax.swing.JLabel labelGenero;
    private static javax.swing.JLabel labelGeneroCadastrarAluno;
    private javax.swing.JLabel labelNome;
-   private static javax.swing.JLabel labelNomeCompleto;
+   private static javax.swing.JLabel labelNomeCompletoCadastrarAluno;
    private javax.swing.JLabel labelNomeDaMae;
    private static javax.swing.JLabel labelNomeDaMaeCadastrarAluno;
    private javax.swing.JLabel labelNomeDoPai;
@@ -1237,18 +1237,18 @@ public class StudentPanel extends javax.swing.JPanel {
       StudentPanel.studentAddedComboName = studentAddedComboName;
    }
    
-   public static String getCampoNome()
+   public static String getCampoNomeCompleto()
    {
-      if(campoNomeCompleto.getText().isEmpty())
+      if(campoNomeCompletoCadastrarAluno.getText().isEmpty())
       {
-         labelNomeCompleto.setForeground(Color.red);
+         labelNomeCompletoCadastrarAluno.setForeground(Color.red);
          //JOptionPane.showMessageDialog(null, "Digite um " + labelNomeCompleto.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
       }
       else
       {
-         labelNomeCompleto.setForeground(Color.black);
-         return campoNomeCompleto.getText();
+         labelNomeCompletoCadastrarAluno.setForeground(Color.black);
+         return campoNomeCompletoCadastrarAluno.getText();
       }
    }
 
@@ -1382,7 +1382,7 @@ public class StudentPanel extends javax.swing.JPanel {
    
    public void limpaCamposCadastrarAluno()
    {
-      campoNomeCompleto.setText("");
+      campoNomeCompletoCadastrarAluno.setText("");
       campoEnderecoCadastrarAluno.setText("");
       campoCelularCadastrarAluno.setText("");
       campoCidadeCadastrarAluno.setText("");

@@ -17,7 +17,7 @@ public class Aluno extends Pessoa implements Serializable
    private String email;
    private ArrayList<Avaliacao> avaliacoes;
 
-   public Aluno(String nomeDaMae, String nomeDoPai, String nome, java.sql.Date dataDeNascimento,
+   /*public Aluno(String nomeDaMae, String nomeDoPai, String nome, java.sql.Date dataDeNascimento,
                 String genero, String endereco, String cidade, String estado)
    {
       super(nome, dataDeNascimento, genero, endereco, cidade, estado);
@@ -28,7 +28,7 @@ public class Aluno extends Pessoa implements Serializable
       this.celular = null;
       this.email = null;
       this.avaliacoes = new ArrayList<>();
-   }
+   }*/
 
    public Aluno(String nomeDaMae, String nomeDoPai, String turmaId, String telefone, String celular, String email, 
                 String nome, Date dataDeNascimento, String genero, String endereco, String cidade, String estado)
