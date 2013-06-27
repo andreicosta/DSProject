@@ -51,31 +51,49 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelNomeCompletoCadastrarAluno" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelEmailCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelCelularCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelTelefoneCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelEnderecoCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelNomeDaMaeCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelGeneroCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelCidadeCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelEstadoCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelDataDeNascimentoCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelNomeDoPaiCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="campoCelularCadastrarAluno" alignment="0" pref="396" max="32767" attributes="0"/>
-                                  <Component id="campoTelefoneCadastrarAluno" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="campoNomeDoPaiCadastrarAluno" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="campoNomeDaMaeCadastrarAluno" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="campoEstadoCadastrarAluno" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="campoCidadeCadastrarAluno" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="campoEnderecoCadastrarAluno" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="campoDataDeNascimentoCadastrarAluno" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="campoEmailCadastrarAluno" max="32767" attributes="0"/>
-                                  <Component id="comboGeneroCadastrarAluno" alignment="0" min="-2" max="-2" attributes="1"/>
-                                  <Component id="campoNomeCompletoCadastrarAluno" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="labelNomeCompletoCadastrarAluno" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelDataDeNascimentoCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="campoNomeCompletoCadastrarAluno" min="-2" pref="396" max="-2" attributes="0"/>
+                                          <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="labelEmailCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelCelularCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelTelefoneCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelEnderecoCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelNomeDaMaeCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelGeneroCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelCidadeCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelEstadoCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelNomeDoPaiCadastrarAluno" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="campoCelularCadastrarAluno" alignment="0" pref="396" max="32767" attributes="0"/>
+                                                  <Component id="campoTelefoneCadastrarAluno" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="campoNomeDoPaiCadastrarAluno" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="campoNomeDaMaeCadastrarAluno" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="campoEstadoCadastrarAluno" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="campoCidadeCadastrarAluno" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="campoEnderecoCadastrarAluno" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="campoEmailCadastrarAluno" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                              <Component id="comboGeneroCadastrarAluno" min="-2" pref="124" max="-2" attributes="1"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -93,14 +111,14 @@
                           <Component id="campoNomeCompletoCadastrarAluno" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelDataDeNascimentoCadastrarAluno" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="campoDataDeNascimentoCadastrarAluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="labelDataDeNascimentoCadastrarAluno" min="-2" max="-2" attributes="0"/>
+                          <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelGeneroCadastrarAluno" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="comboGeneroCadastrarAluno" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="labelGeneroCadastrarAluno" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboGeneroCadastrarAluno" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -260,14 +278,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCadastrarActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="campoDataDeNascimentoCadastrarAluno">
-              <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoDataDeNascimentoCadastrarAlunoKeyTyped"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
-              </AuxValues>
-            </Component>
             <Component class="javax.swing.JLabel" name="labelGeneroCadastrarAluno">
               <Properties>
                 <Property name="text" type="java.lang.String" value="G&#xea;nero"/>
@@ -316,6 +326,8 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
               </AuxValues>
             </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="editStudentPanel">
@@ -338,32 +350,46 @@
                               <Component id="saveStudent" min="-2" pref="90" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelNomeDoPai" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelNomeDaMae" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelE_mail" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelCelular" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelTelefone" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelNome" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelGenero" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelDataDeNascimento" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelCidade" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelEstado" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="comboGenero" min="-2" max="-2" attributes="1"/>
-                                  <Component id="campoCelular" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="campoTelefone" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="campoNomeDoPai" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="campoNomeDaMae" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="campoEstado" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="campoCidade" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="campoEndereco" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="campoDataDeNascimento" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="comboNome" alignment="0" pref="396" max="32767" attributes="1"/>
-                                  <Component id="campoEmail" alignment="0" max="32767" attributes="1"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="labelNome" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelDataDeNascimento" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="comboNome" alignment="0" min="-2" pref="396" max="-2" attributes="1"/>
+                                          <Component id="jDateChooser2" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="labelNomeDoPai" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelNomeDaMae" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelE_mail" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelCelular" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelTelefone" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelGenero" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelCidade" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelEstado" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="campoCelular" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="campoTelefone" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="campoNomeDoPai" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="campoNomeDaMae" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="campoEstado" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="campoEmail" alignment="0" max="32767" attributes="1"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="comboGenero" min="-2" pref="124" max="-2" attributes="1"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="campoCidade" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="campoEndereco" alignment="0" max="32767" attributes="1"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -381,9 +407,9 @@
                           <Component id="comboNome" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelDataDeNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="campoDataDeNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jDateChooser2" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelDataDeNascimento" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -490,8 +516,6 @@
             </Component>
             <Component class="javax.swing.JTextField" name="campoEmail">
             </Component>
-            <Component class="javax.swing.JTextField" name="campoDataDeNascimento">
-            </Component>
             <Component class="javax.swing.JComboBox" name="comboNome">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -537,6 +561,8 @@
             <Component class="javax.swing.JTextField" name="campoCidade">
             </Component>
             <Component class="javax.swing.JTextField" name="campoEstado">
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser2">
             </Component>
           </SubComponents>
         </Container>
