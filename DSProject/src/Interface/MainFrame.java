@@ -28,169 +28,27 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        piButton = new javax.swing.JButton();
-        studentButton = new javax.swing.JButton();
-        classButton = new javax.swing.JButton();
-        testButton = new javax.swing.JButton();
-        exportButton = new javax.swing.JButton();
-        importButton = new javax.swing.JButton();
-        sendButton = new javax.swing.JButton();
-        displayPanel = new javax.swing.JPanel();
-        welcomePanel1 = new Interface.WelcomePanel();
-        studentPanel1 = new Interface.StudentPanel();
-        sendPanel1 = new Interface.SendPanel();
-        personalInformationPanel1 = new Interface.PersonalInformationPanel();
-        importPanel1 = new Interface.ImportPanel();
-        exportPanel1 = new Interface.ExportPanel();
-        classPanel1 = new Interface.ClassPanel();
-        testPanel1 = new Interface.TestPanel();
+        jPanel2 = new javax.swing.JPanel();
+        mainPanel1 = new Interface.MainPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        piButton.setText("<html><center>Informações Pessoais</center></html>");
-        piButton.setPreferredSize(new java.awt.Dimension(57, 30));
-        piButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                piButtonActionPerformed(evt);
-            }
-        });
-
-        studentButton.setText("<html><center>Aluno</center></html>");
-        studentButton.setPreferredSize(new java.awt.Dimension(57, 30));
-        studentButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                studentButtonActionPerformed(evt);
-            }
-        });
-
-        classButton.setText("<html><center>Turma</center></html>");
-        classButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                classButtonActionPerformed(evt);
-            }
-        });
-
-        testButton.setText("<html><center>Avaliações</center></html>");
-        testButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                testButtonActionPerformed(evt);
-            }
-        });
-
-        exportButton.setText("Exportar");
-        exportButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exportButtonActionPerformed(evt);
-            }
-        });
-
-        importButton.setText("Importar");
-        importButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                importButtonActionPerformed(evt);
-            }
-        });
-
-        sendButton.setText("Enviar");
-        sendButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sendButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(piButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(studentButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(classButton)
-            .addComponent(testButton, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-            .addComponent(exportButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(importButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(sendButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(piButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(studentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(classButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(testButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(exportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(importButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        displayPanel.setLayout(new java.awt.CardLayout());
-        displayPanel.add(welcomePanel1, "welcomeCard");
-        displayPanel.add(studentPanel1, "studentCard");
-        displayPanel.add(sendPanel1, "sendCard");
-        displayPanel.add(personalInformationPanel1, "personalInformationCard");
-        displayPanel.add(importPanel1, "importCard");
-        displayPanel.add(exportPanel1, "exportCard");
-        displayPanel.add(classPanel1, "classCard");
-        displayPanel.add(testPanel1, "testCard");
+        jPanel2.setLayout(new java.awt.CardLayout());
+        jPanel2.add(mainPanel1, "card2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void piButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_piButtonActionPerformed
-        CardLayout card = (CardLayout) displayPanel.getLayout();
-        card.show(displayPanel, "personalInformationCard");
-    }//GEN-LAST:event_piButtonActionPerformed
-
-    private void studentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentButtonActionPerformed
-        CardLayout card = (CardLayout) displayPanel.getLayout();
-        card.show(displayPanel, "studentCard");
-    }//GEN-LAST:event_studentButtonActionPerformed
-
-    private void classButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classButtonActionPerformed
-        CardLayout card = (CardLayout) displayPanel.getLayout();
-        card.show(displayPanel, "classCard");
-    }//GEN-LAST:event_classButtonActionPerformed
-
-    private void testButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testButtonActionPerformed
-        CardLayout card = (CardLayout) displayPanel.getLayout();
-        card.show(displayPanel, "testCard");
-    }//GEN-LAST:event_testButtonActionPerformed
-
-    private void exportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportButtonActionPerformed
-        CardLayout card = (CardLayout) displayPanel.getLayout();
-        card.show(displayPanel, "exportCard");
-    }//GEN-LAST:event_exportButtonActionPerformed
-
-    private void importButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importButtonActionPerformed
-        CardLayout card = (CardLayout) displayPanel.getLayout();
-        card.show(displayPanel, "importCard");
-    }//GEN-LAST:event_importButtonActionPerformed
-
-    private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButtonActionPerformed
-        CardLayout card = (CardLayout) displayPanel.getLayout();
-        card.show(displayPanel, "sendCard");
-    }//GEN-LAST:event_sendButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,22 +86,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton classButton;
-    private Interface.ClassPanel classPanel1;
-    private javax.swing.JPanel displayPanel;
-    private javax.swing.JButton exportButton;
-    private Interface.ExportPanel exportPanel1;
-    private javax.swing.JButton importButton;
-    private Interface.ImportPanel importPanel1;
-    private javax.swing.JPanel jPanel1;
-    private Interface.PersonalInformationPanel personalInformationPanel1;
-    private javax.swing.JButton piButton;
-    private javax.swing.JButton sendButton;
-    private Interface.SendPanel sendPanel1;
-    private javax.swing.JButton studentButton;
-    private Interface.StudentPanel studentPanel1;
-    private javax.swing.JButton testButton;
-    private Interface.TestPanel testPanel1;
-    private Interface.WelcomePanel welcomePanel1;
+    private javax.swing.JPanel jPanel2;
+    private Interface.MainPanel mainPanel1;
     // End of variables declaration//GEN-END:variables
 }

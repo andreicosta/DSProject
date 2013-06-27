@@ -33,13 +33,13 @@ public class TestPanel extends javax.swing.JPanel
      */
     public TestPanel()
     {
-        try
+        /*try
         {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
         }
         catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             Logger.getLogger(TestPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         
         initComponents();
     }
