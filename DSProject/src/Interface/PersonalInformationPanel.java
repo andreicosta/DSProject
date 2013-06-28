@@ -55,6 +55,8 @@ public class PersonalInformationPanel extends javax.swing.JPanel {
         emilTextField = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
 
+        setMinimumSize(new java.awt.Dimension(833, 515));
+
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel2.add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 516, 26));
         jPanel2.add(cpfLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 72, 516, 26));

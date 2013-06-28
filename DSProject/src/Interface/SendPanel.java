@@ -35,6 +35,7 @@ public class SendPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
+        setMinimumSize(new java.awt.Dimension(833, 515));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("<html>A função de enviar abre o site do projeto Prodown diretamente para facilitar o envio das Avaliações realizadas.</html>");

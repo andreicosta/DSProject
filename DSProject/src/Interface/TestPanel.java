@@ -125,6 +125,7 @@ public class TestPanel extends javax.swing.JPanel
         runningButtonGroup.add(radio6Minutes);
         runningButtonGroup.add(radio9Minutes);
 
+        setMinimumSize(new java.awt.Dimension(833, 515));
         setPreferredSize(new java.awt.Dimension(833, 515));
 
         newEditPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

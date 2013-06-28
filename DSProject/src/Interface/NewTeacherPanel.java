@@ -56,19 +56,33 @@ public class NewTeacherPanel extends javax.swing.JPanel {
         email2 = new javax.swing.JLabel();
         emilTextField2 = new javax.swing.JTextField();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setPreferredSize(new java.awt.Dimension(984, 536));
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cpf.setText("CPF");
+        jPanel1.add(cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
         name.setText("Nome Completo");
+        jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 88, -1, -1));
 
         adress.setText("Endereço");
+        jPanel1.add(adress, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 126, -1, -1));
 
         phone.setText("Telefone");
+        jPanel1.add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 164, -1, -1));
 
         cellphone.setText("Celular");
+        jPanel1.add(cellphone, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 202, -1, -1));
 
         email.setText("E-mail");
+        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, -1));
+        jPanel1.add(cpfTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 40, 427, -1));
+        jPanel1.add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 78, 427, -1));
+        jPanel1.add(adressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 116, 427, -1));
+        jPanel1.add(phoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 154, 427, -1));
+        jPanel1.add(cellphoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 192, 427, -1));
+        jPanel1.add(emilTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 230, 427, -1));
 
         saveButton.setText("Salvar");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -76,88 +90,28 @@ public class NewTeacherPanel extends javax.swing.JPanel {
                 saveButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(686, 353, 85, -1));
 
         email1.setText("Senha");
+        jPanel1.add(email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 279, -1, -1));
+        jPanel1.add(emilTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 269, 427, -1));
 
         email2.setText("Confirmar Senha");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cpf)
-                            .addComponent(name)
-                            .addComponent(adress)
-                            .addComponent(phone)
-                            .addComponent(cellphone)
-                            .addComponent(email)
-                            .addComponent(email1)
-                            .addComponent(email2))
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(emilTextField1)
-                            .addComponent(cpfTextField)
-                            .addComponent(nameTextField)
-                            .addComponent(adressTextField)
-                            .addComponent(phoneTextField)
-                            .addComponent(cellphoneTextField)
-                            .addComponent(emilTextField)
-                            .addComponent(emilTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(153, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(cpf)
-                                                    .addComponent(cpfTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(21, 21, 21)
-                                                .addComponent(name))
-                                            .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(21, 21, 21)
-                                        .addComponent(adress))
-                                    .addComponent(adressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(21, 21, 21)
-                                .addComponent(phone))
-                            .addComponent(phoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addComponent(cellphone))
-                    .addComponent(cellphoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(email)
-                    .addComponent(emilTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(email1)
-                    .addComponent(emilTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(email2)
-                    .addComponent(emilTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(saveButton)
-                .addContainerGap(95, Short.MAX_VALUE))
-        );
+        jPanel1.add(email2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 318, -1, -1));
+        jPanel1.add(emilTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 308, 427, -1));
 
         jTabbedPane1.addTab("Cadastrar Professor", jPanel1);
 
-        add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed

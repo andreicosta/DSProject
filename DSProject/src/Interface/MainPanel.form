@@ -165,7 +165,7 @@
         <Component class="Interface.SendPanel" name="sendPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="Send"/>
+              <CardConstraints cardName="cardSend"/>
             </Constraint>
           </Constraints>
         </Component>

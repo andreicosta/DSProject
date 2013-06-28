@@ -28,6 +28,8 @@ public class WelcomePanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(833, 515));
+
         jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         jLabel1.setText("Bem Vindo ao PRODOWN");
 

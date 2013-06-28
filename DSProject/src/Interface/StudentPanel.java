@@ -98,6 +98,8 @@ public class StudentPanel extends javax.swing.JPanel {
         comboNomeExcluirCadastroAluno = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
 
+        setMinimumSize(new java.awt.Dimension(833, 515));
+
         newStudentPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelNomeCompletoCadastrarAluno.setText("Nome Completo");

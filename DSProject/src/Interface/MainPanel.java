@@ -132,7 +132,7 @@ public class MainPanel extends javax.swing.JPanel {
         displayPanel.add(classPanel1, "cardClass");
         displayPanel.add(importPanel1, "cardImport");
         displayPanel.add(personalInformationPanel1, "cardPersonalInformation");
-        displayPanel.add(sendPanel1, "Send");
+        displayPanel.add(sendPanel1, "cardSend");
         displayPanel.add(studentPanel1, "cardStudent");
         displayPanel.add(testPanel1, "cardTest");
         displayPanel.add(exportPanel1, "cardExport");
@@ -185,8 +185,7 @@ public class MainPanel extends javax.swing.JPanel {
 
     private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButtonActionPerformed
         CardLayout card = (CardLayout) displayPanel.getLayout();
-        card.show(displayPanel, "cardSend"
-                + "");
+        card.show(displayPanel, "cardSend");
     }//GEN-LAST:event_sendButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
