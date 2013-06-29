@@ -472,7 +472,7 @@ public class TestPanel extends javax.swing.JPanel
 
                      horaDaAvaliacao = formatoDaHora.parse(horaDaAvaliacaoString);
 
-                     dsproject.Aluno aluno = new dsproject.Aluno("Maria", "Joao", null, null, null, null, "Miguel", sqlDataDeNascimento, "sdfgdfsg", "Masculino", "Pelotas", "RS");
+                     dsproject.Aluno aluno = new dsproject.Aluno("Maria", sqlDataDeNascimento, "Joao", null, null, null, "Miguel", "sdfgdfsg", "Masculino", "Pelotas", "RS");
                      if(aluno.inserirAvaliacao(sqlDataDaAvaliacao, horaDaAvaliacaoString, temperatura))
                      {
                         // daqui até o catch salva objeto aluno

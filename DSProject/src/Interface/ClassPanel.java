@@ -453,7 +453,8 @@ public class ClassPanel extends javax.swing.JPanel {
                         {
                            if(alunosLidos.get(y).getNome().equals(alunosMatriculados.get(i)))
                            {
-                              alunosLidos.get(y).setTurmaId(campoTurma);
+                               //Andrei: setTurma deve conter uma Turma nao um String
+                              //alunosLidos.get(y).setTurma(campoTurma);
                               novaTurma.inserirAluno(alunosLidos.get(y));
                               i++;
                               y = 0;
