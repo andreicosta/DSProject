@@ -1,21 +1,14 @@
-/*
- * StudentPanel.java
- *
- * Created on 14/06/2013, 13:59:28
- */
 package Interface;
 
+import com.toedter.calendar.JDateChooser;
 import dsproject.Aluno;
 import java.awt.Color;
-import java.awt.HeadlessException;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
@@ -28,9 +21,6 @@ import javax.swing.JOptionPane;
  */
 public class StudentPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form StudentPanel
-     */
     public StudentPanel() {
         initComponents();
     }
@@ -78,21 +68,21 @@ public class StudentPanel extends javax.swing.JPanel {
         labelCelular = new javax.swing.JLabel();
         labelDataDeNascimento = new javax.swing.JLabel();
         labelE_mail = new javax.swing.JLabel();
-        campoNomeDaMae = new javax.swing.JTextField();
-        campoNomeDoPai = new javax.swing.JTextField();
-        campoTelefone = new javax.swing.JTextField();
-        campoEndereco = new javax.swing.JTextField();
-        campoCelular = new javax.swing.JTextField();
-        campoEmail = new javax.swing.JTextField();
-        comboNome = new javax.swing.JComboBox();
-        saveStudent = new javax.swing.JButton();
+        editMotherName = new javax.swing.JTextField();
+        editFatherName = new javax.swing.JTextField();
+        editTelephone = new javax.swing.JTextField();
+        editAddress = new javax.swing.JTextField();
+        editMobile = new javax.swing.JTextField();
+        editEmail = new javax.swing.JTextField();
+        editComboName = new javax.swing.JComboBox();
+        editSaveButton = new javax.swing.JButton();
         labelGenero = new javax.swing.JLabel();
-        comboGenero = new javax.swing.JComboBox();
+        editGender = new javax.swing.JComboBox();
         labelCidade = new javax.swing.JLabel();
         labelEstado = new javax.swing.JLabel();
-        campoCidade = new javax.swing.JTextField();
-        campoEstado = new javax.swing.JTextField();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        editCity = new javax.swing.JTextField();
+        editState = new javax.swing.JTextField();
+        editBirthday = new com.toedter.calendar.JDateChooser();
         deleteStudent = new javax.swing.JPanel();
         deleteCombo = new javax.swing.JComboBox();
         deleteButton = new javax.swing.JButton();
@@ -184,48 +174,53 @@ public class StudentPanel extends javax.swing.JPanel {
 
         labelE_mail.setText("E-mail");
         editStudent.add(labelE_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 376, -1, -1));
-        editStudent.add(campoNomeDaMae, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 238, 396, -1));
-        editStudent.add(campoNomeDoPai, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 271, 396, -1));
-        editStudent.add(campoTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 304, 396, -1));
-        editStudent.add(campoEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 139, 396, -1));
-        editStudent.add(campoCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 337, 396, -1));
-        editStudent.add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 371, 396, -1));
+        editStudent.add(editMotherName, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 238, 396, -1));
+        editStudent.add(editFatherName, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 271, 396, -1));
+        editStudent.add(editTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 304, 396, -1));
+        editStudent.add(editAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 139, 396, -1));
+        editStudent.add(editMobile, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 337, 396, -1));
+        editStudent.add(editEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 371, 396, -1));
 
-        comboNome.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+        editComboName.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                comboNomePopupMenuWillBecomeVisible(evt);
+                editComboNamePopupMenuWillBecomeVisible(evt);
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
         });
-        comboNome.addItemListener(new java.awt.event.ItemListener() {
+        editComboName.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                comboNomeItemStateChanged(evt);
+                editComboNameItemStateChanged(evt);
             }
         });
-        editStudent.add(comboNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 40, 396, -1));
+        editStudent.add(editComboName, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 40, 396, -1));
 
-        saveStudent.setText("Salvar");
-        editStudent.add(saveStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 416, 90, -1));
+        editSaveButton.setText("Salvar");
+        editSaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editSaveButtonActionPerformed(evt);
+            }
+        });
+        editStudent.add(editSaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 416, 90, -1));
 
         labelGenero.setText("Gênero");
         editStudent.add(labelGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 111, -1, -1));
 
-        comboGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino", "Outro" }));
-        editStudent.add(comboGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 106, 396, -1));
+        editGender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino", "Outro" }));
+        editStudent.add(editGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 106, 396, -1));
 
         labelCidade.setText("Cidade");
         editStudent.add(labelCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 177, -1, -1));
 
         labelEstado.setText("Estado");
         editStudent.add(labelEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 210, -1, -1));
-        editStudent.add(campoCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 172, 396, -1));
-        editStudent.add(campoEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 205, 396, -1));
+        editStudent.add(editCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 172, 396, -1));
+        editStudent.add(editState, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 205, 396, -1));
 
-        jDateChooser2.setPreferredSize(new java.awt.Dimension(396, 27));
-        editStudent.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 73, 396, -1));
+        editBirthday.setPreferredSize(new java.awt.Dimension(396, 27));
+        editStudent.add(editBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 73, 396, -1));
 
         jTabbedPane1.addTab("Editar Informações do Aluno", editStudent);
 
@@ -390,82 +385,13 @@ public class StudentPanel extends javax.swing.JPanel {
         return email.getText();
     }
 
-   private void comboNomePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboNomePopupMenuWillBecomeVisible
-   {//GEN-HEADEREND:event_comboNomePopupMenuWillBecomeVisible
-       /*Object isNull;
-       isNull = comboNome.getItemAt(0);
-       int i = 0;
-       ArrayList<dsproject.Aluno> students;
-       ObjectInputStream in;
-       if (isStudentAddedComboStudent() && isNull == null) {
-           //daqui até o catch le um objeto gravado no arquivo alunos.txt
-           File fileStudents = new File("alunos.txt");
-           if (fileStudents.exists()) {
-               FileInputStream file;
-               try {
-                   file = new FileInputStream(fileStudents);
-                   in = new ObjectInputStream(file);
-                   students = (ArrayList<dsproject.Aluno>) in.readObject();
-                   i = 0;
-                   comboNome.addItem("");
-                   while (i < students.size()) {
-                       comboNome.addItem(students.get(i).getNome());
-                       i++;
-                   }
-               } catch (IOException | ClassNotFoundException ex) {
-                   System.err.println(ex);
-               }
-
-           }
-           setStudentAddedComboStudent(false);
-           setNumeroDeAlunosAdicionadosComboStudent(0);
-       } else {
-           if (isStudentAddedComboStudent() && isNull != null) {
-               //daqui até o catch le um objeto gravado no arquivo alunos.txt
-               File fileStudents = new File("alunos.txt");
-               if (fileStudents.exists()) {
-                   FileInputStream file;
-                   try {
-                       file = new FileInputStream(fileStudents);
-                       in = new ObjectInputStream(file);
-                       students = (ArrayList<Aluno>) in.readObject();
-                       i = (students.size() - getNumeroDeAlunosAdicionadosComboStudent());
-                       while (i < students.size()) {
-                           comboNome.addItem(students.get(i).getNome());
-                           i++;
-                       }
-                   } catch (IOException | ClassNotFoundException ex) {
-                       System.err.println(ex);
-                   }
-
-               }
-               //setStudentAddedComboStudent(false);
-               //setNumeroDeAlunosAdicionadosComboStudent(0);
-           } else {
-               if (isNull == null) {
-                   i = 0;
-
-                   //daqui até o catch le um objeto gravado no arquivo alunos.txt
-                   File fileStudents = new File("alunos.txt");
-                   if (fileStudents.exists()) {
-                       FileInputStream file;
-                       try {
-                           file = new FileInputStream(fileStudents);
-                           in = new ObjectInputStream(file);
-                           students = (ArrayList<Aluno>) in.readObject();
-                           comboNome.addItem("");
-                           while (i < students.size()) {
-                               comboNome.addItem(students.get(i).getNome());
-                               i++;
-                           }
-                       } catch (IOException | ClassNotFoundException ex) {
-                           System.err.println(ex);
-                       }
-                   }
-               }
-           }
-       }*/
-   }//GEN-LAST:event_comboNomePopupMenuWillBecomeVisible
+   private void editComboNamePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_editComboNamePopupMenuWillBecomeVisible
+   {//GEN-HEADEREND:event_editComboNamePopupMenuWillBecomeVisible
+       editComboName.removeAllItems();
+       for(Aluno i : loadStudentData()){
+           editComboName.addItem(i);
+       }
+   }//GEN-LAST:event_editComboNamePopupMenuWillBecomeVisible
 
    private void deleteComboPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_deleteComboPopupMenuWillBecomeVisible
    {//GEN-HEADEREND:event_deleteComboPopupMenuWillBecomeVisible
@@ -475,48 +401,7 @@ public class StudentPanel extends javax.swing.JPanel {
        }
    }//GEN-LAST:event_deleteComboPopupMenuWillBecomeVisible
 
-   private void comboNomeItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_comboNomeItemStateChanged
-   {//GEN-HEADEREND:event_comboNomeItemStateChanged
-       if (evt.getStateChange() == 1) {
-           if (evt.getItem().equals("")) {
-               System.out.println("espaço em branco");
-               clearEditStudent();
-           } else {
-               int i = 0;
-               ArrayList<Aluno> students = null;
-               ObjectInputStream in;
-               SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
-               File fileStudents = new File("alunos.txt");
-               if (fileStudents.exists()) {
-                   FileInputStream file;
-                   try {
-                       file = new FileInputStream(fileStudents);
-                       in = new ObjectInputStream(file);
-                       students = (ArrayList<Aluno>) in.readObject();
-                       for (i = 0; i < students.size(); i++) {
-                           if (students.get(i).getNome().equals(evt.getItem().toString())) {
-                               //campoDataDeNascimento.setText(sd.format(students.get(i).getDataDeNascimento()).toString());
-                               comboGenero.setSelectedItem(students.get(i).getGenero());
-                               campoEndereco.setText(students.get(i).getEndereco());
-                               campoCidade.setText(students.get(i).getCidade());
-                               campoEstado.setText(students.get(i).getEstado());
-                               campoNomeDaMae.setText(students.get(i).getNomeDaMae());
-                               campoNomeDoPai.setText(students.get(i).getNomeDoPai());
-                               campoTelefone.setText(students.get(i).getTelefone());
-                               campoCelular.setText(students.get(i).getCelular());
-                               campoEmail.setText(students.get(i).getEmail());
-                           }
-                       }
-                   } catch (IOException | ClassNotFoundException ex) {
-                       System.err.println(ex);
-                   }
-               }
-           }
-       }
-   }//GEN-LAST:event_comboNomeItemStateChanged
-
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        
         ArrayList<Aluno> students = loadStudentData();
         Aluno student = (Aluno)deleteCombo.getSelectedItem();
         
@@ -529,33 +414,168 @@ public class StudentPanel extends javax.swing.JPanel {
         
         saveStudentData(students);
         deleteCombo.removeAllItems();
-        
     }//GEN-LAST:event_deleteButtonActionPerformed
 
+    private void editComboNameItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_editComboNameItemStateChanged
+        Aluno student = (Aluno)editComboName.getSelectedItem();
+        
+        if (student == null){
+            clearEditStudent();
+            return;
+        }
+        
+        //Verificar o carregamento da data de nascimento
+        this.editBirthday = new JDateChooser();
+        this.editBirthday.setDate(student.getBirthday());
+        this.editGender.setSelectedItem(student.getGenero());
+        this.editAddress.setText(student.getEndereco());
+        this.editCity.setText(student.getCidade());
+        this.editState.setText(student.getEstado());
+        this.editMotherName.setText(student.getNomeDaMae());
+        this.editFatherName.setText(student.getNomeDoPai());
+        this.editTelephone.setText(student.getTelefone());
+        this.editMobile.setText(student.getCelular());
+        this.editEmail.setText(student.getEmail());
+    }//GEN-LAST:event_editComboNameItemStateChanged
+
+    private void editSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSaveButtonActionPerformed
+        
+      flag = false;
+      Aluno student = (Aluno)editComboName.getSelectedItem();
+       Date newBirthday = getEditBirthday();
+       String newGender = getEditGender();
+       String newAddress = getEditAddress();
+       String newCity = getEditCity();
+       String newState = getEditState();
+       String newMotherName = getEditMotherName();
+       String newFatherName = getEditFatherName();
+       String newTelephone = getEditTelephone();
+       String newMobile = getEditMobile();
+       String newEmail = getEditEmail();
+
+       if (!flag) {
+           ArrayList<Aluno> students = loadStudentData();
+           
+           for (Aluno i : students) {
+               if (i.equals(student)) {
+                   i.setDataDenascimento(newBirthday);
+                   i.setGenero(newGender);
+                   i.setEndereco(newAddress);
+                   i.setCidade(newCity);
+                   i.setEstado(newState);
+                   i.setNomeDaMae(newMotherName);
+                   i.setNomeDoPai(newFatherName);
+                   i.setTelefone(newTelephone);
+                   i.setCelular(newMobile);
+                   i.setEmail(newEmail);
+                   break;
+               }
+           }
+
+           saveStudentData(students);
+
+           JOptionPane.showMessageDialog(null, "Aluno editado com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+
+           clearEditStudent();
+       }
+        
+    }//GEN-LAST:event_editSaveButtonActionPerformed
+
+    private Date getEditBirthday() {
+        if (editBirthday.getDate() == null) {
+            labelBirthday.setForeground(Color.red);
+            flag = true;
+            return null;
+        }
+        return editBirthday.getDate();
+    }
+
+    private String getEditGender() {
+        return editGender.getSelectedItem().toString();
+    }
+
+    private String getEditAddress() {
+        if (editAddress.getText().isEmpty()) {
+            labelAddress.setForeground(Color.red);
+            flag = true;
+            return null;
+        }
+        return editAddress.getText();
+    }
+
+    private String getEditCity() {
+        if (editCity.getText().isEmpty()) {
+            labelCity.setForeground(Color.red);
+            flag = true;
+            return null;
+        }
+        return editCity.getText();
+    }
+
+    private String getEditState() {
+        if (editState.getText().isEmpty()) {
+            labelState.setForeground(Color.red);
+            flag = true;
+            return null;
+        }
+        return editState.getText();
+    }
+
+    private String getEditMotherName() {
+        if (editMotherName.getText().isEmpty()) {
+            labelMotherName.setForeground(Color.red);
+            flag = true;
+            return null;
+        }
+        return editMotherName.getText();
+    }
+
+    private String getEditFatherName() {
+        if (editFatherName.getText().isEmpty()) {
+            labelFatherName.setForeground(Color.red);
+            flag = true;
+            return null;
+        }
+        return editFatherName.getText();
+    }
+
+    private String getEditTelephone() {
+        return editTelephone.getText();
+    }
+
+    private String getEditMobile() {
+        return editMobile.getText();
+    }
+
+    private String getEditEmail() {
+        return editEmail.getText();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JTextField address;
     private com.toedter.calendar.JDateChooser birthday;
-    private javax.swing.JTextField campoCelular;
-    private javax.swing.JTextField campoCidade;
-    private javax.swing.JTextField campoEmail;
-    private javax.swing.JTextField campoEndereco;
-    private javax.swing.JTextField campoEstado;
-    private javax.swing.JTextField campoNomeDaMae;
-    private javax.swing.JTextField campoNomeDoPai;
-    private javax.swing.JTextField campoTelefone;
     private static javax.swing.JTextField city;
-    private javax.swing.JComboBox comboGenero;
-    private javax.swing.JComboBox comboNome;
     private javax.swing.JButton createButton;
     private javax.swing.JPanel createStudent;
     private javax.swing.JButton deleteButton;
     private static javax.swing.JComboBox deleteCombo;
     private javax.swing.JPanel deleteStudent;
+    private javax.swing.JTextField editAddress;
+    private com.toedter.calendar.JDateChooser editBirthday;
+    private javax.swing.JTextField editCity;
+    private javax.swing.JComboBox editComboName;
+    private javax.swing.JTextField editEmail;
+    private javax.swing.JTextField editFatherName;
+    private javax.swing.JComboBox editGender;
+    private javax.swing.JTextField editMobile;
+    private javax.swing.JTextField editMotherName;
+    private javax.swing.JButton editSaveButton;
+    private javax.swing.JTextField editState;
     private javax.swing.JPanel editStudent;
+    private javax.swing.JTextField editTelephone;
     private static javax.swing.JTextField email;
     private static javax.swing.JTextField fatherName;
     private static javax.swing.JComboBox gender;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private static javax.swing.JLabel labelAddress;
     private static javax.swing.JLabel labelBirthday;
@@ -583,7 +603,6 @@ public class StudentPanel extends javax.swing.JPanel {
     private static javax.swing.JTextField mobile;
     private static javax.swing.JTextField motherName;
     private static javax.swing.JTextField name;
-    private javax.swing.JButton saveStudent;
     private static javax.swing.JTextField state;
     private static javax.swing.JTextField telephone;
     // End of variables declaration//GEN-END:variables
@@ -627,14 +646,14 @@ public class StudentPanel extends javax.swing.JPanel {
     }
 
     public void clearEditStudent() {
-        campoCelular.setText("");
-        campoCidade.setText("");
+        editMobile.setText("");
+        editCity.setText("");
         birthday.setDate(null);
-        campoEmail.setText("");
-        campoEndereco.setText("");
-        campoEstado.setText("");
-        campoNomeDaMae.setText("");
-        campoNomeDoPai.setText("");
-        campoTelefone.setText("");
+        editEmail.setText("");
+        editAddress.setText("");
+        editState.setText("");
+        editMotherName.setText("");
+        editFatherName.setText("");
+        editTelephone.setText("");
     }
 }

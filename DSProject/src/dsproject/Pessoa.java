@@ -5,6 +5,7 @@
 package dsproject;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  *
@@ -59,4 +60,24 @@ public abstract class Pessoa implements Serializable
    {
       return estado;
    }
+
+    public void setDataDenascimento(Date dataDenascimento) {
+        this.dataDenascimento = dataDenascimento;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 }

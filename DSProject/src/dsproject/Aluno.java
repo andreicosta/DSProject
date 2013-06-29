@@ -158,6 +158,10 @@ public class Aluno extends Pessoa implements Serializable {
     public String getCelular() {
         return celular;
     }
+    
+    public Date getBirthday(){
+        return super.getDataDeNascimento();
+    }
 
     public String getEmail() {
         return email;
@@ -185,6 +189,26 @@ public class Aluno extends Pessoa implements Serializable {
 
     public void setTurma(Turma turma) {
         this.turma = turma;
+    }
+
+    public void setNomeDaMae(String nomeDaMae) {
+        this.nomeDaMae = nomeDaMae;
+    }
+
+    public void setNomeDoPai(String nomeDoPai) {
+        this.nomeDoPai = nomeDoPai;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
