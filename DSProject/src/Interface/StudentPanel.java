@@ -414,6 +414,8 @@ public class StudentPanel extends javax.swing.JPanel {
         
         saveStudentData(students);
         deleteCombo.removeAllItems();
+        
+        JOptionPane.showMessageDialog(null, "Aluno deletado com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void editComboNameItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_editComboNameItemStateChanged
@@ -439,46 +441,44 @@ public class StudentPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_editComboNameItemStateChanged
 
     private void editSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSaveButtonActionPerformed
-        
-      flag = false;
-      Aluno student = (Aluno)editComboName.getSelectedItem();
-       Date newBirthday = getEditBirthday();
-       String newGender = getEditGender();
-       String newAddress = getEditAddress();
-       String newCity = getEditCity();
-       String newState = getEditState();
-       String newMotherName = getEditMotherName();
-       String newFatherName = getEditFatherName();
-       String newTelephone = getEditTelephone();
-       String newMobile = getEditMobile();
-       String newEmail = getEditEmail();
+        flag = false;
+        Aluno student = (Aluno) editComboName.getSelectedItem();
+        Date newBirthday = getEditBirthday();
+        String newGender = getEditGender();
+        String newAddress = getEditAddress();
+        String newCity = getEditCity();
+        String newState = getEditState();
+        String newMotherName = getEditMotherName();
+        String newFatherName = getEditFatherName();
+        String newTelephone = getEditTelephone();
+        String newMobile = getEditMobile();
+        String newEmail = getEditEmail();
 
-       if (!flag) {
-           ArrayList<Aluno> students = loadStudentData();
-           
-           for (Aluno i : students) {
-               if (i.equals(student)) {
-                   i.setDataDenascimento(newBirthday);
-                   i.setGenero(newGender);
-                   i.setEndereco(newAddress);
-                   i.setCidade(newCity);
-                   i.setEstado(newState);
-                   i.setNomeDaMae(newMotherName);
-                   i.setNomeDoPai(newFatherName);
-                   i.setTelefone(newTelephone);
-                   i.setCelular(newMobile);
-                   i.setEmail(newEmail);
-                   break;
-               }
-           }
+        if (!flag) {
+            ArrayList<Aluno> students = loadStudentData();
 
-           saveStudentData(students);
+            for (Aluno i : students) {
+                if (i.equals(student)) {
+                    i.setDataDenascimento(newBirthday);
+                    i.setGenero(newGender);
+                    i.setEndereco(newAddress);
+                    i.setCidade(newCity);
+                    i.setEstado(newState);
+                    i.setNomeDaMae(newMotherName);
+                    i.setNomeDoPai(newFatherName);
+                    i.setTelefone(newTelephone);
+                    i.setCelular(newMobile);
+                    i.setEmail(newEmail);
+                    break;
+                }
+            }
 
-           JOptionPane.showMessageDialog(null, "Aluno editado com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+            saveStudentData(students);
 
-           clearEditStudent();
-       }
-        
+            JOptionPane.showMessageDialog(null, "Aluno editado com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+
+            clearEditStudent();
+        }
     }//GEN-LAST:event_editSaveButtonActionPerformed
 
     private Date getEditBirthday() {
