@@ -21,7 +21,6 @@ public class Turma implements Serializable, Cloneable
       this.ano = ano;
       this.professor = professor;
       this.alunos = new ArrayList<>();
-      //cadastrarTurma();
    }
 
    public String getId()
@@ -61,10 +60,10 @@ public class Turma implements Serializable, Cloneable
    
    public void removeAluno(Aluno aluno)
    {
-      int idaluno;
-      idaluno = buscaAluno(aluno);
+      int idAluno;
+      idAluno = buscaAluno(aluno);
 
-      this.alunos.remove(idaluno);
+      this.alunos.remove(idAluno);
    }
 
    public int buscaAluno(Aluno aluno)
@@ -82,46 +81,8 @@ public class Turma implements Serializable, Cloneable
       return alunos;
    }
 
-   /*public void cadastrarTurma()
+   public void excluirTurma()
    {
-      while(/*quer inserir aluno && (alunos.lenght != 0)*//*)
-      {
-         Aluno tmpAluno();
-         //cria aluno
-         inserirAluno(tmpAluno);
-      }
-
+       
    }
-
-   public void editarTurma()
-   {
-      Aluno tmpAluno;
-      while(/*quer editar turma*//*)
-      {
-         if(/*quer inserir ou remover aluno*//*)
-         {
-            //cria aluno
-            inserirAluno(tmpAluno);
-         }
-         else
-         {
-            //pega o aluno para exluir
-            removeAluno(tmpAluno);
-         }
-      }
-   }
-
-   public void excluirTurma(){
-      free(this)
-   }
-
-
-   @Override
-   public Turma clone() throws CloneNotSupportedException
-   {
-      Turma clone = (Turma) super.clone();
-      clone.Alunos = new ArrayList<>(Alunos);
-      return clone;
-   }*/
-
 }
