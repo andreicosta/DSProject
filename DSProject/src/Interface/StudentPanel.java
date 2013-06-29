@@ -10,15 +10,14 @@ import java.awt.Color;
 import java.awt.HeadlessException;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -95,7 +94,7 @@ public class StudentPanel extends javax.swing.JPanel {
         campoEstado = new javax.swing.JTextField();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         deleteStudent = new javax.swing.JPanel();
-        studentCombo = new javax.swing.JComboBox();
+        deleteCombo = new javax.swing.JComboBox();
         deleteButton = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(833, 515));
@@ -232,21 +231,26 @@ public class StudentPanel extends javax.swing.JPanel {
 
         deleteStudent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelChooseStudent.setText("Selecione um Aluno");
-        deleteStudent.add(labelChooseStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 45, -1, -1));
+        labelDeleteChoose.setText("Selecione um Aluno");
+        deleteStudent.add(labelDeleteChoose, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 45, -1, -1));
 
-        studentCombo.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+        deleteCombo.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                studentComboPopupMenuWillBecomeVisible(evt);
+                deleteComboPopupMenuWillBecomeVisible(evt);
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
         });
-        deleteStudent.add(studentCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 536, -1));
+        deleteStudent.add(deleteCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 536, -1));
 
         deleteButton.setText("Excluir");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
         deleteStudent.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 80, 90, -1));
 
         jTabbedPane1.addTab("Excluir Cadastro do Aluno", deleteStudent);
@@ -280,32 +284,15 @@ public class StudentPanel extends javax.swing.JPanel {
 
        if (!flag) {
            Aluno student = new Aluno(nameNewStudent, newBirthday, newGender, newAddress, newCity, newState, newMotherName, newFatherName, newTelephone, newMobile, newEmail);
-           
-           ArrayList<dsproject.Aluno> students;
-           ObjectInputStream in;
-           ObjectOutputStream out;
-           
-           try {
-               File arquivoAlunos = new File("alunos.txt");
-               if (arquivoAlunos.exists()) {
-                   FileInputStream arquivo = new FileInputStream(arquivoAlunos);
-                   in = new ObjectInputStream(arquivo);
-                   students = (ArrayList<Aluno>) in.readObject();
-               } else {
-                   students = new ArrayList<>();
-               }
-               
-               students.add(student);
-               out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
-               out.writeObject(students);
-               out.close();
-               
-               JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-           } catch (IOException | ClassNotFoundException | HeadlessException e) {
-               JOptionPane.showMessageDialog(null, "Falha ao salvar aluno", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-               System.out.println(e.toString());
-           }
-           
+
+           ArrayList<Aluno> students = loadStudentData();
+
+           students.add(student);
+
+           saveStudentData(students);
+
+           JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+
            clearNewStudent();
        }
    }//GEN-LAST:event_createButtonActionPerformed
@@ -405,7 +392,7 @@ public class StudentPanel extends javax.swing.JPanel {
 
    private void comboNomePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboNomePopupMenuWillBecomeVisible
    {//GEN-HEADEREND:event_comboNomePopupMenuWillBecomeVisible
-       Object isNull;
+       /*Object isNull;
        isNull = comboNome.getItemAt(0);
        int i = 0;
        ArrayList<dsproject.Aluno> students;
@@ -452,8 +439,8 @@ public class StudentPanel extends javax.swing.JPanel {
                    }
 
                }
-               setStudentAddedComboStudent(false);
-               setNumeroDeAlunosAdicionadosComboStudent(0);
+               //setStudentAddedComboStudent(false);
+               //setNumeroDeAlunosAdicionadosComboStudent(0);
            } else {
                if (isNull == null) {
                    i = 0;
@@ -477,85 +464,16 @@ public class StudentPanel extends javax.swing.JPanel {
                    }
                }
            }
-       }
+       }*/
    }//GEN-LAST:event_comboNomePopupMenuWillBecomeVisible
 
-   private void studentComboPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_studentComboPopupMenuWillBecomeVisible
-   {//GEN-HEADEREND:event_studentComboPopupMenuWillBecomeVisible
-       Object isNull;
-       isNull = studentCombo.getItemAt(0);
-       int i = 0;
-       ArrayList<Aluno> students = null;
-       ObjectInputStream in;
-       if (isStudentAddedComboName() && isNull == null) {
-           //daqui até o catch le um objeto gravado no arquivo alunos.txt
-           File fileStudents = new File("alunos.txt");
-           if (fileStudents.exists()) {
-               FileInputStream file;
-               try {
-                   file = new FileInputStream(fileStudents);
-                   in = new ObjectInputStream(file);
-                   students = (ArrayList<Aluno>) in.readObject();
-                   i = 0;
-                   studentCombo.addItem("");
-                   while (i < students.size()) {
-                       studentCombo.addItem(students.get(i).getNome());
-                       i++;
-                   }
-               } catch (IOException | ClassNotFoundException ex) {
-                   System.err.println(ex);
-               }
-
-           }
-           setStudentAddedComboName(false);
-           setNumeroDeAlunosAdicionadosComboName(0);
-       } else {
-           if (isStudentAddedComboName() && isNull != null) {
-               //daqui até o catch le um objeto gravado no arquivo alunos.txt
-               File fileStudents = new File("alunos.txt");
-               if (fileStudents.exists()) {
-                   FileInputStream file;
-                   try {
-                       file = new FileInputStream(fileStudents);
-                       in = new ObjectInputStream(file);
-                       students = (ArrayList<Aluno>) in.readObject();
-                       i = (students.size() - getNumeroDeAlunosAdicionadosComboName());
-                       while (i < students.size()) {
-                           studentCombo.addItem(students.get(i).getNome());
-                           i++;
-                       }
-                   } catch (IOException | ClassNotFoundException ex) {
-                       System.err.println(ex);
-                   }
-
-               }
-               setStudentAddedComboName(false);
-               setNumeroDeAlunosAdicionadosComboName(0);
-           } else {
-               if (isNull == null) {
-                   i = 0;
-
-                   //daqui até o catch le um objeto gravado no arquivo alunos.txt
-                   File fileStudents = new File("alunos.txt");
-                   if (fileStudents.exists()) {
-                       FileInputStream file;
-                       try {
-                           file = new FileInputStream(fileStudents);
-                           in = new ObjectInputStream(file);
-                           students = (ArrayList<Aluno>) in.readObject();
-                           studentCombo.addItem("");
-                           while (i < students.size()) {
-                               studentCombo.addItem(students.get(i).getNome());
-                               i++;
-                           }
-                       } catch (IOException | ClassNotFoundException ex) {
-                           System.err.println(ex);
-                       }
-                   }
-               }
-           }
+   private void deleteComboPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_deleteComboPopupMenuWillBecomeVisible
+   {//GEN-HEADEREND:event_deleteComboPopupMenuWillBecomeVisible
+       deleteCombo.removeAllItems();
+       for(Aluno i : loadStudentData()){
+           deleteCombo.addItem(i);
        }
-   }//GEN-LAST:event_studentComboPopupMenuWillBecomeVisible
+   }//GEN-LAST:event_deleteComboPopupMenuWillBecomeVisible
 
    private void comboNomeItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_comboNomeItemStateChanged
    {//GEN-HEADEREND:event_comboNomeItemStateChanged
@@ -596,6 +514,24 @@ public class StudentPanel extends javax.swing.JPanel {
            }
        }
    }//GEN-LAST:event_comboNomeItemStateChanged
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        
+        ArrayList<Aluno> students = loadStudentData();
+        Aluno student = (Aluno)deleteCombo.getSelectedItem();
+        
+        for (Aluno i : students){
+            if (i.equals(student)){
+                students.remove(i);
+                break;
+            }
+        }
+        
+        saveStudentData(students);
+        deleteCombo.removeAllItems();
+        
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JTextField address;
     private com.toedter.calendar.JDateChooser birthday;
@@ -613,6 +549,7 @@ public class StudentPanel extends javax.swing.JPanel {
     private javax.swing.JButton createButton;
     private javax.swing.JPanel createStudent;
     private javax.swing.JButton deleteButton;
+    private static javax.swing.JComboBox deleteCombo;
     private javax.swing.JPanel deleteStudent;
     private javax.swing.JPanel editStudent;
     private static javax.swing.JTextField email;
@@ -623,10 +560,10 @@ public class StudentPanel extends javax.swing.JPanel {
     private static javax.swing.JLabel labelAddress;
     private static javax.swing.JLabel labelBirthday;
     private javax.swing.JLabel labelCelular;
-    private final javax.swing.JLabel labelChooseStudent = new javax.swing.JLabel();
     private javax.swing.JLabel labelCidade;
     private static javax.swing.JLabel labelCity;
     private javax.swing.JLabel labelDataDeNascimento;
+    private final javax.swing.JLabel labelDeleteChoose = new javax.swing.JLabel();
     private javax.swing.JLabel labelE_mail;
     private static javax.swing.JLabel labelEmail;
     private javax.swing.JLabel labelEndereco;
@@ -648,45 +585,32 @@ public class StudentPanel extends javax.swing.JPanel {
     private static javax.swing.JTextField name;
     private javax.swing.JButton saveStudent;
     private static javax.swing.JTextField state;
-    private static javax.swing.JComboBox studentCombo;
     private static javax.swing.JTextField telephone;
     // End of variables declaration//GEN-END:variables
     private boolean flag;
-    private static boolean studentAddedComboStudent;
-    private static boolean studentAddedComboName;
-    private int numeroDeAlunosAdicionadosComboStudent = 0;
-    private int numeroDeAlunosAdicionadosComboName = 0;
-
-    public int getNumeroDeAlunosAdicionadosComboStudent() {
-        return numeroDeAlunosAdicionadosComboStudent;
+    
+    private void saveStudentData(ArrayList<Aluno> students) {
+        try {
+            ObjectOutputStream out;
+            out = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
+            out.writeObject(students);
+            out.close();
+        } catch (Exception ex) {
+            Logger.getLogger(StudentPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+    
+    private ArrayList<Aluno> loadStudentData() {
+        try {
 
-    public void setNumeroDeAlunosAdicionadosComboStudent(int numeroDeAlunosAdicionadosComboStudent) {
-        this.numeroDeAlunosAdicionadosComboStudent = numeroDeAlunosAdicionadosComboStudent;
-    }
-
-    public int getNumeroDeAlunosAdicionadosComboName() {
-        return numeroDeAlunosAdicionadosComboName;
-    }
-
-    public void setNumeroDeAlunosAdicionadosComboName(int numeroDeAlunosAdicionadosComboName) {
-        this.numeroDeAlunosAdicionadosComboName = numeroDeAlunosAdicionadosComboName;
-    }
-
-    public static boolean isStudentAddedComboStudent() {
-        return studentAddedComboStudent;
-    }
-
-    public static void setStudentAddedComboStudent(boolean studentAdded) {
-        //createStudent.studentAddedComboStudent = studentAdded;
-    }
-
-    public static boolean isStudentAddedComboName() {
-        return studentAddedComboName;
-    }
-
-    public static void setStudentAddedComboName(boolean studentAddedComboName) {
-        //createStudent.studentAddedComboName = studentAddedComboName;
+            FileInputStream file = new FileInputStream(new File("alunos.txt"));
+            ObjectInputStream in = new ObjectInputStream(file);
+            
+            return (ArrayList<Aluno>) in.readObject();
+            
+        } catch (IOException | ClassNotFoundException e) {
+            return new ArrayList<>();
+        }
     }
 
     public void clearNewStudent() {
@@ -705,7 +629,7 @@ public class StudentPanel extends javax.swing.JPanel {
     public void clearEditStudent() {
         campoCelular.setText("");
         campoCidade.setText("");
-        //campoDataDeNascimento.setText("");
+        birthday.setDate(null);
         campoEmail.setText("");
         campoEndereco.setText("");
         campoEstado.setText("");

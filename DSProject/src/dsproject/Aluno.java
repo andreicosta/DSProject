@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 import javax.swing.JOptionPane;
 
 public class Aluno extends Pessoa implements Serializable {
@@ -188,7 +189,7 @@ public class Aluno extends Pessoa implements Serializable {
 
     @Override
     public String toString() {
-        return "Aluno{ " + super.toString() + " nomeDaMae=" + nomeDaMae + ", nomeDoPai=" + nomeDoPai + ", telefone=" + telefone + ", celular=" + celular + ", email=" + email + ", turma=" + turma + ", avaliacoes=" + avaliacoes + '}';
+        return super.getNome();
     }
 
     public Avaliacao getLastAvaliation() {
@@ -197,5 +198,35 @@ public class Aluno extends Pessoa implements Serializable {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 13 * hash + Objects.hashCode(this.nomeDaMae);
+        hash = 13 * hash + Objects.hashCode(this.nomeDoPai);
+        hash = 13 * hash + Objects.hashCode(this.getNome());
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Aluno other = (Aluno) obj;
+        if (!Objects.equals(this.nomeDaMae, other.nomeDaMae)) {
+            return false;
+        }
+        if (!Objects.equals(this.nomeDoPai, other.nomeDoPai)) {
+            return false;
+        }
+        if (!Objects.equals(this.getNome(), other.getNome())) {
+            return false;
+        }
+        return true;
     }
 }
