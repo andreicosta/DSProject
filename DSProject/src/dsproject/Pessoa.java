@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public abstract class Pessoa implements Serializable
 {
+   private String dir;
    private String nome;
    private java.util.Date dataDenascimento;
    private String genero;

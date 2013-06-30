@@ -138,4 +138,39 @@ public  class Escola {
     
     }
     
+    private static void salvar(){
+        Professor p;
+        for (int i =0 ; i< Escola.professList.size() ;i++){
+            p = professList.get(i);
+            Escola.salvarProfessor(p);
+        }
+    }
+    
+    private static void salvarProfessor(Professor p){
+        //salva o obj professor
+        
+        ArrayList<Turma> turmas = p.getTurmas();
+        Turma t;
+        
+        for (int i = 0; i < turmas.size(); i++){
+            t = turmas.get(i);
+            Escola.salvarTurma(t, p.getDir());
+        }
+    }
+    
+    private static void salvarTurma(Turma t, String dir){
+        //salva obj
+        ArrayList<Aluno> alunos = t.buscaTodosAlunos();
+        Aluno a;
+        
+        for (int i = 0; i < alunos.size(); i++){
+            a = alunos.get(i);
+            Escola.salvarAluno(a, t.getDir());
+        }
+    }
+    
+    private static void salvarAluno(Aluno a, String dir){
+        //salva aluno
+        //salva arrayList de avaliações do aluno
+    }
 }

@@ -9,6 +9,8 @@ import javax.swing.JOptionPane;
 
 public final class Aluno extends Pessoa implements Serializable {
 
+    static int cont = 0;
+    private String dir;
     private String nomeDaMae;
     private String nomeDoPai;
     private String telefone;
@@ -28,6 +30,8 @@ public final class Aluno extends Pessoa implements Serializable {
         this.setEmail(email);
         this.turma = null;
         this.avaliacoes = new ArrayList<>();
+        this.dir = "alunos/" + cont;
+        cont ++;
     }
 
     public boolean inserirAvaliacao(java.sql.Date dataDaAvaliacao, String horaDaAvaliacao, String temperatura) {

@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 public class Turma implements Serializable, Cloneable
 {
+   static int cont = 0;
+   private String dir;
    private String id;
    private int ano;
    private Professor professor;
@@ -21,6 +23,8 @@ public class Turma implements Serializable, Cloneable
       this.ano = ano;
       this.professor = professor;
       this.alunos = new ArrayList<>();
+      this.dir = "Turmas/" + cont;
+      cont++;
    }
 
    public String getId()
@@ -84,5 +88,9 @@ public class Turma implements Serializable, Cloneable
    public void excluirTurma()
    {
        
+   }
+   
+   public String getDir(){
+       return this.dir;
    }
 }

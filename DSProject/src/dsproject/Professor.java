@@ -4,12 +4,16 @@
  */
 package dsproject;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author vinicius
  */
 public class Professor
 {
+    static int cont = 0;
+    private String dir;
     private String cpf;
     private String nome;
     private String endereco;
@@ -17,6 +21,7 @@ public class Professor
     private String cell;
     private String email;
     private String senha;
+    private ArrayList<Turma> turmas;
           
     public Professor(Professor copia) {
         this.cpf = copia.cpf;
@@ -25,7 +30,6 @@ public class Professor
         this.cell = copia.cell;
         this.email = copia.email;
         this.senha = copia.senha;
-        
     }
 
     Professor(String cpf, String nome, String end, String tele, String cell, String email, String senha) {
@@ -35,6 +39,10 @@ public class Professor
             this.cell = cell;
             this.email = email;
             this.senha = senha;
+            this.turmas = new ArrayList<Turma>();
+            
+            this.dir = "professores/" + cont;
+            cont++;
     }
     
     public String getCpf() {
@@ -91,6 +99,14 @@ public class Professor
 
     public void setSenha(String Senha) {
         this.senha = Senha;
+    }
+    
+    public ArrayList<Turma> getTurmas(){
+        return this.turmas;
+    }
+    
+    public String getDir(){
+        return this.dir;
     }
   
    
