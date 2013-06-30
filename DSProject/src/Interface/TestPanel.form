@@ -78,6 +78,7 @@
               </Properties>
               <Events>
                 <EventHandler event="popupMenuWillBecomeVisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="comboTurmaPopupMenuWillBecomeVisible"/>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="comboTurmaItemStateChanged"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -85,7 +86,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JComboBox" name="comboBoxStudentName">
+            <Component class="javax.swing.JComboBox" name="comboNomeDoAluno">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
@@ -124,7 +125,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="labelTestDate">
+            <Component class="javax.swing.JLabel" name="labelDataDaAvaliacao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Data da Avalia&#xe7;&#xe3;o"/>
               </Properties>
@@ -181,7 +182,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="labelTemperature">
+            <Component class="javax.swing.JLabel" name="labelTemperatura">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Temperatura"/>
               </Properties>
@@ -629,7 +630,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="labelTime">
+            <Component class="javax.swing.JLabel" name="labelHorario">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hor&#xe1;rio"/>
               </Properties>

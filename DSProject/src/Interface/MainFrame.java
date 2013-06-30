@@ -1,6 +1,12 @@
 
 package Interface;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import javax.swing.JOptionPane;
 
 public class MainFrame extends javax.swing.JFrame {
@@ -59,7 +65,108 @@ public class MainFrame extends javax.swing.JFrame {
          int x;
          x = JOptionPane.showConfirmDialog(rootPane, "Tem certeza que quer fechar o programa? ");
          if(x == 0)
+         {
+            File arquivoAlunos = new File("alunos.txt");
+            File arquivoTurmas = new File("turmas.txt");
+            FileInputStream arquivoDasTurmas;
+            ObjectInputStream inTurmas;
+            ObjectOutputStream outTurmas;
+            FileInputStream arquivoDosAlunos;
+            ObjectInputStream inAlunos;
+            ObjectOutputStream outAlunos;
+            
+            if(arquivoTurmas.exists())
+            {
+               if(!arquivoTurmas.canWrite())
+                  arquivoTurmas.setWritable(true);
+               try
+               {
+                  arquivoDasTurmas = new FileInputStream(arquivoTurmas);
+                  inTurmas = new ObjectInputStream(arquivoDasTurmas);
+                  outTurmas = new ObjectOutputStream(new FileOutputStream("turmas.txt"));
+                  outTurmas.writeObject(MainPanel.turmasLidas);
+                  outTurmas.close();
+                  
+                  //arquivo pode ser lido
+                  arquivoTurmas.setReadable(true);
+                  if(arquivoTurmas.canWrite())
+                  {
+                     //arquivo nao pode ser escrito por ninguém nem pelo seu próprio dono
+                     arquivoTurmas.setWritable(false, false);
+                  }
+               }
+               catch (IOException ex)
+               {
+                  System.err.println(ex);
+               }
+            }
+            else
+            {
+               try
+               {
+                  outTurmas = new ObjectOutputStream(new FileOutputStream("turmas.txt"));
+                  outTurmas.writeObject(MainPanel.turmasLidas);                  
+                  outTurmas.close();
+               }
+               catch (IOException ex)
+               {
+                  System.err.println(ex);
+               }
+               //arquivo pode ser lido
+               arquivoTurmas.setReadable(true);
+               if(arquivoTurmas.canWrite())
+               {
+                  //arquivo nao pode ser escrito por ninguém nem pelo seu próprio dono
+                  arquivoTurmas.setWritable(false, false);
+               }
+            }
+            
+            if(arquivoAlunos.exists())
+            {
+               if(!arquivoAlunos.canWrite())
+                  arquivoAlunos.setWritable(true);
+               try
+               {
+                  arquivoDosAlunos = new FileInputStream(arquivoAlunos);
+                  inAlunos = new ObjectInputStream(arquivoDosAlunos);
+                  outAlunos = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
+                  outAlunos.writeObject(MainPanel.alunosLidos);
+                  outAlunos.close();
+                  //arquivo pode ser lido
+                  arquivoAlunos.setReadable(true);
+                  if(arquivoAlunos.canWrite())
+                  {
+                     //arquivo nao pode ser escrito por ninguém nem pelo seu próprio dono
+                     arquivoAlunos.setWritable(false, false);
+                  }
+               }
+               catch (IOException ex)
+               {
+                  System.err.println(ex);
+               }
+            }
+            else
+            {
+               try
+               {
+                  outAlunos = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
+                  outAlunos.writeObject(MainPanel.alunosLidos);
+                  outAlunos.close();
+               }
+               catch (IOException ex)
+               {
+                  System.err.println(ex);
+               }
+               //arquivo pode ser lido
+               arquivoAlunos.setReadable(true);
+               if(arquivoAlunos.canWrite())
+               {
+                  //arquivo nao pode ser escrito por ninguém nem pelo seu próprio dono
+                  arquivoAlunos.setWritable(false, false);
+               }
+            }
             System.exit(x);
+         }
       }
    }//GEN-LAST:event_formWindowClosing
 
