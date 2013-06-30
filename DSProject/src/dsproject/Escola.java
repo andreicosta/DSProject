@@ -110,26 +110,31 @@ public  class Escola {
     }
     
     public static void  login(String cpf , String senha ){
+        System.out.println("cpf - "+ cpf + "\n" + "senha" + senha);
         for (int i =0 ; i< Escola.professList.size() ;i++){
             if(Escola.professList.get(i).getCpf().equals(cpf)){
                 //achou o modafuka professor //checa a senha
-                if(Escola.professList.get(i).getSenha() == senha ){
+                if(Escola.professList.get(i).getSenha().equals(senha) ){
                     // delicinha 
                     if(!islogado){
                         // nao tem ninguem logado
                         logado = new Professor(Escola.professList.get(i));
                         System.out.println(" achou o professor e logou");
                         islogado = true;
+                        return;
                     }else{
                         System.out.println("Ja existe Professor logado no sistema");
+                        return;
                     }
                 }else{
                     // senha errada seu viadinho
+                    System.out.println("senha errada - " + senha);
+                    return;
                 }
-            }else{
-                //professor no existe
             }
-        } 
+        }
+        //professor no existe
+                System.out.println("Nao existe cadastro com cpf =" + cpf );
     
     }
     
