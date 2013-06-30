@@ -26,6 +26,12 @@ public class StudentPanel extends javax.swing.JPanel {
 
     public StudentPanel() {
         initComponents();
+        /*Setar datas maximas e minimas
+        this.birthday.setMinSelectableDate(null);
+        this.birthday.setMaxSelectableDate(null);
+        this.editBirthday.setMinSelectableDate(null);
+        this.editBirthday.setMaxSelectableDate(null);
+        */
     }
     
     @SuppressWarnings("unchecked")

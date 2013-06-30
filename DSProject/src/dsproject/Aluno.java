@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Objects;
 import javax.swing.JOptionPane;
 
-public class Aluno extends Pessoa implements Serializable {
+public final class Aluno extends Pessoa implements Serializable {
 
     private String nomeDaMae;
     private String nomeDoPai;
@@ -20,11 +20,12 @@ public class Aluno extends Pessoa implements Serializable {
     public Aluno(String nome, Date nascimento, String genero, String endereco, String cidade,
             String estado, String nomeMae, String nomePai, String telefone, String celular, String email) {
         super(nome, nascimento, genero, endereco, cidade, estado);
-        this.nomeDaMae = nomeMae;
-        this.nomeDoPai = nomePai;
-        this.telefone = telefone;
-        this.celular = celular;
-        this.email = email;
+        this.setNascimento(nascimento);
+        this.setNomeDaMae(nomeDaMae);
+        this.setNomeDoPai(nomeDoPai);
+        this.setTelefone(telefone);
+        this.setCelular(celular);
+        this.setEmail(email);
         this.turma = null;
         this.avaliacoes = new ArrayList<>();
     }
@@ -146,7 +147,7 @@ public class Aluno extends Pessoa implements Serializable {
         System.out.println("arremesso medicine ball = " + test.getArremessoMedicineBall() + "cm");
         System.out.println("teste do quadrado = " + test.getTesteDoQuadrado());
         System.out.println("corrida de 20 metros = " + test.getCorrida20Metros());
-        this.setAvaliacoes(test);
+        this.addAvaliacao(test);
 
         return true;
     }
@@ -179,7 +180,7 @@ public class Aluno extends Pessoa implements Serializable {
         return avaliacoes;
     }
 
-    public void setAvaliacoes(Avaliacao avaliacao) {
+    public void addAvaliacao(Avaliacao avaliacao) {
         this.avaliacoes.add(avaliacao);
     }
 
@@ -190,7 +191,7 @@ public class Aluno extends Pessoa implements Serializable {
     public void setTurma(Turma turma) {
         this.turma = turma;
     }
-
+    
     public void setNomeDaMae(String nomeDaMae) {
         this.nomeDaMae = nomeDaMae;
     }
@@ -252,5 +253,9 @@ public class Aluno extends Pessoa implements Serializable {
             return false;
         }
         return true;
+    }
+
+    private void setNascimento(Date nascimento) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
