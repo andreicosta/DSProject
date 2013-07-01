@@ -91,7 +91,7 @@ public class StudentPanel extends javax.swing.JPanel {
       deleteStudentPanel = new javax.swing.JPanel();
       labelNomeExcluirCadastroAluno = new javax.swing.JLabel();
       comboNomeExcluirCadastroAluno = new javax.swing.JComboBox();
-      jButton1 = new javax.swing.JButton();
+      botaoExcluirExcluirAluno = new javax.swing.JButton();
 
       setMinimumSize(new java.awt.Dimension(833, 515));
 
@@ -260,8 +260,15 @@ public class StudentPanel extends javax.swing.JPanel {
       });
       deleteStudentPanel.add(comboNomeExcluirCadastroAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 536, -1));
 
-      jButton1.setText("Excluir");
-      deleteStudentPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 80, 90, -1));
+      botaoExcluirExcluirAluno.setText("Excluir");
+      botaoExcluirExcluirAluno.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            botaoExcluirExcluirAlunoActionPerformed(evt);
+         }
+      });
+      deleteStudentPanel.add(botaoExcluirExcluirAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 80, 90, -1));
 
       jTabbedPane1.addTab("Excluir Cadastro do Aluno", deleteStudentPanel);
 
@@ -678,9 +685,30 @@ public class StudentPanel extends javax.swing.JPanel {
       }
    }//GEN-LAST:event_botaoSalvarEditarInformacoesAlunoActionPerformed
 
+   private void botaoExcluirExcluirAlunoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botaoExcluirExcluirAlunoActionPerformed
+   {//GEN-HEADEREND:event_botaoExcluirExcluirAlunoActionPerformed
+      if(MainPanel.alunosLidos != null)
+      {
+         for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+         {
+            if((comboNomeExcluirCadastroAluno.getSelectedItem().equals(MainPanel.alunosLidos.get(i).getNome())))
+            {
+               MainPanel.alunosLidos.remove(i);
+               comboNomeEditarAluno.removeItemAt(comboNomeExcluirCadastroAluno.getSelectedIndex());
+               comboNomeExcluirCadastroAluno.removeItemAt(comboNomeExcluirCadastroAluno.getSelectedIndex());
+               if(comboNomeEditarAluno.getItemCount() != 0)
+                  comboNomeEditarAluno.setSelectedIndex(0);
+               comboNomeExcluirCadastroAluno.setSelectedIndex(0);
+               JOptionPane.showMessageDialog(null, "Aluno excluído com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+            }
+         }
+      }
+   }//GEN-LAST:event_botaoExcluirExcluirAlunoActionPerformed
+
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
    private javax.swing.JButton botaoCadastrar;
+   private javax.swing.JButton botaoExcluirExcluirAluno;
    private javax.swing.JButton botaoSalvarEditarInformacoesAluno;
    private static javax.swing.JTextField campoCelularCadastrarAluno;
    private javax.swing.JTextField campoCelularEditarAluno;
@@ -707,7 +735,6 @@ public class StudentPanel extends javax.swing.JPanel {
    private com.toedter.calendar.JDateChooser dateChooserDataDeNascimentoEditarAluno;
    private javax.swing.JPanel deleteStudentPanel;
    private javax.swing.JPanel editStudentPanel;
-   private javax.swing.JButton jButton1;
    private javax.swing.JTabbedPane jTabbedPane1;
    private static javax.swing.JLabel labelCelularCadastrarAluno;
    private javax.swing.JLabel labelCelularEditarAluno;
