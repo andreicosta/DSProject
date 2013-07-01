@@ -26,7 +26,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         mainPanel = new javax.swing.JPanel();
         loginJPanel1 = new Interface.LoginJPanel(mainPanel);
-        mainPanel1 = new Interface.MainPanel();
+        mainPanel1 = new Interface.MainPanel(mainPanel);
         newTeacherPanel1 = new Interface.NewTeacherPanel(mainPanel);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);

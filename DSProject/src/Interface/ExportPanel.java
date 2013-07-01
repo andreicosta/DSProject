@@ -33,19 +33,15 @@ public class ExportPanel extends javax.swing.JPanel {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         exportPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(833, 515));
 
         exportPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("<html>A parte de exportação, gera uma copia do banco de dados local ou todos os dados do banco de dados local com exceçãos das avaliações?????</html>");
+        jLabel1.setText("<html>AJUDA!!!!!!</html>");
         exportPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 29, 807, 54));
 
-        jButton1.setText("Exportar");
-        exportPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(729, 101, -1, -1));
-
-        jTabbedPane1.addTab("Exportar ", exportPanel);
+        jTabbedPane1.addTab("Ajuda", exportPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -60,7 +56,6 @@ public class ExportPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel exportPanel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
