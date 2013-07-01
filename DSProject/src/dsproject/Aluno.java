@@ -11,32 +11,19 @@ public class Aluno extends Pessoa implements Serializable
 
    private String nomeDaMae;
    private String nomeDoPai;
-   private String turmaId;
+   private Turma turma;
    private String telefone;
    private String celular;
    private String email;
    private ArrayList<Avaliacao> avaliacoes;
 
-   /*public Aluno(String nomeDaMae, String nomeDoPai, String nome, java.sql.Date dataDeNascimento,
-                String genero, String endereco, String cidade, String estado)
-   {
-      super(nome, dataDeNascimento, genero, endereco, cidade, estado);
-      this.nomeDaMae = nomeDaMae;
-      this.nomeDoPai = nomeDoPai;
-      this.turmaId = null;
-      this.telefone = null;
-      this.celular = null;
-      this.email = null;
-      this.avaliacoes = new ArrayList<>();
-   }*/
-
-   public Aluno(String nomeDaMae, String nomeDoPai, String turmaId, String telefone, String celular, String email, 
+   public Aluno(String nomeDaMae, String nomeDoPai, Turma turma, String telefone, String celular, String email, 
                 String nome, Date dataDeNascimento, String genero, String endereco, String cidade, String estado)
    {
       super(nome, dataDeNascimento, genero, endereco, cidade, estado);
       this.nomeDaMae = nomeDaMae;
       this.nomeDoPai = nomeDoPai;
-      this.turmaId = turmaId;
+      this.turma = turma;
       this.telefone = telefone;
       this.celular = celular;
       this.email = email;
@@ -200,7 +187,7 @@ public class Aluno extends Pessoa implements Serializable
 
    public String getTurmaId()
    {
-      return turmaId;
+      return turma.getId();
    }
 
    public String getTelefone()
@@ -233,11 +220,6 @@ public class Aluno extends Pessoa implements Serializable
       return avaliacoes;
    }
 
-   public void setTurmaId(String turmaId)
-   {
-      this.turmaId = turmaId;
-   }
-
    public void setAvaliacoes(Avaliacao avaliacao)
    {
       this.avaliacoes.add(avaliacao);
@@ -246,5 +228,15 @@ public class Aluno extends Pessoa implements Serializable
    public Avaliacao buscarUltimaAvaliacao()
    {
       return avaliacoes.get(avaliacoes.size() - 1);
+   }
+
+   public void setTurma(Turma turma)
+   {
+      this.turma = turma;
+   }
+
+   public Turma getTurma()
+   {
+      return turma;
    }
 }

@@ -319,37 +319,24 @@ public class ClassPanel extends javax.swing.JPanel {
       Object isNull;
       isNull = comboAluno.getItemAt(0);
       int i = 0;
-      //ArrayList<dsproject.Aluno> alunos = null;
-      //File arquivoAlunos = new File("alunos.txt");
-      //FileInputStream arquivo;
-      //ObjectInputStream in;
+      
       if(isStudentAddedComboAluno() && isNull == null)
       {
-         //daqui até o catch le um objeto gravado no arquivo alunos.txt
-         //if(arquivoAlunos.exists())
-         //{
-            //try
-            //{
-               //arquivo = new FileInputStream(arquivoAlunos);
-               //in = new ObjectInputStream(arquivo);
-               //alunos = (ArrayList<dsproject.Aluno>)in.readObject();
-               i = 0;
-               comboAluno.addItem("");
-               while(i < MainPanel.alunosLidos.size())
-               {
-                  if(MainPanel.alunosLidos.get(i).getTurmaId() == null)
-                  {
-                     comboAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
-                  }
-                  i++;
-               }
-            //}
-            /*catch (IOException | ClassNotFoundException ex)
+         i = 0;
+         comboAluno.addItem("");
+         
+         if(MainPanel.alunosLidos != null)
+         {
+            while(i < MainPanel.alunosLidos.size())
             {
-               System.err.println(ex);
-            }*/
-
-         //}
+               if(MainPanel.alunosLidos.get(i).getTurma() == null)
+               {
+                  comboAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
+               }
+               i++;
+            }
+         }
+         
          setStudentAddedComboAluno(false);
          setNumeroDeAlunosAdicionadosComboAluno(0);
       }
@@ -357,30 +344,20 @@ public class ClassPanel extends javax.swing.JPanel {
       {
          if(isStudentAddedComboAluno() && isNull != null)
          {
-            //daqui até o catch le um objeto gravado no arquivo alunos.txt
-            //if(arquivoAlunos.exists())
-            //{
-               //try
-               //{
-                  /*arquivo = new FileInputStream(arquivoAlunos);
-                  in = new ObjectInputStream(arquivo);
-                  alunos = (ArrayList<dsproject.Aluno>)in.readObject();*/
-                  i = (MainPanel.alunosLidos.size() - getNumeroDeAlunosAdicionadosComboAluno());
-                  while(i < MainPanel.alunosLidos.size())
-                  {
-                     if(MainPanel.alunosLidos.get(i).getTurmaId() == null)
-                     {
-                        comboAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
-                     }
-                     i++;
-                  }
-               /*}
-               catch (IOException | ClassNotFoundException ex)
-               {
-                  System.err.println(ex);
-               }*/
+            i = (MainPanel.alunosLidos.size() - getNumeroDeAlunosAdicionadosComboAluno());
 
-            //}
+            if(MainPanel.alunosLidos != null)
+            {
+               while(i < MainPanel.alunosLidos.size())
+               {
+                  if(MainPanel.alunosLidos.get(i).getTurma() == null)
+                  {
+                     comboAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
+                  }
+                  i++;
+               }
+            }
+            
             setStudentAddedComboAluno(false);
             setNumeroDeAlunosAdicionadosComboAluno(0);
          }
@@ -389,31 +366,19 @@ public class ClassPanel extends javax.swing.JPanel {
             if(isNull == null)
             {
                i = 0;
-
-               //daqui até o catch le um objeto gravado no arquivo alunos.txt
-               //if(arquivoAlunos.exists())
-               //{
-                  //FileInputStream file;
-                  //try
-                  //{
-                     /*arquivo = new FileInputStream(arquivoAlunos);
-                     in = new ObjectInputStream(arquivo);
-                     alunos = (ArrayList<dsproject.Aluno>)in.readObject();*/
-                     comboAluno.addItem("");
-                     while(i < MainPanel.alunosLidos.size())
-                     {
-                        if(MainPanel.alunosLidos.get(i).getTurmaId() == null)
-                        {
-                           comboAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
-                        }
-                        i++;
-                     }
-                  /*}
-                  catch (IOException | ClassNotFoundException ex)
+               comboAluno.addItem("");
+               
+               if(MainPanel.alunosLidos != null)
+               {
+                  while(i < MainPanel.alunosLidos.size())
                   {
-                     System.err.println(ex);
-                  }*/
-               //}
+                     if(MainPanel.alunosLidos.get(i).getTurma() == null)
+                     {
+                        comboAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
+                     }
+                     i++;
+                  }
+               }
             }
          }
       }
@@ -446,15 +411,10 @@ public class ClassPanel extends javax.swing.JPanel {
    {//GEN-HEADEREND:event_botaoCadastrarActionPerformed
       String campoTurma = getCampoTurma();
       String campoAnoLetivo = getCampoAnoLetivo();
-      //File arquivoAlunos = new File("alunos.txt");
-      //File arquivoTurma = new File("turmas.txt");
-      //FileInputStream arquivo;
       if(campoTurma != null)
       {
          if(campoAnoLetivo != null)
          {
-            //ArrayList<dsproject.Aluno> alunosLidos;
-            //ArrayList<dsproject.Turma> turmas;
             ArrayList<String> alunosMatriculados = new ArrayList<>();
             ObjectInputStream in;
             ObjectOutputStream out;
@@ -473,105 +433,36 @@ public class ClassPanel extends javax.swing.JPanel {
                      comboAluno.removeItem(listaAlunosMatriculadosNaTurma.getModel().getElementAt(i));
                      comboAdicionarAluno.removeItem(listaAlunosMatriculadosNaTurma.getModel().getElementAt(i));
                   }
-                  //daqui até o catch le um objeto gravado no arquivo alunos.txt
-                  //if(arquivoAlunos.exists())
-                  //{
-                     //try
-                     //{
-                        /*arquivo = new FileInputStream(arquivoAlunos);
-                        in = new ObjectInputStream(arquivo);
-                        alunosLidos = (ArrayList<dsproject.Aluno>)in.readObject();*/
-                        i = 0;
-                        y = 0;
-                        while(i < alunosMatriculados.size())
-                        {
-                           if(MainPanel.alunosLidos.get(y).getNome().equals(alunosMatriculados.get(i)))
-                           {
-                              MainPanel.alunosLidos.get(y).setTurmaId(campoTurma);
-                              novaTurma.inserirAluno(MainPanel.alunosLidos.get(y));
-                              i++;
-                              y = 0;
-                           }
-                           else
-                           {
-                              y++;
-                           }
-                        }
-                        MainPanel.turmasLidas.add(novaTurma);
-                        setTurmaAdicionada(true);
-                        setTurmaAdicionadaComboTurmaEditarTurmas(true);
-                        setTurmaAdicionadaComboTurma(true);
-                        Interface.TestPanel.setTurmaAdicionada(true);
-                        TestPanel.setTurmaAdicionadaComboTurma(true);
-                        TestPanel.setNumeroDeTurmasAdicionadasComboTurma(TestPanel.getNumeroDeTurmasAdicionadasComboTurma() + 1);
-                        Interface.TestPanel.setNumeroDeTurmasAdicionadas(Interface.TestPanel.getNumeroDeTurmasAdicionadas() + 1);
-                        setNumeroDeTurmasAdicionadasComboTurma(getNumeroDeTurmasAdicionadasComboTurma() + 1);
-                        setNumeroDeTurmasAdicionadas(getNumeroDeTurmasAdicionadas() + 1);
-                        setNumeroDeTurmasAdicionadasComboTurmaEditarTurmas(getNumeroDeTurmasAdicionadasComboTurmaEditarTurmas() + 1);
-                        JOptionPane.showMessageDialog(null, "Turma salva com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-                        limpaCamposcadastrarTurma();
-                        /*if(arquivoTurma.exists())
-                        {
-                           if(!arquivoTurma.canWrite())
-                              arquivoTurma.setWritable(true);
-                           arquivo = new FileInputStream(arquivoTurma);
-                           in = new ObjectInputStream(arquivo);
-                           turmas = (ArrayList<dsproject.Turma>)in.readObject();
-                           turmas.add(novaTurma);
-                           out = new ObjectOutputStream(new FileOutputStream("turmas.txt"));
-                           out.writeObject(turmas);
-                           out.close();
-                           //arquivo pode ser lido
-                           arquivoTurma.setReadable(true);
-                           if(arquivoTurma.canWrite())
-                           {
-                              //arquivo nao pode ser escrito por ninguém nem pelo seu próprio dono
-                              arquivoTurma.setWritable(false, false);
-                           }
-                           setTurmaAdicionada(true);
-                           setTurmaAdicionadaComboTurmaEditarTurmas(true);
-                           setTurmaAdicionadaComboTurma(true);
-                           Interface.TestPanel.setTurmaAdicionada(true);
-                           Interface.TestPanel.setNumeroDeTurmasAdicionadas(Interface.TestPanel.getNumeroDeTurmasAdicionadas() + 1);
-                           setNumeroDeTurmasAdicionadasComboTurma(getNumeroDeTurmasAdicionadasComboTurma() + 1);
-                           setNumeroDeTurmasAdicionadas(getNumeroDeTurmasAdicionadas() + 1);
-                           setNumeroDeTurmasAdicionadasComboTurmaEditarTurmas(getNumeroDeTurmasAdicionadasComboTurmaEditarTurmas() + 1);
-                           JOptionPane.showMessageDialog(null, "Turma salva com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-                        }
-                        else
-                        {
-                           turmas = new ArrayList<>();
-                           turmas.add(novaTurma);
-                           out = new ObjectOutputStream(new FileOutputStream("turmas.txt"));
-                           out.writeObject(turmas);
-                           out.close();
-                           //arquivo pode ser lido
-                           arquivoTurma.setReadable(true);
-                           if(arquivoTurma.canWrite())
-                           {
-                              //arquivo nao pode ser escrito por ninguém nem pelo seu próprio dono
-                              arquivoTurma.setWritable(false, false);
-                           }
-                           setTurmaAdicionada(true);
-                           setTurmaAdicionadaComboTurmaEditarTurmas(true);
-                           setTurmaAdicionadaComboTurma(true);
-                           Interface.TestPanel.setTurmaAdicionada(true);
-                           Interface.TestPanel.setNumeroDeTurmasAdicionadas(Interface.TestPanel.getNumeroDeTurmasAdicionadas() + 1);
-                           setNumeroDeTurmasAdicionadasComboTurma(getNumeroDeTurmasAdicionadasComboTurma() + 1);
-                           setNumeroDeTurmasAdicionadas(getNumeroDeTurmasAdicionadas() + 1);
-                           setNumeroDeTurmasAdicionadasComboTurmaEditarTurmas(getNumeroDeTurmasAdicionadasComboTurmaEditarTurmas() + 1);
-                           JOptionPane.showMessageDialog(null, "Turma salva com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-                        }
-                     }
-                     catch (IOException | ClassNotFoundException ex)
-                     {
-                        System.err.println(ex);
-                     }*/
-                  /*}
-                  else
+                  
+                  i = 0;
+                  y = 0;
+                  while(i < alunosMatriculados.size())
                   {
-                     JOptionPane.showMessageDialog(null, "Não existem alunos cadastrados", "Erro", JOptionPane.ERROR_MESSAGE);
-                  }*/
+                     if(MainPanel.alunosLidos.get(y).getNome().equals(alunosMatriculados.get(i)))
+                     {
+                        MainPanel.alunosLidos.get(y).setTurma(novaTurma);
+                        novaTurma.inserirAluno(MainPanel.alunosLidos.get(y));
+                        i++;
+                        y = 0;
+                     }
+                     else
+                     {
+                        y++;
+                     }
+                  }
+                  MainPanel.turmasLidas.add(novaTurma);
+                  setTurmaAdicionada(true);
+                  setTurmaAdicionadaComboTurmaEditarTurmas(true);
+                  setTurmaAdicionadaComboTurma(true);
+                  Interface.TestPanel.setTurmaAdicionada(true);
+                  TestPanel.setTurmaAdicionadaComboTurma(true);
+                  TestPanel.setNumeroDeTurmasAdicionadasComboTurma(TestPanel.getNumeroDeTurmasAdicionadasComboTurma() + 1);
+                  Interface.TestPanel.setNumeroDeTurmasAdicionadas(Interface.TestPanel.getNumeroDeTurmasAdicionadas() + 1);
+                  setNumeroDeTurmasAdicionadasComboTurma(getNumeroDeTurmasAdicionadasComboTurma() + 1);
+                  setNumeroDeTurmasAdicionadas(getNumeroDeTurmasAdicionadas() + 1);
+                  setNumeroDeTurmasAdicionadasComboTurmaEditarTurmas(getNumeroDeTurmasAdicionadasComboTurmaEditarTurmas() + 1);
+                  JOptionPane.showMessageDialog(null, "Turma salva com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+                  limpaCamposcadastrarTurma();
                }
                else
                {
@@ -624,37 +515,24 @@ public class ClassPanel extends javax.swing.JPanel {
       Object isNull;
       isNull = comboAdicionarAluno.getItemAt(0);
       int i = 0;
-      //ArrayList<dsproject.Aluno> alunos;
-      //FileInputStream arquivo;
-      //File arquivoAlunos = new File("alunos.txt");
-      //ObjectInputStream in;
+      
       if(isStudentAddedComboAdicionarAluno() && isNull == null)
       {
-         //daqui até o catch le um objeto gravado no arquivo alunos.txt
-         //if(arquivoAlunos.exists())
-         //{
-            //try
-            //{
-               /*arquivo = new FileInputStream(arquivoAlunos);
-               in = new ObjectInputStream(arquivo);
-               alunos = (ArrayList<dsproject.Aluno>)in.readObject();*/
-               i = 0;
-               comboAdicionarAluno.addItem("");
-               while(i < MainPanel.alunosLidos.size())
-               {
-                  if(MainPanel.alunosLidos.get(i).getTurmaId() == null)
-                  {
-                     comboAdicionarAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
-                  }
-                  i++;
-               }
-            /*}
-            catch (IOException | ClassNotFoundException ex)
+         i = 0;
+         comboAdicionarAluno.addItem("");
+         
+         if(MainPanel.alunosLidos != null)
+         {
+            while(i < MainPanel.alunosLidos.size())
             {
-               System.err.println(ex);
-            }*/
-
-         //}
+               if(MainPanel.alunosLidos.get(i).getTurma() == null)
+               {
+                  comboAdicionarAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
+               }
+               i++;
+            }
+         }
+         
          setStudentAddedComboAdicionarAluno(false);
          setNumeroDeAlunosAdicionadosComboAdicionarAluno(0);
       }
@@ -662,30 +540,20 @@ public class ClassPanel extends javax.swing.JPanel {
       {
          if(isStudentAddedComboAdicionarAluno() && isNull != null)
          {
-            //daqui até o catch le um objeto gravado no arquivo alunos.txt
-            /*if(arquivoAlunos.exists())
+            i = (MainPanel.alunosLidos.size() - getNumeroDeAlunosAdicionadosComboAdicionarAluno());
+            
+            if(MainPanel.alunosLidos != null)
             {
-               try
-               {*/
-                  /*arquivo = new FileInputStream(arquivoAlunos);
-                  in = new ObjectInputStream(arquivo);
-                  alunos = (ArrayList<dsproject.Aluno>)in.readObject();*/
-                  i = (MainPanel.alunosLidos.size() - getNumeroDeAlunosAdicionadosComboAdicionarAluno());
-                  while(i < MainPanel.alunosLidos.size())
-                  {
-                     if(MainPanel.alunosLidos.get(i).getTurmaId() == null)
-                     {
-                        comboAdicionarAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
-                     }
-                     i++;
-                  }
-               /*}
-               catch (IOException | ClassNotFoundException ex)
+               while(i < MainPanel.alunosLidos.size())
                {
-                  System.err.println(ex);
+                  if(MainPanel.alunosLidos.get(i).getTurma() == null)
+                  {
+                     comboAdicionarAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
+                  }
+                  i++;
                }
-
-            }*/
+            }
+            
             setStudentAddedComboAdicionarAluno(false);
             setNumeroDeAlunosAdicionadosComboAdicionarAluno(0);
          }
@@ -694,30 +562,19 @@ public class ClassPanel extends javax.swing.JPanel {
             if(isNull == null)
             {
                i = 0;
-
-               //daqui até o catch le um objeto gravado no arquivo alunos.txt
-               /*if(arquivoAlunos.exists())
+               comboAdicionarAluno.addItem("");
+               
+               if(MainPanel.alunosLidos != null)
                {
-                  try
-                  {*/
-                     /*arquivo = new FileInputStream(arquivoAlunos);
-                     in = new ObjectInputStream(arquivo);
-                     alunos = (ArrayList<dsproject.Aluno>)in.readObject();*/
-                     comboAdicionarAluno.addItem("");
-                     while(i < MainPanel.alunosLidos.size())
-                     {
-                        if(MainPanel.alunosLidos.get(i).getTurmaId() == null)
-                        {
-                           comboAdicionarAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
-                        }
-                        i++;
-                     }
-                  /*}
-                  catch (IOException | ClassNotFoundException ex)
+                  while(i < MainPanel.alunosLidos.size())
                   {
-                     System.err.println(ex);
+                     if(MainPanel.alunosLidos.get(i).getTurma() == null)
+                     {
+                        comboAdicionarAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
+                     }
+                     i++;
                   }
-               }*/
+               }
             }
          }
       }
@@ -728,35 +585,21 @@ public class ClassPanel extends javax.swing.JPanel {
       Object isNull;
       isNull = comboNomeDoAluno.getItemAt(0);
       int i = 0;
-      /*ArrayList<dsproject.Aluno> students;
-      File arquivoAlunos = new File("alunos.txt");
-      FileInputStream arquivo;
-      ObjectInputStream in;*/
+      
       if(isStudentAddedComboNomeDoAluno() && isNull == null)
       {
-         //daqui até o catch le um objeto gravado no arquivo alunos.txt
-         //if(arquivoAlunos.exists())
-         //{
-            //FileInputStream file;
-            //try
-            //{
-               /*file = new FileInputStream(arquivoAlunos);
-               in = new ObjectInputStream(file);
-               students = (ArrayList<dsproject.Aluno>)in.readObject();*/
-               i = 0;
-               comboNomeDoAluno.addItem("");
-               while(i < MainPanel.alunosLidos.size())
-               {
-                  comboNomeDoAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
-                  i++;
-               }
-            /*}
-            catch (IOException | ClassNotFoundException ex)
+         i = 0;
+         comboNomeDoAluno.addItem("");
+         
+         if(MainPanel.alunosLidos != null)
+         {
+            while(i < MainPanel.alunosLidos.size())
             {
-               System.err.println(ex);
+               comboNomeDoAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
+               i++;
             }
-
-         }*/
+         }
+         
          setStudentAddedCombonomeDoAluno(false);
          setNumeroDeAlunosAdicionadosComboNomeDoAluno(0);
       }
@@ -764,27 +607,17 @@ public class ClassPanel extends javax.swing.JPanel {
       {
          if(isStudentAddedComboNomeDoAluno() && isNull != null)
          {
-            //daqui até o catch le um objeto gravado no arquivo alunos.txt
-            /*if(arquivoAlunos.exists())
+            i = (MainPanel.alunosLidos.size() - getNumeroDeAlunosAdicionadosComboNomeDoAluno());
+            
+            if(MainPanel.alunosLidos != null)
             {
-               try
+               while(i < MainPanel.alunosLidos.size())
                {
-                  arquivo = new FileInputStream(arquivoAlunos);
-                  in = new ObjectInputStream(arquivo);
-                  students = (ArrayList<dsproject.Aluno>)in.readObject();*/
-                  i = (MainPanel.alunosLidos.size() - getNumeroDeAlunosAdicionadosComboNomeDoAluno());
-                  while(i < MainPanel.alunosLidos.size())
-                  {
-                     comboNomeDoAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
-                     i++;
-                  }
-               /*}
-               catch (IOException | ClassNotFoundException ex)
-               {
-                  System.err.println(ex);
+                  comboNomeDoAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
+                  i++;
                }
-
-            }*/
+            }
+            
             setStudentAddedCombonomeDoAluno(false);
             setNumeroDeAlunosAdicionadosComboNomeDoAluno(0);
          }
@@ -793,27 +626,16 @@ public class ClassPanel extends javax.swing.JPanel {
             if(isNull == null)
             {
                i = 0;
-
-               //daqui até o catch le um objeto gravado no arquivo alunos.txt
-               /*if(arquivoAlunos.exists())
+               comboNomeDoAluno.addItem("");
+               
+               if(MainPanel.alunosLidos != null)
                {
-                  try
+                  while(i < MainPanel.alunosLidos.size())
                   {
-                     arquivo = new FileInputStream(arquivoAlunos);
-                     in = new ObjectInputStream(arquivo);
-                     students = (ArrayList<dsproject.Aluno>)in.readObject();*/
-                     comboNomeDoAluno.addItem("");
-                     while(i < MainPanel.alunosLidos.size())
-                     {
-                        comboNomeDoAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
-                        i++;
-                     }
-                  /*}
-                  catch (IOException | ClassNotFoundException ex)
-                  {
-                     System.err.println(ex);
+                     comboNomeDoAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
+                     i++;
                   }
-               }*/
+               }
             }
          }
       }
@@ -824,33 +646,20 @@ public class ClassPanel extends javax.swing.JPanel {
       Object isNull;
       isNull = listaListaDeTurmas.getSize();
       int i = 0;
-      /*ArrayList<dsproject.Turma> turmas;
-      File arquivoTurmas = new File("turmas.txt");
-      ObjectInputStream in;*/
+      
       if(isTurmaAdicionada() && isNull == 0)
       {
-         //daqui até o catch le um objeto gravado no arquivo turmas.txt
-         /*if(arquivoTurmas.exists())
+         i = 0;
+         
+         if(MainPanel.turmasLidas != null)
          {
-            FileInputStream file;
-            try
+            while(i < MainPanel.turmasLidas.size())
             {
-               file = new FileInputStream(arquivoTurmas);
-               in = new ObjectInputStream(file);
-               turmas = (ArrayList<dsproject.Turma>)in.readObject();*/
-               i = 0;
-               while(i < MainPanel.turmasLidas.size())
-               {
-                  listaListaDeTurmas.addElement(MainPanel.turmasLidas.get(i).getId());
-                  i++;
-               }
-            /*}
-            catch (IOException | ClassNotFoundException ex)
-            {
-               System.err.println(ex);
+               listaListaDeTurmas.addElement(MainPanel.turmasLidas.get(i).getId());
+               i++;
             }
-
-         }*/
+         }
+         
          setTurmaAdicionada(false);
          setNumeroDeTurmasAdicionadas(0);
       }
@@ -858,28 +667,17 @@ public class ClassPanel extends javax.swing.JPanel {
       {
          if(isTurmaAdicionada() && isNull != 0)
          {
-            //daqui até o catch le um objeto gravado no arquivo alunos.txt
-            /*if(arquivoTurmas.exists())
+            i = (MainPanel.turmasLidas.size() - getNumeroDeTurmasAdicionadas());
+            
+            if(MainPanel.turmasLidas != null)
             {
-               FileInputStream arquivo;
-               try
+               while(i < MainPanel.turmasLidas.size())
                {
-                  arquivo = new FileInputStream(arquivoTurmas);
-                  in = new ObjectInputStream(arquivo);
-                  turmas = (ArrayList<dsproject.Turma>)in.readObject();*/
-                  i = (MainPanel.turmasLidas.size() - getNumeroDeTurmasAdicionadas());
-                  while(i < MainPanel.turmasLidas.size())
-                  {
-                     listaListaDeTurmas.addElement(MainPanel.turmasLidas.get(i).getId());
-                     i++;
-                  }
-               /*}
-               catch (IOException | ClassNotFoundException ex)
-               {
-                  System.err.println(ex);
+                  listaListaDeTurmas.addElement(MainPanel.turmasLidas.get(i).getId());
+                  i++;
                }
-
-            }*/
+            }
+            
             setTurmaAdicionada(false);
             setNumeroDeTurmasAdicionadas(0);
          }
@@ -888,30 +686,15 @@ public class ClassPanel extends javax.swing.JPanel {
             if(isNull == 0)
             {
                i = 0;
-               //daqui até o catch le um objeto gravado no arquivo alunos.txt
-               /*if(arquivoTurmas.exists())
+               
+               if(MainPanel.turmasLidas != null)
                {
-                  FileInputStream arquivo;
-                  try
+                  while(i < MainPanel.turmasLidas.size())
                   {
-                     arquivo = new FileInputStream(arquivoTurmas);
-                     in = new ObjectInputStream(arquivo);
-                     turmas = (ArrayList<dsproject.Turma>)in.readObject();*/
-                     while(i < MainPanel.turmasLidas.size())
-                     {
-                        listaListaDeTurmas.addElement(MainPanel.turmasLidas.get(i).getId());
-                        i++;
-                     }
-                  /*}
-                  catch (IOException | ClassNotFoundException ex)
-                  {
-                     System.err.println(ex);
+                     listaListaDeTurmas.addElement(MainPanel.turmasLidas.get(i).getId());
+                     i++;
                   }
                }
-               else
-               {
-                  JOptionPane.showMessageDialog(null, "Não existe nenhuma turma cadastrada", "Aviso", JOptionPane.WARNING_MESSAGE);
-               }*/
             }
          }
       }
@@ -922,35 +705,21 @@ public class ClassPanel extends javax.swing.JPanel {
       Object isNull;
       isNull = comboTurmaEditarTurma.getItemAt(0);
       int i = 0;
-      /*ArrayList<dsproject.Turma> turmas;
-      File arquivoTurmas = new File("turmas.txt");
-      FileInputStream arquivo;
-      ObjectInputStream in;*/
+      
       if(isTurmaAdicionadaComboTurmaEditarTurmas() && isNull == null)
       {
-         //daqui até o catch le um objeto gravado no arquivo alunos.txt
-         /*if(arquivoTurmas.exists())
+         i = 0;
+         comboTurmaEditarTurma.addItem("");
+         
+         if(MainPanel.turmasLidas != null)
          {
-            FileInputStream file;
-            try
+            while(i < MainPanel.turmasLidas.size())
             {
-               file = new FileInputStream(arquivoTurmas);
-               in = new ObjectInputStream(file);
-               turmas = (ArrayList<dsproject.Turma>)in.readObject();*/
-               i = 0;
-               comboTurmaEditarTurma.addItem("");
-               while(i < MainPanel.turmasLidas.size())
-               {
-                  comboTurmaEditarTurma.addItem(MainPanel.turmasLidas.get(i).getId());
-                  i++;
-               }
-            /*}
-            catch (IOException | ClassNotFoundException ex)
-            {
-               System.err.println(ex);
+               comboTurmaEditarTurma.addItem(MainPanel.turmasLidas.get(i).getId());
+               i++;
             }
-
-         }*/
+         }
+         
          setTurmaAdicionadaComboTurmaEditarTurmas(false);
          setNumeroDeTurmasAdicionadasComboTurmaEditarTurmas(0);
       }
@@ -958,27 +727,17 @@ public class ClassPanel extends javax.swing.JPanel {
       {
          if(isTurmaAdicionadaComboTurmaEditarTurmas()&& isNull != null)
          {
-            //daqui até o catch le um objeto gravado no arquivo alunos.txt
-            /*if(arquivoTurmas.exists())
+            i = (MainPanel.turmasLidas.size() - getNumeroDeTurmasAdicionadasComboTurmaEditarTurmas());
+            
+            if(MainPanel.turmasLidas != null)
             {
-               try
+               while(i < MainPanel.turmasLidas.size())
                {
-                  arquivo = new FileInputStream(arquivoTurmas);
-                  in = new ObjectInputStream(arquivo);
-                  turmas = (ArrayList<dsproject.Turma>)in.readObject();*/
-                  i = (MainPanel.turmasLidas.size() - getNumeroDeTurmasAdicionadasComboTurmaEditarTurmas());
-                  while(i < MainPanel.turmasLidas.size())
-                  {
-                     comboTurmaEditarTurma.addItem(MainPanel.turmasLidas.get(i).getId());
-                     i++;
-                  }
-               /*}
-               catch (IOException | ClassNotFoundException ex)
-               {
-                  System.err.println(ex);
+                  comboTurmaEditarTurma.addItem(MainPanel.turmasLidas.get(i).getId());
+                  i++;
                }
-
-            }*/
+            }
+            
             setTurmaAdicionadaComboTurmaEditarTurmas(false);
             setNumeroDeTurmasAdicionadasComboTurmaEditarTurmas(0);
          }
@@ -987,27 +746,16 @@ public class ClassPanel extends javax.swing.JPanel {
             if(isNull == null)
             {
                i = 0;
-
-               //daqui até o catch le um objeto gravado no arquivo alunos.txt
-               /*if(arquivoTurmas.exists())
+               comboTurmaEditarTurma.addItem("");
+               
+               if(MainPanel.turmasLidas != null)
                {
-                  try
+                  while(i < MainPanel.turmasLidas.size())
                   {
-                     arquivo = new FileInputStream(arquivoTurmas);
-                     in = new ObjectInputStream(arquivo);
-                     turmas = (ArrayList<dsproject.Turma>)in.readObject();*/
-                     comboTurmaEditarTurma.addItem("");
-                     while(i < MainPanel.turmasLidas.size())
-                     {
-                        comboTurmaEditarTurma.addItem(MainPanel.turmasLidas.get(i).getId());
-                        i++;
-                     }
-                  /*}
-                  catch (IOException | ClassNotFoundException ex)
-                  {
-                     System.err.println(ex);
+                     comboTurmaEditarTurma.addItem(MainPanel.turmasLidas.get(i).getId());
+                     i++;
                   }
-               }*/
+               }
             }
          }
       }
@@ -1020,9 +768,6 @@ public class ClassPanel extends javax.swing.JPanel {
       int y;
       Object isNull;
       isNull = comboRemoverAluno.getItemAt(0);
-      //ArrayList<dsproject.Turma> turmas;
-      //File arquivoTurmas = new File("turmas.txt");
-      //ObjectInputStream in;
       
       if (evt.getStateChange() == 1)
       {
@@ -1032,39 +777,25 @@ public class ClassPanel extends javax.swing.JPanel {
          }
          else
          {
-            /*if(arquivoTurmas.exists())
+            if(isNull == null)
+               comboRemoverAluno.addItem("");
+            i = 0;
+            
+            if(MainPanel.turmasLidas != null)
             {
-               FileInputStream file;
-               try
+               while(i < MainPanel.turmasLidas.size())
                {
-                  file = new FileInputStream(arquivoTurmas);
-                  in = new ObjectInputStream(file);
-                  turmas = (ArrayList<dsproject.Turma>)in.readObject();*/
-                  if(isNull == null)
-                     comboRemoverAluno.addItem("");
-                  i = 0;
-                  while(i < MainPanel.turmasLidas.size())
+                  if(MainPanel.turmasLidas.get(i).getId().equals(evt.getItem().toString()))
                   {
-                     if(MainPanel.turmasLidas.get(i).getId().equals(evt.getItem().toString()))
+                     campoAnoLetivoEditarTurma.setText(String.valueOf(MainPanel.turmasLidas.get(i).getAno()));
+                     for(y = 0; y < MainPanel.turmasLidas.get(i).buscaTodosAlunos().size(); y++)
                      {
-                        campoAnoLetivoEditarTurma.setText(String.valueOf(MainPanel.turmasLidas.get(i).getAno()));
-                        for(y = 0; y < MainPanel.turmasLidas.get(i).buscaTodosAlunos().size(); y++)
-                        {
-                           comboRemoverAluno.addItem(MainPanel.turmasLidas.get(i).buscaTodosAlunos().get(y).getNome());
-                        }
+                        comboRemoverAluno.addItem(MainPanel.turmasLidas.get(i).buscaTodosAlunos().get(y).getNome());
                      }
-                     i++;
                   }
-               /*}
-               catch (IOException | ClassNotFoundException ex)
-               {
-                  System.err.println(ex);
+                  i++;
                }
-            }*/
-            //else
-            //{
-               //JOptionPane.showMessageDialog(null, "Não existe nenhuma turma cadastrada", "Erro", JOptionPane.ERROR_MESSAGE);
-            //}
+            }
          }
       }
    }//GEN-LAST:event_comboTurmaEditarTurmaItemStateChanged
@@ -1074,35 +805,21 @@ public class ClassPanel extends javax.swing.JPanel {
       Object isNull;
       isNull = comboTurma.getItemAt(0);
       int i = 0;
-      /*ArrayList<dsproject.Turma> turmas;
-      File arquivoTurmas = new File("turmas.txt");
-      FileInputStream arquivo;
-      ObjectInputStream in;*/
+      
       if(isTurmaAdicionadaComboTurma() && isNull == null)
       {
-         //daqui até o catch le um objeto gravado no arquivo alunos.txt
-         /*if(arquivoTurmas.exists())
+         i = 0;
+         comboTurma.addItem("");
+         
+         if(MainPanel.turmasLidas != null)
          {
-            FileInputStream file;
-            try
+            while(i < MainPanel.turmasLidas.size())
             {
-               file = new FileInputStream(arquivoTurmas);
-               in = new ObjectInputStream(file);
-               turmas = (ArrayList<dsproject.Turma>)in.readObject();*/
-               i = 0;
-               comboTurma.addItem("");
-               while(i < MainPanel.turmasLidas.size())
-               {
-                  comboTurma.addItem(MainPanel.turmasLidas.get(i).getId());
-                  i++;
-               }
-            /*}
-            catch (IOException | ClassNotFoundException ex)
-            {
-               System.err.println(ex);
+               comboTurma.addItem(MainPanel.turmasLidas.get(i).getId());
+               i++;
             }
-
-         }*/
+         }
+         
          setTurmaAdicionadaComboTurma(false);
          setNumeroDeTurmasAdicionadasComboTurma(0);
       }
@@ -1110,27 +827,17 @@ public class ClassPanel extends javax.swing.JPanel {
       {
          if(isTurmaAdicionadaComboTurma() && isNull != null)
          {
-            //daqui até o catch le um objeto gravado no arquivo alunos.txt
-            /*if(arquivoTurmas.exists())
+            i = (MainPanel.turmasLidas.size() - getNumeroDeTurmasAdicionadasComboTurma());
+            
+            if(MainPanel.turmasLidas != null)
             {
-               try
+               while(i < MainPanel.turmasLidas.size())
                {
-                  arquivo = new FileInputStream(arquivoTurmas);
-                  in = new ObjectInputStream(arquivo);
-                  turmas = (ArrayList<dsproject.Turma>)in.readObject();*/
-                  i = (MainPanel.turmasLidas.size() - getNumeroDeTurmasAdicionadasComboTurma());
-                  while(i < MainPanel.turmasLidas.size())
-                  {
-                     comboTurma.addItem(MainPanel.turmasLidas.get(i).getId());
-                     i++;
-                  }
-               /*}
-               catch (IOException | ClassNotFoundException ex)
-               {
-                  System.err.println(ex);
+                  comboTurma.addItem(MainPanel.turmasLidas.get(i).getId());
+                  i++;
                }
-
-            }*/
+            }
+            
             setTurmaAdicionadaComboTurma(false);
             setNumeroDeTurmasAdicionadasComboTurma(0);
          }
@@ -1139,27 +846,16 @@ public class ClassPanel extends javax.swing.JPanel {
             if(isNull == null)
             {
                i = 0;
-
-               //daqui até o catch le um objeto gravado no arquivo alunos.txt
-               /*if(arquivoTurmas.exists())
+               comboTurma.addItem("");
+               
+               if(MainPanel.turmasLidas != null)
                {
-                  try
+                  while(i < MainPanel.turmasLidas.size())
                   {
-                     arquivo = new FileInputStream(arquivoTurmas);
-                     in = new ObjectInputStream(arquivo);
-                     turmas = (ArrayList<dsproject.Turma>)in.readObject();*/
-                     comboTurma.addItem("");
-                     while(i < MainPanel.turmasLidas.size())
-                     {
-                        comboTurma.addItem(MainPanel.turmasLidas.get(i).getId());
-                        i++;
-                     }
-                  /*}
-                  catch (IOException | ClassNotFoundException ex)
-                  {
-                     System.err.println(ex);
+                     comboTurma.addItem(MainPanel.turmasLidas.get(i).getId());
+                     i++;
                   }
-               }*/
+               }
             }
          }
       }
