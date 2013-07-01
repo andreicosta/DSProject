@@ -16,6 +16,9 @@ public final class Aluno extends Pessoa implements Serializable {
     private String email;
     private Turma turma;
     private ArrayList<Avaliacao> avaliacoes;
+    
+    static int cont = 0;
+    private String dir;
 
     public Aluno(String nome, Turma turma, Date nascimento, String genero, String endereco, String cidade,
             String nomeMae, String nomePai, String telefone, String celular, String email) {
@@ -27,6 +30,8 @@ public final class Aluno extends Pessoa implements Serializable {
         this.setEmail(email);
         this.turma = turma;
         this.avaliacoes = new ArrayList<>();
+        this.dir = "alunos/" + cont;
+        cont++;
     }
 
     public boolean inserirAvaliacao(java.sql.Date dataDaAvaliacao, String horaDaAvaliacao, String temperatura) {
