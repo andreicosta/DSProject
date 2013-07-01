@@ -4,6 +4,7 @@ import com.toedter.calendar.IDateEditor;
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 import dsproject.Aluno;
+import dsproject.Turma;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.io.File;
@@ -131,6 +132,11 @@ this.editBirthday.setMaxSelectableDate(null);
         newStudentPanel.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 371, 396, -1));
 
         createButton.setText("Cadastrar");
+        createButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createButtonActionPerformed(evt);
+            }
+        });
         newStudentPanel.add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 417, 90, -1));
 
         labelGender.setText("Gênero");
@@ -186,6 +192,11 @@ this.editBirthday.setMaxSelectableDate(null);
         editStudentPanel.add(editName, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 40, 396, -1));
 
         editSaveButton.setText("Salvar");
+        editSaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editSaveButtonActionPerformed(evt);
+            }
+        });
         editStudentPanel.add(editSaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 416, 90, -1));
 
         editLabelGender.setText("Gênero");
@@ -234,8 +245,9 @@ this.editBirthday.setMaxSelectableDate(null);
 
    private void createButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_createButtonActionPerformed
    {//GEN-HEADEREND:event_createButtonActionPerformed
-       /*flag = false;
+       flag = false;
        String nameNewStudent = getNameStudent();
+       Turma turma = getTurma();
        Date newBirthday = getBirthday();
        String newGender = getGender();
        String newAddress = getAddress();
@@ -247,18 +259,18 @@ this.editBirthday.setMaxSelectableDate(null);
        String newEmail = getEmail();
 
        if (!flag) {
-           Aluno student = new Aluno(nameNewStudent, newBirthday, newGender, newAddress, newCity, newState, newMotherName, newFatherName, newTelephone, newMobile, newEmail);
+           Aluno student = new Aluno(nameNewStudent, turma, newBirthday, newGender, newAddress, newCity, newMotherName, newFatherName, newTelephone, newMobile, newEmail);
 
-           ArrayList<Aluno> students = loadStudentData();
+           //ArrayList<Aluno> students = loadStudentData();
 
-           students.add(student);
+           //students.add(student);
 
-           saveStudentData(students);
+           //saveStudentData(students);
 
-           JOptionPane.showMessageDialog(null, "Aluno salvo com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+           JOptionPane.showMessageDialog(null, "Aluno criado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
 
            clearNewStudent();
-       }*/
+       }
    }//GEN-LAST:event_createButtonActionPerformed
 
     private String getNameStudent() {
@@ -371,25 +383,34 @@ this.editBirthday.setMaxSelectableDate(null);
         this.editEmail.setText(student.getEmail());*/
     }//GEN-LAST:event_editComboNameItemStateChanged
 
+    private Aluno getEditStudent(){
+        Aluno temp = (Aluno) this.editName.getSelectedItem();
+        if (temp == null){
+            this.editLabelName.setForeground(Color.red);
+            flag = true;
+            return null;
+        }
+        this.editLabelName.setForeground(Color.black);
+        return temp;
+    }
+    
     private void editSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSaveButtonActionPerformed
-        /*
         flag = false;
-        Aluno student = (Aluno) editName.getSelectedItem();
+        Aluno student = getEditStudent();
+        Turma turma = getEditTurma();
         Date newBirthday = getEditBirthday();
         String newGender = getEditGender();
         String newAddress = getEditAddress();
         String newCity = getEditCity();
-        String newState = getEditState();
         String newMotherName = getEditMotherName();
         String newFatherName = getEditFatherName();
         String newTelephone = getEditTelephone();
         String newMobile = getEditMobile();
         String newEmail = getEditEmail();
-
+        
         if (!flag) {
-            ArrayList<Aluno> students = loadStudentData();
 
-            for (Aluno i : students) {
+            /*for (Aluno i : students) {
                 if (i.equals(student)) {
                     i.setDataDenascimento(newBirthday);
                     i.setGenero(newGender);
@@ -403,14 +424,12 @@ this.editBirthday.setMaxSelectableDate(null);
                     i.setEmail(newEmail);
                     break;
                 }
-            }
+            }*/
 
-            saveStudentData(students);
-
-            JOptionPane.showMessageDialog(null, "Aluno editado com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Aluno editado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
 
             clearEditStudent();
-        }*/
+        }
     }//GEN-LAST:event_editSaveButtonActionPerformed
 
     private void editStudentComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_editStudentComponentShown
@@ -421,12 +440,32 @@ this.editBirthday.setMaxSelectableDate(null);
         this.deleteCombo.removeAllItems();
     }//GEN-LAST:event_deleteStudentComponentShown
 
-    private Date getEditBirthday() {
-        if (editBirthday.getDate() == null) {
-            labelBirthday.setForeground(Color.red);
+    private Turma getTurma() {
+        if (turma.getSelectedItem() == null){
+            labelTurma.setForeground(Color.red);
             flag = true;
             return null;
         }
+        return (Turma) this.turma.getSelectedItem();
+    }
+
+    private Turma getEditTurma() {
+        if (editTurma.getSelectedItem() == null){
+            editLabelTurma.setForeground(Color.red);
+            flag = true;
+            return null;
+        }
+        editLabelTurma.setForeground(Color.black);
+        return (Turma) this.editTurma.getSelectedItem();
+    }
+    
+    private Date getEditBirthday() {
+        if (editBirthday.getDate() == null) {
+            editLabelBirthday.setForeground(Color.red);
+            flag = true;
+            return null;
+        }
+        editLabelBirthday.setForeground(Color.black);
         return editBirthday.getDate();
     }
 
@@ -436,37 +475,41 @@ this.editBirthday.setMaxSelectableDate(null);
 
     private String getEditAddress() {
         if (editAddress.getText().isEmpty()) {
-            labelAddress.setForeground(Color.red);
+            editLabelAddress.setForeground(Color.red);
             flag = true;
             return null;
         }
+        editLabelAddress.setForeground(Color.black);
         return editAddress.getText();
     }
 
     private String getEditCity() {
         if (editCity.getText().isEmpty()) {
-            labelCity.setForeground(Color.red);
+            editLabelCity.setForeground(Color.red);
             flag = true;
             return null;
         }
+        editLabelCity.setForeground(Color.black);
         return editCity.getText();
     }
 
     private String getEditMotherName() {
         if (editMother.getText().isEmpty()) {
-            labelMother.setForeground(Color.red);
+            editLabelMother.setForeground(Color.red);
             flag = true;
             return null;
         }
+        editLabelMother.setForeground(Color.black);
         return editMother.getText();
     }
 
     private String getEditFatherName() {
         if (editFather.getText().isEmpty()) {
-            labelFather.setForeground(Color.red);
+            editLabelFather.setForeground(Color.red);
             flag = true;
             return null;
         }
+        editLabelFather.setForeground(Color.black);
         return editFather.getText();
     }
 
@@ -554,6 +597,7 @@ this.editBirthday.setMaxSelectableDate(null);
     public void clearEditStudent() {
         editMobile.setText("");
         editCity.setText("");
+        editTurma.removeAllItems();
         birthday.setDate(null);
         editEmail.setText("");
         editAddress.setText("");

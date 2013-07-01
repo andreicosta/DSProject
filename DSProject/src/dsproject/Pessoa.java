@@ -21,8 +21,8 @@ public abstract class Pessoa implements Serializable
    private String cidade;
    private String estado;
 
-   public Pessoa(String nome, java.util.Date dataDeNascimento, String genero, String endereco, String cidade, 
-                 String estado)
+   public Pessoa(String nome, java.util.Date dataDeNascimento, String genero, String endereco,
+           String cidade, String estado)
    {
       this.nome = nome;
       this.dataDenascimento = dataDeNascimento;

@@ -17,15 +17,15 @@ public final class Aluno extends Pessoa implements Serializable {
     private Turma turma;
     private ArrayList<Avaliacao> avaliacoes;
 
-    public Aluno(String nome, Date nascimento, String genero, String endereco, String cidade,
-            String estado, String nomeMae, String nomePai, String telefone, String celular, String email) {
-        super(nome, nascimento, genero, endereco, cidade, estado);
+    public Aluno(String nome, Turma turma, Date nascimento, String genero, String endereco, String cidade,
+            String nomeMae, String nomePai, String telefone, String celular, String email) {
+        super(nome, nascimento, genero, endereco, cidade, "");
         this.setNomeDaMae(nomeDaMae);
         this.setNomeDoPai(nomeDoPai);
         this.setTelefone(telefone);
         this.setCelular(celular);
         this.setEmail(email);
-        this.turma = null;
+        this.turma = turma;
         this.avaliacoes = new ArrayList<>();
     }
 
