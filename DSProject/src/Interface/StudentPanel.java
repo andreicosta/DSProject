@@ -65,29 +65,29 @@ public class StudentPanel extends javax.swing.JPanel {
       labelEstadoCadastrarAluno = new javax.swing.JLabel();
       dateChooserDataDeNascimento = new com.toedter.calendar.JDateChooser();
       editStudentPanel = new javax.swing.JPanel();
-      labelNome = new javax.swing.JLabel();
-      labelNomeDoPai = new javax.swing.JLabel();
-      labelNomeDaMae = new javax.swing.JLabel();
-      labelEndereco = new javax.swing.JLabel();
-      labelTelefone = new javax.swing.JLabel();
-      labelCelular = new javax.swing.JLabel();
-      labelDataDeNascimento = new javax.swing.JLabel();
-      labelE_mail = new javax.swing.JLabel();
-      campoNomeDaMae = new javax.swing.JTextField();
-      campoNomeDoPai = new javax.swing.JTextField();
-      campoTelefone = new javax.swing.JTextField();
-      campoEndereco = new javax.swing.JTextField();
-      campoCelular = new javax.swing.JTextField();
-      campoEmail = new javax.swing.JTextField();
-      comboNome = new javax.swing.JComboBox();
-      saveStudent = new javax.swing.JButton();
-      labelGenero = new javax.swing.JLabel();
-      comboGenero = new javax.swing.JComboBox();
-      labelCidade = new javax.swing.JLabel();
-      labelEstado = new javax.swing.JLabel();
-      campoCidade = new javax.swing.JTextField();
-      campoEstado = new javax.swing.JTextField();
-      dateChooserDataDeNascimentoEditar = new com.toedter.calendar.JDateChooser();
+      labelNomeCompletoEditarAluno = new javax.swing.JLabel();
+      labelNomeDoPaiEditarAluno = new javax.swing.JLabel();
+      labelNomeDaMaeEditarAluno = new javax.swing.JLabel();
+      labelEnderecoEditarAluno = new javax.swing.JLabel();
+      labelTelefoneEditarAluno = new javax.swing.JLabel();
+      labelCelularEditarAluno = new javax.swing.JLabel();
+      labelDataDeNascimentoEditarAluno = new javax.swing.JLabel();
+      labelE_mailEditarAluno = new javax.swing.JLabel();
+      campoNomeDaMaeEditarAluno = new javax.swing.JTextField();
+      campoNomeDoPaiEditarAluno = new javax.swing.JTextField();
+      campoTelefoneEditarAluno = new javax.swing.JTextField();
+      campoEnderecoEditarAluno = new javax.swing.JTextField();
+      campoCelularEditarAluno = new javax.swing.JTextField();
+      campoEmailEditarAluno = new javax.swing.JTextField();
+      comboNomeEditarAluno = new javax.swing.JComboBox();
+      botaoSalvarEditarInformacoesAluno = new javax.swing.JButton();
+      labelGeneroEditarAluno = new javax.swing.JLabel();
+      comboGeneroEditarAluno = new javax.swing.JComboBox();
+      labelCidadeEditarAluno = new javax.swing.JLabel();
+      labelEstadoEditarAluno = new javax.swing.JLabel();
+      campoCidadeEditarAluno = new javax.swing.JTextField();
+      campoEstadoEditarAluno = new javax.swing.JTextField();
+      dateChooserDataDeNascimentoEditarAluno = new com.toedter.calendar.JDateChooser();
       deleteStudentPanel = new javax.swing.JPanel();
       labelNomeExcluirCadastroAluno = new javax.swing.JLabel();
       comboNomeExcluirCadastroAluno = new javax.swing.JComboBox();
@@ -159,37 +159,37 @@ public class StudentPanel extends javax.swing.JPanel {
 
       editStudentPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-      labelNome.setText("Nome Completo");
-      editStudentPanel.add(labelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 45, -1, -1));
+      labelNomeCompletoEditarAluno.setText("Nome Completo");
+      editStudentPanel.add(labelNomeCompletoEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 45, -1, -1));
 
-      labelNomeDoPai.setText("Nome Completo do Pai");
-      editStudentPanel.add(labelNomeDoPai, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 277, -1, 14));
+      labelNomeDoPaiEditarAluno.setText("Nome Completo do Pai");
+      editStudentPanel.add(labelNomeDoPaiEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 277, -1, 14));
 
-      labelNomeDaMae.setText("Nome Completo da Mãe");
-      editStudentPanel.add(labelNomeDaMae, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 243, -1, -1));
+      labelNomeDaMaeEditarAluno.setText("Nome Completo da Mãe");
+      editStudentPanel.add(labelNomeDaMaeEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 243, -1, -1));
 
-      labelEndereco.setText("Endereço");
-      editStudentPanel.add(labelEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 144, -1, -1));
+      labelEnderecoEditarAluno.setText("Endereço");
+      editStudentPanel.add(labelEnderecoEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 144, -1, -1));
 
-      labelTelefone.setText("Telefone");
-      editStudentPanel.add(labelTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 309, -1, -1));
+      labelTelefoneEditarAluno.setText("Telefone");
+      editStudentPanel.add(labelTelefoneEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 309, -1, -1));
 
-      labelCelular.setText("Celular");
-      editStudentPanel.add(labelCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 342, -1, -1));
+      labelCelularEditarAluno.setText("Celular");
+      editStudentPanel.add(labelCelularEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 342, -1, -1));
 
-      labelDataDeNascimento.setText("Data de Nascimento");
-      editStudentPanel.add(labelDataDeNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 83, -1, -1));
+      labelDataDeNascimentoEditarAluno.setText("Data de Nascimento");
+      editStudentPanel.add(labelDataDeNascimentoEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 83, -1, -1));
 
-      labelE_mail.setText("E-mail");
-      editStudentPanel.add(labelE_mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 376, -1, -1));
-      editStudentPanel.add(campoNomeDaMae, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 238, 396, -1));
-      editStudentPanel.add(campoNomeDoPai, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 271, 396, -1));
-      editStudentPanel.add(campoTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 304, 396, -1));
-      editStudentPanel.add(campoEndereco, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 139, 396, -1));
-      editStudentPanel.add(campoCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 337, 396, -1));
-      editStudentPanel.add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 371, 396, -1));
+      labelE_mailEditarAluno.setText("E-mail");
+      editStudentPanel.add(labelE_mailEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 376, -1, -1));
+      editStudentPanel.add(campoNomeDaMaeEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 238, 396, -1));
+      editStudentPanel.add(campoNomeDoPaiEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 271, 396, -1));
+      editStudentPanel.add(campoTelefoneEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 304, 396, -1));
+      editStudentPanel.add(campoEnderecoEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 139, 396, -1));
+      editStudentPanel.add(campoCelularEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 337, 396, -1));
+      editStudentPanel.add(campoEmailEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 371, 396, -1));
 
-      comboNome.addPopupMenuListener(new javax.swing.event.PopupMenuListener()
+      comboNomeEditarAluno.addPopupMenuListener(new javax.swing.event.PopupMenuListener()
       {
          public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt)
          {
@@ -199,37 +199,44 @@ public class StudentPanel extends javax.swing.JPanel {
          }
          public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)
          {
-            comboNomePopupMenuWillBecomeVisible(evt);
+            comboNomeEditarAlunoPopupMenuWillBecomeVisible(evt);
          }
       });
-      comboNome.addItemListener(new java.awt.event.ItemListener()
+      comboNomeEditarAluno.addItemListener(new java.awt.event.ItemListener()
       {
          public void itemStateChanged(java.awt.event.ItemEvent evt)
          {
-            comboNomeItemStateChanged(evt);
+            comboNomeEditarAlunoItemStateChanged(evt);
          }
       });
-      editStudentPanel.add(comboNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 40, 396, -1));
+      editStudentPanel.add(comboNomeEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 40, 396, -1));
 
-      saveStudent.setText("Salvar");
-      editStudentPanel.add(saveStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 416, 90, -1));
+      botaoSalvarEditarInformacoesAluno.setText("Salvar");
+      botaoSalvarEditarInformacoesAluno.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            botaoSalvarEditarInformacoesAlunoActionPerformed(evt);
+         }
+      });
+      editStudentPanel.add(botaoSalvarEditarInformacoesAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 416, 90, -1));
 
-      labelGenero.setText("Gênero");
-      editStudentPanel.add(labelGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 111, -1, -1));
+      labelGeneroEditarAluno.setText("Gênero");
+      editStudentPanel.add(labelGeneroEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 111, -1, -1));
 
-      comboGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino", "Outro" }));
-      editStudentPanel.add(comboGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 106, 396, -1));
+      comboGeneroEditarAluno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino", "Outro" }));
+      editStudentPanel.add(comboGeneroEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 106, 396, -1));
 
-      labelCidade.setText("Cidade");
-      editStudentPanel.add(labelCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 177, -1, -1));
+      labelCidadeEditarAluno.setText("Cidade");
+      editStudentPanel.add(labelCidadeEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 177, -1, -1));
 
-      labelEstado.setText("Estado");
-      editStudentPanel.add(labelEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 210, -1, -1));
-      editStudentPanel.add(campoCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 172, 396, -1));
-      editStudentPanel.add(campoEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 205, 396, -1));
+      labelEstadoEditarAluno.setText("Estado");
+      editStudentPanel.add(labelEstadoEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 210, -1, -1));
+      editStudentPanel.add(campoCidadeEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 172, 396, -1));
+      editStudentPanel.add(campoEstadoEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 205, 396, -1));
 
-      dateChooserDataDeNascimentoEditar.setPreferredSize(new java.awt.Dimension(396, 27));
-      editStudentPanel.add(dateChooserDataDeNascimentoEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 73, 396, -1));
+      dateChooserDataDeNascimentoEditarAluno.setPreferredSize(new java.awt.Dimension(396, 27));
+      editStudentPanel.add(dateChooserDataDeNascimentoEditarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 73, 396, -1));
 
       jTabbedPane1.addTab("Editar Informações do Aluno", editStudentPanel);
 
@@ -413,22 +420,22 @@ public class StudentPanel extends javax.swing.JPanel {
       }
    }//GEN-LAST:event_botaoCadastrarActionPerformed
 
-   private void comboNomePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboNomePopupMenuWillBecomeVisible
-   {//GEN-HEADEREND:event_comboNomePopupMenuWillBecomeVisible
+   private void comboNomeEditarAlunoPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboNomeEditarAlunoPopupMenuWillBecomeVisible
+   {//GEN-HEADEREND:event_comboNomeEditarAlunoPopupMenuWillBecomeVisible
       Object isNull;
-      isNull = comboNome.getItemAt(0);
+      isNull = comboNomeEditarAluno.getItemAt(0);
       int i = 0;
       
       if(isStudentAddedComboStudent() && isNull == null)
       {
          i = 0;
-         comboNome.addItem("");
+         comboNomeEditarAluno.addItem("");
          
          if(MainPanel.alunosLidos != null)
          {
             while(i < MainPanel.alunosLidos.size())
             {
-               comboNome.addItem(MainPanel.alunosLidos.get(i).getNome());
+               comboNomeEditarAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
                i++;
             }
          }
@@ -446,7 +453,7 @@ public class StudentPanel extends javax.swing.JPanel {
             {
                while(i < MainPanel.alunosLidos.size())
                {
-                  comboNome.addItem(MainPanel.alunosLidos.get(i).getNome());
+                  comboNomeEditarAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
                   i++;
                }
             }
@@ -459,19 +466,19 @@ public class StudentPanel extends javax.swing.JPanel {
             if(isNull == null)
             {
                i = 0;
-               comboNome.addItem("");
+               comboNomeEditarAluno.addItem("");
                if(MainPanel.alunosLidos != null)
                {
                   while(i < MainPanel.alunosLidos.size())
                   {
-                     comboNome.addItem(MainPanel.alunosLidos.get(i).getNome());
+                     comboNomeEditarAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
                      i++;
                   }
                }
             }
          }
       }
-   }//GEN-LAST:event_comboNomePopupMenuWillBecomeVisible
+   }//GEN-LAST:event_comboNomeEditarAlunoPopupMenuWillBecomeVisible
 
    private void comboNomeExcluirCadastroAlunoPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboNomeExcluirCadastroAlunoPopupMenuWillBecomeVisible
    {//GEN-HEADEREND:event_comboNomeExcluirCadastroAlunoPopupMenuWillBecomeVisible
@@ -534,8 +541,8 @@ public class StudentPanel extends javax.swing.JPanel {
       }
    }//GEN-LAST:event_comboNomeExcluirCadastroAlunoPopupMenuWillBecomeVisible
 
-   private void comboNomeItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_comboNomeItemStateChanged
-   {//GEN-HEADEREND:event_comboNomeItemStateChanged
+   private void comboNomeEditarAlunoItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_comboNomeEditarAlunoItemStateChanged
+   {//GEN-HEADEREND:event_comboNomeEditarAlunoItemStateChanged
       if (evt.getStateChange() == 1)
       {
          if(evt.getItem().equals(""))
@@ -554,78 +561,178 @@ public class StudentPanel extends javax.swing.JPanel {
                {
                   if(MainPanel.alunosLidos.get(i).getNome().equals(evt.getItem().toString()))
                   {
-                     dateChooserDataDeNascimentoEditar.setDate(MainPanel.alunosLidos.get(i).getDataDeNascimento());
-                     comboGenero.setSelectedItem(MainPanel.alunosLidos.get(i).getGenero());
-                     campoEndereco.setText(MainPanel.alunosLidos.get(i).getEndereco());
-                     campoCidade.setText(MainPanel.alunosLidos.get(i).getCidade());
-                     campoEstado.setText(MainPanel.alunosLidos.get(i).getEstado());
-                     campoNomeDaMae.setText(MainPanel.alunosLidos.get(i).getNomeDaMae());
-                     campoNomeDoPai.setText(MainPanel.alunosLidos.get(i).getNomeDoPai());
-                     campoTelefone.setText(MainPanel.alunosLidos.get(i).getTelefone());
-                     campoCelular.setText(MainPanel.alunosLidos.get(i).getCelular());
-                     campoEmail.setText(MainPanel.alunosLidos.get(i).getEmail());
+                     dateChooserDataDeNascimentoEditarAluno.setDate(MainPanel.alunosLidos.get(i).getDataDeNascimento());
+                     comboGeneroEditarAluno.setSelectedItem(MainPanel.alunosLidos.get(i).getGenero());
+                     campoEnderecoEditarAluno.setText(MainPanel.alunosLidos.get(i).getEndereco());
+                     campoCidadeEditarAluno.setText(MainPanel.alunosLidos.get(i).getCidade());
+                     campoEstadoEditarAluno.setText(MainPanel.alunosLidos.get(i).getEstado());
+                     campoNomeDaMaeEditarAluno.setText(MainPanel.alunosLidos.get(i).getNomeDaMae());
+                     campoNomeDoPaiEditarAluno.setText(MainPanel.alunosLidos.get(i).getNomeDoPai());
+                     campoTelefoneEditarAluno.setText(MainPanel.alunosLidos.get(i).getTelefone());
+                     campoCelularEditarAluno.setText(MainPanel.alunosLidos.get(i).getCelular());
+                     campoEmailEditarAluno.setText(MainPanel.alunosLidos.get(i).getEmail());
                   }
                }
             }
          }
       }
-   }//GEN-LAST:event_comboNomeItemStateChanged
+   }//GEN-LAST:event_comboNomeEditarAlunoItemStateChanged
+
+   private void botaoSalvarEditarInformacoesAlunoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botaoSalvarEditarInformacoesAlunoActionPerformed
+   {//GEN-HEADEREND:event_botaoSalvarEditarInformacoesAlunoActionPerformed
+      String nome = getCampoNomeCompletoEditarAluno();
+      java.util.Date dataDeNascimento = getDateChooserDataDeNascimentoEditarAluno();
+      String genero = getComboGeneroEditarAluno();
+      String endereco = getCampoEnderecoEditarAluno();
+      String cidade = getCampoCidadeEditarAluno();
+      String estado = getCampoEstadoEditarAluno();
+      String nomeDaMae = getCampoNomeDaMaeEditarAluno();
+      String nomeDoPai = getCampoNomeDoPaiEditarAluno();
+      String telefone = getCampoTelefoneEditarAluno();
+      String celular = getCampoCelularEditarAluno();
+      String email = getCampoEmailEditarAluno();
+      SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");      
+      dsproject.Aluno aluno = null;
+      ObjectInputStream in;
+      ObjectOutputStream out;
+      
+      if(nome == null)
+      {
+         System.err.println("Nome faltando");
+      }
+      else
+      {
+         if(dataDeNascimento == null)
+         {
+            System.err.println("Data de nascimento faltando");
+         }
+         else
+         {
+            labelDataDeNascimentoCadastrarAluno.setForeground(Color.black);
+            if(genero == null)
+            {
+               System.err.println("Gênero faltando");
+            }
+            else
+            {
+               if(endereco == null)
+               {
+                  System.err.println("Endereço faltando");
+               }
+               else
+               {
+                  if(cidade == null)
+                  {
+                     System.err.println("Cidade faltando");
+                  }
+                  else
+                  {
+                     if(estado == null)
+                     {
+                        System.err.println("Estado faltando");
+                     }
+                     else
+                     {
+                        if(nomeDaMae == null)
+                        {
+                           System.err.println("Nome da Mãe faltando");
+                        }
+                        else
+                        {
+                           if(nomeDoPai == null)
+                           {
+                              System.err.println("Nome do Pai faltando");
+                           }
+                           else
+                           {
+                              java.sql.Date sqlDateOfBirth = new java.sql.Date(dataDeNascimento.getTime());
+                              if(MainPanel.alunosLidos != null)
+                              {
+                                 for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+                                 {
+                                    if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeEditarAluno.getSelectedItem()))
+                                    {
+                                       MainPanel.alunosLidos.get(i).setNome(nome);
+                                       MainPanel.alunosLidos.get(i).setDataDenascimento(dataDeNascimento);
+                                       MainPanel.alunosLidos.get(i).setGenero(genero);
+                                       MainPanel.alunosLidos.get(i).setEndereco(endereco);
+                                       MainPanel.alunosLidos.get(i).setCidade(cidade);
+                                       MainPanel.alunosLidos.get(i).setEstado(estado);
+                                       MainPanel.alunosLidos.get(i).setNomeDaMae(nomeDaMae);
+                                       MainPanel.alunosLidos.get(i).setNomeDoPai(nomeDoPai);
+                                       MainPanel.alunosLidos.get(i).setTelefone(telefone);
+                                       MainPanel.alunosLidos.get(i).setCelular(celular);
+                                       MainPanel.alunosLidos.get(i).setEmail(email);
+                                       JOptionPane.showMessageDialog(null, "Aluno editado com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
+                                       limpaCamposEditarInformacoesAluno();
+                                    }
+                                 }
+                              }
+                           }
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }//GEN-LAST:event_botaoSalvarEditarInformacoesAlunoActionPerformed
 
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
    private javax.swing.JButton botaoCadastrar;
-   private javax.swing.JTextField campoCelular;
+   private javax.swing.JButton botaoSalvarEditarInformacoesAluno;
    private static javax.swing.JTextField campoCelularCadastrarAluno;
-   private javax.swing.JTextField campoCidade;
+   private javax.swing.JTextField campoCelularEditarAluno;
    private static javax.swing.JTextField campoCidadeCadastrarAluno;
-   private javax.swing.JTextField campoEmail;
+   private javax.swing.JTextField campoCidadeEditarAluno;
    private static javax.swing.JTextField campoEmailCadastrarAluno;
-   private javax.swing.JTextField campoEndereco;
+   private javax.swing.JTextField campoEmailEditarAluno;
    private static javax.swing.JTextField campoEnderecoCadastrarAluno;
-   private javax.swing.JTextField campoEstado;
+   private javax.swing.JTextField campoEnderecoEditarAluno;
    private static javax.swing.JTextField campoEstadoCadastrarAluno;
+   private javax.swing.JTextField campoEstadoEditarAluno;
    private static javax.swing.JTextField campoNomeCompletoCadastrarAluno;
-   private javax.swing.JTextField campoNomeDaMae;
    private static javax.swing.JTextField campoNomeDaMaeCadastrarAluno;
-   private javax.swing.JTextField campoNomeDoPai;
+   private javax.swing.JTextField campoNomeDaMaeEditarAluno;
    private static javax.swing.JTextField campoNomeDoPaiCadastrarAluno;
-   private javax.swing.JTextField campoTelefone;
+   private javax.swing.JTextField campoNomeDoPaiEditarAluno;
    private static javax.swing.JTextField campoTelefoneCadastrarAluno;
-   private javax.swing.JComboBox comboGenero;
+   private javax.swing.JTextField campoTelefoneEditarAluno;
    private static javax.swing.JComboBox comboGeneroCadastrarAluno;
-   private javax.swing.JComboBox comboNome;
+   private javax.swing.JComboBox comboGeneroEditarAluno;
+   private javax.swing.JComboBox comboNomeEditarAluno;
    private static javax.swing.JComboBox comboNomeExcluirCadastroAluno;
    private static com.toedter.calendar.JDateChooser dateChooserDataDeNascimento;
-   private static com.toedter.calendar.JDateChooser dateChooserDataDeNascimentoEditar;
+   private com.toedter.calendar.JDateChooser dateChooserDataDeNascimentoEditarAluno;
    private javax.swing.JPanel deleteStudentPanel;
    private javax.swing.JPanel editStudentPanel;
    private javax.swing.JButton jButton1;
    private javax.swing.JTabbedPane jTabbedPane1;
-   private javax.swing.JLabel labelCelular;
    private static javax.swing.JLabel labelCelularCadastrarAluno;
-   private javax.swing.JLabel labelCidade;
+   private javax.swing.JLabel labelCelularEditarAluno;
    private static javax.swing.JLabel labelCidadeCadastrarAluno;
-   private javax.swing.JLabel labelDataDeNascimento;
+   private javax.swing.JLabel labelCidadeEditarAluno;
    private static javax.swing.JLabel labelDataDeNascimentoCadastrarAluno;
-   private javax.swing.JLabel labelE_mail;
+   private javax.swing.JLabel labelDataDeNascimentoEditarAluno;
+   private javax.swing.JLabel labelE_mailEditarAluno;
    private static javax.swing.JLabel labelEmailCadastrarAluno;
-   private javax.swing.JLabel labelEndereco;
    private static javax.swing.JLabel labelEnderecoCadastrarAluno;
-   private javax.swing.JLabel labelEstado;
+   private javax.swing.JLabel labelEnderecoEditarAluno;
    private static javax.swing.JLabel labelEstadoCadastrarAluno;
-   private javax.swing.JLabel labelGenero;
+   private javax.swing.JLabel labelEstadoEditarAluno;
    private static javax.swing.JLabel labelGeneroCadastrarAluno;
-   private javax.swing.JLabel labelNome;
+   private javax.swing.JLabel labelGeneroEditarAluno;
    private static javax.swing.JLabel labelNomeCompletoCadastrarAluno;
-   private javax.swing.JLabel labelNomeDaMae;
+   private javax.swing.JLabel labelNomeCompletoEditarAluno;
    private static javax.swing.JLabel labelNomeDaMaeCadastrarAluno;
-   private javax.swing.JLabel labelNomeDoPai;
+   private javax.swing.JLabel labelNomeDaMaeEditarAluno;
    private static javax.swing.JLabel labelNomeDoPaiCadastrarAluno;
+   private javax.swing.JLabel labelNomeDoPaiEditarAluno;
    private javax.swing.JLabel labelNomeExcluirCadastroAluno;
-   private javax.swing.JLabel labelTelefone;
    private static javax.swing.JLabel labelTelefoneCadastrarAluno;
+   private javax.swing.JLabel labelTelefoneEditarAluno;
    private javax.swing.JPanel newStudentPanel;
-   private javax.swing.JButton saveStudent;
    // End of variables declaration//GEN-END:variables
    private static boolean studentAddedComboStudent;
    private static boolean studentAddedComboName;
@@ -831,13 +938,151 @@ public class StudentPanel extends javax.swing.JPanel {
    
    public void limpaCamposEditarInformacoesAluno()
    {
-      campoCelular.setText("");
-      campoCidade.setText("");
-      campoEmail.setText("");
-      campoEndereco.setText("");
-      campoEstado.setText("");
-      campoNomeDaMae.setText("");
-      campoNomeDoPai.setText("");
-      campoTelefone.setText("");
+      comboNomeEditarAluno.setSelectedIndex(0);
+      campoCelularEditarAluno.setText("");
+      campoCidadeEditarAluno.setText("");
+      campoEmailEditarAluno.setText("");
+      campoEnderecoEditarAluno.setText("");
+      campoEstadoEditarAluno.setText("");
+      campoNomeDaMaeEditarAluno.setText("");
+      campoNomeDoPaiEditarAluno.setText("");
+      campoTelefoneEditarAluno.setText("");
+   }
+
+   private String getCampoNomeCompletoEditarAluno()
+   {
+      if(comboNomeEditarAluno.getSelectedItem() == "")
+      {
+         labelNomeCompletoEditarAluno.setForeground(Color.red);
+         return null;
+      }
+      else
+      {
+         labelNomeCompletoEditarAluno.setForeground(Color.black);
+         return this.comboNomeEditarAluno.getSelectedItem().toString();
+      }
+   }
+
+   private Date getDateChooserDataDeNascimentoEditarAluno()
+   {
+      if(dateChooserDataDeNascimentoEditarAluno.getDate() == null)
+      {
+         labelDataDeNascimentoEditarAluno.setForeground(Color.red);
+         //JOptionPane.showMessageDialog(null, "Digite uma " + labelDataDeNascimentoCadastrarAluno.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+         return null;
+      }
+      else
+      {
+         labelDataDeNascimentoEditarAluno.setForeground(Color.black);
+         return dateChooserDataDeNascimentoEditarAluno.getDate();
+      }
+   }
+
+   private String getComboGeneroEditarAluno()
+   {
+      if(comboGeneroEditarAluno.getSelectedItem() == null)
+      {
+         labelGeneroEditarAluno.setForeground(Color.red);
+         return null;
+      }
+      else
+      {
+         labelGeneroEditarAluno.setForeground(Color.black);
+         return comboGeneroEditarAluno.getSelectedItem().toString();
+      }
+   }
+
+   private String getCampoEnderecoEditarAluno()
+   {
+      if(campoEnderecoEditarAluno.getText().isEmpty())
+      {
+         labelEnderecoEditarAluno.setForeground(Color.red);
+         return null;
+      }
+      else
+      {
+         labelEnderecoEditarAluno.setForeground(Color.black);
+         return campoEnderecoEditarAluno.getText();
+      }
+   }
+
+   private String getCampoCidadeEditarAluno()
+   {
+      if(campoCidadeEditarAluno.getText().isEmpty())
+      {
+         labelCidadeEditarAluno.setForeground(Color.red);
+         return null;
+      }
+      else
+      {
+         labelCidadeEditarAluno.setForeground(Color.black);
+         return campoCidadeEditarAluno.getText();
+      }
+   }
+
+   private String getCampoEstadoEditarAluno()
+   {
+      if(campoEstadoEditarAluno.getText().isEmpty())
+      {
+         labelEstadoEditarAluno.setForeground(Color.red);
+         return null;
+      }
+      else
+      {
+         labelEstadoEditarAluno.setForeground(Color.black);
+         return campoEstadoEditarAluno.getText();
+      }
+   }
+
+   private String getCampoNomeDaMaeEditarAluno()
+   {
+      if(campoNomeDaMaeEditarAluno.getText().isEmpty())
+      {
+         labelNomeDaMaeEditarAluno.setForeground(Color.red);
+         return null;
+      }
+      else
+      {
+         labelNomeDaMaeEditarAluno.setForeground(Color.black);
+         return campoNomeDaMaeEditarAluno.getText();
+      }
+   }
+
+   private String getCampoNomeDoPaiEditarAluno()
+   {
+      if(campoNomeDoPaiEditarAluno.getText().isEmpty())
+      {
+         labelNomeDoPaiEditarAluno.setForeground(Color.red);
+         return null;
+      }
+      else
+      {
+         labelNomeDoPaiEditarAluno.setForeground(Color.black);
+         return campoNomeDoPaiEditarAluno.getText();
+      }
+   }
+
+   private String getCampoTelefoneEditarAluno()
+   {
+      if(campoTelefoneEditarAluno.getText().isEmpty())
+         return null;
+      else
+         return campoTelefoneEditarAluno.getText();  
+   }
+
+   private String getCampoCelularEditarAluno()
+   {
+      if(campoCelularEditarAluno.getText().isEmpty())
+         return null;
+      else
+         return campoCelularEditarAluno.getText();  
+   }
+
+   private String getCampoEmailEditarAluno()
+   {
+      if(campoEmailEditarAluno.getText().isEmpty())
+         return null;
+      else
+         return campoEmailEditarAluno.getText();
    }
 }

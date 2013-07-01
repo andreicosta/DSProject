@@ -81,4 +81,15 @@ public abstract class Pessoa implements Serializable
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+   public void setDir(String dir)
+   {
+      this.dir = dir;
+   }
+
+   public void setNome(String nome)
+   {
+      this.nome = nome;
+   }
+    
 }

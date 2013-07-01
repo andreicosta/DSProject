@@ -239,4 +239,30 @@ public class Aluno extends Pessoa implements Serializable
    {
       return turma;
    }
+
+   public void setNomeDaMae(String nomeDaMae)
+   {
+      this.nomeDaMae = nomeDaMae;
+   }
+
+   public void setNomeDoPai(String nomeDoPai)
+   {
+      this.nomeDoPai = nomeDoPai;
+   }
+
+   public void setTelefone(String telefone)
+   {
+      this.telefone = telefone;
+   }
+
+   public void setCelular(String celular)
+   {
+      this.celular = celular;
+   }
+
+   public void setEmail(String email)
+   {
+      this.email = email;
+   }
+   
 }
