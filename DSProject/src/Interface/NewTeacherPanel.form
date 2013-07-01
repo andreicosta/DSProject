@@ -163,7 +163,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="email1">
+            <Component class="javax.swing.JLabel" name="senha">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Senha"/>
               </Properties>
@@ -183,7 +183,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="email2">
+            <Component class="javax.swing.JLabel" name="confsenha">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Confirmar Senha"/>
               </Properties>

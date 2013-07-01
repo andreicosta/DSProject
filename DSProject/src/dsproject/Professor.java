@@ -8,8 +8,9 @@ import java.util.ArrayList;
 
 /**
  *
- * @author vinicius
+ * @author Israel
  */
+
 public class Professor
 {
     static int cont = 0;

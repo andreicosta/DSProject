@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author pazuti
+ * @author pazuti, Israel
  */
 public class LoginJPanel extends javax.swing.JPanel {
 

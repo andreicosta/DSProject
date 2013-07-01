@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author Israel
+ * @author Israel, vinicius
  */
 public  class Escola {
     private static String nome;
@@ -35,21 +35,12 @@ public  class Escola {
     }
      
     
-    
-    /**
-     *
-     * @param cpf
-     * @param nomecomp
-     * @param nascdata
-     * @param genero
-     * @param endereco
-     * @param cidade
-     * @param estado
-     * @param senha
-     */
-    public static void  cadastrarProfessor(String cpf, String nome, String end, String tele, 
+
+    public static ArrayList<Integer> cadastrarProfessor(String cpf, String nome, String end, String tele, 
                                           String cell, String email, String senha, String confsenha)
     {
+        ArrayList<Integer> errorlist;
+        errorlist = new ArrayList<>();
         errors = false ;
         
         // Testa o Cpf    // retira "." "-" caso exista
@@ -60,6 +51,7 @@ public  class Escola {
             for (int i=0 ; i < Escola.professList.size() ; i++){ 
                 if ( Escola.professList.get(i).getCpf().equals(cpf) ){
                     System.out.println("ja existe Professor cadastrado com o cpf");
+                    errorlist.add(1);
                     errors =  true;
                 }
             }
@@ -71,14 +63,22 @@ public  class Escola {
         //verifica se nome contem sobrenome junto
         if(!nome.contains(" ")){
             System.out.println("Nome nao contem sobrenome");
+            errorlist.add(2);
             errors = true ;
         }
         if(end.isEmpty()){
             System.out.println("campo em branco");
+            errorlist.add(3);
             errors = true;
         }
         if(tele.isEmpty()){
             System.out.println("campo em branco");
+            errorlist.add(4);
+            errors =true;
+        }
+        if(cell.isEmpty()){
+            System.out.println("campo em branco");
+            errorlist.add(5);
             errors =true;
         }
                 
@@ -89,23 +89,32 @@ public  class Escola {
 
         if(!matchFound){
             System.out.println("erro no email");
+            errorlist.add(6);
             errors = true;
         }
         
         if(!(senha.equals(confsenha))){
             System.out.println("senhas nao combinam");
+            errorlist.add(7);
+            errors=true;
         }
         if(errors == false){
             Professor novoprof;
             try {
                 novoprof = new Professor(cpf,nome,end,tele,cell,email,senha);
                 professList.add(novoprof);
+                errorlist.add(0); // nao possui erros
                 System.out.println(professList.size());
+                return (errorlist);
+                
             } catch (Exception e) {
+                // tens que tratar este erro
+                
             }
             
         }
-        
+    // erros no cadastro
+    return(errorlist);
     }
     
     public static void  login(String cpf , String senha ){
