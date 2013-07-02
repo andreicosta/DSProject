@@ -23,6 +23,18 @@ public  class Escola {
     private ArrayList<Professor> professList;
     private Professor logado;
     private boolean islogado ;
+
+    public Professor getLogado() {
+        return logado;
+    }
+
+    public boolean isIslogado() {
+        return islogado;
+    }
+
+    public boolean isErrors() {
+        return errors;
+    }
     private boolean errors;
 
     public static synchronized Escola getInstance(){

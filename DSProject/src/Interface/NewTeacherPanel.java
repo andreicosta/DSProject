@@ -124,14 +124,32 @@ public class NewTeacherPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        cpf.setForeground(Color.black);
+        name.setForeground(Color.black);
+        adress.setForeground(Color.black);
+        phone.setForeground(Color.black);
+        cellphone.setForeground(Color.black);
+        email.setForeground(Color.black);
+        senha.setForeground(Color.black);
+        errorflag = false;
         erroscadlist = Escola.getInstance().cadastrarProfessor(cpfTextField.getText(),nameTextField.getText(),
                                   adressTextField.getText(),phoneTextField.getText(),
                                   cellphoneTextField.getText(),emilTextField.getText(),
                                   passwTextField.getText(),confPassTextField.getText());
+        
+        System.out.println("tamanho - " + erroscadlist.size());
+        
+        for(int k =0 ; k< erroscadlist.size();k++){
+            System.out.println(erroscadlist.get(k));
+        }
+        
         int error;
+       
         if(erroscadlist.get(0).equals(0)){
             // sem erros - tudo lindo
-            return;
+            CardLayout card =  (CardLayout) this.superPanel.getLayout();
+            card.show(this.superPanel,"cardLogin");
+            return;//tem que vewr se precisa return
         }else{
             for(int i =0 ; i< erroscadlist.size();i++){
                 error = erroscadlist.get(i);
@@ -140,37 +158,28 @@ public class NewTeacherPanel extends javax.swing.JPanel {
                     case(1):
                         //erro cpf
                         cpf.setForeground(Color.red);
-                        return;
                     case(2):
                         // error nome
                         name.setForeground(Color.red);
-                        return;
                     case(3):
                         //error endereço
                         adress.setForeground(Color.red);
-                        return;
                     case(4):
                         // erro telefone
                         phone.setForeground(Color.red);
-                        return;
                     case(5):
                          // erro celular
                          cellphone.setForeground(Color.red);
-                        return;
                     case(6):
                         // erro email
                         email.setForeground(Color.red);
-                        return;
                     case(7):
                         // erro senha
                         senha.setForeground(Color.red);
-                        return;
                 }         
             }
         }
-        
-        CardLayout card =  (CardLayout) this.superPanel.getLayout();
-        card.show(this.superPanel,"cardLogin");
+         
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void passwTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwTextFieldActionPerformed
@@ -179,6 +188,7 @@ public class NewTeacherPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_passwTextFieldActionPerformed
 
     private ArrayList<Integer> erroscadlist ;
+    private boolean errorflag;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel adress;
     private javax.swing.JTextField adressTextField;
