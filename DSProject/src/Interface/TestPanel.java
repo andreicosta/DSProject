@@ -955,7 +955,8 @@ public class TestPanel extends javax.swing.JPanel
    {
       if(fieldTime.getText().isEmpty())
       {
-         JOptionPane.showMessageDialog(null, "Digite um " + labelHorario.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+          labelHorario.setForeground(Color.red);
+         //JOptionPane.showMessageDialog(null, "Digite um " + labelHorario.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
       }
       else
