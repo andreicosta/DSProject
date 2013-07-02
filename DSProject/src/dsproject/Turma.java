@@ -13,33 +13,26 @@ public class Turma implements Serializable, Cloneable
    static int cont = 0;
    private String dir;
    private String id;
-   private int ano;
-   private Professor professor;
+   private String ano;
    private ArrayList<Aluno> alunos;
 
-   public Turma(String id, int ano, Professor professor)
+   public Turma(String id, String ano)
    {
       this.id = id;
       this.ano = ano;
-      this.professor = professor;
       this.alunos = new ArrayList<>();
       this.dir = "Turmas/" + cont;
       cont++;
    }
-
+   
    public String getId()
    {
       return id;
    }
 
-   public int getAno()
+   public String getAno()
    {
       return ano;
-   }
-
-   public Professor getProfessor()
-   {
-      return professor;
    }
 
    public void setId(String id)
@@ -47,14 +40,9 @@ public class Turma implements Serializable, Cloneable
       this.id = id;
    }
 
-   public void setAno(int ano)
+   public void setAno(String ano)
    {
       this.ano = ano;
-   }
-
-   public void setProfessor(Professor professor)
-   {
-      this.professor = professor;
    }
    
    public void inserirAluno(Aluno aluno)
@@ -83,11 +71,6 @@ public class Turma implements Serializable, Cloneable
    public ArrayList<Aluno> buscaTodosAlunos()
    {
       return alunos;
-   }
-
-   public void excluirTurma()
-   {
-       
    }
    
    public String getDir(){

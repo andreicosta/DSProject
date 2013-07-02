@@ -11,6 +11,8 @@
 package Interface;
 
 import dsproject.Turma;
+import dsproject.Professor;
+import dsproject.Escola;
 import java.awt.Color;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -513,93 +515,36 @@ public class ClassPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_campoTurmaKeyTyped
 
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
-        String campoTurma = getCampoTurma();
-        String campoAnoLetivo = getCampoAnoLetivo();
-        /*if(campoTurma != null)
-        {
-            if(campoAnoLetivo != null)
-            {
-                ArrayList<String> alunosMatriculados = new ArrayList<>();
-                ObjectInputStream in;
-                ObjectOutputStream out;
-                int i;
-                int y;
-
-                //criar nova turma com os alunos selecionados na lista falta adicionar o professor na turma
-                Turma novaTurma = new Turma(campoTurma, Integer.parseInt(campoAnoLetivo), null);
-                try
+        //Professor tmpProf = Escola.getinstance();
+       // erroslist = tmpProf.cadastrarTurma(getCampoTurma(), getCampoAnoLetivo());
+        int error;
+        if(erroslist.get(0).equals(0)){
+            // sem erros - tudo lindo
+            return;
+        }else{
+            for(int i =0 ; i< erroslist.size();i++){
+                error = erroslist.get(i);
+                switch(error)
                 {
-                    if(listaAlunosMatriculadosNaTurma.getModel().getSize() != 0)
-                    {
-                        for(i = 0; i < listaAlunosMatriculadosNaTurma.getModel().getSize(); i++)
-                        {
-                            alunosMatriculados.add(listaAlunosMatriculadosNaTurma.getModel().getElementAt(i).toString());
-                            comboAluno.removeItem(listaAlunosMatriculadosNaTurma.getModel().getElementAt(i));
-                            comboAdicionarAluno.removeItem(listaAlunosMatriculadosNaTurma.getModel().getElementAt(i));
-                        }
-
-                        i = 0;
-                        y = 0;
-                        while(i < alunosMatriculados.size())
-                        {
-                            if(MainPanel.alunosLidos.get(y).getNome().equals(alunosMatriculados.get(i)))
-                            {
-                                MainPanel.alunosLidos.get(y).setTurma(novaTurma);
-                                novaTurma.inserirAluno(MainPanel.alunosLidos.get(y));
-                                i++;
-                                y = 0;
-                            }
-                            else
-                            {
-                                y++;
-                            }
-                        }
-                        MainPanel.turmasLidas.add(novaTurma);
-                        setTurmaAdicionada(true);
-                        setTurmaAdicionadaComboTurmaEditarTurmas(true);
-                        setTurmaAdicionadaComboTurma(true);
-                        Interface.TestPanel.setTurmaAdicionada(true);
-                        TestPanel.setTurmaAdicionadaComboTurma(true);
-                        TestPanel.setNumeroDeTurmasAdicionadasComboTurma(TestPanel.getNumeroDeTurmasAdicionadasComboTurma() + 1);
-                        Interface.TestPanel.setNumeroDeTurmasAdicionadas(Interface.TestPanel.getNumeroDeTurmasAdicionadas() + 1);
-                        setNumeroDeTurmasAdicionadasComboTurma(getNumeroDeTurmasAdicionadasComboTurma() + 1);
-                        setNumeroDeTurmasAdicionadas(getNumeroDeTurmasAdicionadas() + 1);
-                        setNumeroDeTurmasAdicionadasComboTurmaEditarTurmas(getNumeroDeTurmasAdicionadasComboTurmaEditarTurmas() + 1);
-                        JOptionPane.showMessageDialog(null, "Turma salva com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-                        limpaCamposcadastrarTurma();
-                    }
-                    else
-                    {
-                        MainPanel.turmasLidas.add(novaTurma);
-                        setTurmaAdicionada(true);
-                        setTurmaAdicionadaComboTurmaEditarTurmas(true);
-                        setTurmaAdicionadaComboTurma(true);
-                        Interface.TestPanel.setTurmaAdicionada(true);
-                        Interface.TestPanel.setNumeroDeTurmasAdicionadas(Interface.TestPanel.getNumeroDeTurmasAdicionadas() + 1);
-                        setNumeroDeTurmasAdicionadasComboTurma(getNumeroDeTurmasAdicionadasComboTurma() + 1);
-                        setNumeroDeTurmasAdicionadas(getNumeroDeTurmasAdicionadas() + 1);
-                        setNumeroDeTurmasAdicionadasComboTurmaEditarTurmas(getNumeroDeTurmasAdicionadasComboTurmaEditarTurmas() + 1);
-                        JOptionPane.showMessageDialog(null, "Turma salva com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-                        limpaCamposcadastrarTurma();
-                    }
-                }
-                catch(ClassCastException ex)
-                {
-
-                    System.err.println(ex);
-                }
-            }
-            else
-            {
-                System.err.println("Falta Ano Letivo");
+                    case(1):
+                        //erro cpf
+                        labelTurma.setForeground(Color.red);
+                        return;
+                    case(2):
+                        // error nome
+                        labelTurma.setForeground(Color.red);
+                        return;
+                    case(3):
+                        //error endereço
+                        labelAnoLetivo.setForeground(Color.red);
+                        return;
+                }         
             }
         }
-        else
-        {
-            System.err.println("Falta Nome da Turma");
-        }*/
+        
     }//GEN-LAST:event_botaoCadastrarActionPerformed
-
+    
+    private ArrayList<Integer> erroslist ;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoAdicionarEditarTurma;
     private javax.swing.JButton botaoCadastrar;
