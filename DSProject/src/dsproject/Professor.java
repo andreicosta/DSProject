@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Professor
 {
     static int cont = 0;
+    private int num_dir;
     private String dir;
     private String cpf;
     private String nome;
@@ -40,8 +41,8 @@ public class Professor
             this.cell = cell;
             this.email = email;
             this.senha = senha;
-            this.turmas = new ArrayList<Turma>();
-            
+            this.turmas = new ArrayList<>();
+            this.num_dir = cont;
             this.dir = "professores/" + cont;
             cont++;
     }
@@ -102,13 +103,37 @@ public class Professor
         this.senha = Senha;
     }
     
+    public void addTurma(Turma turma){
+        turma.setDir(this.dir + "/turmas/" + turma.getNumDir());
+        this.turmas.add(turma);
+    }
+    
     public ArrayList<Turma> getTurmas(){
         return this.turmas;
     }
     
+    public Turma getTurmaPorDir(int num_dir){
+        
+        return null;
+    }
+    
+    public void setTurmas(ArrayList<Turma> turmas){
+        this.turmas = turmas;
+    }
+    
+    public void setDir(String dir){
+       this.dir = dir;
+   }
+    
     public String getDir(){
         return this.dir;
     }
-  
-   
+    
+    public static int getCont(){
+        return cont;
+    }
+    
+    public static void setCont(int n){
+        cont = n;
+    }   
 }

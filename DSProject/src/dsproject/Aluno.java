@@ -9,6 +9,9 @@ import javax.swing.JOptionPane;
 
 public final class Aluno extends Pessoa implements Serializable {
 
+    static int cont = 0;
+    private int num_dir;
+    private String dir;
     private String nomeDaMae;
     private String nomeDoPai;
     private String telefone;
@@ -17,8 +20,6 @@ public final class Aluno extends Pessoa implements Serializable {
     private Turma turma;
     private ArrayList<Avaliacao> avaliacoes;
     
-    static int cont = 0;
-    private String dir;
 
     public Aluno(String nome, Turma turma, Date nascimento, String genero, String endereco, String cidade,
             String nomeMae, String nomePai, String telefone, String celular, String email) {
@@ -30,8 +31,8 @@ public final class Aluno extends Pessoa implements Serializable {
         this.setEmail(email);
         this.turma = turma;
         this.avaliacoes = new ArrayList<>();
-        this.dir = "alunos/" + cont;
-        cont++;
+        num_dir = cont;
+        cont ++;
     }
 
     public boolean inserirAvaliacao(java.sql.Date dataDaAvaliacao, String horaDaAvaliacao, String temperatura) {
@@ -75,6 +76,8 @@ public final class Aluno extends Pessoa implements Serializable {
     }
 
     public Turma getTurma() {
+//         String s[] = this.getDir().split("/");
+//        Turma t = Escola.getInstance().getProfessorLogado().getTurmaPorDir(Integer.parseInt(s[4]));
         return turma;
     }
 
@@ -114,6 +117,11 @@ public final class Aluno extends Pessoa implements Serializable {
             return null;
         }
     }
+    
+        public void setAvaliacoes(ArrayList<Avaliacao> avaliacoes){
+        this.avaliacoes = avaliacoes;
+    }
+
 
     @Override
     public int hashCode() {
@@ -144,4 +152,25 @@ public final class Aluno extends Pessoa implements Serializable {
         }
         return true;
     }
+
+    public int getNumDir(){
+        return this.num_dir;
+    }
+    
+    public void setDir(String dir){
+        this.dir = dir;
+    }
+    
+    public String getDir(){
+        return this.dir;
+    }
+    
+     public static int getCont(){
+        return cont;
+    }
+    
+    public static void setCont(int n){
+        cont = n;
+    }
+
 }

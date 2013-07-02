@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class Turma implements Serializable, Cloneable
 {
    static int cont = 0;
+   private int num_dir;
    private String dir;
    private String id;
    private int ano;
@@ -23,7 +24,7 @@ public class Turma implements Serializable, Cloneable
       this.ano = ano;
       this.professor = professor;
       this.alunos = new ArrayList<>();
-      this.dir = "Turmas/" + cont;
+      this.num_dir = cont;
       cont++;
    }
 
@@ -59,7 +60,8 @@ public class Turma implements Serializable, Cloneable
    
    public void inserirAluno(Aluno aluno)
    {
-      this.alunos.add(aluno);
+       aluno.setDir(this.dir + "/alunos/" + aluno.getNumDir());
+       this.alunos.add(aluno);
    }
    
    public void removeAluno(Aluno aluno)
@@ -85,12 +87,33 @@ public class Turma implements Serializable, Cloneable
       return alunos;
    }
 
+   public void setAlunos(ArrayList<Aluno> alunos){
+       this.alunos = alunos;
+   }
+           
    public void excluirTurma()
    {
        
    }
    
+   public int getNumDir(){
+       return this.num_dir;
+   }
+   
+   public void setDir(String dir){
+       this.dir = dir;
+   }
+   
    public String getDir(){
        return this.dir;
    }
+   
+    public static int getCont(){
+        return cont;
+    }
+    
+    public static void setCont(int n){
+        cont = n;
+    }
+
 }
