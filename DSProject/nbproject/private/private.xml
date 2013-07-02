@@ -3,11 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/C:/Users/Cyborg/Documents/NetBeansProjects/DS/DSProject/src/dsproject/Escola.java</file>
-        <file>file:/C:/Users/Cyborg/Documents/NetBeansProjects/DS/DSProject/src/dsproject/Aluno.java</file>
-        <file>file:/C:/Users/Cyborg/Documents/NetBeansProjects/DS/DSProject/src/dsproject/Professor.java</file>
-        <file>file:/C:/Users/Cyborg/Documents/NetBeansProjects/DS/DSProject/src/dsproject/Turma.java</file>
-        <file>file:/C:/Users/Cyborg/Documents/NetBeansProjects/DS/DSProject/src/Interface/NewTeacherPanel.java</file>
-        <file>file:/C:/Users/Cyborg/Documents/NetBeansProjects/DS/DSProject/src/Interface/ImportPanel.java</file>
+        <file>file:/home/pazuti/Documents/DSProject/DSProject/src/Interface/LoginJPanel.java</file>
+        <file>file:/home/pazuti/Documents/DSProject/DSProject/src/Interface/TestPanel.java</file>
+        <file>file:/home/pazuti/Documents/DSProject/DSProject/src/Interface/MainFrame.java</file>
+        <file>file:/home/pazuti/Documents/DSProject/DSProject/src/Interface/MainPanel.java</file>
+        <file>file:/home/pazuti/Documents/DSProject/DSProject/src/Interface/NewTeacherPanel.java</file>
+        <file>file:/home/pazuti/Documents/DSProject/DSProject/src/Interface/ExportPanel.java</file>
+        <file>file:/home/pazuti/Documents/DSProject/DSProject/src/Interface/ClassPanel.java</file>
+        <file>file:/home/pazuti/Documents/DSProject/DSProject/src/Interface/ImportPanel.java</file>
+        <file>file:/home/pazuti/Documents/DSProject/DSProject/src/Interface/PersonalInformationPanel.java</file>
+        <file>file:/home/pazuti/Documents/DSProject/DSProject/src/Interface/SendPanel.java</file>
+        <file>file:/home/pazuti/Documents/DSProject/DSProject/src/Interface/StudentPanel.java</file>
+        <file>file:/home/pazuti/Documents/DSProject/DSProject/src/Interface/WelcomePanel.java</file>
     </open-files>
 </project-private>
