@@ -293,7 +293,8 @@ public class ClassPanel extends javax.swing.JPanel {
 
    private void listClassesPanelComponentShown(java.awt.event.ComponentEvent evt)//GEN-FIRST:event_listClassesPanelComponentShown
    {//GEN-HEADEREND:event_listClassesPanelComponentShown
-      Professor tmpProf = Escola.getInstance().getLogado();
+       listaListaDeTurmas.clear();
+       Professor tmpProf = Escola.getInstance().getLogado();
        for (int i = 0; i < tmpProf.getTurmas().size(); i++) {
            listaListaDeTurmas.addElement(tmpProf.getTurmas().get(i).getId());
        }
@@ -301,6 +302,7 @@ public class ClassPanel extends javax.swing.JPanel {
 
    private void comboTurmaEditarTurmaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
    {//GEN-HEADEREND:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
+      comboTurmaEditarTurma.removeAllItems();
       Professor tmpProf = Escola.getInstance().getLogado();
       for (int i = 0; i < tmpProf.getTurmas().size(); i++) {
            comboTurmaEditarTurma.addItem(tmpProf.getTurmas().get(i).getId());
@@ -314,6 +316,7 @@ public class ClassPanel extends javax.swing.JPanel {
 
    private void comboTurmaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboTurmaPopupMenuWillBecomeVisible
    {//GEN-HEADEREND:event_comboTurmaPopupMenuWillBecomeVisible
+      comboTurma.removeAllItems();
       Professor tmpProf = Escola.getInstance().getLogado();
       for (int i = 0; i < tmpProf.getTurmas().size(); i++) {
            comboTurma.addItem(tmpProf.getTurmas().get(i).getId());
@@ -343,12 +346,15 @@ public class ClassPanel extends javax.swing.JPanel {
                     case(1):
                         //erro cpf
                         labelTurma.setForeground(Color.red);
+                        break;
                     case(2):
                         // error nome
                         labelTurma.setForeground(Color.red);
+                        break;
                     case(3):
                         //error endereço
                         labelAnoLetivo.setForeground(Color.red);
+                        break;
                 }         
             }
         }

@@ -158,24 +158,31 @@ public class NewTeacherPanel extends javax.swing.JPanel {
                     case(1):
                         //erro cpf
                         cpf.setForeground(Color.red);
+                        break;
                     case(2):
                         // error nome
                         name.setForeground(Color.red);
+                        break;
                     case(3):
                         //error endereço
                         adress.setForeground(Color.red);
+                        break;
                     case(4):
                         // erro telefone
                         phone.setForeground(Color.red);
+                        break;
                     case(5):
                          // erro celular
                          cellphone.setForeground(Color.red);
+                        break;
                     case(6):
                         // erro email
                         email.setForeground(Color.red);
+                        break;
                     case(7):
                         // erro senha
                         senha.setForeground(Color.red);
+                        break;
                 }         
             }
         }
