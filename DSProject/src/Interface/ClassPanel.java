@@ -49,6 +49,15 @@ public class ClassPanel extends javax.swing.JPanel {
         labelAnoLetivo = new javax.swing.JLabel();
         campoAnoLetivo = new javax.swing.JTextField();
         botaoCadastrar = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        availableStudentList = new javax.swing.JList();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        studentInClassList = new javax.swing.JList();
+        addToClassButton = new javax.swing.JButton();
+        removeStudentFromClassButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         listClassesPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         listaListaDeTurmas = new DefaultListModel();
@@ -58,13 +67,16 @@ public class ClassPanel extends javax.swing.JPanel {
         comboTurmaEditarTurma = new javax.swing.JComboBox();
         labelAnoLetivoEditarTurma = new javax.swing.JLabel();
         campoAnoLetivoEditarTurma = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        comboAdicionarAluno = new javax.swing.JComboBox();
-        botaoRemoverEditarTurma = new javax.swing.JButton();
-        botaoAdicionarEditarTurma = new javax.swing.JButton();
-        comboRemoverAluno = new javax.swing.JComboBox();
-        jLabel9 = new javax.swing.JLabel();
         botaoSalvar = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        availableStudentList2 = new javax.swing.JList();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        studentInClassList2 = new javax.swing.JList();
+        addToClassButton2 = new javax.swing.JButton();
+        removeStudentFromClassButton2 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
         deleteClassPanel = new javax.swing.JPanel();
         labelTurmaRemoverTurma = new javax.swing.JLabel();
         comboTurma = new javax.swing.JComboBox();
@@ -101,7 +113,32 @@ public class ClassPanel extends javax.swing.JPanel {
                 botaoCadastrarActionPerformed(evt);
             }
         });
-        newClassPanel.add(botaoCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 80, -1, -1));
+        newClassPanel.add(botaoCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(725, 437, -1, -1));
+        newClassPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 65, 825, 10));
+
+        availableStudentList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(availableStudentList);
+
+        newClassPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 121, 220, 345));
+
+        studentInClassList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane3.setViewportView(studentInClassList);
+
+        newClassPanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 121, 220, 345));
+
+        addToClassButton.setText("Adicionar");
+        newClassPanel.add(addToClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 221, 90, -1));
+
+        removeStudentFromClassButton.setText("Remover");
+        newClassPanel.add(removeStudentFromClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 268, 90, -1));
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Alunos");
+        newClassPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 86, 220, -1));
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Alunos na Turma");
+        newClassPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 86, 220, -1));
 
         jTabbedPane1.addTab("Cadastrar Turma", newClassPanel);
 
@@ -125,9 +162,9 @@ public class ClassPanel extends javax.swing.JPanel {
         editClassPanel.add(labelTurmaEditarTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 26, -1, -1));
 
         comboTurmaEditarTurma.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
-            }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
                 comboTurmaEditarTurmaPopupMenuWillBecomeVisible(evt);
@@ -144,38 +181,33 @@ public class ClassPanel extends javax.swing.JPanel {
         editClassPanel.add(labelAnoLetivoEditarTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 26, -1, -1));
         editClassPanel.add(campoAnoLetivoEditarTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 21, 110, -1));
 
-        jLabel8.setText("Adicionar Aluno");
-        editClassPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 118, -1, -1));
-
-        comboAdicionarAluno.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
-            }
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-            }
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                comboAdicionarAlunoPopupMenuWillBecomeVisible(evt);
-            }
-        });
-        editClassPanel.add(comboAdicionarAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 113, 676, -1));
-
-        botaoRemoverEditarTurma.setText("Remover");
-        editClassPanel.add(botaoRemoverEditarTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(728, 267, 85, -1));
-
-        botaoAdicionarEditarTurma.setText("Adicionar");
-        botaoAdicionarEditarTurma.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAdicionarEditarTurmaActionPerformed(evt);
-            }
-        });
-        editClassPanel.add(botaoAdicionarEditarTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(726, 152, 87, -1));
-
-        editClassPanel.add(comboRemoverAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 228, 676, -1));
-
-        jLabel9.setText(" Remover Aluno");
-        editClassPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 233, -1, -1));
-
         botaoSalvar.setText("Salvar");
-        editClassPanel.add(botaoSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(728, 448, 85, -1));
+        editClassPanel.add(botaoSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(725, 437, 85, -1));
+
+        availableStudentList2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane6.setViewportView(availableStudentList2);
+
+        editClassPanel.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 121, 220, 345));
+
+        studentInClassList2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane7.setViewportView(studentInClassList2);
+
+        editClassPanel.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 121, 220, 345));
+
+        addToClassButton2.setText("Adicionar");
+        editClassPanel.add(addToClassButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 221, 90, -1));
+
+        removeStudentFromClassButton2.setText("Remover");
+        editClassPanel.add(removeStudentFromClassButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 268, 90, -1));
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Alunos");
+        editClassPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 86, 220, -1));
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Alunos na Turma");
+        editClassPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 86, 220, -1));
+        editClassPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 830, 10));
 
         jTabbedPane1.addTab("Editar Turma", editClassPanel);
 
@@ -185,9 +217,9 @@ public class ClassPanel extends javax.swing.JPanel {
         deleteClassPanel.add(labelTurmaRemoverTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 27, -1, -1));
 
         comboTurma.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
-            }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
                 comboTurmaPopupMenuWillBecomeVisible(evt);
@@ -203,10 +235,6 @@ public class ClassPanel extends javax.swing.JPanel {
         add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 833, 515));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoAdicionarEditarTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAdicionarEditarTurmaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoAdicionarEditarTurmaActionPerformed
-
    private void campoAnoLetivoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_campoAnoLetivoKeyTyped
    {//GEN-HEADEREND:event_campoAnoLetivoKeyTyped
       if(!Character.isDigit(evt.getKeyChar()))
@@ -220,76 +248,6 @@ public class ClassPanel extends javax.swing.JPanel {
             evt.setKeyChar('\0');
       }
    }//GEN-LAST:event_campoAnoLetivoKeyTyped
-
-   private void comboAdicionarAlunoPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboAdicionarAlunoPopupMenuWillBecomeVisible
-   {//GEN-HEADEREND:event_comboAdicionarAlunoPopupMenuWillBecomeVisible
-      Object isNull;
-      isNull = comboAdicionarAluno.getItemAt(0);
-      int i = 0;
-      
-      if(isStudentAddedComboAdicionarAluno() && isNull == null)
-      {
-         i = 0;
-         comboAdicionarAluno.addItem("");
-         
-         if(MainPanel.alunosLidos != null)
-         {
-            while(i < MainPanel.alunosLidos.size())
-            {
-               if(MainPanel.alunosLidos.get(i).getTurma() == null)
-               {
-                  comboAdicionarAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
-               }
-               i++;
-            }
-         }
-         
-         setStudentAddedComboAdicionarAluno(false);
-         setNumeroDeAlunosAdicionadosComboAdicionarAluno(0);
-      }
-      else
-      {
-         if(isStudentAddedComboAdicionarAluno() && isNull != null)
-         {
-            i = (MainPanel.alunosLidos.size() - getNumeroDeAlunosAdicionadosComboAdicionarAluno());
-            
-            if(MainPanel.alunosLidos != null)
-            {
-               while(i < MainPanel.alunosLidos.size())
-               {
-                  if(MainPanel.alunosLidos.get(i).getTurma() == null)
-                  {
-                     comboAdicionarAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
-                  }
-                  i++;
-               }
-            }
-            
-            setStudentAddedComboAdicionarAluno(false);
-            setNumeroDeAlunosAdicionadosComboAdicionarAluno(0);
-         }
-         else
-         {
-            if(isNull == null)
-            {
-               i = 0;
-               comboAdicionarAluno.addItem("");
-               
-               if(MainPanel.alunosLidos != null)
-               {
-                  while(i < MainPanel.alunosLidos.size())
-                  {
-                     if(MainPanel.alunosLidos.get(i).getTurma() == null)
-                     {
-                        comboAdicionarAluno.addItem(MainPanel.alunosLidos.get(i).getNome());
-                     }
-                     i++;
-                  }
-               }
-            }
-         }
-      }
-   }//GEN-LAST:event_comboAdicionarAlunoPopupMenuWillBecomeVisible
 
    private void listClassesPanelComponentShown(java.awt.event.ComponentEvent evt)//GEN-FIRST:event_listClassesPanelComponentShown
    {//GEN-HEADEREND:event_listClassesPanelComponentShown
@@ -308,7 +266,7 @@ public class ClassPanel extends javax.swing.JPanel {
       for (int i = 0; i < tmpProf.getTurmas().size(); i++) {
            comboTurmaEditarTurma.addItem(tmpProf.getTurmas().get(i).getId());
       }
-      tmpTurma = comboTurmaEditarTurma.getItemAt(0);
+      tmpTurma = (Turma) comboTurmaEditarTurma.getItemAt(0);
    }//GEN-LAST:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
 
    private void comboTurmaEditarTurmaItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_comboTurmaEditarTurmaItemStateChanged
@@ -365,24 +323,32 @@ public class ClassPanel extends javax.swing.JPanel {
     
     private ArrayList<Integer> erroslist ;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoAdicionarEditarTurma;
+    private javax.swing.JButton addToClassButton;
+    private javax.swing.JButton addToClassButton2;
+    private javax.swing.JList availableStudentList;
+    private javax.swing.JList availableStudentList2;
     private javax.swing.JButton botaoCadastrar;
     private javax.swing.JButton botaoRemover;
-    private javax.swing.JButton botaoRemoverEditarTurma;
     private javax.swing.JButton botaoSalvar;
     private javax.swing.ButtonGroup buttonGroup1;
     private static javax.swing.JTextField campoAnoLetivo;
     private javax.swing.JTextField campoAnoLetivoEditarTurma;
     private static javax.swing.JTextField campoTurma;
-    private static javax.swing.JComboBox comboAdicionarAluno;
-    private static javax.swing.JComboBox comboRemoverAluno;
     private javax.swing.JComboBox comboTurma;
     private javax.swing.JComboBox comboTurmaEditarTurma;
     private javax.swing.JPanel deleteClassPanel;
     private javax.swing.JPanel editClassPanel;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private static javax.swing.JLabel labelAnoLetivo;
     private javax.swing.JLabel labelAnoLetivoEditarTurma;
@@ -392,6 +358,10 @@ public class ClassPanel extends javax.swing.JPanel {
     private javax.swing.JPanel listClassesPanel;
     private javax.swing.JList listaDeTurmas;
     private javax.swing.JPanel newClassPanel;
+    private javax.swing.JButton removeStudentFromClassButton;
+    private javax.swing.JButton removeStudentFromClassButton2;
+    private javax.swing.JList studentInClassList;
+    private javax.swing.JList studentInClassList2;
     // End of variables declaration//GEN-END:variables
    private static DefaultListModel listaAlunosMatriculados;
    private static DefaultListModel listaListaDeTurmas;
@@ -540,8 +510,8 @@ public class ClassPanel extends javax.swing.JPanel {
    
    public void limpaCamposEditarTurma()
    {
-      campoAnoLetivoEditarTurma.setText("");
-      comboRemoverAluno.removeAllItems();
+      //campoAnoLetivoEditarTurma.setText("");
+      //comboRemoverAluno.removeAllItems();
    }
 
    private void limpaCamposCadastrarTurma()
