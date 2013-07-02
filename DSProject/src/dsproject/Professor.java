@@ -6,6 +6,7 @@ package dsproject;
 
 import java.io.File;
 import java.util.ArrayList;
+import dsproject.Turma;
 
 /**
  *
@@ -46,6 +47,51 @@ public class Professor
             this.num_dir = cont;
             this.dir = "professores/" + cont;
             cont++;
+    }
+    
+    public ArrayList<Integer> cadastrarTurma(String nome, String ano){
+        ArrayList<Integer> errorlist;
+        errorlist = new ArrayList<>();
+        boolean errors = false ;
+        
+        if(this.turmas != null){
+            for (int i=0 ; i < this.turmas.size() ; i++){ 
+                if ( this.turmas.get(i).getId().equals(nome) ){
+                    System.out.println("ja existe Turma com esse nome");
+                    errorlist.add(1);
+                    errors =  true;
+                }
+            }
+        }else{
+            this.turmas = new ArrayList<Turma>();
+        }
+        
+        if(nome.isEmpty()){
+            System.out.println("campo em branco");
+            errorlist.add(2);
+            errors = true ;
+        }
+        if(ano.isEmpty()){
+            System.out.println("campo em branco");
+            errorlist.add(3);
+            errors =true;
+        }
+        if(errors == false){
+            Turma novaTurma;
+            try {
+                novaTurma = new Turma(nome, ano);
+                turmas.add(novaTurma);
+                errorlist.add(0); // nao possui erros
+                System.out.println(turmas.size());
+                
+            } catch (Exception e) {
+                // tens que tratar este erro
+                
+            }
+            
+        }
+    // erros no cadastro
+    return(errorlist);
     }
     
     public String getCpf() {
