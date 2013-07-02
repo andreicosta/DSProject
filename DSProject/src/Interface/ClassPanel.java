@@ -114,7 +114,7 @@ public class ClassPanel extends javax.swing.JPanel {
             }
         });
         newClassPanel.add(botaoCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(725, 437, -1, -1));
-        newClassPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 65, 825, 10));
+        newClassPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 825, 10));
 
         availableStudentList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(availableStudentList);
