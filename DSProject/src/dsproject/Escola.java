@@ -45,7 +45,7 @@ public  class Escola {
         this.professList = professList;
     }
 
-    public static ArrayList<Integer> cadastrarProfessor(String cpf, String nome, String end, String tele, 
+    public ArrayList<Integer> cadastrarProfessor(String cpf, String nome, String end, String tele, 
                                           String cell, String email, String senha, String confsenha)
     {
         ArrayList<Integer> errorlist;
@@ -126,7 +126,7 @@ public  class Escola {
     return(errorlist);
     }
     
-    public static void  login(String cpf , String senha ){
+    public void  login(String cpf , String senha ){
         System.out.println("cpf - "+ cpf + "\n" + "senha" + senha);
         for (int i =0 ; i< Escola.professList.size() ;i++){
             if(Escola.professList.get(i).getCpf().equals(cpf)){
@@ -155,7 +155,7 @@ public  class Escola {
     
     }
     
-public void salvar() throws IOException{
+    public void salvar() throws IOException{
         ArrayList <Integer> contadores = new ArrayList<>();
         
         contadores.add(Professor.getCont());
@@ -174,8 +174,11 @@ public void salvar() throws IOException{
         }
     }
     
+    public void salvarProfessor(Professor p) throws IOException{
+        salvarProfessor(p, false);
+    }
     
-    private void salvarProfessor(Professor p, boolean all) throws IOException{
+    public void salvarProfessor(Professor p, boolean all) throws IOException{
         
         ArrayList<Turma> turmas = p.getTurmas();
         p.setTurmas(new ArrayList<Turma>());
@@ -196,14 +199,17 @@ public void salvar() throws IOException{
         if (all){
             for (int i = 0; i < turmas.size(); i++){
                 t = turmas.get(i);
-                Escola.salvarTurma(t, true);
+                this.salvarTurma(t, true);
             }
         }
         p.setTurmas(turmas);
     }
     
+    public void salvarTurma(Turma t) throws IOException{
+        salvarTurma(t, false);
+    }
     
-    private static void salvarTurma(Turma t, boolean all) throws IOException{
+    public void salvarTurma(Turma t, boolean all) throws IOException{
         //salva obj
         ArrayList<Aluno> alunos = t.buscaTodosAlunos();
         t.setAlunos(new ArrayList<Aluno>());
@@ -227,14 +233,18 @@ public void salvar() throws IOException{
         if (all){
             for (int i = 0; i < alunos.size(); i++){
                 a = alunos.get(i);
-                Escola.salvarAluno(a, true);
+                this.salvarAluno(a, true);
             }
         }
         
         t.setAlunos(alunos);
     }
     
-    private static void salvarAluno(Aluno a, boolean all) throws IOException{
+    public void salvarAluno(Aluno a) throws IOException{
+        salvarAluno(a, false);
+    }
+    
+    public void salvarAluno(Aluno a, boolean all) throws IOException{
         //salva aluno
         //salva arrayList de avaliaÃ§Ãµes do aluno
         

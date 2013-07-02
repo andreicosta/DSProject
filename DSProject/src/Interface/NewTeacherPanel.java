@@ -124,7 +124,7 @@ public class NewTeacherPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        erroscadlist = Escola.cadastrarProfessor(cpfTextField.getText(),nameTextField.getText(),
+        erroscadlist = Escola.getInstance().cadastrarProfessor(cpfTextField.getText(),nameTextField.getText(),
                                   adressTextField.getText(),phoneTextField.getText(),
                                   cellphoneTextField.getText(),emilTextField.getText(),
                                   passwTextField.getText(),confPassTextField.getText());
