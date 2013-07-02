@@ -304,9 +304,11 @@ public class ClassPanel extends javax.swing.JPanel {
    {//GEN-HEADEREND:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
       comboTurmaEditarTurma.removeAllItems();
       Professor tmpProf = Escola.getInstance().getLogado();
+      Turma tmpTurma;
       for (int i = 0; i < tmpProf.getTurmas().size(); i++) {
            comboTurmaEditarTurma.addItem(tmpProf.getTurmas().get(i).getId());
       }
+      tmpTurma = comboTurmaEditarTurma.getItemAt(0);
    }//GEN-LAST:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
 
    private void comboTurmaEditarTurmaItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_comboTurmaEditarTurmaItemStateChanged
