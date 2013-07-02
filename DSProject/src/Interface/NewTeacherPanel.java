@@ -43,21 +43,14 @@ public class NewTeacherPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         cpf = new javax.swing.JLabel();
         name = new javax.swing.JLabel();
-        adress = new javax.swing.JLabel();
-        phone = new javax.swing.JLabel();
-        cellphone = new javax.swing.JLabel();
-        email = new javax.swing.JLabel();
-        cpfTextField = new javax.swing.JTextField();
         nameTextField = new javax.swing.JTextField();
-        adressTextField = new javax.swing.JTextField();
-        phoneTextField = new javax.swing.JTextField();
-        cellphoneTextField = new javax.swing.JTextField();
-        emilTextField = new javax.swing.JTextField();
         saveButton = new javax.swing.JButton();
         senha = new javax.swing.JLabel();
-        passwTextField = new javax.swing.JTextField();
         confsenha = new javax.swing.JLabel();
-        confPassTextField = new javax.swing.JTextField();
+        voltarButton = new javax.swing.JButton();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        passwordField = new javax.swing.JPasswordField();
+        confirmaPasswordField = new javax.swing.JPasswordField();
 
         setPreferredSize(new java.awt.Dimension(984, 536));
 
@@ -68,24 +61,7 @@ public class NewTeacherPanel extends javax.swing.JPanel {
 
         name.setText("Nome Completo");
         jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 88, -1, -1));
-
-        adress.setText("Endereço");
-        jPanel1.add(adress, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 126, -1, -1));
-
-        phone.setText("Telefone");
-        jPanel1.add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 164, -1, -1));
-
-        cellphone.setText("Celular");
-        jPanel1.add(cellphone, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 202, -1, -1));
-
-        email.setText("E-mail");
-        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, -1));
-        jPanel1.add(cpfTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 40, 427, -1));
-        jPanel1.add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 78, 427, -1));
-        jPanel1.add(adressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 116, 427, -1));
-        jPanel1.add(phoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 154, 427, -1));
-        jPanel1.add(cellphoneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 192, 427, -1));
-        jPanel1.add(emilTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 230, 427, -1));
+        jPanel1.add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 83, 427, -1));
 
         saveButton.setText("Salvar");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -93,21 +69,24 @@ public class NewTeacherPanel extends javax.swing.JPanel {
                 saveButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(686, 353, 85, -1));
+        jPanel1.add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(686, 201, 85, -1));
 
         senha.setText("Senha");
-        jPanel1.add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 279, -1, -1));
-
-        passwTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwTextFieldActionPerformed(evt);
-            }
-        });
-        jPanel1.add(passwTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 269, 427, -1));
+        jPanel1.add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 127, -1, -1));
 
         confsenha.setText("Confirmar Senha");
-        jPanel1.add(confsenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 318, -1, -1));
-        jPanel1.add(confPassTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 308, 427, -1));
+        jPanel1.add(confsenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 166, -1, -1));
+
+        voltarButton.setText("Voltar");
+        voltarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(voltarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 201, 85, -1));
+        jPanel1.add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 45, 427, -1));
+        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 122, 427, -1));
+        jPanel1.add(confirmaPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 161, 427, -1));
 
         jTabbedPane1.addTab("Cadastrar Professor", jPanel1);
 
@@ -126,16 +105,12 @@ public class NewTeacherPanel extends javax.swing.JPanel {
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         cpf.setForeground(Color.black);
         name.setForeground(Color.black);
-        adress.setForeground(Color.black);
-        phone.setForeground(Color.black);
-        cellphone.setForeground(Color.black);
-        email.setForeground(Color.black);
+
         senha.setForeground(Color.black);
         errorflag = false;
-        erroscadlist = Escola.getInstance().cadastrarProfessor(cpfTextField.getText(),nameTextField.getText(),
-                                  adressTextField.getText(),phoneTextField.getText(),
-                                  cellphoneTextField.getText(),emilTextField.getText(),
-                                  passwTextField.getText(),confPassTextField.getText());
+        //Troquei os tipos dos campos pra formattedTextField e PasswordField
+        //erroscadlist = Escola.getInstance().cadastrarProfessor(cpfTextField.getText(),nameTextField.getText(),
+        //                          passwTextField.getText(),confPassTextField.getText());
         
         System.out.println("tamanho - " + erroscadlist.size());
         
@@ -163,22 +138,6 @@ public class NewTeacherPanel extends javax.swing.JPanel {
                         // error nome
                         name.setForeground(Color.red);
                         break;
-                    case(3):
-                        //error endereço
-                        adress.setForeground(Color.red);
-                        break;
-                    case(4):
-                        // erro telefone
-                        phone.setForeground(Color.red);
-                        break;
-                    case(5):
-                         // erro celular
-                         cellphone.setForeground(Color.red);
-                        break;
-                    case(6):
-                        // erro email
-                        email.setForeground(Color.red);
-                        break;
                     case(7):
                         // erro senha
                         senha.setForeground(Color.red);
@@ -189,32 +148,25 @@ public class NewTeacherPanel extends javax.swing.JPanel {
          
     }//GEN-LAST:event_saveButtonActionPerformed
 
-    private void passwTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwTextFieldActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_passwTextFieldActionPerformed
+    private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
+            CardLayout card =  (CardLayout) this.superPanel.getLayout();
+            card.show(this.superPanel,"cardLogin");
+    }//GEN-LAST:event_voltarButtonActionPerformed
 
     private ArrayList<Integer> erroscadlist ;
     private boolean errorflag;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel adress;
-    private javax.swing.JTextField adressTextField;
-    private javax.swing.JLabel cellphone;
-    private javax.swing.JTextField cellphoneTextField;
-    private javax.swing.JTextField confPassTextField;
+    private javax.swing.JPasswordField confirmaPasswordField;
     private javax.swing.JLabel confsenha;
     private javax.swing.JLabel cpf;
-    private javax.swing.JTextField cpfTextField;
-    private javax.swing.JLabel email;
-    private javax.swing.JTextField emilTextField;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel name;
     private javax.swing.JTextField nameTextField;
-    private javax.swing.JTextField passwTextField;
-    private javax.swing.JLabel phone;
-    private javax.swing.JTextField phoneTextField;
+    private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton saveButton;
     private javax.swing.JLabel senha;
+    private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
 }
