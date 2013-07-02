@@ -4,6 +4,7 @@
  */
 package dsproject;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -70,6 +71,9 @@ public class Turma implements Serializable, Cloneable
       idAluno = buscaAluno(aluno);
 
       this.alunos.remove(idAluno);
+      
+      File f = new File(alunos.get(idAluno).getDir());
+      f.delete();     
    }
 
    public int buscaAluno(Aluno aluno)

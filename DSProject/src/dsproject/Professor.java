@@ -4,6 +4,7 @@
  */
 package dsproject;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -110,6 +111,27 @@ public class Professor
     
     public ArrayList<Turma> getTurmas(){
         return this.turmas;
+    }
+    
+    public void removeTurma(Turma turma)
+    {
+        int idTurma;
+        idTurma = buscaTurma(turma);
+
+        this.turmas.remove(idTurma);
+        
+        File f = new File(turmas.get(idTurma).getDir());
+        f.delete();
+    }
+     
+    public int buscaTurma(Turma turma)
+    {
+        for (int i = 0; i < turmas.size(); i++)
+        {
+           if ((turmas.get(i).getId().equals(turma.getId())) && (turmas.get(i).getAno() == turma.getAno()))
+              return i;
+        }
+        return -1;
     }
     
     public Turma getTurmaPorDir(int num_dir){

@@ -10,6 +10,9 @@
  */
 package Interface;
 
+import dsproject.Escola;
+import dsproject.Professor;
+
 /**
  *
  * @author Günther
@@ -34,9 +37,11 @@ public class ImportPanel extends javax.swing.JPanel {
         importPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButtonImportar = new javax.swing.JButton();
         exportPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButtonExportar = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(833, 515));
         setPreferredSize(new java.awt.Dimension(833, 515));
@@ -49,6 +54,9 @@ public class ImportPanel extends javax.swing.JPanel {
         jButton1.setText("Importar");
         importPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 101, -1, -1));
 
+        jButtonImportar.setText("Importar");
+        importPanel.add(jButtonImportar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+
         jTabbedPane1.addTab("Importar ", importPanel);
 
         exportPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,7 +67,16 @@ public class ImportPanel extends javax.swing.JPanel {
         jButton2.setText("Exportar");
         exportPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(729, 101, -1, -1));
 
-        jTabbedPane1.addTab("Exportar ", exportPanel);
+        jButtonExportar.setText("Exportar");
+        jButtonExportar.setActionCommand("Exportar");
+        jButtonExportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExportarActionPerformed(evt);
+            }
+        });
+        exportPanel.add(jButtonExportar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+
+        jTabbedPane1.addTab("Exportar", exportPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -72,11 +89,20 @@ public class ImportPanel extends javax.swing.JPanel {
             .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExportarActionPerformed
+        // TODO add your handling code here:
+        Professor p = Escola.getInstance().getProfessorLogado();
+        
+    }//GEN-LAST:event_jButtonExportarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel exportPanel;
     private javax.swing.JPanel importPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonExportar;
+    private javax.swing.JButton jButtonImportar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTabbedPane jTabbedPane1;

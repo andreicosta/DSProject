@@ -19,11 +19,11 @@ import java.util.regex.Pattern;
  */
 public  class Escola {
     private static Escola instance = new Escola();
-    private static String nome;
-    private static ArrayList<Professor> professList;
-    private static Professor logado;
-    private static boolean islogado ;
-    private static boolean errors;
+    private String nome;
+    private ArrayList<Professor> professList;
+    private Professor logado;
+    private boolean islogado ;
+    private boolean errors;
 
     public static synchronized Escola getInstance(){
         return instance;
@@ -56,16 +56,16 @@ public  class Escola {
         cpf = cpf.replace(".","");
         cpf = cpf.replace("-", "");
         
-        if(Escola.professList != null){
-            for (int i=0 ; i < Escola.professList.size() ; i++){ 
-                if ( Escola.professList.get(i).getCpf().equals(cpf) ){
+        if(this.professList != null){
+            for (int i=0 ; i < this.professList.size() ; i++){ 
+                if ( this.professList.get(i).getCpf().equals(cpf) ){
                     System.out.println("ja existe Professor cadastrado com o cpf");
                     errorlist.add(1);
                     errors =  true;
                 }
             }
         }else{
-            Escola.professList = new ArrayList<Professor>();
+            this.professList = new ArrayList<Professor>();
         }
         
         // caso nao exista cpf cadastrado , verifica o formato dos parametros 
@@ -128,14 +128,14 @@ public  class Escola {
     
     public void  login(String cpf , String senha ){
         System.out.println("cpf - "+ cpf + "\n" + "senha" + senha);
-        for (int i =0 ; i< Escola.professList.size() ;i++){
-            if(Escola.professList.get(i).getCpf().equals(cpf)){
+        for (int i =0 ; i< this.professList.size() ;i++){
+            if(this.professList.get(i).getCpf().equals(cpf)){
                 //achou o modafuka professor //checa a senha
-                if(Escola.professList.get(i).getSenha().equals(senha) ){
+                if(this.professList.get(i).getSenha().equals(senha) ){
                     // delicinha 
                     if(!islogado){
                         // nao tem ninguem logado
-                        logado = new Professor(Escola.professList.get(i));
+                        logado = new Professor(this.professList.get(i));
                         System.out.println(" achou o professor e logou");
                         islogado = true;
                         return;
@@ -153,6 +153,10 @@ public  class Escola {
         //professor no existe
                 System.out.println("Nao existe cadastro com cpf =" + cpf );
     
+    }
+    
+    public Professor getProfessorLogado(){
+        return this.logado;
     }
     
     public void salvar() throws IOException{
