@@ -68,6 +68,7 @@ public class StudentPanel extends javax.swing.JPanel {
         editBirthday = new com.toedter.calendar.JDateChooser();
         editTurma = new javax.swing.JComboBox();
         editLabelTurma = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         deleteStudentPanel = new javax.swing.JPanel();
         deleteLabel = new javax.swing.JLabel();
         deleteCombo = new javax.swing.JComboBox();
@@ -143,8 +144,8 @@ public class StudentPanel extends javax.swing.JPanel {
 
         editStudentPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        editLabelName.setText("Nome Completo");
-        editStudentPanel.add(editLabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 45, -1, -1));
+        editLabelName.setText("Selecionar Aluno");
+        editStudentPanel.add(editLabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 35, -1, -1));
 
         editLabelFather.setText("Nome Completo do Pai");
         editStudentPanel.add(editLabelFather, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 277, -1, 14));
@@ -178,7 +179,7 @@ public class StudentPanel extends javax.swing.JPanel {
                 editNameComponentShown(evt);
             }
         });
-        editStudentPanel.add(editName, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 40, 396, -1));
+        editStudentPanel.add(editName, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 30, 396, -1));
 
         editSaveButton.setText("Salvar");
         editSaveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -210,6 +211,7 @@ public class StudentPanel extends javax.swing.JPanel {
 
         editLabelTurma.setText("Turma");
         editStudentPanel.add(editLabelTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 79, -1, -1));
+        editStudentPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 830, 10));
 
         jTabbedPane1.addTab("Editar Informações do Aluno", editStudentPanel);
 
@@ -229,7 +231,7 @@ public class StudentPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 833, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -568,6 +570,7 @@ public class StudentPanel extends javax.swing.JPanel {
     private javax.swing.JTextField email;
     private javax.swing.JTextField father;
     private javax.swing.JComboBox gender;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private static javax.swing.JLabel labelAddress;
     private static javax.swing.JLabel labelBirthday;
