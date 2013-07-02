@@ -48,8 +48,7 @@ public class MainPanel extends javax.swing.JPanel
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        piButton = new javax.swing.JButton();
+        leftBarPanel = new javax.swing.JPanel();
         studentButton = new javax.swing.JButton();
         classButton = new javax.swing.JButton();
         testButton = new javax.swing.JButton();
@@ -67,16 +66,7 @@ public class MainPanel extends javax.swing.JPanel
         testPanel1 = new Interface.TestPanel();
         exportPanel1 = new Interface.ExportPanel();
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        piButton.setText("<html><center>Informações Pessoais</center></html>");
-        piButton.setPreferredSize(new java.awt.Dimension(57, 30));
-        piButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                piButtonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(piButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 145, 70));
+        leftBarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         studentButton.setText("<html><center>Aluno</center></html>");
         studentButton.setPreferredSize(new java.awt.Dimension(57, 30));
@@ -85,7 +75,7 @@ public class MainPanel extends javax.swing.JPanel
                 studentButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(studentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 71, 145, 70));
+        leftBarPanel.add(studentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 145, 75));
 
         classButton.setText("<html><center>Turma</center></html>");
         classButton.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +83,7 @@ public class MainPanel extends javax.swing.JPanel
                 classButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(classButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 142, 145, 70));
+        leftBarPanel.add(classButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 76, 145, 75));
 
         testButton.setText("<html><center>Avaliações</center></html>");
         testButton.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +91,7 @@ public class MainPanel extends javax.swing.JPanel
                 testButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(testButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 213, 145, 70));
+        leftBarPanel.add(testButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 153, 145, 75));
 
         importExportButton.setText("<html>Importar/Exportar</html>");
         importExportButton.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +99,7 @@ public class MainPanel extends javax.swing.JPanel
                 importExportButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(importExportButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 284, 145, 70));
+        leftBarPanel.add(importExportButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 145, 75));
 
         logoutButton.setText("Logout");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +107,7 @@ public class MainPanel extends javax.swing.JPanel
                 logoutButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 497, 145, 38));
+        leftBarPanel.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 461, 145, 75));
 
         sendButton.setText("Enviar");
         sendButton.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +115,7 @@ public class MainPanel extends javax.swing.JPanel
                 sendButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(sendButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 355, 145, 70));
+        leftBarPanel.add(sendButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 307, 145, 75));
 
         jButton1.setText("Ajuda");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +123,7 @@ public class MainPanel extends javax.swing.JPanel
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 426, 145, 70));
+        leftBarPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 384, 145, 75));
 
         displayPanel.setLayout(new java.awt.CardLayout());
         displayPanel.add(welcomePanel1, "cardWelcome");
@@ -150,21 +140,16 @@ public class MainPanel extends javax.swing.JPanel
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(leftBarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(leftBarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void piButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_piButtonActionPerformed
-       CardLayout card = (CardLayout) displayPanel.getLayout();
-       card.show(displayPanel, "cardPersonalInformation");
-    }//GEN-LAST:event_piButtonActionPerformed
 
     private void studentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentButtonActionPerformed
        CardLayout card = (CardLayout) displayPanel.getLayout();
@@ -209,10 +194,9 @@ public class MainPanel extends javax.swing.JPanel
     private javax.swing.JButton importExportButton;
     private Interface.ImportPanel importPanel1;
     private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel leftBarPanel;
     private javax.swing.JButton logoutButton;
     private Interface.PersonalInformationPanel personalInformationPanel1;
-    private javax.swing.JButton piButton;
     private javax.swing.JButton sendButton;
     private Interface.SendPanel sendPanel1;
     private javax.swing.JButton studentButton;
