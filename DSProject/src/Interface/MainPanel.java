@@ -64,7 +64,7 @@ public class MainPanel extends javax.swing.JPanel
         sendPanel1 = new Interface.SendPanel();
         studentPanel1 = new Interface.StudentPanel();
         testPanel1 = new Interface.TestPanel();
-        exportPanel1 = new Interface.ExportPanel();
+        exportPanel1 = new Interface.HelpPanel();
 
         leftBarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -190,7 +190,7 @@ public class MainPanel extends javax.swing.JPanel
     private javax.swing.JButton classButton;
     private Interface.ClassPanel classPanel1;
     private javax.swing.JPanel displayPanel;
-    private Interface.ExportPanel exportPanel1;
+    private Interface.HelpPanel exportPanel1;
     private javax.swing.JButton importExportButton;
     private Interface.ImportPanel importPanel1;
     private javax.swing.JButton jButton1;

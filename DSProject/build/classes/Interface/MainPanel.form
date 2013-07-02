@@ -186,7 +186,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="Interface.ExportPanel" name="exportPanel1">
+        <Component class="Interface.HelpPanel" name="exportPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="cardHelp"/>
