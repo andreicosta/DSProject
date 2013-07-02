@@ -17,6 +17,7 @@ import java.awt.Color;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -292,221 +293,30 @@ public class ClassPanel extends javax.swing.JPanel {
 
    private void listClassesPanelComponentShown(java.awt.event.ComponentEvent evt)//GEN-FIRST:event_listClassesPanelComponentShown
    {//GEN-HEADEREND:event_listClassesPanelComponentShown
-      Object isNull;
-      isNull = listaListaDeTurmas.getSize();
-      int i = 0;
-      
-      if(isTurmaAdicionada() && isNull == 0)
-      {
-         i = 0;
-         
-         if(MainPanel.turmasLidas != null)
-         {
-            while(i < MainPanel.turmasLidas.size())
-            {
-               listaListaDeTurmas.addElement(MainPanel.turmasLidas.get(i).getId());
-               i++;
-            }
-         }
-         
-         setTurmaAdicionada(false);
-         setNumeroDeTurmasAdicionadas(0);
-      }
-      else
-      {
-         if(isTurmaAdicionada() && isNull != 0)
-         {
-            i = (MainPanel.turmasLidas.size() - getNumeroDeTurmasAdicionadas());
-            
-            if(MainPanel.turmasLidas != null)
-            {
-               while(i < MainPanel.turmasLidas.size())
-               {
-                  listaListaDeTurmas.addElement(MainPanel.turmasLidas.get(i).getId());
-                  i++;
-               }
-            }
-            
-            setTurmaAdicionada(false);
-            setNumeroDeTurmasAdicionadas(0);
-         }
-         else
-         {
-            if(isNull == 0)
-            {
-               i = 0;
-               
-               if(MainPanel.turmasLidas != null)
-               {
-                  while(i < MainPanel.turmasLidas.size())
-                  {
-                     listaListaDeTurmas.addElement(MainPanel.turmasLidas.get(i).getId());
-                     i++;
-                  }
-               }
-            }
-         }
-      }
+      Professor tmpProf = Escola.getInstance().getLogado();
+       for (int i = 0; i < tmpProf.getTurmas().size(); i++) {
+           listaListaDeTurmas.addElement(tmpProf.getTurmas().get(i).getId());
+       }
    }//GEN-LAST:event_listClassesPanelComponentShown
 
    private void comboTurmaEditarTurmaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
    {//GEN-HEADEREND:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
-      Object isNull;
-      isNull = comboTurmaEditarTurma.getItemAt(0);
-      int i = 0;
-      
-      if(isTurmaAdicionadaComboTurmaEditarTurmas() && isNull == null)
-      {
-         i = 0;
-         comboTurmaEditarTurma.addItem("");
-         
-         if(MainPanel.turmasLidas != null)
-         {
-            while(i < MainPanel.turmasLidas.size())
-            {
-               comboTurmaEditarTurma.addItem(MainPanel.turmasLidas.get(i).getId());
-               i++;
-            }
-         }
-         
-         setTurmaAdicionadaComboTurmaEditarTurmas(false);
-         setNumeroDeTurmasAdicionadasComboTurmaEditarTurmas(0);
-      }
-      else
-      {
-         if(isTurmaAdicionadaComboTurmaEditarTurmas()&& isNull != null)
-         {
-            i = (MainPanel.turmasLidas.size() - getNumeroDeTurmasAdicionadasComboTurmaEditarTurmas());
-            
-            if(MainPanel.turmasLidas != null)
-            {
-               while(i < MainPanel.turmasLidas.size())
-               {
-                  comboTurmaEditarTurma.addItem(MainPanel.turmasLidas.get(i).getId());
-                  i++;
-               }
-            }
-            
-            setTurmaAdicionadaComboTurmaEditarTurmas(false);
-            setNumeroDeTurmasAdicionadasComboTurmaEditarTurmas(0);
-         }
-         else
-         {
-            if(isNull == null)
-            {
-               i = 0;
-               comboTurmaEditarTurma.addItem("");
-               
-               if(MainPanel.turmasLidas != null)
-               {
-                  while(i < MainPanel.turmasLidas.size())
-                  {
-                     comboTurmaEditarTurma.addItem(MainPanel.turmasLidas.get(i).getId());
-                     i++;
-                  }
-               }
-            }
-         }
+      Professor tmpProf = Escola.getInstance().getLogado();
+      for (int i = 0; i < tmpProf.getTurmas().size(); i++) {
+           comboTurmaEditarTurma.addItem(tmpProf.getTurmas().get(i).getId());
       }
    }//GEN-LAST:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
 
    private void comboTurmaEditarTurmaItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_comboTurmaEditarTurmaItemStateChanged
    {//GEN-HEADEREND:event_comboTurmaEditarTurmaItemStateChanged
-      limpaCamposEditarTurma();
-      int i;
-      int y;
-      Object isNull;
-      isNull = comboRemoverAluno.getItemAt(0);
       
-      if (evt.getStateChange() == 1)
-      {
-         if(evt.getItem().equals(""))
-         {
-            System.out.println("espaço em branco"); 
-         }
-         else
-         {
-            if(isNull == null)
-               comboRemoverAluno.addItem("");
-            i = 0;
-            
-            if(MainPanel.turmasLidas != null)
-            {
-               while(i < MainPanel.turmasLidas.size())
-               {
-                  if(MainPanel.turmasLidas.get(i).getId().equals(evt.getItem().toString()))
-                  {
-                     campoAnoLetivoEditarTurma.setText(String.valueOf(MainPanel.turmasLidas.get(i).getAno()));
-                     for(y = 0; y < MainPanel.turmasLidas.get(i).buscaTodosAlunos().size(); y++)
-                     {
-                        comboRemoverAluno.addItem(MainPanel.turmasLidas.get(i).buscaTodosAlunos().get(y).getNome());
-                     }
-                  }
-                  i++;
-               }
-            }
-         }
-      }
    }//GEN-LAST:event_comboTurmaEditarTurmaItemStateChanged
 
    private void comboTurmaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboTurmaPopupMenuWillBecomeVisible
    {//GEN-HEADEREND:event_comboTurmaPopupMenuWillBecomeVisible
-      Object isNull;
-      isNull = comboTurma.getItemAt(0);
-      int i = 0;
-      
-      if(isTurmaAdicionadaComboTurma() && isNull == null)
-      {
-         i = 0;
-         comboTurma.addItem("");
-         
-         if(MainPanel.turmasLidas != null)
-         {
-            while(i < MainPanel.turmasLidas.size())
-            {
-               comboTurma.addItem(MainPanel.turmasLidas.get(i).getId());
-               i++;
-            }
-         }
-         
-         setTurmaAdicionadaComboTurma(false);
-         setNumeroDeTurmasAdicionadasComboTurma(0);
-      }
-      else
-      {
-         if(isTurmaAdicionadaComboTurma() && isNull != null)
-         {
-            i = (MainPanel.turmasLidas.size() - getNumeroDeTurmasAdicionadasComboTurma());
-            
-            if(MainPanel.turmasLidas != null)
-            {
-               while(i < MainPanel.turmasLidas.size())
-               {
-                  comboTurma.addItem(MainPanel.turmasLidas.get(i).getId());
-                  i++;
-               }
-            }
-            
-            setTurmaAdicionadaComboTurma(false);
-            setNumeroDeTurmasAdicionadasComboTurma(0);
-         }
-         else
-         {
-            if(isNull == null)
-            {
-               i = 0;
-               comboTurma.addItem("");
-               
-               if(MainPanel.turmasLidas != null)
-               {
-                  while(i < MainPanel.turmasLidas.size())
-                  {
-                     comboTurma.addItem(MainPanel.turmasLidas.get(i).getId());
-                     i++;
-                  }
-               }
-            }
-         }
+      Professor tmpProf = Escola.getInstance().getLogado();
+      for (int i = 0; i < tmpProf.getTurmas().size(); i++) {
+           comboTurma.addItem(tmpProf.getTurmas().get(i).getId());
       }
    }//GEN-LAST:event_comboTurmaPopupMenuWillBecomeVisible
 
@@ -515,11 +325,15 @@ public class ClassPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_campoTurmaKeyTyped
 
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
-        //Professor tmpProf = Escola.getinstance();
-       // erroslist = tmpProf.cadastrarTurma(getCampoTurma(), getCampoAnoLetivo());
+        Professor tmpProf = Escola.getInstance().getLogado();
+        erroslist = tmpProf.cadastrarTurma(getCampoTurma(), getCampoAnoLetivo());
+        
         int error;
         if(erroslist.get(0).equals(0)){
             // sem erros - tudo lindo
+            labelTurma.setForeground(Color.black);
+            labelAnoLetivo.setForeground(Color.black);
+            limpaCamposCadastrarTurma();
             return;
         }else{
             for(int i =0 ; i< erroslist.size();i++){
@@ -529,15 +343,12 @@ public class ClassPanel extends javax.swing.JPanel {
                     case(1):
                         //erro cpf
                         labelTurma.setForeground(Color.red);
-                        return;
                     case(2):
                         // error nome
                         labelTurma.setForeground(Color.red);
-                        return;
                     case(3):
                         //error endereço
                         labelAnoLetivo.setForeground(Color.red);
-                        return;
                 }         
             }
         }
@@ -711,32 +522,12 @@ public class ClassPanel extends javax.swing.JPanel {
 
    public static String getCampoTurma()
    {
-      if(campoTurma.getText().isEmpty())
-      {
-         labelTurma.setForeground(Color.red);
-         //JOptionPane.showMessageDialog(null, "Digite um nome para a " + labelTurma.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
-         return null;
-      }
-      else
-      {
-         labelTurma.setForeground(Color.black);
-         return campoTurma.getText();
-      }
+        return campoTurma.getText();
    }
 
    public static String getCampoAnoLetivo()
    {
-      if(campoAnoLetivo.getText().isEmpty())
-      {
-         labelAnoLetivo.setForeground(Color.red);
-         //JOptionPane.showMessageDialog(null, "Digite um " + labelAnoLetivo.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
-         return null;
-      }
-      else
-      {
-         labelAnoLetivo.setForeground(Color.black);
-         return campoAnoLetivo.getText();
-      }
+        return campoAnoLetivo.getText();
    }
    
    public void limpaCamposEditarTurma()
@@ -745,11 +536,9 @@ public class ClassPanel extends javax.swing.JPanel {
       comboRemoverAluno.removeAllItems();
    }
 
-   private void limpaCamposcadastrarTurma()
+   private void limpaCamposCadastrarTurma()
    {
       campoTurma.setText("");
       campoAnoLetivo.setText("");
-      //comboAluno.setSelectedIndex(0);
-      listaAlunosMatriculados.removeAllElements();
    }
 }
