@@ -19,7 +19,6 @@ public final class Aluno extends Pessoa implements Serializable {
     private String email;
     private Turma turma;
     private ArrayList<Avaliacao> avaliacoes;
-    
 
     public Aluno(String nome, Turma turma, Date nascimento, String genero, String endereco, String cidade,
             String nomeMae, String nomePai, String telefone, String celular, String email) {
@@ -29,7 +28,7 @@ public final class Aluno extends Pessoa implements Serializable {
         this.setTelefone(telefone);
         this.setCelular(celular);
         this.setEmail(email);
-        this.turma = turma;
+        this.setTurma(turma);
         this.avaliacoes = new ArrayList<>();
         num_dir = cont;
         cont ++;
@@ -82,7 +81,9 @@ public final class Aluno extends Pessoa implements Serializable {
     }
 
     public void setTurma(Turma turma) {
+        this.turma.removeAluno(this);
         this.turma = turma;
+        this.turma.inserirAluno(this);
     }
     
     public void setNomeDaMae(String nomeDaMae) {
@@ -172,5 +173,4 @@ public final class Aluno extends Pessoa implements Serializable {
     public static void setCont(int n){
         cont = n;
     }
-
 }

@@ -1,23 +1,8 @@
 package Interface;
 
-import com.toedter.calendar.IDateEditor;
-import com.toedter.calendar.JCalendar;
-import com.toedter.calendar.JDateChooser;
-import dsproject.Aluno;
-import dsproject.Turma;
+import dsproject.*;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -28,12 +13,6 @@ public class StudentPanel extends javax.swing.JPanel {
 
     public StudentPanel() {
         initComponents();
-        /*Setar datas maximas e minimas
-this.birthday.setMinSelectableDate(null);
-this.birthday.setMaxSelectableDate(null);
-this.editBirthday.setMinSelectableDate(null);
-this.editBirthday.setMaxSelectableDate(null);
-*/
     }
     
     @SuppressWarnings("unchecked")
@@ -150,6 +129,11 @@ this.editBirthday.setMaxSelectableDate(null);
         newStudentPanel.add(city, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 205, 396, -1));
         newStudentPanel.add(birthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 106, 396, -1));
 
+        turma.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                turmaComponentShown(evt);
+            }
+        });
         newStudentPanel.add(turma, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 73, 396, -1));
 
         labelTurma.setText("Turma");
@@ -189,6 +173,11 @@ this.editBirthday.setMaxSelectableDate(null);
         editStudentPanel.add(editMobile, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 337, 396, -1));
         editStudentPanel.add(editEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 371, 396, -1));
 
+        editName.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                editNameComponentShown(evt);
+            }
+        });
         editStudentPanel.add(editName, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 40, 396, -1));
 
         editSaveButton.setText("Salvar");
@@ -212,6 +201,11 @@ this.editBirthday.setMaxSelectableDate(null);
         editBirthday.setPreferredSize(new java.awt.Dimension(396, 27));
         editStudentPanel.add(editBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 106, -1, -1));
 
+        editTurma.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                editTurmaComponentShown(evt);
+            }
+        });
         editStudentPanel.add(editTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 73, 396, -1));
 
         editLabelTurma.setText("Turma");
@@ -247,7 +241,7 @@ this.editBirthday.setMaxSelectableDate(null);
    {//GEN-HEADEREND:event_createButtonActionPerformed
        flag = false;
        String nameNewStudent = getNameStudent();
-       Turma turma = getTurma();
+       Turma newTurma = getTurma();
        Date newBirthday = getBirthday();
        String newGender = getGender();
        String newAddress = getAddress();
@@ -259,15 +253,9 @@ this.editBirthday.setMaxSelectableDate(null);
        String newEmail = getEmail();
 
        if (!flag) {
-           Aluno student = new Aluno(nameNewStudent, turma, newBirthday, newGender, newAddress, newCity, newMotherName, newFatherName, newTelephone, newMobile, newEmail);
+           Aluno student = new Aluno(nameNewStudent, newTurma, newBirthday, newGender, newAddress, newCity, newMotherName, newFatherName, newTelephone, newMobile, newEmail);
 
-           //ArrayList<Aluno> students = loadStudentData();
-
-           //students.add(student);
-
-           //saveStudentData(students);
-
-           JOptionPane.showMessageDialog(null, "Aluno criado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
+           JOptionPane.showMessageDialog(null, "Aluno "+student.toString()+" criado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
 
            clearNewStudent();
        }
@@ -279,7 +267,6 @@ this.editBirthday.setMaxSelectableDate(null);
             flag = true;
             return null;
         }
-
         labelName.setForeground(Color.black);
         return name.getText();
     }
@@ -290,7 +277,6 @@ this.editBirthday.setMaxSelectableDate(null);
             flag = true;
             return null;
         }
-
         labelBirthday.setForeground(Color.black);
         return birthday.getDate();
     }
@@ -305,7 +291,6 @@ this.editBirthday.setMaxSelectableDate(null);
             flag = true;
             return null;
         }
-
         labelAddress.setForeground(Color.black);
         return address.getText();
     }
@@ -316,7 +301,6 @@ this.editBirthday.setMaxSelectableDate(null);
             flag = true;
             return null;
         }
-
         labelCity.setForeground(Color.black);
         return city.getText();
     }
@@ -327,7 +311,6 @@ this.editBirthday.setMaxSelectableDate(null);
             flag = true;
             return null;
         }
-
         labelMother.setForeground(Color.black);
         return mother.getText();
     }
@@ -340,7 +323,6 @@ this.editBirthday.setMaxSelectableDate(null);
         }
         labelFather.setForeground(Color.black);
         return father.getText();
-
     }
 
     private String getTelephone() {
@@ -367,12 +349,16 @@ this.editBirthday.setMaxSelectableDate(null);
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void editComboNameItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_editComboNameItemStateChanged
-        /*if (student == null){
+        Aluno student = (Aluno) this.editName.getSelectedItem();
+        
+        if (student == null){
             clearEditStudent();
             return;
         }
         
         this.editBirthday.setDate(student.getBirthday());
+        this.editTurma.addItem(student.getTurma());
+        this.editTurma.setSelectedIndex(0);
         this.editGender.setSelectedItem(student.getGenero());
         this.editAddress.setText(student.getEndereco());
         this.editCity.setText(student.getCidade());
@@ -380,24 +366,13 @@ this.editBirthday.setMaxSelectableDate(null);
         this.editFather.setText(student.getNomeDoPai());
         this.editTelephone.setText(student.getTelefone());
         this.editMobile.setText(student.getCelular());
-        this.editEmail.setText(student.getEmail());*/
+        this.editEmail.setText(student.getEmail());
     }//GEN-LAST:event_editComboNameItemStateChanged
 
-    private Aluno getEditStudent(){
-        Aluno temp = (Aluno) this.editName.getSelectedItem();
-        if (temp == null){
-            this.editLabelName.setForeground(Color.red);
-            flag = true;
-            return null;
-        }
-        this.editLabelName.setForeground(Color.black);
-        return temp;
-    }
-    
     private void editSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSaveButtonActionPerformed
         flag = false;
         Aluno student = getEditStudent();
-        Turma turma = getEditTurma();
+        Turma newTurma = getEditTurma();
         Date newBirthday = getEditBirthday();
         String newGender = getEditGender();
         String newAddress = getEditAddress();
@@ -409,22 +384,16 @@ this.editBirthday.setMaxSelectableDate(null);
         String newEmail = getEditEmail();
         
         if (!flag) {
-
-            /*for (Aluno i : students) {
-                if (i.equals(student)) {
-                    i.setDataDenascimento(newBirthday);
-                    i.setGenero(newGender);
-                    i.setEndereco(newAddress);
-                    i.setCidade(newCity);
-                    i.setEstado(newState);
-                    i.setNomeDaMae(newMotherName);
-                    i.setNomeDoPai(newFatherName);
-                    i.setTelefone(newTelephone);
-                    i.setCelular(newMobile);
-                    i.setEmail(newEmail);
-                    break;
-                }
-            }*/
+            student.setTurma(newTurma);
+            student.setDataDenascimento(newBirthday);
+            student.setGenero(newGender);
+            student.setEndereco(newAddress);
+            student.setCidade(newCity);
+            student.setNomeDaMae(newMotherName);
+            student.setNomeDoPai(newFatherName);
+            student.setTelefone(newTelephone);
+            student.setCelular(newMobile);
+            student.setEmail(newEmail);
 
             JOptionPane.showMessageDialog(null, "Aluno editado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
 
@@ -433,13 +402,51 @@ this.editBirthday.setMaxSelectableDate(null);
     }//GEN-LAST:event_editSaveButtonActionPerformed
 
     private void editStudentComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_editStudentComponentShown
-        this.editName.removeAllItems();
     }//GEN-LAST:event_editStudentComponentShown
 
     private void deleteStudentComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_deleteStudentComponentShown
         this.deleteCombo.removeAllItems();
+        for (Turma i : Escola.getInstance().getProfessorLogado().getTurmas()) {
+            for (Aluno j : i.buscaTodosAlunos()) {
+                this.deleteCombo.addItem(j);
+            }
+        }
     }//GEN-LAST:event_deleteStudentComponentShown
 
+    private void turmaComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_turmaComponentShown
+        this.turma.removeAllItems();
+        for(Turma i:Escola.getInstance().getProfessorLogado().getTurmas()){
+            this.turma.addItem(i);
+        }
+    }//GEN-LAST:event_turmaComponentShown
+
+    private void editNameComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_editNameComponentShown
+        this.editName.removeAllItems();
+        for(Turma i:Escola.getInstance().getProfessorLogado().getTurmas()){
+            for(Aluno j:i.buscaTodosAlunos()){
+                this.editName.addItem(j);
+            }
+        }
+    }//GEN-LAST:event_editNameComponentShown
+
+    private void editTurmaComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_editTurmaComponentShown
+        this.editTurma.removeAllItems();
+        for(Turma i:Escola.getInstance().getProfessorLogado().getTurmas()){
+            this.editTurma.addItem(i);
+        }
+    }//GEN-LAST:event_editTurmaComponentShown
+
+    private Aluno getEditStudent(){
+        Aluno temp = (Aluno) this.editName.getSelectedItem();
+        if (temp == null){
+            this.editLabelName.setForeground(Color.red);
+            flag = true;
+            return null;
+        }
+        this.editLabelName.setForeground(Color.black);
+        return temp;
+    }    
+    
     private Turma getTurma() {
         if (turma.getSelectedItem() == null){
             labelTurma.setForeground(Color.red);
