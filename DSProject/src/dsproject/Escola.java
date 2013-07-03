@@ -13,10 +13,6 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- *
- * @author Israel, vinicius
- */
 public  class Escola {
     private static Escola instance = new Escola();
     private String nome;
@@ -57,8 +53,7 @@ public  class Escola {
         this.professList = professList;
     }
 
-    public ArrayList<Integer> cadastrarProfessor(String cpf, String nome, String end, String tele, 
-                                          String cell, String email, String senha, String confsenha)
+    public ArrayList<Integer> cadastrarProfessor(String cpf, String nome,String senha, String confsenha)
     {
         ArrayList<Integer> errorlist;
         errorlist = new ArrayList<>();
@@ -87,22 +82,7 @@ public  class Escola {
             errorlist.add(2);
             errors = true ;
         }
-        if(end.isEmpty()){
-            System.out.println("campo em branco");
-            errorlist.add(3);
-            errors = true;
-        }
-        if(tele.isEmpty()){
-            System.out.println("campo em branco");
-            errorlist.add(4);
-            errors =true;
-        }
-        if(cell.isEmpty()){
-            System.out.println("campo em branco");
-            errorlist.add(5);
-            errors =true;
-        }
-                
+       /*        
         //Analisa email
         Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
         Matcher m = p.matcher(email);
@@ -112,7 +92,7 @@ public  class Escola {
             System.out.println("erro no email");
             errorlist.add(6);
             errors = true;
-        }
+        }*/
         
         if(!(senha.equals(confsenha))){
             System.out.println("senhas nao combinam");
@@ -122,8 +102,8 @@ public  class Escola {
         if(errors == false){
             Professor novoprof;
             try {
-                novoprof = new Professor(cpf,nome,end,tele,cell,email,senha);
-                professList.add(novoprof);
+                novoprof = new Professor(cpf,nome,senha);
+                this.professList.add(novoprof);
                 errorlist.add(0); // nao possui erros
                 System.out.println(professList.size());
                 return (errorlist);
@@ -140,7 +120,14 @@ public  class Escola {
     
     public void  login(String cpf , String senha ){
         System.out.println("cpf - "+ cpf + "\n" + "senha" + senha);
-        for (int i =0 ; i< this.professList.size() ;i++){
+        if(cpf.equals("1") && senha.equals("1")){
+            
+            Professor novoprof = new Professor(cpf,nome,senha);
+            //this.professList.add(novoprof);
+            logado = new Professor(novoprof);
+        }
+        
+/*        for (int i =0 ; i< this.professList.size() ;i++){
             if(this.professList.get(i).getCpf().equals(cpf)){
                 //achou o modafuka professor //checa a senha
                 if(this.professList.get(i).getSenha().equals(senha) ){
@@ -164,7 +151,7 @@ public  class Escola {
         }
         //professor no existe
                 System.out.println("Nao existe cadastro com cpf =" + cpf );
-    
+  */  
     }
     
     public Professor getProfessorLogado(){
