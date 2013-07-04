@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JFrame;  
 import javax.swing.JFormattedTextField;  
+import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter; 
 
 /**
@@ -24,7 +25,11 @@ public class NewTeacherPanel extends javax.swing.JPanel {
     /**
      * Creates new form NewTeacherPanel
      */
+<<<<<<< HEAD
     public NewTeacherPanel() {
+=======
+    public NewTeacherPanel()  {
+>>>>>>> 5f95eb8927651a9138268c9f63d43167613d34ab
         initComponents();
        // cpfmask = new MaskFormatter("###.###.###-##");
        // campoFormatadoCpf =  new JFormattedTextField(cpfmask);
@@ -106,6 +111,7 @@ public class NewTeacherPanel extends javax.swing.JPanel {
         });
         jPanel1.add(voltarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 201, 85, -1));
 
+        campoFormatadoCpf.setFormatterFactory(setFormatoData());
         campoFormatadoCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoFormatadoCpfActionPerformed(evt);
@@ -148,7 +154,7 @@ public class NewTeacherPanel extends javax.swing.JPanel {
         char[] confirmPassword = campoPasswordConfirmarSenha.getPassword();
         String strPassword = new String(password);
         String strConfirmPassword = new String(confirmPassword);
-        
+        System.out.println("cpf cadastro -"+campoFormatadoCpf.getText());
         erroscadlist = Escola.getInstance().cadastrarProfessor(campoFormatadoCpf.getText(), campoNomeCompleto.getText(), strPassword, 
                                                                strConfirmPassword);
         
@@ -195,7 +201,7 @@ public class NewTeacherPanel extends javax.swing.JPanel {
 
    private void campoFormatadoCpfKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_campoFormatadoCpfKeyTyped
    {//GEN-HEADEREND:event_campoFormatadoCpfKeyTyped
-      if(!Character.isDigit(evt.getKeyChar()))
+    /*  if(!Character.isDigit(evt.getKeyChar()))
       {
          evt.setKeyChar('\0');
       }
@@ -204,7 +210,7 @@ public class NewTeacherPanel extends javax.swing.JPanel {
           String textoCampo = campoFormatadoCpf.getText();
           if(textoCampo.length() > 10)
               evt.setKeyChar('\0');
-      }
+      }*/
    }//GEN-LAST:event_campoFormatadoCpfKeyTyped
 
    private void campoNomeCompletoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_campoNomeCompletoKeyTyped
@@ -258,5 +264,16 @@ public class NewTeacherPanel extends javax.swing.JPanel {
    {
       return labelSenha;
    }
+   public static DefaultFormatterFactory setFormatoData()  
+{  
+    MaskFormatter comFoco = null;  
+    try   
+    {   
+        comFoco = new MaskFormatter("###.###.###-##");  
+    }   
+    catch (Exception pe) { }  
+    DefaultFormatterFactory factory = new DefaultFormatterFactory(comFoco, comFoco);  
+    return factory;  
+}  
    
 }
