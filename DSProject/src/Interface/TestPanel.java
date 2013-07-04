@@ -6,6 +6,12 @@ package Interface;
 
 import dsproject.Aluno;
 import java.awt.Color;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
@@ -15,6 +21,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -37,6 +44,30 @@ public class TestPanel extends javax.swing.JPanel
         }*/
         
         initComponents();
+        TestPanel.fieldTestDate.getDateEditor().getUiComponent().addFocusListener(new FocusListener() {
+
+            @Override
+            public void focusGained(FocusEvent e) {
+                ;
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if(getCampoDataDaAvaliacao() == null){
+                    labelDataDaAvaliacao.setForeground(Color.red);
+                }
+                else{
+                    labelDataDaAvaliacao.setForeground(Color.black);
+                    for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+                     {
+                        if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
+                        {
+                           MainPanel.alunosLidos.get(i).getLastAvaliation().setData(getCampoDataDaAvaliacao());
+                        }
+                     }
+                }
+            }
+        });
     }
 
     /**
@@ -122,9 +153,9 @@ public class TestPanel extends javax.swing.JPanel
         newEditPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         comboTurma.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-            }
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
                 comboTurmaPopupMenuWillBecomeVisible(evt);
@@ -135,8 +166,18 @@ public class TestPanel extends javax.swing.JPanel
                 comboTurmaItemStateChanged(evt);
             }
         });
+        comboTurma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboTurmaActionPerformed(evt);
+            }
+        });
         newEditPanel.add(comboTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 18, 210, -1));
 
+        comboNomeDoAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboNomeDoAlunoActionPerformed(evt);
+            }
+        });
         newEditPanel.add(comboNomeDoAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 18, 350, -1));
 
         labelTurma.setText("Turma");
@@ -148,7 +189,26 @@ public class TestPanel extends javax.swing.JPanel
 
         labelDataDaAvaliacao.setText("Data da Avaliação");
         newEditPanel.add(labelDataDaAvaliacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 79, -1, -1));
+
+        fieldTestDate.setFocusable(false);
+        fieldTestDate.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldTestDateFocusLost(evt);
+            }
+        });
+        fieldTestDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                fieldTestDatePropertyChange(evt);
+            }
+        });
+        fieldTestDate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldTestDateKeyTyped(evt);
+            }
+        });
         newEditPanel.add(fieldTestDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 69, 180, -1));
+        fieldTestDate.getAccessibleContext().setAccessibleDescription("");
+
         newEditPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 329, 801, -1));
 
         jLabel4.setText("Saúde");
@@ -161,6 +221,11 @@ public class TestPanel extends javax.swing.JPanel
         labelTemperatura.setText("Temperatura");
         newEditPanel.add(labelTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 74, -1, -1));
 
+        fieldTemperature.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldTemperatureFocusLost(evt);
+            }
+        });
         fieldTemperature.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldTemperatureKeyTyped(evt);
@@ -182,8 +247,24 @@ public class TestPanel extends javax.swing.JPanel
 
         labelSitAndAchieve.setText("Sentar-e-Alcançar");
         newEditPanel.add(labelSitAndAchieve, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 186, -1, -1));
+
+        fieldSitAndAchieve.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldSitAndAchieveFocusLost(evt);
+            }
+        });
+        fieldSitAndAchieve.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldSitAndAchieveKeyTyped(evt);
+            }
+        });
         newEditPanel.add(fieldSitAndAchieve, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 181, 80, -1));
 
+        fieldSpread.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldSpreadFocusLost(evt);
+            }
+        });
         fieldSpread.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldSpreadKeyTyped(evt);
@@ -191,6 +272,11 @@ public class TestPanel extends javax.swing.JPanel
         });
         newEditPanel.add(fieldSpread, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 259, 80, -1));
 
+        fieldHeight.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldHeightFocusLost(evt);
+            }
+        });
         fieldHeight.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldHeightKeyTyped(evt);
@@ -198,6 +284,16 @@ public class TestPanel extends javax.swing.JPanel
         });
         newEditPanel.add(fieldHeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 181, 80, -1));
 
+        fieldBodyMass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fieldBodyMassMouseClicked(evt);
+            }
+        });
+        fieldBodyMass.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldBodyMassFocusLost(evt);
+            }
+        });
         fieldBodyMass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldBodyMassKeyTyped(evt);
@@ -207,6 +303,11 @@ public class TestPanel extends javax.swing.JPanel
 
         radioSitAndAchieveWithSeat.setText("Com Banco");
         radioSitAndAchieveWithSeat.setSelected(true);
+        radioSitAndAchieveWithSeat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioSitAndAchieveWithSeatActionPerformed(evt);
+            }
+        });
         newEditPanel.add(radioSitAndAchieveWithSeat, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 182, -1, -1));
 
         radioSitAndAchieveWithoutSeat.setText("Sem Banco");
@@ -215,6 +316,11 @@ public class TestPanel extends javax.swing.JPanel
         labelSitUp.setText("Abdominal");
         newEditPanel.add(labelSitUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 147, -1, -1));
 
+        fieldSitUp.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldSitUpFocusLost(evt);
+            }
+        });
         fieldSitUp.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldSitUpKeyTyped(evt);
@@ -224,13 +330,34 @@ public class TestPanel extends javax.swing.JPanel
 
         labelRun.setText("Corrida");
         newEditPanel.add(labelRun, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 225, -1, -1));
+
+        fieldRun.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldRunFocusLost(evt);
+            }
+        });
+        fieldRun.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldRunKeyTyped(evt);
+            }
+        });
         newEditPanel.add(fieldRun, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 220, 80, -1));
 
         radio6Minutes.setText("6 minutos");
         radio6Minutes.setSelected(true);
+        radio6Minutes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radio6MinutesActionPerformed(evt);
+            }
+        });
         newEditPanel.add(radio6Minutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 221, -1, -1));
 
         radio9Minutes.setText("9 minutos");
+        radio9Minutes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radio9MinutesActionPerformed(evt);
+            }
+        });
         newEditPanel.add(radio9Minutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(698, 221, -1, -1));
 
         jLabel14.setText("Kg");
@@ -262,9 +389,53 @@ public class TestPanel extends javax.swing.JPanel
 
         label20MetersRun.setText("Corrida de 20 metros");
         newEditPanel.add(label20MetersRun, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 391, -1, -1));
+
+        field20MetersRun.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                field20MetersRunFocusLost(evt);
+            }
+        });
+        field20MetersRun.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                field20MetersRunKeyTyped(evt);
+            }
+        });
         newEditPanel.add(field20MetersRun, new org.netbeans.lib.awtextra.AbsoluteConstraints(585, 386, 80, -1));
+
+        fiedlSquareTest.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fiedlSquareTestFocusLost(evt);
+            }
+        });
+        fiedlSquareTest.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fiedlSquareTestKeyTyped(evt);
+            }
+        });
         newEditPanel.add(fiedlSquareTest, new org.netbeans.lib.awtextra.AbsoluteConstraints(585, 341, 80, -1));
+
+        fieldHorizontalJump.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldHorizontalJumpFocusLost(evt);
+            }
+        });
+        fieldHorizontalJump.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldHorizontalJumpKeyTyped(evt);
+            }
+        });
         newEditPanel.add(fieldHorizontalJump, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 341, 80, -1));
+
+        fieldThrowOfMedicineBall.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldThrowOfMedicineBallFocusLost(evt);
+            }
+        });
+        fieldThrowOfMedicineBall.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fieldThrowOfMedicineBallKeyTyped(evt);
+            }
+        });
         newEditPanel.add(fieldThrowOfMedicineBall, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 386, 80, -1));
 
         jLabel24.setText("cm");
@@ -291,6 +462,11 @@ public class TestPanel extends javax.swing.JPanel
         labelHorario.setText("Horário");
         newEditPanel.add(labelHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 74, -1, -1));
 
+        fieldTime.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldTimeFocusLost(evt);
+            }
+        });
         fieldTime.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldTimeKeyTyped(evt);
@@ -301,6 +477,11 @@ public class TestPanel extends javax.swing.JPanel
         labelIMC.setText("IMC");
         newEditPanel.add(labelIMC, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 225, -1, -1));
 
+        fieldIMC.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldIMCFocusLost(evt);
+            }
+        });
         fieldIMC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldIMCKeyTyped(evt);
@@ -361,7 +542,7 @@ public class TestPanel extends javax.swing.JPanel
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 809, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -369,7 +550,7 @@ public class TestPanel extends javax.swing.JPanel
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -402,14 +583,14 @@ public class TestPanel extends javax.swing.JPanel
          if(dataDaAvaliacao != null && horaDaAvaliacaoString != null && temperatura != null)
          {
             //testa se foi digitado uma hora mais : mais minutos
-            if(horaDaAvaliacaoString.length() != 5)
+            String splitedTime[] = horaDaAvaliacaoString.split(":");
+            if(horaDaAvaliacaoString.length() != 5 || splitedTime.length == 1)
             {
                JOptionPane.showMessageDialog(null, "Digite um horario correto", "Erro", JOptionPane.ERROR_MESSAGE);
             }
             else
             {
                //pega o que esta antes e depois dos dois pontos e põe no vetor horarioDividido
-               String splitedTime[] = horaDaAvaliacaoString.split(":");
                //testa se a hora é maior que 23
                if(Integer.parseInt(splitedTime[0]) > 23)
                {
@@ -443,7 +624,7 @@ public class TestPanel extends javax.swing.JPanel
                      horaDaAvaliacao = formatoDaHora.parse(horaDaAvaliacaoString);
 
                      //dsproject.Aluno aluno = new dsproject.Aluno("Maria", "Joao", null, null, null, null, "Miguel", sqlDataDeNascimento, "sdfgdfsg", "Masculino", "Pelotas", "RS");
-                     MainPanel.alunosLidos.get(y).inserirAvaliacao(sqlDataDaAvaliacao, horaDaAvaliacaoString, temperatura);
+                     MainPanel.alunosLidos.get(y).inserirAvaliacao();
                      //{
                         
                         // daqui até o catch salva objeto aluno
@@ -600,7 +781,7 @@ public class TestPanel extends javax.swing.JPanel
       else
       {
          String textoCampo = fieldSitUp.getText();
-         if(textoCampo.length() > 2)
+         if(textoCampo.length() > 4)
             evt.setKeyChar('\0');
       }
    }//GEN-LAST:event_fieldSitUpKeyTyped
@@ -756,6 +937,302 @@ public class TestPanel extends javax.swing.JPanel
       }
    }//GEN-LAST:event_comboTurmaItemStateChanged
 
+    private void comboTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTurmaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboTurmaActionPerformed
+
+    private void comboNomeDoAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNomeDoAlunoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboNomeDoAlunoActionPerformed
+
+    private void fieldBodyMassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldBodyMassMouseClicked
+
+    }//GEN-LAST:event_fieldBodyMassMouseClicked
+
+    private void fieldBodyMassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldBodyMassFocusLost
+        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+        {
+            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
+            {
+                MainPanel.alunosLidos.get(i).getLastAvaliation().setMassaCorporal(getCampoMassaCorporal());
+            }
+        }
+    }//GEN-LAST:event_fieldBodyMassFocusLost
+
+    private void fieldSitAndAchieveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldSitAndAchieveKeyTyped
+      if(!Character.isDigit(evt.getKeyChar()))
+      {
+         evt.setKeyChar('\0');
+      }
+      else
+      {
+         String textoCampo = fieldSitAndAchieve.getText();
+         if(textoCampo.length() > 2)
+            evt.setKeyChar('\0');
+      }
+    }//GEN-LAST:event_fieldSitAndAchieveKeyTyped
+
+    private void fieldRunKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldRunKeyTyped
+      if(!Character.isDigit(evt.getKeyChar()))
+      {
+         evt.setKeyChar('\0');
+      }
+      else
+      {
+         String textoCampo = fieldRun.getText();
+         if(textoCampo.length() > 2)
+            evt.setKeyChar('\0');
+      }
+    }//GEN-LAST:event_fieldRunKeyTyped
+
+    private void fieldHorizontalJumpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldHorizontalJumpKeyTyped
+      if(!Character.isDigit(evt.getKeyChar()))
+      {
+         evt.setKeyChar('\0');
+      }
+      else
+      {
+         String textoCampo = fieldHorizontalJump.getText();
+         if(textoCampo.length() > 3)
+            evt.setKeyChar('\0');
+      }
+    }//GEN-LAST:event_fieldHorizontalJumpKeyTyped
+
+    private void fieldThrowOfMedicineBallKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldThrowOfMedicineBallKeyTyped
+      if(!Character.isDigit(evt.getKeyChar()))
+      {
+         evt.setKeyChar('\0');
+      }
+      else
+      {
+         String textoCampo = fieldThrowOfMedicineBall.getText();
+         if(textoCampo.length() > 3)
+            evt.setKeyChar('\0');
+      }
+    }//GEN-LAST:event_fieldThrowOfMedicineBallKeyTyped
+
+    private void fiedlSquareTestKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fiedlSquareTestKeyTyped
+      if(!Character.isDigit(evt.getKeyChar()))
+      {
+         evt.setKeyChar('\0');
+      }
+      else
+      {
+         String textoCampo = fiedlSquareTest.getText();
+         if(textoCampo.length() > 4)
+            evt.setKeyChar('\0');
+      }
+    }//GEN-LAST:event_fiedlSquareTestKeyTyped
+
+    private void field20MetersRunKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_field20MetersRunKeyTyped
+      if(!Character.isDigit(evt.getKeyChar()))
+      {
+         evt.setKeyChar('\0');
+      }
+      else
+      {
+         String textoCampo = field20MetersRun.getText();
+         if(textoCampo.length() > 4)
+            evt.setKeyChar('\0');
+      }
+    }//GEN-LAST:event_field20MetersRunKeyTyped
+
+    private void fieldTestDateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldTestDateFocusLost
+
+    }//GEN-LAST:event_fieldTestDateFocusLost
+
+    private void fieldTestDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fieldTestDatePropertyChange
+        if(getCampoDataDaAvaliacao() != null){
+            labelDataDaAvaliacao.setForeground(Color.black);
+            for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+            {
+                if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
+                {
+                    MainPanel.alunosLidos.get(i).getLastAvaliation().setData(getCampoDataDaAvaliacao());
+                }
+            }
+        }
+    }//GEN-LAST:event_fieldTestDatePropertyChange
+
+    private void fieldTestDateKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldTestDateKeyTyped
+
+    }//GEN-LAST:event_fieldTestDateKeyTyped
+
+    private void fieldTimeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldTimeFocusLost
+        String horaDaAvaliacaoString = getCampoHora();
+        boolean Error = false;
+        if (getCampoHora() != null){
+            String splitedTime[] = horaDaAvaliacaoString.split(":");
+            //pega o que esta antes e depois dos dois pontos e põe no vetor horarioDividido
+            if(horaDaAvaliacaoString.length() != 5 || splitedTime.length == 1)
+            {
+                Error = true;
+            }
+            else if(Integer.parseInt(splitedTime[0]) > 23 || Integer.parseInt(splitedTime[1]) > 59)
+            {
+                Error = true;
+            }
+        }
+        if(getCampoHora() == null || Error == true){
+            fieldTime.setForeground(Color.red);
+            labelHorario.setForeground(Color.red);
+        }
+        else{
+            fieldTime.setForeground(Color.black);
+            labelHorario.setForeground(Color.black);
+            for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+            {
+                if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
+                {
+                    MainPanel.alunosLidos.get(i).getLastAvaliation().setHorario(getCampoHora());
+                }
+            }
+        }
+    }//GEN-LAST:event_fieldTimeFocusLost
+
+    private void fieldTemperatureFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldTemperatureFocusLost
+        if(getCampoTemperatura() == null){
+            labelTemperatura.setForeground(Color.red);
+            fieldTemperature.setForeground(Color.red);
+        }
+        else{
+            labelTemperatura.setForeground(Color.black);
+            fieldTemperature.setForeground(Color.black);
+            for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+            {
+                if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
+                {
+                    MainPanel.alunosLidos.get(i).getLastAvaliation().setTemperatura(getCampoTemperatura());
+                }
+            }
+        }
+    }//GEN-LAST:event_fieldTemperatureFocusLost
+
+    private void fieldHeightFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldHeightFocusLost
+        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+        {
+            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
+            {
+                MainPanel.alunosLidos.get(i).getLastAvaliation().setEstatura(getCampoEstatura());
+            }
+        }
+    }//GEN-LAST:event_fieldHeightFocusLost
+
+    private void fieldIMCFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldIMCFocusLost
+        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+        {
+            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
+            {
+                MainPanel.alunosLidos.get(i).getLastAvaliation().setIMC(getCampoIMC());
+            }
+        }
+    }//GEN-LAST:event_fieldIMCFocusLost
+
+    private void fieldSpreadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldSpreadFocusLost
+        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+        {
+            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
+            {
+                MainPanel.alunosLidos.get(i).getLastAvaliation().setEnvergadura(getCampoEnvergadura());
+            }
+        }
+    }//GEN-LAST:event_fieldSpreadFocusLost
+
+    private void fieldSitUpFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldSitUpFocusLost
+        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+        {
+            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
+            {
+                MainPanel.alunosLidos.get(i).getLastAvaliation().setAbdominal(getCampoAbdominal());
+            }
+        }
+    }//GEN-LAST:event_fieldSitUpFocusLost
+
+    private void fieldSitAndAchieveFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldSitAndAchieveFocusLost
+        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+        {
+            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
+            {
+                MainPanel.alunosLidos.get(i).getLastAvaliation().setSentarEAlcancar(getCampoSentarEAlcancar());
+            }
+        }
+    }//GEN-LAST:event_fieldSitAndAchieveFocusLost
+
+    private void fieldRunFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldRunFocusLost
+        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+        {
+            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
+            {
+                if(getRadio6Minutos()){
+                    MainPanel.alunosLidos.get(i).getLastAvaliation().set6Minutos(getCampoCorrida6Ou9Minutos());
+                    MainPanel.alunosLidos.get(i).getLastAvaliation().set9Minutos(-1);
+                }
+                else{
+                    MainPanel.alunosLidos.get(i).getLastAvaliation().set6Minutos(-1);
+                    MainPanel.alunosLidos.get(i).getLastAvaliation().set9Minutos(getCampoCorrida6Ou9Minutos());
+                }
+            }
+        }
+    }//GEN-LAST:event_fieldRunFocusLost
+
+    private void fieldHorizontalJumpFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldHorizontalJumpFocusLost
+        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+        {
+            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
+            {
+                MainPanel.alunosLidos.get(i).getLastAvaliation().setSaltoHorizontal(getCampoSaltoHorizontal());
+            }
+        }
+    }//GEN-LAST:event_fieldHorizontalJumpFocusLost
+
+    private void fieldThrowOfMedicineBallFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldThrowOfMedicineBallFocusLost
+        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+        {
+            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
+            {
+                MainPanel.alunosLidos.get(i).getLastAvaliation().setArremessoMedicineBall(getCampoArremessoDeMedicineBall());
+            }
+        }
+    }//GEN-LAST:event_fieldThrowOfMedicineBallFocusLost
+
+    private void fiedlSquareTestFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fiedlSquareTestFocusLost
+        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+        {
+            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
+            {
+                MainPanel.alunosLidos.get(i).getLastAvaliation().setCorrida20Metros(getCampoCorridaDe20Metros());
+            }
+        }
+    }//GEN-LAST:event_fiedlSquareTestFocusLost
+
+    private void field20MetersRunFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_field20MetersRunFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_field20MetersRunFocusLost
+
+    private void radioSitAndAchieveWithSeatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioSitAndAchieveWithSeatActionPerformed
+
+    }//GEN-LAST:event_radioSitAndAchieveWithSeatActionPerformed
+
+    private void radio6MinutesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio6MinutesActionPerformed
+        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+        {
+            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
+            {
+                MainPanel.alunosLidos.get(i).getLastAvaliation().setSentarEAlcancarComBanco(true);
+            }
+        }
+    }//GEN-LAST:event_radio6MinutesActionPerformed
+
+    private void radio9MinutesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio9MinutesActionPerformed
+        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
+        {
+            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
+            {
+                MainPanel.alunosLidos.get(i).getLastAvaliation().setSentarEAlcancarComBanco(false);
+            }
+        }
+    }//GEN-LAST:event_radio9MinutesActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonSave;
     private javax.swing.ButtonGroup chairButtonGroup;
@@ -868,13 +1345,13 @@ public class TestPanel extends javax.swing.JPanel
    {
       if(fieldTestDate.getDate() == null)
       {
-         labelDataDaAvaliacao.setForeground(Color.red);
+         //labelDataDaAvaliacao.setForeground(Color.red);
          //JOptionPane.showMessageDialog(null, "Escolha uma " + labelDataDaAvaliacao.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
       }
       else
       {
-         labelDataDaAvaliacao.setForeground(Color.black);
+         //labelDataDaAvaliacao.setForeground(Color.black);
          return fieldTestDate.getDate();
       }
    }
@@ -883,7 +1360,7 @@ public class TestPanel extends javax.swing.JPanel
    {
       if(fieldTime.getText().isEmpty())
       {
-          labelHorario.setForeground(Color.red);
+         //labelHorario.setForeground(Color.red);
          //JOptionPane.showMessageDialog(null, "Digite um " + labelHorario.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
       }
@@ -897,13 +1374,13 @@ public class TestPanel extends javax.swing.JPanel
    {
       if(fieldTemperature.getText().isEmpty())
       {
-         labelTemperatura.setForeground(Color.red);
+         //labelTemperatura.setForeground(Color.red);
          //JOptionPane.showMessageDialog(null, "Digite uma " + labelTemperatura.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
          return null;
       }
       else
       {
-         labelTemperatura.setForeground(Color.black);
+         //labelTemperatura.setForeground(Color.black);
          return fieldTemperature.getText();
       }
    }

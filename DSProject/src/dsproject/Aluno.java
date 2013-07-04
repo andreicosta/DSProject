@@ -32,13 +32,14 @@ public final class Aluno extends Pessoa implements Serializable {
         this.avaliacoes = new ArrayList<>();
         num_dir = cont;
         cont ++;
+        
+        Avaliacao avaliacao = new Avaliacao();
+        this.addAvaliacao(avaliacao);
     }
 
-    public boolean inserirAvaliacao(java.sql.Date dataDaAvaliacao, String horaDaAvaliacao, String temperatura) {
-      Avaliacao avaliacao = new Avaliacao();
-      if (avaliacao.isSalvar()){
+    public boolean inserirAvaliacao() {        
+        Avaliacao avaliacao = new Avaliacao();
         this.addAvaliacao(avaliacao);
-      }
         return true;
     }
 
