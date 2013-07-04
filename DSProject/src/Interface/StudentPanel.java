@@ -133,10 +133,10 @@ public class StudentPanel extends javax.swing.JPanel {
         turma.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-            }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
                 turmaPopupMenuWillBecomeVisible(evt);
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
             }
         });
         newStudentPanel.add(turma, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 73, 396, -1));
@@ -181,15 +181,15 @@ public class StudentPanel extends javax.swing.JPanel {
         editName.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-            }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
                 editNamePopupMenuWillBecomeVisible(evt);
             }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+            }
         });
-        editName.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                editNameComponentShown(evt);
+        editName.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                editNameItemStateChanged(evt);
             }
         });
         editStudentPanel.add(editName, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 30, 396, -1));
@@ -218,10 +218,10 @@ public class StudentPanel extends javax.swing.JPanel {
         editTurma.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-            }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
                 editTurmaPopupMenuWillBecomeVisible(evt);
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
             }
         });
         editStudentPanel.add(editTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 73, 396, -1));
@@ -240,15 +240,20 @@ public class StudentPanel extends javax.swing.JPanel {
         deleteCombo.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
-            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
-            }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
                 deleteComboPopupMenuWillBecomeVisible(evt);
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
             }
         });
         deleteStudentPanel.add(deleteCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 536, -1));
 
         deleteButton.setText("Excluir");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
         deleteStudentPanel.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 80, 90, -1));
 
         jTabbedPane1.addTab("Excluir Cadastro do Aluno", deleteStudentPanel);
@@ -282,8 +287,9 @@ public class StudentPanel extends javax.swing.JPanel {
        
        if (!flag) {
            Aluno student = new Aluno(nameNewStudent, newTurma, newBirthday, newGender, newAddress, newCity, newMotherName, newFatherName, newTelephone, newMobile, newEmail);
-
+           
            if (newTurma == null) {
+               //Por em turma default
            } else {
                newTurma.inserirAluno(student);
            }
@@ -380,27 +386,6 @@ public class StudentPanel extends javax.swing.JPanel {
        }
    }//GEN-LAST:event_deleteComboPopupMenuWillBecomeVisible
 
-    private void editComboNameItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_editComboNameItemStateChanged
-        Aluno student = (Aluno) this.editName.getSelectedItem();
-        
-        if (student == null){
-            clearEditStudent();
-            return;
-        }
-        
-        this.editBirthday.setDate(student.getBirthday());
-        this.editTurma.addItem(student.getTurma());
-        this.editTurma.setSelectedIndex(0);
-        this.editGender.setSelectedItem(student.getGenero());
-        this.editAddress.setText(student.getEndereco());
-        this.editCity.setText(student.getCidade());
-        this.editMother.setText(student.getNomeDaMae());
-        this.editFather.setText(student.getNomeDoPai());
-        this.editTelephone.setText(student.getTelefone());
-        this.editMobile.setText(student.getCelular());
-        this.editEmail.setText(student.getEmail());
-    }//GEN-LAST:event_editComboNameItemStateChanged
-
     private void editSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSaveButtonActionPerformed
         flag = false;
         Aluno student = getEditStudent();
@@ -433,22 +418,9 @@ public class StudentPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_editSaveButtonActionPerformed
 
-    private void editStudentComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_editStudentComponentShown
-        this.editTurma.removeAllItems();
-    }//GEN-LAST:event_editStudentComponentShown
-
-    private void deleteStudentComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_deleteStudentComponentShown
-        this.deleteCombo.removeAllItems();
-    }//GEN-LAST:event_deleteStudentComponentShown
-
-    private void editNameComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_editNameComponentShown
-        this.editName.removeAllItems();
-    }//GEN-LAST:event_editNameComponentShown
-
     private void turmaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_turmaPopupMenuWillBecomeVisible
         this.turma.removeAllItems();
-        Professor prof = Escola.getInstance().getLogado();
-        for (Turma i : prof.getTurmas()){
+        for (Turma i : Escola.getInstance().getLogado().getTurmas()){
             this.turma.addItem(i);
         }
     }//GEN-LAST:event_turmaPopupMenuWillBecomeVisible
@@ -462,15 +434,46 @@ public class StudentPanel extends javax.swing.JPanel {
 
     private void editNamePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_editNamePopupMenuWillBecomeVisible
         this.editName.removeAllItems();
-        Professor prof = Escola.getInstance().getLogado();
-        System.out.println(prof.getTurmas());
-        for (Turma i : prof.getTurmas()){
-            System.out.println(i.buscaTodosAlunos());
+        for (Turma i : Escola.getInstance().getLogado().getTurmas()){
            for (Aluno j : i.buscaTodosAlunos()){
                this.editName.addItem(j);
            }
         }
     }//GEN-LAST:event_editNamePopupMenuWillBecomeVisible
+
+    private void editNameItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_editNameItemStateChanged
+        Aluno student = (Aluno) this.editName.getSelectedItem();
+        
+        if (student == null){
+            clearEditStudent();
+            return;
+        }
+        
+        this.editBirthday.setDate(student.getBirthday());
+        this.editTurma.addItem(student.getTurma());
+        this.editTurma.setSelectedIndex(0);
+        this.editGender.setSelectedItem(student.getGenero());
+        this.editAddress.setText(student.getEndereco());
+        this.editCity.setText(student.getCidade());
+        this.editMother.setText(student.getNomeDaMae());
+        this.editFather.setText(student.getNomeDoPai());
+        this.editTelephone.setText(student.getTelefone());
+        this.editMobile.setText(student.getCelular());
+        this.editEmail.setText(student.getEmail());
+    }//GEN-LAST:event_editNameItemStateChanged
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        Aluno student = (Aluno) this.deleteCombo.getSelectedItem();
+        
+        if (student != null){
+            
+            Turma turm = student.getTurma();
+            turm.removeAluno(student);
+            
+            JOptionPane.showMessageDialog(null, "Aluno removido com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
+            
+        }
+    }//GEN-LAST:event_deleteButtonActionPerformed
 
     private Aluno getEditStudent(){
         Aluno temp = (Aluno) this.editName.getSelectedItem();

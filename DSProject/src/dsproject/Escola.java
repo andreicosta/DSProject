@@ -268,7 +268,7 @@ public  class Escola {
             
             Professor novoprof = new Professor(cpf,nome,senha);
             //this.professList.add(novoprof);
-            logado = new Professor(novoprof);
+            logado = novoprof;
         }
         
 /*        for (int i =0 ; i< this.professList.size() ;i++){
