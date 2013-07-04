@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package dsproject;
+import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -10,8 +11,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 public  class Escola {
     private static Escola instance = new Escola();
@@ -52,70 +52,214 @@ public  class Escola {
     public void setProfessList(ArrayList<Professor> professList) {
         this.professList = professList;
     }
+    
+    public boolean validarCpf(String strCpf)
+   {
+      int d1, d2;
+      int digito1, digito2, resto;
+      int digitoCPF;
+      String nDigResult;
+
+      d1 = d2 = 0;
+      digito1 = digito2 = resto = 0;
+
+      for (int nCount = 1; nCount < strCpf.length() - 1; nCount++)
+      {
+         digitoCPF = Integer.valueOf(strCpf.substring(nCount - 1, nCount)).intValue();
+
+         //multiplique a ultima casa por 2 a seguinte por 3 a seguinte por 4 e assim por diante.
+         d1 = d1 + (11 - nCount) * digitoCPF;
+
+         //para o segundo digito repita o procedimento incluindo o primeiro digito calculado no passo anterior.
+         d2 = d2 + (12 - nCount) * digitoCPF;
+      };
+
+      //Primeiro resto da divisão por 11.
+      resto = (d1 % 11);
+
+      //Se o resultado for 0 ou 1 o digito é 0 caso contrário o digito é 11 menos o resultado anterior.
+      if (resto < 2)
+      {
+         digito1 = 0;
+      }
+      else
+      {
+         digito1 = 11 - resto;
+      }
+
+      d2 += 2 * digito1;
+
+      //Segundo resto da divisão por 11.
+      resto = (d2 % 11);
+
+      //Se o resultado for 0 ou 1 o digito é 0 caso contrário o digito é 11 menos o resultado anterior.
+      if (resto < 2)
+      {
+         digito2 = 0;
+      }
+      else
+      {
+         digito2 = 11 - resto;
+      }
+
+      //Digito verificador do validarCpf que está sendo validado.
+      String nDigVerific = strCpf.substring(strCpf.length() - 2, strCpf.length());
+
+      //Concatenando o primeiro resto com o segundo.
+      nDigResult = String.valueOf(digito1) + String.valueOf(digito2);
+
+      //comparar o digito verificador do cpf com o primeiro resto + o segundo resto.
+      return nDigVerific.equals(nDigResult);
+   }
 
     public ArrayList<Integer> cadastrarProfessor(String cpf, String nome,String senha, String confsenha)
     {
         ArrayList<Integer> errorlist;
-        errorlist = new ArrayList<>();
-        errors = false ;
-        
-        // Testa o Cpf    // retira "." "-" caso exista
-        cpf = cpf.replace(".","");
-        cpf = cpf.replace("-", "");
-        
-        if(this.professList != null){
-            for (int i=0 ; i < this.professList.size() ; i++){ 
-                if ( this.professList.get(i).getCpf().equals(cpf) ){
-                    System.out.println("ja existe Professor cadastrado com o cpf");
-                    errorlist.add(1);
-                    errors =  true;
-                }
-            }
-        }else{
-            this.professList = new ArrayList<Professor>();
-        }
-        
-        // caso nao exista cpf cadastrado , verifica o formato dos parametros 
-        //verifica se nome contem sobrenome junto
-        if(!nome.contains(" ")){
-            System.out.println("Nome nao contem sobrenome");
-            errorlist.add(2);
-            errors = true ;
-        }
-       /*        
-        //Analisa email
-        Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
-        Matcher m = p.matcher(email);
-        boolean matchFound = m.matches();
+      errorlist = new ArrayList<>();
+      errors = false;
 
-        if(!matchFound){
-            System.out.println("erro no email");
-            errorlist.add(6);
+      // Testa o Cpf    // retira "." "-" caso exista
+      cpf = cpf.replace(".", "");
+      cpf = cpf.replace("-", "");
+
+
+
+      if (cpf.length() == 11)
+      {
+         if (!validarCpf(cpf))
+         {
+            JOptionPane.showMessageDialog(null, "Digite um cpf válido", "Erro", JOptionPane.ERROR_MESSAGE);
+            errorlist.add(1);
             errors = true;
-        }*/
-        
-        if(!(senha.equals(confsenha))){
-            System.out.println("senhas nao combinam");
-            errorlist.add(7);
-            errors=true;
-        }
-        if(errors == false){
-            Professor novoprof;
-            try {
-                novoprof = new Professor(cpf,nome,senha);
-                this.professList.add(novoprof);
-                errorlist.add(0); // nao possui erros
-                System.out.println(professList.size());
-                return (errorlist);
-                
-            } catch (Exception e) {
-                // tens que tratar este erro
-                
+         }
+         else
+         {
+            if (this.professList != null)
+            {
+               for (int i = 0; i < this.professList.size(); i++)
+               {
+                  if (this.professList.get(i).getCpf().equals(cpf))
+                  {
+                     JOptionPane.showMessageDialog(null, "Já existe professor cadastrado com o cpf", "Aviso", JOptionPane.WARNING_MESSAGE);
+                     errorlist.add(1);
+                     errors = true;
+                  }
+                  else
+                  {
+                     Interface.NewTeacherPanel.getLabelCpf().setForeground(Color.black);
+                  }
+               }
             }
-            
-        }
-    // erros no cadastro
-    return(errorlist);
+            else
+            {
+               Interface.NewTeacherPanel.getLabelCpf().setForeground(Color.black);
+               this.professList = new ArrayList<Professor>();
+            }
+         }
+      }
+      else
+      {
+         if (cpf.isEmpty())
+         {
+            errorlist.add(1);
+            errors = true;
+         }
+         else
+         {
+            JOptionPane.showMessageDialog(null, "Digite um cpf com 11 dígitos", "Erro", JOptionPane.ERROR_MESSAGE);
+            errorlist.add(1);
+            errors = true;
+         }
+      }
+
+      if (nome.isEmpty())
+      {
+         //JOptionPane.showMessageDialog(null, "Digite um sobrenome", "Erro", JOptionPane.ERROR_MESSAGE);
+         errorlist.add(2);
+         errors = true;
+      }
+      else
+      {
+         if (!nome.contains(" "))
+         {
+            //System.out.println("Nome nao contem sobrenome");
+            JOptionPane.showMessageDialog(null, "Digite um sobrenome", "Erro", JOptionPane.ERROR_MESSAGE);
+            errorlist.add(2);
+            errors = true;
+         }
+         else
+         {
+            Interface.NewTeacherPanel.getLabelNomeCompleto().setForeground(Color.black);
+         }
+      }
+      /*if(end.isEmpty()){
+       System.out.println("campo em branco");
+       errorlist.add(3);
+       errors = true;
+       }
+       if(tele.isEmpty()){
+       System.out.println("campo em branco");
+       errorlist.add(4);
+       errors =true;
+       }
+       if(cell.isEmpty()){
+       System.out.println("campo em branco");
+       errorlist.add(5);
+       errors =true;
+       }
+                
+       //Analisa email
+       Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
+       Matcher m = p.matcher(email);
+       boolean matchFound = m.matches();
+
+       if(!matchFound){
+       System.out.println("erro no email");
+       errorlist.add(6);
+       errors = true;
+       }*/
+
+      if (senha.isEmpty())
+      {
+         errorlist.add(7);
+         errors = true;
+      }
+      else
+      {
+         if (!(senha.equals(confsenha)))
+         {
+            //System.out.println("senhas nao combinam");
+            JOptionPane.showMessageDialog(null, "Senhas diferentes", "Erro", JOptionPane.ERROR_MESSAGE);
+            errorlist.add(7);
+            errors = true;
+         }
+         else
+         {
+            Interface.NewTeacherPanel.getLabelSenha().setForeground(Color.black);
+            Interface.NewTeacherPanel.getLabelConfirmarSenha().setForeground(Color.black);
+         }
+
+         if (errors == false)
+         {
+            Professor novoprof;
+            try
+            {
+               novoprof = new Professor(cpf, nome,/*end,tele,cell,email,*/ senha);
+               professList.add(novoprof);
+               errorlist.add(0); // nao possui erros
+               System.out.println(professList.size());
+               return (errorlist);
+
+            }
+            catch (Exception e)
+            {
+               // tens que tratar este erro
+            }
+
+         }
+      }
+      // erros no cadastro
+      return (errorlist);
     }
     
     public void  login(String cpf , String senha ){

@@ -8,6 +8,7 @@ import dsproject.Escola;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -36,83 +37,112 @@ public class NewTeacherPanel extends javax.swing.JPanel {
      */
     private javax.swing.JPanel superPanel;
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+   private void initComponents()
+   {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        cpf = new javax.swing.JLabel();
-        name = new javax.swing.JLabel();
-        nameTextField = new javax.swing.JTextField();
-        saveButton = new javax.swing.JButton();
-        senha = new javax.swing.JLabel();
-        confsenha = new javax.swing.JLabel();
-        voltarButton = new javax.swing.JButton();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        passwordField = new javax.swing.JPasswordField();
-        confirmaPasswordField = new javax.swing.JPasswordField();
+      jTabbedPane1 = new javax.swing.JTabbedPane();
+      jPanel1 = new javax.swing.JPanel();
+      labelCpf = new javax.swing.JLabel();
+      labelNomeCompleto = new javax.swing.JLabel();
+      campoNomeCompleto = new javax.swing.JTextField();
+      saveButton = new javax.swing.JButton();
+      labelSenha = new javax.swing.JLabel();
+      labelConfirmarSenha = new javax.swing.JLabel();
+      voltarButton = new javax.swing.JButton();
+      campoFormatadoCpf = new javax.swing.JFormattedTextField();
+      campoPasswordSenha = new javax.swing.JPasswordField();
+      campoPasswordConfirmarSenha = new javax.swing.JPasswordField();
 
-        setPreferredSize(new java.awt.Dimension(984, 536));
+      setPreferredSize(new java.awt.Dimension(984, 536));
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+      jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        cpf.setText("CPF");
-        jPanel1.add(cpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
+      labelCpf.setText("CPF");
+      jPanel1.add(labelCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
-        name.setText("Nome Completo");
-        jPanel1.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 88, -1, -1));
-        jPanel1.add(nameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 83, 427, -1));
+      labelNomeCompleto.setText("Nome Completo");
+      jPanel1.add(labelNomeCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 88, -1, -1));
 
-        saveButton.setText("Salvar");
-        saveButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveButtonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(686, 201, 85, -1));
+      campoNomeCompleto.addKeyListener(new java.awt.event.KeyAdapter()
+      {
+         public void keyTyped(java.awt.event.KeyEvent evt)
+         {
+            campoNomeCompletoKeyTyped(evt);
+         }
+      });
+      jPanel1.add(campoNomeCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 83, 427, -1));
 
-        senha.setText("Senha");
-        jPanel1.add(senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 127, -1, -1));
+      saveButton.setText("Salvar");
+      saveButton.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            saveButtonActionPerformed(evt);
+         }
+      });
+      jPanel1.add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(686, 201, 85, -1));
 
-        confsenha.setText("Confirmar Senha");
-        jPanel1.add(confsenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 166, -1, -1));
+      labelSenha.setText("Senha");
+      jPanel1.add(labelSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 127, -1, -1));
 
-        voltarButton.setText("Voltar");
-        voltarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                voltarButtonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(voltarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 201, 85, -1));
-        jPanel1.add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 45, 427, -1));
-        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 122, 427, -1));
-        jPanel1.add(confirmaPasswordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 161, 427, -1));
+      labelConfirmarSenha.setText("Confirmar Senha");
+      jPanel1.add(labelConfirmarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 166, -1, -1));
 
-        jTabbedPane1.addTab("Cadastrar Professor", jPanel1);
+      voltarButton.setText("Voltar");
+      voltarButton.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            voltarButtonActionPerformed(evt);
+         }
+      });
+      jPanel1.add(voltarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 201, 85, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-    }// </editor-fold>//GEN-END:initComponents
+      campoFormatadoCpf.addKeyListener(new java.awt.event.KeyAdapter()
+      {
+         public void keyTyped(java.awt.event.KeyEvent evt)
+         {
+            campoFormatadoCpfKeyTyped(evt);
+         }
+      });
+      jPanel1.add(campoFormatadoCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 45, 427, -1));
+      jPanel1.add(campoPasswordSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 122, 427, -1));
+      jPanel1.add(campoPasswordConfirmarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 161, 427, -1));
+
+      jTabbedPane1.addTab("Cadastrar Professor", jPanel1);
+
+      javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+      this.setLayout(layout);
+      layout.setHorizontalGroup(
+         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)
+      );
+      layout.setVerticalGroup(
+         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+      );
+   }// </editor-fold>//GEN-END:initComponents
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        cpf.setForeground(Color.black);
-        name.setForeground(Color.black);
+        //cpf.setForeground(Color.black);
+        //name.setForeground(Color.black);
 
-        senha.setForeground(Color.black);
+        //senha.setForeground(Color.black);
         errorflag = false;
         //Troquei os tipos dos campos pra formattedTextField e PasswordField
         //erroscadlist = Escola.getInstance().cadastrarProfessor(cpfTextField.getText(),nameTextField.getText(),
         //                          passwTextField.getText(),confPassTextField.getText());
         
-        System.out.println("tamanho - " + erroscadlist.size());
+        char[] password = campoPasswordSenha.getPassword();
+        char[] confirmPassword = campoPasswordConfirmarSenha.getPassword();
+        String strPassword = new String(password);
+        String strConfirmPassword = new String(confirmPassword);
+        
+        erroscadlist = Escola.getInstance().cadastrarProfessor(campoFormatadoCpf.getText(), campoNomeCompleto.getText(), strPassword, 
+                                                               strConfirmPassword);
+        
+        //System.out.println("tamanho - " + erroscadlist.size());
         
         for(int k =0 ; k< erroscadlist.size();k++){
             System.out.println(erroscadlist.get(k));
@@ -124,7 +154,7 @@ public class NewTeacherPanel extends javax.swing.JPanel {
             // sem erros - tudo lindo
             CardLayout card =  (CardLayout) this.superPanel.getLayout();
             card.show(this.superPanel,"cardLogin");
-            return;//tem que vewr se precisa return
+            //return;//tem que vewr se precisa return
         }else{
             for(int i =0 ; i< erroscadlist.size();i++){
                 error = erroscadlist.get(i);
@@ -132,20 +162,20 @@ public class NewTeacherPanel extends javax.swing.JPanel {
                 {
                     case(1):
                         //erro cpf
-                        cpf.setForeground(Color.red);
+                        labelCpf.setForeground(Color.red);
                         break;
                     case(2):
                         // error nome
-                        name.setForeground(Color.red);
+                        labelNomeCompleto.setForeground(Color.red);
                         break;
                     case(7):
                         // erro senha
-                        senha.setForeground(Color.red);
+                        labelSenha.setForeground(Color.red);
+                        labelConfirmarSenha.setForeground(Color.red);
                         break;
                 }         
             }
-        }
-         
+        } 
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
@@ -153,20 +183,62 @@ public class NewTeacherPanel extends javax.swing.JPanel {
             card.show(this.superPanel,"cardLogin");
     }//GEN-LAST:event_voltarButtonActionPerformed
 
+   private void campoFormatadoCpfKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_campoFormatadoCpfKeyTyped
+   {//GEN-HEADEREND:event_campoFormatadoCpfKeyTyped
+      if(!Character.isDigit(evt.getKeyChar()))
+      {
+         evt.setKeyChar('\0');
+      }
+      else
+      {
+          String textoCampo = campoFormatadoCpf.getText();
+          if(textoCampo.length() > 10)
+              evt.setKeyChar('\0');
+      }
+   }//GEN-LAST:event_campoFormatadoCpfKeyTyped
+
+   private void campoNomeCompletoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_campoNomeCompletoKeyTyped
+   {//GEN-HEADEREND:event_campoNomeCompletoKeyTyped
+      if(!Character.isLetter(evt.getKeyChar()) && !Character.isWhitespace(evt.getKeyChar()))
+      {
+         evt.setKeyChar('\0');
+      }
+   }//GEN-LAST:event_campoNomeCompletoKeyTyped
+
     private ArrayList<Integer> erroscadlist ;
     private boolean errorflag;
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField confirmaPasswordField;
-    private javax.swing.JLabel confsenha;
-    private javax.swing.JLabel cpf;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel name;
-    private javax.swing.JTextField nameTextField;
-    private javax.swing.JPasswordField passwordField;
-    private javax.swing.JButton saveButton;
-    private javax.swing.JLabel senha;
-    private javax.swing.JButton voltarButton;
-    // End of variables declaration//GEN-END:variables
+   // Variables declaration - do not modify//GEN-BEGIN:variables
+   private javax.swing.JFormattedTextField campoFormatadoCpf;
+   private javax.swing.JTextField campoNomeCompleto;
+   private javax.swing.JPasswordField campoPasswordConfirmarSenha;
+   private javax.swing.JPasswordField campoPasswordSenha;
+   private javax.swing.JPanel jPanel1;
+   private javax.swing.JTabbedPane jTabbedPane1;
+   private static javax.swing.JLabel labelConfirmarSenha;
+   private static javax.swing.JLabel labelCpf;
+   private static javax.swing.JLabel labelNomeCompleto;
+   private static javax.swing.JLabel labelSenha;
+   private javax.swing.JButton saveButton;
+   private javax.swing.JButton voltarButton;
+   // End of variables declaration//GEN-END:variables
+   public static JLabel getLabelCpf()
+   {
+      return labelCpf;
+   }
+
+   public static JLabel getLabelConfirmarSenha()
+   {
+      return labelConfirmarSenha;
+   }
+
+   public static JLabel getLabelNomeCompleto()
+   {
+      return labelNomeCompleto;
+   }
+
+   public static JLabel getLabelSenha()
+   {
+      return labelSenha;
+   }
+   
 }
