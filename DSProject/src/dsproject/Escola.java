@@ -121,9 +121,7 @@ public  class Escola {
       // Testa o Cpf    // retira "." "-" caso exista
       cpf = cpf.replace(".", "");
       cpf = cpf.replace("-", "");
-
-
-
+// -------------------- Testa Campo Cpf  --------------------------------
       if (cpf.length() == 11)
       {
          if (!validarCpf(cpf))
@@ -171,53 +169,31 @@ public  class Escola {
             errors = true;
          }
       }
-
+/* ------------------------- Teste Campo Nome ------------------------
+*/
       if (nome.isEmpty())
       {
          //JOptionPane.showMessageDialog(null, "Digite um sobrenome", "Erro", JOptionPane.ERROR_MESSAGE);
          errorlist.add(2);
          errors = true;
-      }
-      else
+      }else
       {
+          String[] partes =  new String[5];
+          partes = nome.split(" ");
+          for(int k= 0 ; k< partes.length;k++){
+              
+          }
          if (!nome.contains(" "))
          {
             //System.out.println("Nome nao contem sobrenome");
             JOptionPane.showMessageDialog(null, "Digite um sobrenome", "Erro", JOptionPane.ERROR_MESSAGE);
             errorlist.add(2);
             errors = true;
-         }
-         else
+         }else
          {
             Interface.NewTeacherPanel.getLabelNomeCompleto().setForeground(Color.black);
          }
       }
-      /*if(end.isEmpty()){
-       System.out.println("campo em branco");
-       errorlist.add(3);
-       errors = true;
-       }
-       if(tele.isEmpty()){
-       System.out.println("campo em branco");
-       errorlist.add(4);
-       errors =true;
-       }
-       if(cell.isEmpty()){
-       System.out.println("campo em branco");
-       errorlist.add(5);
-       errors =true;
-       }
-                
-       //Analisa email
-       Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
-       Matcher m = p.matcher(email);
-       boolean matchFound = m.matches();
-
-       if(!matchFound){
-       System.out.println("erro no email");
-       errorlist.add(6);
-       errors = true;
-       }*/
 
       if (senha.isEmpty())
       {
@@ -228,7 +204,7 @@ public  class Escola {
       {
          if (!(senha.equals(confsenha)))
          {
-            //System.out.println("senhas nao combinam");
+            
             JOptionPane.showMessageDialog(null, "Senhas diferentes", "Erro", JOptionPane.ERROR_MESSAGE);
             errorlist.add(7);
             errors = true;
@@ -244,8 +220,10 @@ public  class Escola {
             Professor novoprof;
             try
             {
-               novoprof = new Professor(cpf, nome,/*end,tele,cell,email,*/ senha);
-               professList.add(novoprof);
+                // criptografa senha
+               CriptografiaLogix cripto =  new CriptografiaLogix(cpf,senha);
+               novoprof = new Professor(cpf, nome, cripto.getSenhaCriptografada());
+               this.professList.add(novoprof);
                errorlist.add(0); // nao possui erros
                System.out.println(professList.size());
                return (errorlist);
@@ -268,7 +246,31 @@ public  class Escola {
             
             Professor novoprof = new Professor(cpf,nome,senha);
             //this.professList.add(novoprof);
-            logado = new Professor(novoprof);
+            logado = novoprof;
+        }else{
+            for (int i =0 ; i< this.professList.size() ;i++){
+                if(this.professList.get(i).getCpf().equals(cpf)){
+                    //achou o modafuka professor //checa a senha
+                    if(this.professList.get(i).getSenha().equals(senha) ){
+                        // delicinha 
+                        if(!islogado){
+                            // nao tem ninguem logado
+                            logado = new Professor(this.professList.get(i));
+                            System.out.println(" achou o professor e logou");
+                            islogado = true;
+                            return;
+                        }else{
+                            System.out.println("Ja existe Professor logado no sistema");
+                            return;
+                        }
+                    }else{
+                        // senha errada seu viadinho
+                        System.out.println("senha errada - " + senha);
+                        return;
+                    }
+                }
+            }
+        
         }
         
 /*        for (int i =0 ; i< this.professList.size() ;i++){
