@@ -10,7 +10,7 @@ import dsproject.Turma;
 
 /**
  *
- * @author Israel
+ * @author Israel(mó viadão)
  */
 
 public class Professor
@@ -22,21 +22,15 @@ public class Professor
     private String nome;
     private String senha;
     private ArrayList<Turma> turmas;
-          
-    public Professor(Professor copia) {
-        this.cpf = copia.cpf;
-        this.nome = copia.nome;
-       // this.telefone = copia.telefone;
-       // this.cell = copia.cell;
-       // this.email = copia.email;
-        this.senha = copia.senha;
-    }
+    
 
     Professor(String cpf, String nome, String senha) {
             this.cpf = cpf;
             this.nome = nome;
             this.senha = senha;
             this.turmas = new ArrayList<>();
+            Turma defaultTurma = new Turma("","");
+            turmas.add(defaultTurma);
             this.num_dir = cont;
             this.dir = "professores/" + cont;
             cont++;
@@ -55,8 +49,6 @@ public class Professor
                     errors =  true;
                 }
             }
-        }else{
-            this.turmas = new ArrayList<Turma>();
         }
         
         if(nome.isEmpty()){
