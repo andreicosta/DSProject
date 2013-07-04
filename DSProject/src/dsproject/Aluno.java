@@ -1,17 +1,20 @@
 package dsproject;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Objects;
-import javax.swing.JOptionPane;
 
-public final class Aluno extends Pessoa implements Serializable {
+public final class Aluno implements Serializable {
 
     static int cont = 0;
     private int num_dir;
     private String dir;
+    private String nome;
+    private Date nascimento;
+    private String genero;
+    private String endereco;
+    private String cidade;
     private String nomeMae;
     private String nomePai;
     private String telefone;
@@ -22,7 +25,11 @@ public final class Aluno extends Pessoa implements Serializable {
 
     public Aluno(String nome, Turma turma, Date nascimento, String genero, String endereco, String cidade,
             String nomeMae, String nomePai, String telefone, String celular, String email) {
-        super(nome, nascimento, genero, endereco, cidade, "");
+        this.nome = nome;
+        this.nascimento = nascimento;
+        this.genero = genero;
+        this.endereco = endereco;
+        this.cidade = cidade;
         this.setNomeDaMae(nomeMae);
         this.setNomeDoPai(nomePai);
         this.setTelefone(telefone);
@@ -43,6 +50,58 @@ public final class Aluno extends Pessoa implements Serializable {
         return true;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public Date getDataDeNascimento() {
+        return nascimento;
+    }
+
+    public void setDataDeNascimento(Date nascimento) {
+        this.nascimento = nascimento;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getNomeMae() {
+        return nomeMae;
+    }
+
+    public void setNomeMae(String nomeMae) {
+        this.nomeMae = nomeMae;
+    }
+
+    public String getNomePai() {
+        return nomePai;
+    }
+
+    public void setNomePai(String nomePai) {
+        this.nomePai = nomePai;
+    }
+
     public String getTelefone() {
         return telefone;
     }
@@ -52,7 +111,7 @@ public final class Aluno extends Pessoa implements Serializable {
     }
     
     public Date getBirthday(){
-        return super.getDataDeNascimento();
+        return this.nascimento;
     }
 
     public String getEmail() {
@@ -107,7 +166,7 @@ public final class Aluno extends Pessoa implements Serializable {
 
     @Override
     public String toString() {
-        return super.getNome();
+        return this.nome;
     }
 
     public Avaliacao getLastAvaliation() {

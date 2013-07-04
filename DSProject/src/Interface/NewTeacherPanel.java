@@ -24,7 +24,7 @@ public class NewTeacherPanel extends javax.swing.JPanel {
     /**
      * Creates new form NewTeacherPanel
      */
-    public NewTeacherPanel() throws ParseException {
+    public NewTeacherPanel() {
         initComponents();
        // cpfmask = new MaskFormatter("###.###.###-##");
        // campoFormatadoCpf =  new JFormattedTextField(cpfmask);
@@ -34,7 +34,7 @@ public class NewTeacherPanel extends javax.swing.JPanel {
     }
 
     
-    public NewTeacherPanel(JPanel superPanel) throws ParseException {
+    public NewTeacherPanel(JPanel superPanel) {
         this.superPanel = superPanel;
         initComponents();
         //cpfmask = new MaskFormatter("###.###.###-##");
