@@ -103,4 +103,9 @@ public class Turma implements Serializable, Cloneable
    public static void setCont(int n){
         cont = n;
     }
+
+    @Override
+    public String toString() {
+        return id + ", " + ano;
+    }
 }
