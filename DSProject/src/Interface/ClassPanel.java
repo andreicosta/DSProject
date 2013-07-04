@@ -10,6 +10,7 @@
  */
 package Interface;
 
+import dsproject.Aluno;
 import dsproject.Turma;
 import dsproject.Professor;
 import dsproject.Escola;
@@ -71,7 +72,8 @@ public class ClassPanel extends javax.swing.JPanel {
         jScrollPane6 = new javax.swing.JScrollPane();
         availableStudentList2 = new javax.swing.JList();
         jScrollPane7 = new javax.swing.JScrollPane();
-        studentInClassList2 = new javax.swing.JList();
+        listaAlunosMatriculados = new DefaultListModel();
+        studentInClassList2 = new javax.swing.JList(listaAlunosMatriculados);
         addToClassButton2 = new javax.swing.JButton();
         removeStudentFromClassButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -263,14 +265,25 @@ public class ClassPanel extends javax.swing.JPanel {
       comboTurmaEditarTurma.removeAllItems();
       Professor tmpProf = Escola.getInstance().getLogado();
       for (int i = 0; i < tmpProf.getTurmas().size(); i++) {
-           comboTurmaEditarTurma.addItem(tmpProf.getTurmas().get(i).getId());
+           comboTurmaEditarTurma.addItem(tmpProf.getTurmas().get(i));
       }
-      Turma tmpTurma = (Turma) comboTurmaEditarTurma.getItemAt(0);
    }//GEN-LAST:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
 
    private void comboTurmaEditarTurmaItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_comboTurmaEditarTurmaItemStateChanged
    {//GEN-HEADEREND:event_comboTurmaEditarTurmaItemStateChanged
-      
+        Turma tmpTurma = (Turma) this.comboTurmaEditarTurma.getSelectedItem();
+        
+        if (tmpTurma == null){
+            limpaCamposEditarTurma();
+            return;
+        }
+        
+        campoAnoLetivoEditarTurma.setText(tmpTurma.getAno());
+        ArrayList<Aluno> students = tmpTurma.buscaTodosAlunos();
+        listaAlunosMatriculados.removeAllElements();
+        for (int i = 0; i < students.size(); i++){
+            listaAlunosMatriculados.addElement(students.get(i).toString());
+        }
    }//GEN-LAST:event_comboTurmaEditarTurmaItemStateChanged
 
    private void comboTurmaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboTurmaPopupMenuWillBecomeVisible
