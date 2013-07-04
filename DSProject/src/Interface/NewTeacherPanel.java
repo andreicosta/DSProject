@@ -25,7 +25,11 @@ public class NewTeacherPanel extends javax.swing.JPanel {
     /**
      * Creates new form NewTeacherPanel
      */
+<<<<<<< HEAD
+    public NewTeacherPanel() {
+=======
     public NewTeacherPanel()  {
+>>>>>>> 5f95eb8927651a9138268c9f63d43167613d34ab
         initComponents();
        // cpfmask = new MaskFormatter("###.###.###-##");
        // campoFormatadoCpf =  new JFormattedTextField(cpfmask);

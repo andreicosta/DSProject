@@ -348,7 +348,7 @@ public class StudentPanel extends javax.swing.JPanel {
     }
     
     /*MÉTODOS DE EVENTOS*/
-   private void createButtonActionPerformed(java.awt.event.ActionEvent evt){//GEN-FIRST:event_createButtonActionPerformed
+   private void createButtonActionPerformed(java.awt.event.ActionEvent evt){                                             
        flag = false;
        String nameNewStudent = getNameStudent();
        Turma newTurma = getTurma();
@@ -366,7 +366,7 @@ public class StudentPanel extends javax.swing.JPanel {
            Aluno student = new Aluno(nameNewStudent, newTurma, newBirthday, newGender, newAddress, newCity, newMotherName, newFatherName, newTelephone, newMobile, newEmail);
            
            if (newTurma == null) {
-               //Por em turma default
+               Escola.getInstance().getLogado().getTurmas().get(0).inserirAluno(student);
            } else {
                newTurma.inserirAluno(student);
            }
@@ -375,7 +375,7 @@ public class StudentPanel extends javax.swing.JPanel {
 
            clearNewStudent();
        }
-   }//GEN-LAST:event_createButtonActionPerformed    
+   }                                                
 
    private void deleteComboPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt){//GEN-FIRST:event_deleteComboPopupMenuWillBecomeVisible
        this.deleteCombo.removeAllItems();
@@ -402,7 +402,7 @@ public class StudentPanel extends javax.swing.JPanel {
         
         if (!flag) {
             student.setTurma(newTurma);
-            student.setDataDenascimento(newBirthday);
+            student.setDataDeNascimento(newBirthday);
             student.setGenero(newGender);
             student.setEndereco(newAddress);
             student.setCidade(newCity);
@@ -450,6 +450,7 @@ public class StudentPanel extends javax.swing.JPanel {
         }
         
         this.editBirthday.setDate(student.getBirthday());
+        this.editTurma.removeAllItems();
         this.editTurma.addItem(student.getTurma());
         this.editTurma.setSelectedIndex(0);
         this.editGender.setSelectedItem(student.getGenero());
@@ -470,8 +471,11 @@ public class StudentPanel extends javax.swing.JPanel {
             Turma turm = student.getTurma();
             turm.removeAluno(student);
             
-            JOptionPane.showMessageDialog(null, "Aluno removido com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
+            this.deleteCombo.removeAllItems();
+            this.editName.removeAllItems();
+            clearEditStudent();
             
+            JOptionPane.showMessageDialog(null, "Aluno removido com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
@@ -636,7 +640,7 @@ public class StudentPanel extends javax.swing.JPanel {
         editMobile.setText("");
         editCity.setText("");
         editTurma.removeAllItems();
-        birthday.setDate(null);
+        editBirthday.setDate(null);
         editEmail.setText("");
         editAddress.setText("");
         editMother.setText("");
