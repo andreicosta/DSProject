@@ -12,8 +12,8 @@ public final class Aluno extends Pessoa implements Serializable {
     static int cont = 0;
     private int num_dir;
     private String dir;
-    private String nomeDaMae;
-    private String nomeDoPai;
+    private String nomeMae;
+    private String nomePai;
     private String telefone;
     private String celular;
     private String email;
@@ -23,12 +23,12 @@ public final class Aluno extends Pessoa implements Serializable {
     public Aluno(String nome, Turma turma, Date nascimento, String genero, String endereco, String cidade,
             String nomeMae, String nomePai, String telefone, String celular, String email) {
         super(nome, nascimento, genero, endereco, cidade, "");
-        this.setNomeDaMae(nomeDaMae);
-        this.setNomeDoPai(nomeDoPai);
+        this.setNomeDaMae(nomeMae);
+        this.setNomeDoPai(nomePai);
         this.setTelefone(telefone);
         this.setCelular(celular);
         this.setEmail(email);
-        this.setTurma(turma);
+        this.turma = turma;
         this.avaliacoes = new ArrayList<>();
         num_dir = cont;
         cont ++;
@@ -60,11 +60,11 @@ public final class Aluno extends Pessoa implements Serializable {
     }
 
     public String getNomeDaMae() {
-        return nomeDaMae;
+        return nomeMae;
     }
 
     public String getNomeDoPai() {
-        return nomeDoPai;
+        return nomePai;
     }
 
     public ArrayList<Avaliacao> getAvaliacoes() {
@@ -82,17 +82,15 @@ public final class Aluno extends Pessoa implements Serializable {
     }
 
     public void setTurma(Turma turma) {
-        this.turma.removeAluno(this);
         this.turma = turma;
-        this.turma.inserirAluno(this);
     }
     
     public void setNomeDaMae(String nomeDaMae) {
-        this.nomeDaMae = nomeDaMae;
+        this.nomeMae = nomeDaMae;
     }
 
     public void setNomeDoPai(String nomeDoPai) {
-        this.nomeDoPai = nomeDoPai;
+        this.nomePai = nomeDoPai;
     }
 
     public void setTelefone(String telefone) {
@@ -119,8 +117,8 @@ public final class Aluno extends Pessoa implements Serializable {
             return null;
         }
     }
-    
-        public void setAvaliacoes(ArrayList<Avaliacao> avaliacoes){
+
+    public void setAvaliacoes(ArrayList<Avaliacao> avaliacoes) {
         this.avaliacoes = avaliacoes;
     }
 
@@ -128,8 +126,8 @@ public final class Aluno extends Pessoa implements Serializable {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 13 * hash + Objects.hashCode(this.nomeDaMae);
-        hash = 13 * hash + Objects.hashCode(this.nomeDoPai);
+        hash = 13 * hash + Objects.hashCode(this.nomeMae);
+        hash = 13 * hash + Objects.hashCode(this.nomePai);
         hash = 13 * hash + Objects.hashCode(this.getNome());
         return hash;
     }
@@ -143,10 +141,10 @@ public final class Aluno extends Pessoa implements Serializable {
             return false;
         }
         final Aluno other = (Aluno) obj;
-        if (!Objects.equals(this.nomeDaMae, other.nomeDaMae)) {
+        if (!Objects.equals(this.nomeMae, other.nomeMae)) {
             return false;
         }
-        if (!Objects.equals(this.nomeDoPai, other.nomeDoPai)) {
+        if (!Objects.equals(this.nomePai, other.nomePai)) {
             return false;
         }
         if (!Objects.equals(this.getNome(), other.getNome())) {

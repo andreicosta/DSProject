@@ -247,30 +247,6 @@ public  class Escola {
             Professor novoprof = new Professor(cpf,nome,senha);
             //this.professList.add(novoprof);
             logado = novoprof;
-        }else{
-            for (int i =0 ; i< this.professList.size() ;i++){
-                if(this.professList.get(i).getCpf().equals(cpf)){
-                    //achou o modafuka professor //checa a senha
-                    if(this.professList.get(i).getSenha().equals(senha) ){
-                        // delicinha 
-                        if(!islogado){
-                            // nao tem ninguem logado
-                            logado = new Professor(this.professList.get(i));
-                            System.out.println(" achou o professor e logou");
-                            islogado = true;
-                            return;
-                        }else{
-                            System.out.println("Ja existe Professor logado no sistema");
-                            return;
-                        }
-                    }else{
-                        // senha errada seu viadinho
-                        System.out.println("senha errada - " + senha);
-                        return;
-                    }
-                }
-            }
-        
         }
         
 /*        for (int i =0 ; i< this.professList.size() ;i++){
