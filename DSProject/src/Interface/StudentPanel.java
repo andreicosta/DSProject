@@ -270,36 +270,7 @@ public class StudentPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-   private void createButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_createButtonActionPerformed
-   {//GEN-HEADEREND:event_createButtonActionPerformed
-       flag = false;
-       String nameNewStudent = getNameStudent();
-       Turma newTurma = getTurma();
-       Date newBirthday = getBirthday();
-       String newGender = getGender();
-       String newAddress = getAddress();
-       String newCity = getCity();
-       String newMotherName = getMotherName();
-       String newFatherName = getFatherName();
-       String newTelephone = getTelephone();
-       String newMobile = getMobile();
-       String newEmail = getEmail();
-       
-       if (!flag) {
-           Aluno student = new Aluno(nameNewStudent, newTurma, newBirthday, newGender, newAddress, newCity, newMotherName, newFatherName, newTelephone, newMobile, newEmail);
-           
-           if (newTurma == null) {
-               //Por em turma default
-           } else {
-               newTurma.inserirAluno(student);
-           }
-
-           JOptionPane.showMessageDialog(null, "Aluno "+student.toString()+" criado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
-
-           clearNewStudent();
-       }
-   }//GEN-LAST:event_createButtonActionPerformed
-
+	/*MÉTODOS NO CRIAR ALUNO*/
     private String getNameStudent() {
         if (name.getText().isEmpty()) {
             labelName.setForeground(Color.red);
@@ -375,9 +346,38 @@ public class StudentPanel extends javax.swing.JPanel {
     private String getEmail() {
         return email.getText();
     }
+    
+    /*MÉTODOS DE EVENTOS*/
+   private void createButtonActionPerformed(java.awt.event.ActionEvent evt){//GEN-FIRST:event_createButtonActionPerformed
+       flag = false;
+       String nameNewStudent = getNameStudent();
+       Turma newTurma = getTurma();
+       Date newBirthday = getBirthday();
+       String newGender = getGender();
+       String newAddress = getAddress();
+       String newCity = getCity();
+       String newMotherName = getMotherName();
+       String newFatherName = getFatherName();
+       String newTelephone = getTelephone();
+       String newMobile = getMobile();
+       String newEmail = getEmail();
+       
+       if (!flag) {
+           Aluno student = new Aluno(nameNewStudent, newTurma, newBirthday, newGender, newAddress, newCity, newMotherName, newFatherName, newTelephone, newMobile, newEmail);
+           
+           if (newTurma == null) {
+               //Por em turma default
+           } else {
+               newTurma.inserirAluno(student);
+           }
 
-   private void deleteComboPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_deleteComboPopupMenuWillBecomeVisible
-   {//GEN-HEADEREND:event_deleteComboPopupMenuWillBecomeVisible
+           JOptionPane.showMessageDialog(null, "Aluno "+student.toString()+" criado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
+
+           clearNewStudent();
+       }
+   }//GEN-LAST:event_createButtonActionPerformed    
+
+   private void deleteComboPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt){//GEN-FIRST:event_deleteComboPopupMenuWillBecomeVisible
        this.deleteCombo.removeAllItems();
        for (Turma i : Escola.getInstance().getLogado().getTurmas()) {
            for (Aluno j : i.buscaTodosAlunos()){
@@ -475,6 +475,7 @@ public class StudentPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
+	/*MÉTODOS NO EDITAR ALUNO*/
     private Aluno getEditStudent(){
         Aluno temp = (Aluno) this.editName.getSelectedItem();
         if (temp == null){
@@ -618,6 +619,7 @@ public class StudentPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
     private boolean flag;
 
+	/*LIMPAR PANELS*/
     public void clearNewStudent() {
         name.setText("");
         address.setText("");
