@@ -262,11 +262,10 @@ public class ClassPanel extends javax.swing.JPanel {
    {//GEN-HEADEREND:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
       comboTurmaEditarTurma.removeAllItems();
       Professor tmpProf = Escola.getInstance().getLogado();
-      Turma tmpTurma;
       for (int i = 0; i < tmpProf.getTurmas().size(); i++) {
            comboTurmaEditarTurma.addItem(tmpProf.getTurmas().get(i).getId());
       }
-      tmpTurma = (Turma) comboTurmaEditarTurma.getItemAt(0);
+      Turma tmpTurma = (Turma) comboTurmaEditarTurma.getItemAt(0);
    }//GEN-LAST:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
 
    private void comboTurmaEditarTurmaItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_comboTurmaEditarTurmaItemStateChanged
@@ -293,7 +292,6 @@ public class ClassPanel extends javax.swing.JPanel {
         
         int error;
         if(erroslist.get(0).equals(0)){
-            // sem erros - tudo lindo
             labelTurma.setForeground(Color.black);
             labelAnoLetivo.setForeground(Color.black);
             limpaCamposCadastrarTurma();

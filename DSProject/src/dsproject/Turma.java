@@ -63,10 +63,11 @@ public class Turma implements Serializable, Cloneable
       int idAluno;
       idAluno = buscaAluno(aluno);
 
-      this.alunos.remove(idAluno);
-      
       File f = new File(alunos.get(idAluno).getDir());
       f.delete();     
+      
+      this.alunos.remove(idAluno);
+      
    }
 
    public int buscaAluno(Aluno aluno)
@@ -106,6 +107,9 @@ public class Turma implements Serializable, Cloneable
 
     @Override
     public String toString() {
+        if(id.isEmpty()){
+            return "";
+        }
         return id + ", " + ano;
     }
 }
