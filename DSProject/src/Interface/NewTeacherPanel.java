@@ -7,6 +7,7 @@ package Interface;
 import dsproject.Escola;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.text.ParseException;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -23,17 +24,23 @@ public class NewTeacherPanel extends javax.swing.JPanel {
     /**
      * Creates new form NewTeacherPanel
      */
-    public NewTeacherPanel() {
-        initMaskaraCPF();
+    public NewTeacherPanel() throws ParseException {
         initComponents();
+       // cpfmask = new MaskFormatter("###.###.###-##");
+       // campoFormatadoCpf =  new JFormattedTextField(cpfmask);
+        //cpfmask.setValidCharacters("0123456789");  
+        
+        
     }
 
-    public void initMaskaraCPF(){
-        MaskFormatter mascaracpf = new MaskFormatter("###.###.###-##");
-    }
-    public NewTeacherPanel(JPanel superPanel) {
+    
+    public NewTeacherPanel(JPanel superPanel) throws ParseException {
         this.superPanel = superPanel;
         initComponents();
+        //cpfmask = new MaskFormatter("###.###.###-##");
+        //campoFormatadoCpf =  new JFormattedTextField(cpfmask);
+        //cpfmask.setValidCharacters("0123456789");  
+        
     }
     
     
@@ -215,7 +222,7 @@ public class NewTeacherPanel extends javax.swing.JPanel {
 
     private ArrayList<Integer> erroscadlist ;
     private boolean errorflag;
-   private MaskFormatter cpfmask;
+    private  MaskFormatter cpfmask; 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField campoFormatadoCpf;
     private javax.swing.JTextField campoNomeCompleto;
@@ -230,7 +237,9 @@ public class NewTeacherPanel extends javax.swing.JPanel {
     private javax.swing.JButton saveButton;
     private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
-   public static JLabel getLabelCpf()
+  
+    
+    public static JLabel getLabelCpf()
    {
       return labelCpf;
    }

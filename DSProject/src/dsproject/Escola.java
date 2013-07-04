@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 public  class Escola {
@@ -19,7 +21,7 @@ public  class Escola {
     private ArrayList<Professor> professList;
     private Professor logado;
     private boolean islogado ;
-
+    private CriptografiaLogix cripto;
     public Professor getLogado() {
         return logado;
     }
@@ -177,12 +179,28 @@ public  class Escola {
          errorlist.add(2);
          errors = true;
       }else
-      {
-          String[] partes =  new String[5];
-          partes = nome.split(" ");
-          for(int k= 0 ; k< partes.length;k++){
-              
-          }
+      {  
+        if(!nome.isEmpty())
+        {
+            nome.toLowerCase();
+            if(nome.charAt(nome.length()-1) == ' '){
+                System.out.println(nome.length());
+                nome = nome.substring(0, nome.length()-1);
+            }
+            System.out.println(nome.length());
+            System.out.println(nome);
+            
+            Pattern p = Pattern.compile("[[a-z]+\\s]+[a-z]");
+            Matcher m = p.matcher(nome);
+            boolean matchFound = m.matches();
+
+            if(!matchFound){
+                System.err.println("erro no nome");
+                errors = true;
+            }
+                //}
+        }
+          
          if (!nome.contains(" "))
          {
             //System.out.println("Nome nao contem sobrenome");
@@ -221,7 +239,7 @@ public  class Escola {
             try
             {
                 // criptografa senha
-               CriptografiaLogix cripto =  new CriptografiaLogix(cpf,senha);
+               this.cripto =  new CriptografiaLogix(cpf,senha);
                novoprof = new Professor(cpf, nome, cripto.getSenhaCriptografada());
                this.professList.add(novoprof);
                errorlist.add(0); // nao possui erros
@@ -247,33 +265,40 @@ public  class Escola {
             Professor novoprof = new Professor(cpf,nome,senha);
             //this.professList.add(novoprof);
             logado = novoprof;
-        }
-        
-/*        for (int i =0 ; i< this.professList.size() ;i++){
-            if(this.professList.get(i).getCpf().equals(cpf)){
-                //achou o modafuka professor //checa a senha
-                if(this.professList.get(i).getSenha().equals(senha) ){
-                    // delicinha 
-                    if(!islogado){
-                        // nao tem ninguem logado
-                        logado = new Professor(this.professList.get(i));
-                        System.out.println(" achou o professor e logou");
-                        islogado = true;
-                        return;
+        }else{
+            for (int i =0 ; i< this.professList.size() ;i++){
+                if(this.professList.get(i).getCpf().equals(cpf)){
+                    //achou o modafuka professor //checa a senha
+                    System.out.println("SEnha login = " + senha);
+                    String senhaconf = cripto.decriptografarSenha(cpf, this.professList.get(i).getSenha());
+                    System.out.println("Senha pra confirmaçao" + senhaconf);
+                    if(senha.equals(senhaconf) ){
+                        // delicinha 
+                        
+                        if(!islogado){
+                            // nao tem ninguem logado
+                            logado = this.professList.get(i);
+                            System.out.println(" achou o professor e logou");
+                            islogado = true;
+                            return;
+                        }else{
+                            System.out.println("Ja existe Professor logado no sistema");
+                            return;
+                        }
                     }else{
-                        System.out.println("Ja existe Professor logado no sistema");
+                        // senha errada seu viadinho
+                        System.out.println("senha errada - " + senha);
                         return;
                     }
-                }else{
-                    // senha errada seu viadinho
-                    System.out.println("senha errada - " + senha);
-                    return;
                 }
-            }
+        
         }
-        //professor no existe
-                System.out.println("Nao existe cadastro com cpf =" + cpf );
-  */  
+      }
+        
+/*      
+ * //professor no existe
+ * System.out.println("Nao existe cadastro com cpf =" + cpf );
+ */  
     }
     
     public Professor getProfessorLogado(){
