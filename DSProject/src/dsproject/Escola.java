@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,6 +23,7 @@ public  class Escola {
     private Professor logado;
     private boolean islogado ;
     private CriptografiaLogix cripto;
+    
     public Professor getLogado() {
         return logado;
     }
@@ -187,11 +190,12 @@ public  class Escola {
          //JOptionPane.showMessageDialog(null, "Digite um sobrenome", "Erro", JOptionPane.ERROR_MESSAGE);
          errorlist.add(2);
          errors = true;
-      }else
+      }
+      else
       {  
-        if(!nome.isEmpty())
-        {
-           nome.toLowerCase();
+        //if(!nome.isEmpty())
+        //{
+           nome = nome.toLowerCase();
             if(nome.charAt(nome.length()-1) == ' '){
                 System.out.println(nome.length());
                 nome = nome.substring(0, nome.length()-1);
@@ -213,7 +217,7 @@ public  class Escola {
                Interface.NewTeacherPanel.getLabelNomeCompleto().setForeground(Color.black);
             }
                 //}
-        }
+        //}
           
          /*if (!nome.contains(" "))
          {
@@ -250,22 +254,15 @@ public  class Escola {
          if (errors == false)
          {
             Professor novoprof;
-            try
-            {
-                // criptografa senha
-               this.cripto =  new CriptografiaLogix(cpf,senha);
-               novoprof = new Professor(cpf, nome, cripto.getSenhaCriptografada());
+            
+            // criptografa senha
+           this.cripto =  new CriptografiaLogix(cpf,senha);
+           novoprof = new Professor(cpf, nome, cripto.getSenhaCriptografada());
+           errorlist.add(0); // nao possui erros
                this.professList.add(novoprof);
-               errorlist.add(0); // nao possui erros
-               System.out.println(professList.size());
-               return (errorlist);
-
-            }
-            catch (Exception e)
-            {
-               // tens que tratar este erro
-            }
-
+               //this.salvarProfessor(novoprof);
+               //System.out.println(professList.size());
+               //return (errorlist);
          }
       }
       // erros no cadastro
@@ -275,7 +272,7 @@ public  class Escola {
     public void  login(String cpf , String senha ){
         cpf = cpf.replace(".", "");
         cpf = cpf.replace("-", "");
-        System.out.println("cpf - "+ cpf + "\n" + "senha" + senha);
+        System.out.println("cpf digitado - "+ cpf + "\n" + "senha digitada - " + senha);
         if(cpf.equals("1") && senha.equals("1")){
             
             Professor novoprof = new Professor(cpf,nome,senha);
@@ -285,10 +282,11 @@ public  class Escola {
             for (int i =0 ; i< this.professList.size() ;i++){
                 if(this.professList.get(i).getCpf().equals(cpf)){
                     //achou o modafuka professor //checa a senha
-                    System.out.println("SEnha login = " + senha);
+                    //System.out.println("Senha no login = " + senha);
                     String senhaconf = cripto.decriptografarSenha(cpf, this.professList.get(i).getSenha());
-                    System.out.println("Senha pra confirmaçao" + senhaconf);
-                    if(senha.equals(senhaconf) ){
+                    System.out.println("senha decriptografada - " + senhaconf);
+                    if(senha.equals(senhaconf))
+                    {
                         // delicinha 
                         
                         if(!islogado){

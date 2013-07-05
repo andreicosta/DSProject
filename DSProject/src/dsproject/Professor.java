@@ -6,14 +6,14 @@ package dsproject;
 
 import java.io.File;
 import java.util.ArrayList;
-import dsproject.Turma;
+import java.io.Serializable;
 
 /**
  *
  * @author Israel(mó viadão)
  */
 
-public class Professor
+public class Professor implements Serializable
 {
     static int cont = 0;
     private int num_dir;

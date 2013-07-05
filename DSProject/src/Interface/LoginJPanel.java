@@ -124,7 +124,9 @@ public class LoginJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cadbutActionPerformed
 
     private void loginbutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbutActionPerformed
-        Escola.getInstance().login(campocpflogin.getText(), new String(loginpassw.getPassword()));
+        Escola escola = Escola.getInstance();
+        escola.login(campocpflogin.getText(), new String(loginpassw.getPassword()));
+        
         CardLayout card = (CardLayout) superPanel.getLayout();
         card.show(superPanel,"cardMain");
     }//GEN-LAST:event_loginbutActionPerformed
