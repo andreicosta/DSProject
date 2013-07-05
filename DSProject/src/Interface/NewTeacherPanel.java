@@ -7,13 +7,15 @@ package Interface;
 import dsproject.Escola;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
-import net.java.balloontip.BalloonTip;
-/*import net.java.balloontip.BalloonTip.AttachLocation;
+/*import net.java.balloontip.BalloonTip;
+import net.java.balloontip.BalloonTip.AttachLocation;
 import net.java.balloontip.BalloonTip.Orientation;
 import net.java.balloontip.styles.BalloonTipStyle;
 import net.java.balloontip.styles.MinimalBalloonStyle;
@@ -120,7 +122,7 @@ public class NewTeacherPanel extends javax.swing.JPanel
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
        errorflag = false;
-       
+
        char[] password = campoPasswordSenha.getPassword();
        char[] confirmPassword = campoPasswordConfirmarSenha.getPassword();
        String strPassword = new String(password);
@@ -154,31 +156,39 @@ public class NewTeacherPanel extends javax.swing.JPanel
                    labelCpf.setForeground(Color.red);
                    /*BalloonTipStyle borda = new MinimalBalloonStyle(Color.getHSBColor(53, 101, 30), 5);
                    myBalloonTip = new BalloonTip(campoFormatadoCpf, new JLabel("Digite um CPF válido"), borda, Orientation.RIGHT_ABOVE, AttachLocation.EAST, 125, 7, false);
-                   FadingUtils.fadeInBalloon(myBalloonTip, null, 100, 24);
-                   FadingUtils.fadeOutBalloon(myBalloonTip, null, 6300, 24);*/
+                   FadingUtils.fadeInBalloon(myBalloonTip, nullActionListener, 100, 24);
+                   FadingUtils.fadeOutBalloon(myBalloonTip, nullActionListener, 6300, 24);*/
                    break;
                 case (2):
                    // error nome
                    labelNomeCompleto.setForeground(Color.red);
                    /*BalloonTipStyle edgedLook = new MinimalBalloonStyle(Color.getHSBColor(53, 101, 30), 5);
                    myBalloonTip = new BalloonTip(campoNomeCompleto, new JLabel("Digite nome e sobrenome"), edgedLook, Orientation.RIGHT_ABOVE, AttachLocation.EAST, 160, 7, false);
-                   FadingUtils.fadeInBalloon(myBalloonTip, null, 100, 24);
-                   FadingUtils.fadeOutBalloon(myBalloonTip, null, 6300, 24);*/
+                   FadingUtils.fadeInBalloon(myBalloonTip, nullActionListener, 100, 24);
+                   FadingUtils.fadeOutBalloon(myBalloonTip, nullActionListener, 6300, 24);*/
                    break;
                 case (7):
                    // erro senha
                    labelSenha.setForeground(Color.red);
                    /*BalloonTipStyle borda1 = new MinimalBalloonStyle(Color.getHSBColor(53, 101, 30), 5);
                    myBalloonTip = new BalloonTip(campoPasswordSenha, new JLabel("Digite uma senha"), borda1, Orientation.RIGHT_ABOVE, AttachLocation.EAST, 110, 7, false);
-                   FadingUtils.fadeInBalloon(myBalloonTip, null, 100, 24);
-                   FadingUtils.fadeOutBalloon(myBalloonTip, null, 6300, 24);*/
+                   FadingUtils.fadeInBalloon(myBalloonTip, nullActionListener, 100, 24);
+                   FadingUtils.fadeOutBalloon(myBalloonTip, nullActionListener, 6300, 24);*/
                    break;
                 case (8):
                    labelConfirmarSenha.setForeground(Color.red);
                    /*BalloonTipStyle borda2 = new MinimalBalloonStyle(Color.getHSBColor(53, 101, 30), 5);
                    myBalloonTip = new BalloonTip(campoPasswordConfirmarSenha, new JLabel("Senhas diferentes"), borda2, Orientation.RIGHT_ABOVE, AttachLocation.EAST, 110, 7, false);
-                   FadingUtils.fadeInBalloon(myBalloonTip, null, 100, 24);
-                   FadingUtils.fadeOutBalloon(myBalloonTip, null, 6300, 24);*/
+                   FadingUtils.fadeInBalloon(myBalloonTip, nullActionListener, 100, 24);
+                   FadingUtils.fadeOutBalloon(myBalloonTip, nullActionListener, 6300, 24);*/
+                case (9):
+                   //erro cpf
+                   labelCpf.setForeground(Color.red);
+                   /*BalloonTipStyle borda3 = new MinimalBalloonStyle(Color.getHSBColor(53, 101, 30), 5);
+                   myBalloonTip = new BalloonTip(campoFormatadoCpf, new JLabel("CPF já existe"), borda3, Orientation.RIGHT_ABOVE, AttachLocation.EAST, 77, 7, false);
+                   FadingUtils.fadeInBalloon(myBalloonTip, nullActionListener, 100, 24);
+                   FadingUtils.fadeOutBalloon(myBalloonTip, nullActionListener, 6300, 24);*/
+                   break;
              }
           }
        }
@@ -191,7 +201,7 @@ public class NewTeacherPanel extends javax.swing.JPanel
    private ArrayList<Integer> erroscadlist;
    private boolean errorflag;
    private MaskFormatter cpfmask;
-   BalloonTip myBalloonTip;
+   //BalloonTip myBalloonTip;
    // Variables declaration - do not modify//GEN-BEGIN:variables
    private javax.swing.JFormattedTextField campoFormatadoCpf;
    private javax.swing.JTextField campoNomeCompleto;
@@ -240,4 +250,11 @@ public class NewTeacherPanel extends javax.swing.JPanel
       DefaultFormatterFactory factory = new DefaultFormatterFactory(comFoco, comFoco);
       return factory;
    }
+   private static final ActionListener nullActionListener = new ActionListener()
+   {
+      @Override
+      public void actionPerformed(ActionEvent evt)
+      {
+      }
+   };
 }

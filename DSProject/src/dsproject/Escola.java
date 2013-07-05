@@ -143,7 +143,7 @@ public  class Escola {
                      if (this.professList.get(i).getCpf().equals(cpf))
                      {
                         //JOptionPane.showMessageDialog(null, "Já existe professor cadastrado com o cpf", "Aviso", JOptionPane.WARNING_MESSAGE);
-                        errorlist.add(1);
+                        errorlist.add(9);
                         errors = true;
                      }
                      else
