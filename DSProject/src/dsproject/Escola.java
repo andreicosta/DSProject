@@ -13,7 +13,6 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.swing.JOptionPane;
 
 public  class Escola {
     private static Escola instance = new Escola();
@@ -123,38 +122,48 @@ public  class Escola {
       // Testa o Cpf    // retira "." "-" caso exista
       cpf = cpf.replace(".", "");
       cpf = cpf.replace("-", "");
+      System.out.println("cpf em cadastrar professor = " + cpf);
 // -------------------- Testa Campo Cpf  --------------------------------
       if (cpf.length() == 11)
       {
-         if (!validarCpf(cpf))
+         if(cpf.matches("[0-9]{11}"))
          {
-            JOptionPane.showMessageDialog(null, "Digite um cpf válido", "Erro", JOptionPane.ERROR_MESSAGE);
-            errorlist.add(1);
-            errors = true;
-         }
-         else
-         {
-            if (this.professList != null)
+            if (!validarCpf(cpf))
             {
-               for (int i = 0; i < this.professList.size(); i++)
-               {
-                  if (this.professList.get(i).getCpf().equals(cpf))
-                  {
-                     JOptionPane.showMessageDialog(null, "Já existe professor cadastrado com o cpf", "Aviso", JOptionPane.WARNING_MESSAGE);
-                     errorlist.add(1);
-                     errors = true;
-                  }
-                  else
-                  {
-                     Interface.NewTeacherPanel.getLabelCpf().setForeground(Color.black);
-                  }
-               }
+               //JOptionPane.showMessageDialog(null, "Digite um cpf válido", "Erro", JOptionPane.ERROR_MESSAGE);
+               errorlist.add(1);
+               errors = true;
             }
             else
             {
-               Interface.NewTeacherPanel.getLabelCpf().setForeground(Color.black);
-               this.professList = new ArrayList<Professor>();
+               if (this.professList != null)
+               {
+                  for (int i = 0; i < this.professList.size(); i++)
+                  {
+                     if (this.professList.get(i).getCpf().equals(cpf))
+                     {
+                        //JOptionPane.showMessageDialog(null, "Já existe professor cadastrado com o cpf", "Aviso", JOptionPane.WARNING_MESSAGE);
+                        errorlist.add(1);
+                        errors = true;
+                     }
+                     else
+                     {
+                        Interface.NewTeacherPanel.getLabelCpf().setForeground(Color.black);
+                     }
+                  }
+               }
+               else
+               {
+                  Interface.NewTeacherPanel.getLabelCpf().setForeground(Color.black);
+                  this.professList = new ArrayList<Professor>();
+               }
             }
+         }
+         else
+         {
+            //JOptionPane.showMessageDialog(null, "Digite um cpf válido", "Erro", JOptionPane.ERROR_MESSAGE);
+            errorlist.add(1);
+            errors = true;
          }
       }
       else
@@ -164,12 +173,12 @@ public  class Escola {
             errorlist.add(1);
             errors = true;
          }
-         else
+         /*else
          {
             JOptionPane.showMessageDialog(null, "Digite um cpf com 11 dígitos", "Erro", JOptionPane.ERROR_MESSAGE);
             errorlist.add(1);
             errors = true;
-         }
+         }*/
       }
 /* ------------------------- Teste Campo Nome ------------------------
 */
@@ -182,7 +191,7 @@ public  class Escola {
       {  
         if(!nome.isEmpty())
         {
-            nome.toLowerCase();
+           nome.toLowerCase();
             if(nome.charAt(nome.length()-1) == ' '){
                 System.out.println(nome.length());
                 nome = nome.substring(0, nome.length()-1);
@@ -190,18 +199,23 @@ public  class Escola {
             System.out.println(nome.length());
             System.out.println(nome);
             
-            Pattern p = Pattern.compile("[[a-z]+\\s]+[a-z]");
+            Pattern p = Pattern.compile("([a-z]+\\s)+[a-z]*");
             Matcher m = p.matcher(nome);
             boolean matchFound = m.matches();
 
             if(!matchFound){
                 System.err.println("erro no nome");
+                errorlist.add(2);
                 errors = true;
+            }
+            else
+            {
+               Interface.NewTeacherPanel.getLabelNomeCompleto().setForeground(Color.black);
             }
                 //}
         }
           
-         if (!nome.contains(" "))
+         /*if (!nome.contains(" "))
          {
             //System.out.println("Nome nao contem sobrenome");
             JOptionPane.showMessageDialog(null, "Digite um sobrenome", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -210,7 +224,7 @@ public  class Escola {
          }else
          {
             Interface.NewTeacherPanel.getLabelNomeCompleto().setForeground(Color.black);
-         }
+         }*/
       }
 
       if (senha.isEmpty())
@@ -223,8 +237,8 @@ public  class Escola {
          if (!(senha.equals(confsenha)))
          {
             
-            JOptionPane.showMessageDialog(null, "Senhas diferentes", "Erro", JOptionPane.ERROR_MESSAGE);
-            errorlist.add(7);
+            //JOptionPane.showMessageDialog(null, "Senhas diferentes", "Erro", JOptionPane.ERROR_MESSAGE);
+            errorlist.add(8);
             errors = true;
          }
          else
