@@ -273,8 +273,8 @@ public  class Escola {
     }
     
     public void  login(String cpf , String senha ){
-        cpf.replace(".", "");
-        cpf.replace("-", "");
+        cpf = cpf.replace(".", "");
+        cpf = cpf.replace("-", "");
         System.out.println("cpf - "+ cpf + "\n" + "senha" + senha);
         if(cpf.equals("1") && senha.equals("1")){
             
