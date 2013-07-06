@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -287,9 +289,16 @@ public class Escola
             novoprof = new Professor(cpf, nome, cripto.getSenhaCriptografada());
             errorlist.add(0); // nao possui erros
             this.professList.add(novoprof);
-            //this.salvarProfessor(novoprof);
-            //System.out.println(professList.size());
-            //return (errorlist);
+            try
+            {
+               this.salvarProfessor(novoprof);
+               //System.out.println(professList.size());
+               //return (errorlist);
+            }
+            catch (IOException ex)
+            {
+               System.err.println(ex);
+            }
          }
       }
       // erros no cadastro
@@ -316,7 +325,8 @@ public class Escola
             {
                //achou o modafuka professor //checa a senha
                //System.out.println("Senha no login = " + senha);
-               String senhaconf = cripto.decriptografarSenha(cpf, this.professList.get(i).getSenha());
+               String senhaconf = null;
+               senhaconf = cripto.decriptografarSenha(cpf, this.professList.get(i).getSenha());
                System.out.println("senha decriptografada - " + senhaconf);
                if (senha.equals(senhaconf))
                {
@@ -507,7 +517,7 @@ public class Escola
          professores.add(p);
       }
 
-      //Escola.setProfessList(professores);
+      this.setProfessList(professores);
    }
 
    public Professor carregarProfessor(String diretorio) throws IOException, ClassNotFoundException
@@ -521,22 +531,25 @@ public class Escola
       in.close();
 
       File f = new File(diretorio + "/turmas");
-      String lista[] = f.list();
-
-      System.out.println(p.getTurmas().get(0).getId());
-
-      ArrayList<Turma> turmas = new ArrayList<>();
-
-      for (int i = 0; i < lista.length; i++)
+      if(f.exists())
       {
-         if (!lista[i].equalsIgnoreCase("info.dat"))
-         {
-            System.out.println("Turma em: " + lista[i]);
-            turmas.add(carregarTurma(diretorio + "/turmas/" + lista[i]));
-         }
-      }
+         String lista[] = f.list();
 
-      p.setTurmas(turmas);
+         //System.out.println(p.getTurmas().get(0).getId());
+
+         ArrayList<Turma> turmas = new ArrayList<>();
+
+         for (int i = 0; i < lista.length; i++)
+         {
+            if (!lista[i].equalsIgnoreCase("info.dat"))
+            {
+               System.out.println("Turma em: " + lista[i]);
+               turmas.add(carregarTurma(diretorio + "/turmas/" + lista[i]));
+            }
+         }
+
+         p.setTurmas(turmas);
+      }
 
       return p;
    }

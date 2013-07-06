@@ -1,18 +1,23 @@
 
 package Interface;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import dsproject.Escola;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import javax.swing.JOptionPane;
 
 public class MainFrame extends javax.swing.JFrame {
 
     public MainFrame() {
-        initComponents();
+       try
+       {
+          initComponents();
+          Escola escola = Escola.getInstance();
+          escola.carregar();
+       }
+       catch (IOException | ClassNotFoundException ex)
+       {
+          System.err.println(ex);
+       }
     }
 
     /**
@@ -66,6 +71,15 @@ public class MainFrame extends javax.swing.JFrame {
          x = JOptionPane.showConfirmDialog(rootPane, "Tem certeza que quer fechar o programa? ");
          if(x == 0)
          {
+            Escola escola = Escola.getInstance();
+            try
+            {
+               escola.salvar();
+            }
+            catch (IOException ex)
+            {
+               System.err.println(ex);
+            }
             System.exit(x);
             /*File arquivoAlunos = new File("alunos.txt");
             File arquivoTurmas = new File("turmas.txt");

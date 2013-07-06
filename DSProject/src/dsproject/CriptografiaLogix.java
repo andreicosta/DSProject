@@ -91,7 +91,7 @@ public class CriptografiaLogix {
         return senhaResult;  
     }  
   
-    public String decriptografarSenha(String usuario, String senhaCripto) throws java.lang.NumberFormatException {  
+    public String decriptografarSenha(String usuario, String senhaCripto) throws NumberFormatException {  
         String senhaResult;  
         String arrumaResult = "";  
   
