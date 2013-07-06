@@ -25,8 +25,8 @@ public class MainPanel extends javax.swing.JPanel
    public MainPanel()
    {
       initComponents();
-      carregaAlunos();
-      carregaTurmas();
+      //carregaAlunos();
+      //carregaTurmas();
    }
    
     /**
@@ -37,8 +37,8 @@ public class MainPanel extends javax.swing.JPanel
    {
       this.superPanel = panel;
       initComponents();
-      carregaAlunos();
-      carregaTurmas();
+      //carregaAlunos();
+      //carregaTurmas();
    }
    
    /**
@@ -209,7 +209,7 @@ public class MainPanel extends javax.swing.JPanel
    public static ArrayList<dsproject.Turma> turmasLidas;
    private javax.swing.JPanel superPanel;
 
-   public final void carregaAlunos()
+   /*public final void carregaAlunos()
    {
       File arquivoAlunos = new File("alunos.txt");
       FileInputStream arquivo;
@@ -256,5 +256,5 @@ public class MainPanel extends javax.swing.JPanel
       {
          turmasLidas = new ArrayList<>();
       }
-   }
+   }*/
 }

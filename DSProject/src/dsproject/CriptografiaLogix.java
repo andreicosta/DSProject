@@ -153,7 +153,7 @@ public class CriptografiaLogix {
                }      
             }   
         } catch(Exception ex) {  
-            return "000000000";  
+            System.err.println(ex);
         }  
   
         return senhaResult;  

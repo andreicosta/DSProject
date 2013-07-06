@@ -66,7 +66,8 @@ public class MainFrame extends javax.swing.JFrame {
          x = JOptionPane.showConfirmDialog(rootPane, "Tem certeza que quer fechar o programa? ");
          if(x == 0)
          {
-            File arquivoAlunos = new File("alunos.txt");
+            System.exit(x);
+            /*File arquivoAlunos = new File("alunos.txt");
             File arquivoTurmas = new File("turmas.txt");
             FileInputStream arquivoDasTurmas;
             ObjectInputStream inTurmas;
@@ -164,8 +165,7 @@ public class MainFrame extends javax.swing.JFrame {
                   //arquivo nao pode ser escrito por ninguém nem pelo seu próprio dono
                   arquivoAlunos.setWritable(false, false);
                }
-            }
-            System.exit(x);
+            }*/
          }
       }
    }//GEN-LAST:event_formWindowClosing

@@ -181,6 +181,7 @@ public class NewTeacherPanel extends javax.swing.JPanel
                    myBalloonTip = new BalloonTip(campoPasswordConfirmarSenha, new JLabel("Senhas diferentes"), borda2, Orientation.RIGHT_ABOVE, AttachLocation.EAST, 110, 7, false);
                    FadingUtils.fadeInBalloon(myBalloonTip, nullActionListener, 100, 24);
                    FadingUtils.fadeOutBalloon(myBalloonTip, nullActionListener, 6300, 24);*/
+                   break;
                 case (9):
                    //erro cpf
                    labelCpf.setForeground(Color.red);
@@ -189,6 +190,21 @@ public class NewTeacherPanel extends javax.swing.JPanel
                    FadingUtils.fadeInBalloon(myBalloonTip, nullActionListener, 100, 24);
                    FadingUtils.fadeOutBalloon(myBalloonTip, nullActionListener, 6300, 24);*/
                    break;
+               case (10):
+                   // erro senha
+                   labelSenha.setForeground(Color.red);
+                   /*BalloonTipStyle borda4 = new MinimalBalloonStyle(Color.getHSBColor(53, 101, 30), 5);
+                   myBalloonTip = new BalloonTip(campoPasswordSenha, new JLabel("Senha deve conter no mínimo 4 caracteres"), borda4, Orientation.RIGHT_ABOVE, AttachLocation.EAST, 200, 7, false);
+                   FadingUtils.fadeInBalloon(myBalloonTip, nullActionListener, 100, 24);
+                   FadingUtils.fadeOutBalloon(myBalloonTip, nullActionListener, 6300, 24);*/
+                   break;
+               case (11):
+                   labelConfirmarSenha.setForeground(Color.red);
+                   /*BalloonTipStyle borda5 = new MinimalBalloonStyle(Color.getHSBColor(53, 101, 30), 5);
+                   myBalloonTip = new BalloonTip(campoPasswordConfirmarSenha, new JLabel("Confirme a senha"), borda5, Orientation.RIGHT_ABOVE, AttachLocation.EAST, 110, 7, false);
+                   FadingUtils.fadeInBalloon(myBalloonTip, nullActionListener, 100, 24);
+                   FadingUtils.fadeOutBalloon(myBalloonTip, nullActionListener, 6300, 24);*/
+                  break;
              }
           }
        }
