@@ -570,7 +570,7 @@ public class Escola
 
          ArrayList<Turma> turmas = new ArrayList<>();
 
-         for (int i = 0; i < lista.length; i++)
+         for (int i = 0; lista!=null && i < lista.length; i++)
          {
             if (!lista[i].equalsIgnoreCase("info.dat"))
             {
