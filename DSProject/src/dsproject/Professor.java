@@ -68,7 +68,8 @@ public class Professor implements Serializable
                 turmas.add(novaTurma);
                 errorlist.add(0); // nao possui erros
                 System.out.println(turmas.size());
-                
+                novaTurma.setDir(this.dir + "/turmas/" + novaTurma.getNumDir());
+                Escola.getInstance().salvarTurma(novaTurma);     
             } catch (Exception e) {
                 // tens que tratar este erro
                 

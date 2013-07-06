@@ -27,6 +27,19 @@ public class Escola
    private boolean islogado;
    private CriptografiaLogix cripto;
 
+   private Escola(){
+       try{
+           professList = new ArrayList<>();
+           this.carregar();
+       }
+       catch (IOException ex)
+       {
+           System.err.println(ex);
+       } catch (ClassNotFoundException ex) {
+           Logger.getLogger(Escola.class.getName()).log(Level.SEVERE, null, ex);
+       }
+   }
+   
    public Professor getLogado()
    {
       return logado;
@@ -325,7 +338,8 @@ public class Escola
             {
                //achou o modafuka professor //checa a senha
                //System.out.println("Senha no login = " + senha);
-               String senhaconf = null;
+               String senhaconf;
+               cripto = new CriptografiaLogix();
                senhaconf = cripto.decriptografarSenha(cpf, this.professList.get(i).getSenha());
                System.out.println("senha decriptografada - " + senhaconf);
                if (senha.equals(senhaconf))
@@ -370,7 +384,17 @@ public class Escola
 
    public void salvar() throws IOException
    {
-      ArrayList<Integer> contadores = new ArrayList<>();
+       salvarContadores();
+      Professor p;
+      for (int i = 0; i < professList.size(); i++)
+      {
+         p = professList.get(i);
+         salvarProfessor(p, true);
+      }
+   }
+   
+   public void salvarContadores() throws IOException{
+       ArrayList<Integer> contadores = new ArrayList<>();
 
       contadores.add(Professor.getCont());
       contadores.add(Turma.getCont());
@@ -380,13 +404,6 @@ public class Escola
       out = new ObjectOutputStream(new FileOutputStream("info.dat"));
       out.writeObject(contadores);
       out.close();
-
-      Professor p;
-      for (int i = 0; i < professList.size(); i++)
-      {
-         p = professList.get(i);
-         salvarProfessor(p, true);
-      }
    }
 
    public void salvarProfessor(Professor p) throws IOException
@@ -495,29 +512,43 @@ public class Escola
 
    public void carregar() throws IOException, ClassNotFoundException
    {
-      FileInputStream file = new FileInputStream(new File("info.dat"));
-      ObjectInputStream in = new ObjectInputStream(file);
+       try{
+           carregarContadores();
+           File f = new File("professores");
+           String lista[] = f.list();
+           ArrayList<Professor> professores = new ArrayList<>();
 
-      ArrayList<Integer> contadores = (ArrayList<Integer>) in.readObject();
+           Professor p;
+           for (int i = 0; lista != null && i < lista.length; i++) {
+               System.out.println("Professor em: " + lista[i]);
+               p = carregarProfessor("professores/" + lista[i]);
+               professores.add(p);
+           }
 
-      Professor.setCont(contadores.get(0));
-      Turma.setCont(contadores.get(1));
-      Aluno.setCont(contadores.get(2));
-      System.out.println("Contadores: " + contadores.get(0) + " " + contadores.get(1) + " " + contadores.get(2));
+           this.setProfessList(professores);
+       }
+       catch (IOException ex)
+       {
+           System.err.println(ex);
+       }
+   }
+   
+   public void carregarContadores() throws ClassNotFoundException{
+       try{
+           FileInputStream file = new FileInputStream(new File("info.dat"));
+           ObjectInputStream in = new ObjectInputStream(file);
 
-      File f = new File("professores");
-      String lista[] = f.list();
-      ArrayList<Professor> professores = new ArrayList<>();
+           ArrayList<Integer> contadores = (ArrayList<Integer>) in.readObject();
 
-      Professor p;
-      for (int i = 0; i < lista.length; i++)
-      {
-         System.out.println("Professor em: " + lista[i]);
-         p = carregarProfessor("professores/" + lista[i]);
-         professores.add(p);
-      }
-
-      this.setProfessList(professores);
+           Professor.setCont(contadores.get(0));
+           Turma.setCont(contadores.get(1));
+           Aluno.setCont(contadores.get(2));
+           System.out.println("Contadores: " + contadores.get(0) + " " + contadores.get(1) + " " + contadores.get(2));
+       }
+       catch(IOException ex){
+           System.err.println(ex);
+       }
+       
    }
 
    public Professor carregarProfessor(String diretorio) throws IOException, ClassNotFoundException
@@ -570,7 +601,7 @@ public class Escola
 
       ArrayList<Aluno> alunos = new ArrayList<>();
 
-      for (int i = 0; i < lista.length; i++)
+      for (int i = 0; lista!= null && i < lista.length; i++)
       {
          if (!lista[i].equalsIgnoreCase("info.dat"))
          {

@@ -74,7 +74,7 @@ public class MainFrame extends javax.swing.JFrame {
             Escola escola = Escola.getInstance();
             try
             {
-               escola.salvar();
+               escola.salvarContadores();
             }
             catch (IOException ex)
             {
