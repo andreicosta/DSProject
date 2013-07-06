@@ -52,7 +52,10 @@ public class Turma implements Serializable, Cloneable
    public void inserirAluno(Aluno aluno) throws IOException
    {
        aluno.setDir(this.dir + "/alunos/" + aluno.getNumDir());
+
        Escola.getInstance().salvarAluno(aluno);
+
+
        this.alunos.add(aluno);
    }
    
@@ -63,13 +66,8 @@ public class Turma implements Serializable, Cloneable
    public void removeAluno(Aluno aluno)
    {
       int idAluno;
-      idAluno = buscaAluno(aluno);
-
-      File f = new File(alunos.get(idAluno).getDir());
-      f.delete();     
-      
+      idAluno = buscaAluno(aluno);      
       this.alunos.remove(idAluno);
-      
    }
 
    public int buscaAluno(Aluno aluno)

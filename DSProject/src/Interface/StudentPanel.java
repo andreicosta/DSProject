@@ -2,6 +2,7 @@ package Interface;
 
 import dsproject.*;
 import java.awt.Color;
+import java.io.IOException;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -114,7 +115,12 @@ public class StudentPanel extends javax.swing.JPanel {
         createButton.setText("Cadastrar");
         createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createButtonActionPerformed(evt);
+			try{
+	                createButtonActionPerformed(evt);
+			}
+			catch(IOException ex){
+       		    System.err.println(ex);
+		     }
             }
         });
         newStudentPanel.add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 417, 90, -1));
@@ -348,7 +354,7 @@ public class StudentPanel extends javax.swing.JPanel {
     }
     
     /*MÉTODOS DE EVENTOS*/
-   private void createButtonActionPerformed(java.awt.event.ActionEvent evt){                                             
+   private void createButtonActionPerformed(java.awt.event.ActionEvent evt) throws IOException{                                             
        flag = false;
        String nameNewStudent = getNameStudent();
        Turma newTurma = getTurma();

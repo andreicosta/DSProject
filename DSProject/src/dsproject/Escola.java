@@ -491,23 +491,28 @@ public class Escola
    {
       //salva aluno
       //salva arrayList de avaliaÃ§Ãµes do aluno
+      try{
+        File f;
+        f = new File(a.getDir());
+        if (!f.exists())
+        {
+           f.mkdirs();
+        }
 
-      File f;
-      f = new File(a.getDir());
-      if (!f.exists())
-      {
-         f.mkdirs();
+        //salva o obj turma
+        ObjectOutputStream out;
+        out = new ObjectOutputStream(new FileOutputStream(a.getDir() + "/info.dat"));
+        out.writeObject(a);
+        out.close();
+
+        out = new ObjectOutputStream(new FileOutputStream(a.getDir() + "/avaliacoes.dat"));
+        out.writeObject(a.getAvaliacoes());
+        out.close();
       }
-
-      //salva o obj turma
-      ObjectOutputStream out;
-      out = new ObjectOutputStream(new FileOutputStream(a.getDir() + "/info.dat"));
-      out.writeObject(a);
-      out.close();
-
-      out = new ObjectOutputStream(new FileOutputStream(a.getDir() + "/avaliacoes.dat"));
-      out.writeObject(a.getAvaliacoes());
-      out.close();
+      catch (IOException ex)
+      {
+           System.err.println(ex);
+      }
    }
 
    public void carregar() throws IOException, ClassNotFoundException
@@ -533,113 +538,135 @@ public class Escola
        }
    }
    
-   public void carregarContadores() throws ClassNotFoundException{
-       try{
-           FileInputStream file = new FileInputStream(new File("info.dat"));
-           ObjectInputStream in = new ObjectInputStream(file);
+    public void carregarContadores() throws ClassNotFoundException {
+        try {
+            FileInputStream file = new FileInputStream(new File("info.dat"));
+            ObjectInputStream in = new ObjectInputStream(file);
 
-           ArrayList<Integer> contadores = (ArrayList<Integer>) in.readObject();
+            ArrayList<Integer> contadores = (ArrayList<Integer>) in.readObject();
 
-           Professor.setCont(contadores.get(0));
-           Turma.setCont(contadores.get(1));
-           Aluno.setCont(contadores.get(2));
-           System.out.println("Contadores: " + contadores.get(0) + " " + contadores.get(1) + " " + contadores.get(2));
-       }
-       catch(IOException ex){
-           System.err.println(ex);
-       }
-       
-   }
+            Professor.setCont(contadores.get(0));
+            Turma.setCont(contadores.get(1));
+            Aluno.setCont(contadores.get(2));
+            System.out.println("Contadores: " + contadores.get(0) + " " + contadores.get(1) + " " + contadores.get(2));
+        } catch (IOException ex) {
+            System.err.println(ex);
+        }
 
-   public Professor carregarProfessor(String diretorio) throws IOException, ClassNotFoundException
-   {
-      Professor p;
+    }
 
-      FileInputStream file = new FileInputStream(new File(diretorio + "/info.dat"));
-      ObjectInputStream in = new ObjectInputStream(file);
+    public Professor carregarProfessor(String diretorio) throws IOException, ClassNotFoundException {
+        try {
+            Professor p;
 
-      p = (Professor) in.readObject();
-      in.close();
+            FileInputStream file = new FileInputStream(new File(diretorio + "/info.dat"));
+            ObjectInputStream in = new ObjectInputStream(file);
 
-      File f = new File(diretorio + "/turmas");
-      if(f.exists())
-      {
-         String lista[] = f.list();
+            p = (Professor) in.readObject();
+            in.close();
 
-         //System.out.println(p.getTurmas().get(0).getId());
+            File f = new File(diretorio + "/turmas");
+            if (f.exists()) {
+                String lista[] = f.list();
 
-         ArrayList<Turma> turmas = new ArrayList<>();
+                //System.out.println(p.getTurmas().get(0).getId());
 
-         for (int i = 0; lista!=null && i < lista.length; i++)
-         {
-            if (!lista[i].equalsIgnoreCase("info.dat"))
-            {
-               System.out.println("Turma em: " + lista[i]);
-               turmas.add(carregarTurma(diretorio + "/turmas/" + lista[i]));
+                ArrayList<Turma> turmas = new ArrayList<>();
+
+                for (int i = 0; lista != null && i < lista.length; i++) {
+                    if (!lista[i].equalsIgnoreCase("info.dat")) {
+                        System.out.println("Turma em: " + lista[i]);
+                        turmas.add(carregarTurma(diretorio + "/turmas/" + lista[i]));
+                    }
+                }
+
+                p.setTurmas(turmas);
             }
-         }
+            return p;
+        } catch (IOException ex) {
+            System.err.println(ex);
+            return null;
+        }
+    }
 
-         p.setTurmas(turmas);
-      }
+    public Turma carregarTurma(String diretorio) throws IOException, ClassNotFoundException {
+        //salva obj
+        try {
+            Turma t;
 
-      return p;
-   }
+            FileInputStream file = new FileInputStream(new File(diretorio + "/info.dat"));
+            ObjectInputStream in = new ObjectInputStream(file);
 
-   public Turma carregarTurma(String diretorio) throws IOException, ClassNotFoundException
-   {
-      //salva obj
-      Turma t;
+            t = (Turma) in.readObject();
+            in.close();
 
-      FileInputStream file = new FileInputStream(new File(diretorio + "/info.dat"));
-      ObjectInputStream in = new ObjectInputStream(file);
+            File f = new File(diretorio + "/alunos");
+            String lista[] = f.list();
 
-      t = (Turma) in.readObject();
-      in.close();
+            ArrayList<Aluno> alunos = new ArrayList<>();
 
-      File f = new File(diretorio + "/alunos");
-      String lista[] = f.list();
+            for (int i = 0; lista != null && i < lista.length; i++) {
+                if (!lista[i].equalsIgnoreCase("info.dat")) {
+                    System.out.println("Aluno em: " + lista[i]);
+                    alunos.add(carregarAluno(diretorio + "/alunos/" + lista[i]));
+                }
+            }
 
-      ArrayList<Aluno> alunos = new ArrayList<>();
+            t.setAlunos(alunos);
 
-      for (int i = 0; lista!= null && i < lista.length; i++)
-      {
-         if (!lista[i].equalsIgnoreCase("info.dat"))
-         {
-            System.out.println("Aluno em: " + lista[i]);
-            alunos.add(carregarAluno(diretorio + "/alunos/" + lista[i]));
-         }
-      }
+            return t;
+        } catch (IOException ex) {
+            System.err.println(ex);
+            return null;
+        }
 
-      t.setAlunos(alunos);
+    }
 
-      return t;
-   }
+    public Aluno carregarAluno(String diretorio) throws IOException, ClassNotFoundException {
+        try {
+            Aluno a;
+            //salva aluno
+            //salva arrayList de avaliaÃ§Ãµes do aluno
 
-   public Aluno carregarAluno(String diretorio) throws IOException, ClassNotFoundException
-   {
-      Aluno a;
-      //salva aluno
-      //salva arrayList de avaliaÃ§Ãµes do aluno
+            FileInputStream file;
+            ObjectInputStream in;
 
-      FileInputStream file;
-      ObjectInputStream in;
+            file = new FileInputStream(new File(diretorio + "/info.dat"));
+            in = new ObjectInputStream(file);
 
-      file = new FileInputStream(new File(diretorio + "/info.dat"));
-      in = new ObjectInputStream(file);
+            a = (Aluno) in.readObject();
+            in.close();
 
-      a = (Aluno) in.readObject();
-      in.close();
+            file = new FileInputStream(new File(diretorio + "/avaliacoes.dat"));
+            in = new ObjectInputStream(file);
 
-      file = new FileInputStream(new File(diretorio + "/avaliacoes.dat"));
-      in = new ObjectInputStream(file);
+            System.out.println("size: " + a.getAvaliacoes().size());
 
-      System.out.println("size: " + a.getAvaliacoes().size());
+            ArrayList<Avaliacao> avaliacoes = (ArrayList<Avaliacao>) in.readObject();
+            in.close();
 
-      ArrayList<Avaliacao> avaliacoes = (ArrayList<Avaliacao>) in.readObject();
-      in.close();
+            a.setAvaliacoes(avaliacoes);
 
-      a.setAvaliacoes(avaliacoes);
+            return a;
+        } catch (IOException ex) {
+            System.err.println(ex);
+            return null;
+        }
+    }
 
-      return a;
-   }
+    public void removeProfessor(Professor p) {
+        File f = new File(p.getDir());
+        f.delete();
+    }
+
+    public void removeTurma(Turma t) {
+        File f = new File(t.getDir());
+        f.delete();
+    }
+
+    public void removeAluno(Aluno a) {
+        File f = new File(a.getDir());
+        f.delete();
+    }
+
 }
