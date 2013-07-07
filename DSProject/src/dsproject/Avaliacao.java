@@ -35,11 +35,40 @@ public class Avaliacao implements Serializable
    
    private boolean salvoParaEnviar;
    
+   private boolean enviado;
+
+    public boolean isEnviado() {
+        return enviado;
+    }
+
+    public void setEnviado(boolean enviado) {
+        this.enviado = enviado;
+    }
+   
 
    public Avaliacao()
-   {
-       this.salvoParaEnviar = false;       
-       this.sentarEAlcancarComBanco = true; 
+   {    
+       
+       //this.data = null;
+       this.horario = null;
+       this.temperatura = null;
+       
+       this.massaCorporal = -1;
+       this.estatura = -1;
+       this.IMC = -1;
+       this.envergadura = -1;
+       this.sentarEAlcancar = -1;
+       this.sentarEAlcancarComBanco = true;
+       this.abdominal = -1;
+       this._6Minutos = -1;
+       this._9Minutos = -1;
+       this.saltoHorizontal = -1;
+       this.arremessoMedicineBall = -1;
+       this.testeDoQuadrado = -1;
+       this.corrida20Metros = -1;
+       
+       this.salvoParaEnviar = false;
+       this.enviado = false;
       /*
       System.out.println("data = " + dataFormatada.format(avaliacao.getData()));
       System.out.println("horario = " + avaliacao.getHorario());

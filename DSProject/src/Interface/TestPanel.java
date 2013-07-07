@@ -5,6 +5,9 @@
 package Interface;
 
 import dsproject.Aluno;
+import dsproject.Avaliacao;
+import dsproject.Escola;
+import dsproject.Turma;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -27,22 +30,22 @@ import javax.swing.KeyStroke;
  *
  * @author pazuti
  */
-public class TestPanel extends javax.swing.JPanel
-{
+public class TestPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form TestPanel
      */
-    public TestPanel()
-    {
-        /*try
-        {
-            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+    public TestPanel() {
+        /*
+         * try {
+         * UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+         * } catch (ClassNotFoundException | InstantiationException |
+         * IllegalAccessException | UnsupportedLookAndFeelException ex) {
+         * Logger.getLogger(TestPanel.class.getName()).log(Level.SEVERE, null,
+         * ex);
         }
-        catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(TestPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        
+         */
+
         initComponents();
         TestPanel.fieldTestDate.getDateEditor().getUiComponent().addFocusListener(new FocusListener() {
 
@@ -53,18 +56,11 @@ public class TestPanel extends javax.swing.JPanel
 
             @Override
             public void focusLost(FocusEvent e) {
-                if(getCampoDataDaAvaliacao() == null){
+                if (getCampoDataDaAvaliacao() == null) {
                     labelDataDaAvaliacao.setForeground(Color.red);
-                }
-                else{
+                } else {
                     labelDataDaAvaliacao.setForeground(Color.black);
-                    for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
-                     {
-                        if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
-                        {
-                           MainPanel.alunosLidos.get(i).getLastAvaliation().setData(getCampoDataDaAvaliacao());
-                        }
-                     }
+                    saveData();
                 }
             }
         });
@@ -156,6 +152,7 @@ public class TestPanel extends javax.swing.JPanel
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                comboTurmaPopupMenuWillBecomeInvisible(evt);
             }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
                 comboTurmaPopupMenuWillBecomeVisible(evt);
@@ -173,6 +170,16 @@ public class TestPanel extends javax.swing.JPanel
         });
         newEditPanel.add(comboTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 18, 210, -1));
 
+        comboNomeDoAluno.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                comboNomeDoAlunoPopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+                comboNomeDoAlunoPopupMenuWillBecomeVisible(evt);
+            }
+        });
         comboNomeDoAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboNomeDoAlunoActionPerformed(evt);
@@ -308,9 +315,19 @@ public class TestPanel extends javax.swing.JPanel
                 radioSitAndAchieveWithSeatActionPerformed(evt);
             }
         });
+        radioSitAndAchieveWithSeat.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                radioSitAndAchieveWithSeatFocusLost(evt);
+            }
+        });
         newEditPanel.add(radioSitAndAchieveWithSeat, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 182, -1, -1));
 
         radioSitAndAchieveWithoutSeat.setText("Sem Banco");
+        radioSitAndAchieveWithoutSeat.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                radioSitAndAchieveWithoutSeatFocusLost(evt);
+            }
+        });
         newEditPanel.add(radioSitAndAchieveWithoutSeat, new org.netbeans.lib.awtextra.AbsoluteConstraints(698, 182, -1, -1));
 
         labelSitUp.setText("Abdominal");
@@ -350,12 +367,22 @@ public class TestPanel extends javax.swing.JPanel
                 radio6MinutesActionPerformed(evt);
             }
         });
+        radio6Minutes.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                radio6MinutesFocusLost(evt);
+            }
+        });
         newEditPanel.add(radio6Minutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 221, -1, -1));
 
         radio9Minutes.setText("9 minutos");
         radio9Minutes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radio9MinutesActionPerformed(evt);
+            }
+        });
+        radio9Minutes.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                radio9MinutesFocusLost(evt);
             }
         });
         newEditPanel.add(radio9Minutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(698, 221, -1, -1));
@@ -556,385 +583,137 @@ public class TestPanel extends javax.swing.JPanel
 
    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_buttonSaveActionPerformed
    {//GEN-HEADEREND:event_buttonSaveActionPerformed
-      java.util.Date dataDeNascimento = null;
-      java.util.Date dataDaAvaliacao;
-      java.util.Date horaDaAvaliacao = null;
-      java.sql.Date sqlDataDeNascimento = null;
-      java.sql.Date sqlDataDaAvaliacao = null;
-      String horaDaAvaliacaoString = null;
-      String temperatura;
-      //String dataDeNascimentoString = "13/04/1999"; //aqui vai Aluno.getDataDeNascimento()
-      SimpleDateFormat formatoDaData = new SimpleDateFormat("dd/MM/yyyy");
-      SimpleDateFormat formatoDaHora = new SimpleDateFormat("HH:mm");
-      FileInputStream arquivo;
-      ArrayList<Aluno> alunos;
-      ObjectInputStream entrada = null;
-      ObjectOutputStream saida = null;
-      File arquivoAlunos = new File("alunos.txt");
-      int i;
-      int y = 0;
-
-      try
-      {
-         dataDaAvaliacao = getCampoDataDaAvaliacao();
-         horaDaAvaliacaoString = getCampoHora();
-         temperatura = getCampoTemperatura();
-         
-         if(dataDaAvaliacao != null && horaDaAvaliacaoString != null && temperatura != null)
-         {
-            //testa se foi digitado uma hora mais : mais minutos
-            String splitedTime[] = horaDaAvaliacaoString.split(":");
-            if(horaDaAvaliacaoString.length() != 5 || splitedTime.length == 1)
-            {
-               JOptionPane.showMessageDialog(null, "Digite um horario correto", "Erro", JOptionPane.ERROR_MESSAGE);
-            }
-            else
-            {
-               //pega o que esta antes e depois dos dois pontos e põe no vetor horarioDividido
-               //testa se a hora é maior que 23
-               if(Integer.parseInt(splitedTime[0]) > 23)
-               {
-                  JOptionPane.showMessageDialog(null, "Digite uma hora no formato 24h", "Erro", JOptionPane.ERROR_MESSAGE);
-               }
-               else
-               {
-                  //testa se os minutos são maiores que 59
-                  if(Integer.parseInt(splitedTime[1]) > 59)
-                  {
-                     JOptionPane.showMessageDialog(null, "Digite os minutos corretamente", "Erro", JOptionPane.ERROR_MESSAGE);
-                  }
-                  else
-                  {
-                     //converte uma data escrita no formato de string para o formato de data do java
-                     //dataDeNascimento = formatoDaData.parse(dataDeNascimentoString);
-                     
-                     for(i = 0; i < MainPanel.alunosLidos.size(); i++)
-                     {
-                        if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
-                        {
-                           dataDeNascimento = MainPanel.alunosLidos.get(i).getDataDeNascimento().getTime();
-                           y = i;
-                        }
-                     }
-
-                     //converte a data em formato do java para o formato do mysql
-                     sqlDataDaAvaliacao = new java.sql.Date(dataDaAvaliacao.getTime());
-                     sqlDataDeNascimento = new java.sql.Date(dataDeNascimento.getTime());
-
-                     horaDaAvaliacao = formatoDaHora.parse(horaDaAvaliacaoString);
-
-                     //dsproject.Aluno aluno = new dsproject.Aluno("Maria", "Joao", null, null, null, null, "Miguel", sqlDataDeNascimento, "sdfgdfsg", "Masculino", "Pelotas", "RS");
-                     MainPanel.alunosLidos.get(y).inserirAvaliacao();
-                     //{
-                        
-                        // daqui até o catch salva objeto aluno
-                        /*try
-                        {
-                           //fileStudents = new File("alunos.txt");
-                           if(arquivoAlunos.exists())
-                           {
-                              FileInputStream file = new FileInputStream(arquivoAlunos);
-                              entrada = new ObjectInputStream(file);
-                              alunos = (ArrayList<Aluno>)entrada.readObject();
-                              alunos.add(aluno);
-                              saida = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
-                              saida.writeObject(alunos);
-                              saida.close();
-                              JOptionPane.showMessageDialog(null, "Avaliação salva", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-                           }
-                           else
-                           {
-                              alunos = new ArrayList<>();
-                              alunos.add(aluno);
-                              saida = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
-                              saida.writeObject(alunos);
-                              saida.close();
-                              JOptionPane.showMessageDialog(null, "Avaliação salva com sucesso", "Confirmação!", JOptionPane.INFORMATION_MESSAGE);
-                           }
-                        }
-                        catch (IOException | ClassNotFoundException ex)
-                        {
-                           System.err.println(ex);
-                        }*/
-                        //System.out.println(sh.format(hora));
-                        //System.out.println(sd.format(dataAvaliacao));
-                     //}
-                     //else
-                     //{
-                        
-                     //}
-                  }
-               }
-            }
-         }
-      }
-      catch (ParseException | NullPointerException ex)
-      {
-	 System.err.println(ex);
-      }
+       saveData();
+       saveTime();
+       saveTemperature();
+       saveBodyMass();
+       saveHeight();
+       saveIMC();
+       saveSpread();
+       saveSitUp();
+       saveSitUpAndAchieve();
+       saveWithSeat();
+       saveWithoutSeat();
+       saveRun();
+       saveRadio6();
+       saveRadio9();
+       saveHorizontalJump();
+       saveMedicineBallThrow();
+       saveSquareTest();
+       save20MettersRun();
+       
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        if (student == null) {
+            return;
+        }
+        Avaliacao avaliacao = student.getLastAvaliation();
+        avaliacao.setSalvoParaEnviar(true);
    }//GEN-LAST:event_buttonSaveActionPerformed
 
    private void fieldTimeKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldTimeKeyTyped
    {//GEN-HEADEREND:event_fieldTimeKeyTyped
-      if(!Character.isDigit(evt.getKeyChar()))
-      {
-         evt.setKeyChar('\0');
-      }
-      else
-      {
-         String textoCampo = fieldTime.getText();
-         if(textoCampo.length() == 2)
-            fieldTime.setText(textoCampo + ":");
-         else
-         {
-            if(textoCampo.length() > 4)
-               evt.setKeyChar('\0');
-         }
-      }
+       if (!Character.isDigit(evt.getKeyChar())) {
+           evt.setKeyChar('\0');
+       } else {
+           String textoCampo = fieldTime.getText();
+           if (textoCampo.length() == 2) {
+               fieldTime.setText(textoCampo + ":");
+           } else {
+               if (textoCampo.length() > 4) {
+                   evt.setKeyChar('\0');
+               }
+           }
+       }
    }//GEN-LAST:event_fieldTimeKeyTyped
 
    private void fieldTemperatureKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldTemperatureKeyTyped
    {//GEN-HEADEREND:event_fieldTemperatureKeyTyped
-      if(!Character.isDigit(evt.getKeyChar()))
-      {
-         evt.setKeyChar('\0');
-      }
-      else
-      {
-         String textoCampo = fieldTemperature.getText();
-         if(textoCampo.length() > 1)
-            evt.setKeyChar('\0');
-      }
+       if (!Character.isDigit(evt.getKeyChar())) {
+           evt.setKeyChar('\0');
+       } else {
+           String textoCampo = fieldTemperature.getText();
+           if (textoCampo.length() > 1) {
+               evt.setKeyChar('\0');
+           }
+       }
    }//GEN-LAST:event_fieldTemperatureKeyTyped
 
    private void fieldBodyMassKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldBodyMassKeyTyped
    {//GEN-HEADEREND:event_fieldBodyMassKeyTyped
-      if(!Character.isDigit(evt.getKeyChar()))
-      {
-         evt.setKeyChar('\0');
-      }
-      else
-      {
-         String textoCampo = fieldBodyMass.getText();
-         if(textoCampo.length() > 2)
-            evt.setKeyChar('\0');
-      }
+       if (!Character.isDigit(evt.getKeyChar())) {
+           evt.setKeyChar('\0');
+       } else {
+           String textoCampo = fieldBodyMass.getText();
+           if (textoCampo.length() > 2) {
+               evt.setKeyChar('\0');
+           }
+       }
    }//GEN-LAST:event_fieldBodyMassKeyTyped
 
    private void fieldHeightKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldHeightKeyTyped
    {//GEN-HEADEREND:event_fieldHeightKeyTyped
-      if(!Character.isDigit(evt.getKeyChar()))
-      {
-         evt.setKeyChar('\0');
-      }
-      else
-      {
-         String textoCampo = fieldHeight.getText();
-         if(textoCampo.length() > 2)
-            evt.setKeyChar('\0');
-      }
+       if (!Character.isDigit(evt.getKeyChar())) {
+           evt.setKeyChar('\0');
+       } else {
+           String textoCampo = fieldHeight.getText();
+           if (textoCampo.length() > 2) {
+               evt.setKeyChar('\0');
+           }
+       }
    }//GEN-LAST:event_fieldHeightKeyTyped
 
    private void fieldIMCKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldIMCKeyTyped
    {//GEN-HEADEREND:event_fieldIMCKeyTyped
-      if(!Character.isDigit(evt.getKeyChar()))
-      {
-         evt.setKeyChar('\0');
-      }
-      else
-      {
-         String textoCampo = fieldIMC.getText();
-         //System.out.println("length sem ponto = " + campoIMC.getText().length());
-         if(textoCampo.length() == 2)
-         {
-            fieldIMC.setText(textoCampo + ".");
-            //System.out.println("ponto colocado length = " + campoIMC.getText().length());
-         }
-         else
-         {
-            if(textoCampo.length() > 3)
-               evt.setKeyChar('\0');
-         }
-      }
+       if (!Character.isDigit(evt.getKeyChar())) {
+           evt.setKeyChar('\0');
+       } else {
+           String textoCampo = fieldIMC.getText();
+           //System.out.println("length sem ponto = " + campoIMC.getText().length());
+           if (textoCampo.length() == 2) {
+               fieldIMC.setText(textoCampo + ".");
+               //System.out.println("ponto colocado length = " + campoIMC.getText().length());
+           } else {
+               if (textoCampo.length() > 3) {
+                   evt.setKeyChar('\0');
+               }
+           }
+       }
    }//GEN-LAST:event_fieldIMCKeyTyped
 
    private void fieldSpreadKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldSpreadKeyTyped
    {//GEN-HEADEREND:event_fieldSpreadKeyTyped
-      if(!Character.isDigit(evt.getKeyChar()))
-      {
-         evt.setKeyChar('\0');
-      }
-      else
-      {
-         String textoCampo = fieldSpread.getText();
-         if(textoCampo.length() > 2)
-            evt.setKeyChar('\0');
-      }
+       if (!Character.isDigit(evt.getKeyChar())) {
+           evt.setKeyChar('\0');
+       } else {
+           String textoCampo = fieldSpread.getText();
+           if (textoCampo.length() > 2) {
+               evt.setKeyChar('\0');
+           }
+       }
    }//GEN-LAST:event_fieldSpreadKeyTyped
 
    private void fieldSitUpKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldSitUpKeyTyped
    {//GEN-HEADEREND:event_fieldSitUpKeyTyped
-      if(!Character.isDigit(evt.getKeyChar()))
-      {
-         evt.setKeyChar('\0');
-      }
-      else
-      {
-         String textoCampo = fieldSitUp.getText();
-         if(textoCampo.length() > 4)
-            evt.setKeyChar('\0');
-      }
+       if (!Character.isDigit(evt.getKeyChar())) {
+           evt.setKeyChar('\0');
+       } else {
+           String textoCampo = fieldSitUp.getText();
+           if (textoCampo.length() > 4) {
+               evt.setKeyChar('\0');
+           }
+       }
    }//GEN-LAST:event_fieldSitUpKeyTyped
 
    private void comboTurmaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboTurmaPopupMenuWillBecomeVisible
    {//GEN-HEADEREND:event_comboTurmaPopupMenuWillBecomeVisible
-      Object isNull;
-      isNull = comboTurma.getItemAt(0);
-      int i = 0;
-      /*ArrayList<dsproject.Turma> turmas;
-      File arquivoTurmas = new File("turmas.txt");
-      FileInputStream arquivo;
-      ObjectInputStream in;*/
-      if(isTurmaAdicionadaComboTurma() && isNull == null)
-      {
-         //daqui até o catch le um objeto gravado no arquivo alunos.txt
-         /*if(arquivoTurmas.exists())
-         {
-            try
-            {
-               arquivo = new FileInputStream(arquivoTurmas);
-               in = new ObjectInputStream(arquivo);
-               turmas = (ArrayList<dsproject.Turma>)in.readObject();*/
-               i = 0;
-               comboTurma.addItem("");
-               while(i < MainPanel.turmasLidas.size())
-               {
-                  comboTurma.addItem(MainPanel.turmasLidas.get(i).getId());
-                  i++;
-               }
-            /*}
-            catch (IOException | ClassNotFoundException ex)
-            {
-               System.err.println(ex);
-            }
-
-         }*/
-         setTurmaAdicionadaComboTurma(false);
-         setNumeroDeTurmasAdicionadasComboTurma(0);
-      }
-      else
-      {
-         if(isTurmaAdicionadaComboTurma() && isNull != null)
-         {
-            //daqui até o catch le um objeto gravado no arquivo alunos.txt
-            /*if(arquivoTurmas.exists())
-            {
-               try
-               {
-                  arquivo = new FileInputStream(arquivoTurmas);
-                  in = new ObjectInputStream(arquivo);
-                  turmas = (ArrayList<dsproject.Turma>)in.readObject();*/
-                  i = (MainPanel.turmasLidas.size() - getNumeroDeTurmasAdicionadasComboTurma());
-                  while(i < MainPanel.turmasLidas.size())
-                  {
-                     comboTurma.addItem(MainPanel.turmasLidas.get(i).getId());
-                     i++;
-                  }
-               /*}
-               catch (IOException | ClassNotFoundException ex)
-               {
-                  System.err.println(ex);
-               }
-
-            }*/
-            setTurmaAdicionadaComboTurma(false);
-            setNumeroDeTurmasAdicionadasComboTurma(0);
-         }
-         else
-         {
-            if(isNull == null)
-            {
-               i = 0;
-
-               //daqui até o catch le um objeto gravado no arquivo alunos.txt
-               /*if(arquivoTurmas.exists())
-               {
-                  try
-                  {
-                     arquivo = new FileInputStream(arquivoTurmas);
-                     in = new ObjectInputStream(arquivo);
-                     turmas = (ArrayList<dsproject.Turma>)in.readObject();*/
-                     comboTurma.addItem("");
-                     while(i < MainPanel.turmasLidas.size())
-                     {
-                        comboTurma.addItem(MainPanel.turmasLidas.get(i).getId());
-                        i++;
-                     }
-                  /*}
-                  catch (IOException | ClassNotFoundException ex)
-                  {
-                     System.err.println(ex);
-                  }
-               }*/
-            }
-         }
-      }
+       this.comboTurma.removeAllItems();
+       for (Turma i : Escola.getInstance().getLogado().getTurmas()) {
+           this.comboTurma.addItem(i);
+       }
    }//GEN-LAST:event_comboTurmaPopupMenuWillBecomeVisible
 
    private void comboTurmaItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_comboTurmaItemStateChanged
    {//GEN-HEADEREND:event_comboTurmaItemStateChanged
-      limpaComboNomeDoAluno();
-      int i;
-      int y;
-      Object isNull;
-      isNull = comboNomeDoAluno.getItemAt(0);
-      //ArrayList<dsproject.Turma> turmas;
-      //File arquivoTurmas = new File("turmas.txt");
-      //ObjectInputStream in;
-      
-      if (evt.getStateChange() == 1)
-      {
-         if(evt.getItem().equals(""))
-         {
-            System.out.println("espaço em branco"); 
-         }
-         else
-         {
-            /*if(arquivoTurmas.exists())
-            {
-               FileInputStream file;
-               try
-               {
-                  file = new FileInputStream(arquivoTurmas);
-                  in = new ObjectInputStream(file);
-                  turmas = (ArrayList<dsproject.Turma>)in.readObject();*/
-                  if(isNull == null)
-                     comboNomeDoAluno.addItem("");
-                  i = 0;
-                  while(i < MainPanel.turmasLidas.size())
-                  {
-                     if(MainPanel.turmasLidas.get(i).getId().equals(evt.getItem().toString()))
-                     {
-                        //campoAnoLetivoEditarTurma.setText(String.valueOf(MainPanel.turmasLidas.get(i).getAno()));
-                        for(y = 0; y < MainPanel.turmasLidas.get(i).buscaTodosAlunos().size(); y++)
-                        {
-                           comboNomeDoAluno.addItem(MainPanel.turmasLidas.get(i).buscaTodosAlunos().get(y).getNome());
-                        }
-                     }
-                     i++;
-                  }
-               /*}
-               catch (IOException | ClassNotFoundException ex)
-               {
-                  System.err.println(ex);
-               }
-            }*/
-            //else
-            //{
-               //JOptionPane.showMessageDialog(null, "Não existe nenhuma turma cadastrada", "Erro", JOptionPane.ERROR_MESSAGE);
-            //}
-         }
-      }
    }//GEN-LAST:event_comboTurmaItemStateChanged
 
     private void comboTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTurmaActionPerformed
@@ -946,293 +725,301 @@ public class TestPanel extends javax.swing.JPanel
     }//GEN-LAST:event_comboNomeDoAlunoActionPerformed
 
     private void fieldBodyMassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldBodyMassMouseClicked
-
     }//GEN-LAST:event_fieldBodyMassMouseClicked
 
     private void fieldBodyMassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldBodyMassFocusLost
-        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
-        {
-            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
-            {
-                MainPanel.alunosLidos.get(i).getLastAvaliation().setMassaCorporal(getCampoMassaCorporal());
-            }
-        }
+        saveBodyMass();
     }//GEN-LAST:event_fieldBodyMassFocusLost
 
     private void fieldSitAndAchieveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldSitAndAchieveKeyTyped
-      if(!Character.isDigit(evt.getKeyChar()))
-      {
-         evt.setKeyChar('\0');
-      }
-      else
-      {
-         String textoCampo = fieldSitAndAchieve.getText();
-         if(textoCampo.length() > 2)
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.setKeyChar('\0');
-      }
+        } else {
+            String textoCampo = fieldSitAndAchieve.getText();
+            if (textoCampo.length() > 2) {
+                evt.setKeyChar('\0');
+            }
+        }
     }//GEN-LAST:event_fieldSitAndAchieveKeyTyped
 
     private void fieldRunKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldRunKeyTyped
-      if(!Character.isDigit(evt.getKeyChar()))
-      {
-         evt.setKeyChar('\0');
-      }
-      else
-      {
-         String textoCampo = fieldRun.getText();
-         if(textoCampo.length() > 2)
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.setKeyChar('\0');
-      }
+        } else {
+            String textoCampo = fieldRun.getText();
+            if (textoCampo.length() > 2) {
+                evt.setKeyChar('\0');
+            }
+        }
     }//GEN-LAST:event_fieldRunKeyTyped
 
     private void fieldHorizontalJumpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldHorizontalJumpKeyTyped
-      if(!Character.isDigit(evt.getKeyChar()))
-      {
-         evt.setKeyChar('\0');
-      }
-      else
-      {
-         String textoCampo = fieldHorizontalJump.getText();
-         if(textoCampo.length() > 3)
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.setKeyChar('\0');
-      }
+        } else {
+            String textoCampo = fieldHorizontalJump.getText();
+            if (textoCampo.length() > 3) {
+                evt.setKeyChar('\0');
+            }
+        }
     }//GEN-LAST:event_fieldHorizontalJumpKeyTyped
 
     private void fieldThrowOfMedicineBallKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldThrowOfMedicineBallKeyTyped
-      if(!Character.isDigit(evt.getKeyChar()))
-      {
-         evt.setKeyChar('\0');
-      }
-      else
-      {
-         String textoCampo = fieldThrowOfMedicineBall.getText();
-         if(textoCampo.length() > 3)
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.setKeyChar('\0');
-      }
+        } else {
+            String textoCampo = fieldThrowOfMedicineBall.getText();
+            if (textoCampo.length() > 3) {
+                evt.setKeyChar('\0');
+            }
+        }
     }//GEN-LAST:event_fieldThrowOfMedicineBallKeyTyped
 
     private void fiedlSquareTestKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fiedlSquareTestKeyTyped
-      if(!Character.isDigit(evt.getKeyChar()))
-      {
-         evt.setKeyChar('\0');
-      }
-      else
-      {
-         String textoCampo = fiedlSquareTest.getText();
-         if(textoCampo.length() > 4)
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.setKeyChar('\0');
-      }
+        } else {
+            String textoCampo = fiedlSquareTest.getText();
+            if (textoCampo.length() > 4) {
+                evt.setKeyChar('\0');
+            }
+        }
     }//GEN-LAST:event_fiedlSquareTestKeyTyped
 
     private void field20MetersRunKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_field20MetersRunKeyTyped
-      if(!Character.isDigit(evt.getKeyChar()))
-      {
-         evt.setKeyChar('\0');
-      }
-      else
-      {
-         String textoCampo = field20MetersRun.getText();
-         if(textoCampo.length() > 4)
+        if (!Character.isDigit(evt.getKeyChar())) {
             evt.setKeyChar('\0');
-      }
+        } else {
+            String textoCampo = field20MetersRun.getText();
+            if (textoCampo.length() > 4) {
+                evt.setKeyChar('\0');
+            }
+        }
     }//GEN-LAST:event_field20MetersRunKeyTyped
 
     private void fieldTestDateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldTestDateFocusLost
-
     }//GEN-LAST:event_fieldTestDateFocusLost
 
     private void fieldTestDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fieldTestDatePropertyChange
-        if(getCampoDataDaAvaliacao() != null){
+        if (getCampoDataDaAvaliacao() != null) {
             labelDataDaAvaliacao.setForeground(Color.black);
-            for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
-            {
-                if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
-                {
-                    MainPanel.alunosLidos.get(i).getLastAvaliation().setData(getCampoDataDaAvaliacao());
-                }
+            Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+            if (student == null) {
+                return;
             }
+            Avaliacao avaliacao = student.getLastAvaliation();
+            avaliacao.setData(fieldTestDate.getDate());
         }
     }//GEN-LAST:event_fieldTestDatePropertyChange
 
     private void fieldTestDateKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldTestDateKeyTyped
-
     }//GEN-LAST:event_fieldTestDateKeyTyped
 
     private void fieldTimeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldTimeFocusLost
-        String horaDaAvaliacaoString = getCampoHora();
-        boolean Error = false;
-        if (getCampoHora() != null){
-            String splitedTime[] = horaDaAvaliacaoString.split(":");
-            //pega o que esta antes e depois dos dois pontos e põe no vetor horarioDividido
-            if(horaDaAvaliacaoString.length() != 5 || splitedTime.length == 1)
-            {
-                Error = true;
-            }
-            else if(Integer.parseInt(splitedTime[0]) > 23 || Integer.parseInt(splitedTime[1]) > 59)
-            {
-                Error = true;
-            }
-        }
-        if(getCampoHora() == null || Error == true){
-            fieldTime.setForeground(Color.red);
-            labelHorario.setForeground(Color.red);
-        }
-        else{
-            fieldTime.setForeground(Color.black);
-            labelHorario.setForeground(Color.black);
-            for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
-            {
-                if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
-                {
-                    MainPanel.alunosLidos.get(i).getLastAvaliation().setHorario(getCampoHora());
-                }
-            }
-        }
+        saveTime();
     }//GEN-LAST:event_fieldTimeFocusLost
 
     private void fieldTemperatureFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldTemperatureFocusLost
-        if(getCampoTemperatura() == null){
-            labelTemperatura.setForeground(Color.red);
-            fieldTemperature.setForeground(Color.red);
-        }
-        else{
-            labelTemperatura.setForeground(Color.black);
-            fieldTemperature.setForeground(Color.black);
-            for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
-            {
-                if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
-                {
-                    MainPanel.alunosLidos.get(i).getLastAvaliation().setTemperatura(getCampoTemperatura());
-                }
-            }
-        }
+        saveTemperature();
     }//GEN-LAST:event_fieldTemperatureFocusLost
 
     private void fieldHeightFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldHeightFocusLost
-        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
-        {
-            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
-            {
-                MainPanel.alunosLidos.get(i).getLastAvaliation().setEstatura(getCampoEstatura());
-            }
-        }
+        saveHeight();
     }//GEN-LAST:event_fieldHeightFocusLost
 
     private void fieldIMCFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldIMCFocusLost
-        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
-        {
-            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
-            {
-                MainPanel.alunosLidos.get(i).getLastAvaliation().setIMC(getCampoIMC());
-            }
-        }
+        saveIMC();
     }//GEN-LAST:event_fieldIMCFocusLost
 
     private void fieldSpreadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldSpreadFocusLost
-        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
-        {
-            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
-            {
-                MainPanel.alunosLidos.get(i).getLastAvaliation().setEnvergadura(getCampoEnvergadura());
-            }
-        }
+        saveSpread();
     }//GEN-LAST:event_fieldSpreadFocusLost
 
     private void fieldSitUpFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldSitUpFocusLost
-        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
-        {
-            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
-            {
-                MainPanel.alunosLidos.get(i).getLastAvaliation().setAbdominal(getCampoAbdominal());
-            }
-        }
+        saveSitUp();
     }//GEN-LAST:event_fieldSitUpFocusLost
 
     private void fieldSitAndAchieveFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldSitAndAchieveFocusLost
-        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
-        {
-            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
-            {
-                MainPanel.alunosLidos.get(i).getLastAvaliation().setSentarEAlcancar(getCampoSentarEAlcancar());
-            }
-        }
+        saveSitUpAndAchieve();
     }//GEN-LAST:event_fieldSitAndAchieveFocusLost
 
     private void fieldRunFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldRunFocusLost
-        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
-        {
-            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
-            {
-                if(getRadio6Minutos()){
-                    MainPanel.alunosLidos.get(i).getLastAvaliation().set6Minutos(getCampoCorrida6Ou9Minutos());
-                    MainPanel.alunosLidos.get(i).getLastAvaliation().set9Minutos(-1);
-                }
-                else{
-                    MainPanel.alunosLidos.get(i).getLastAvaliation().set6Minutos(-1);
-                    MainPanel.alunosLidos.get(i).getLastAvaliation().set9Minutos(getCampoCorrida6Ou9Minutos());
-                }
-            }
-        }
+        saveRun();
     }//GEN-LAST:event_fieldRunFocusLost
 
     private void fieldHorizontalJumpFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldHorizontalJumpFocusLost
-        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
-        {
-            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
-            {
-                MainPanel.alunosLidos.get(i).getLastAvaliation().setSaltoHorizontal(getCampoSaltoHorizontal());
-            }
-        }
+        saveHorizontalJump();
     }//GEN-LAST:event_fieldHorizontalJumpFocusLost
 
     private void fieldThrowOfMedicineBallFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldThrowOfMedicineBallFocusLost
-        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
-        {
-            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
-            {
-                MainPanel.alunosLidos.get(i).getLastAvaliation().setArremessoMedicineBall(getCampoArremessoDeMedicineBall());
-            }
-        }
+        saveMedicineBallThrow();
     }//GEN-LAST:event_fieldThrowOfMedicineBallFocusLost
 
     private void fiedlSquareTestFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fiedlSquareTestFocusLost
-        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
-        {
-            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
-            {
-                MainPanel.alunosLidos.get(i).getLastAvaliation().setCorrida20Metros(getCampoCorridaDe20Metros());
-            }
-        }
+        saveSquareTest();
     }//GEN-LAST:event_fiedlSquareTestFocusLost
 
     private void field20MetersRunFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_field20MetersRunFocusLost
-        // TODO add your handling code here:
+        save20MettersRun();
     }//GEN-LAST:event_field20MetersRunFocusLost
 
     private void radioSitAndAchieveWithSeatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioSitAndAchieveWithSeatActionPerformed
-
     }//GEN-LAST:event_radioSitAndAchieveWithSeatActionPerformed
 
     private void radio6MinutesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio6MinutesActionPerformed
-        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
-        {
-            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
-            {
-                MainPanel.alunosLidos.get(i).getLastAvaliation().setSentarEAlcancarComBanco(true);
-            }
-        }
     }//GEN-LAST:event_radio6MinutesActionPerformed
 
     private void radio9MinutesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio9MinutesActionPerformed
-        for(int i = 0; i < MainPanel.alunosLidos.size(); i++)
-        {
-            if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
-            {
-                MainPanel.alunosLidos.get(i).getLastAvaliation().setSentarEAlcancarComBanco(false);
-            }
-        }
     }//GEN-LAST:event_radio9MinutesActionPerformed
 
+    private void comboTurmaPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_comboTurmaPopupMenuWillBecomeInvisible
+        this.limpaComboNomeDoAluno();
+        this.limpaCampos();
+    }//GEN-LAST:event_comboTurmaPopupMenuWillBecomeInvisible
+
+    private void comboNomeDoAlunoPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_comboNomeDoAlunoPopupMenuWillBecomeVisible
+        Turma turma = (Turma) this.comboTurma.getSelectedItem();
+        comboNomeDoAluno.removeAllItems();
+        if (turma == null) {
+            this.limpaComboNomeDoAluno();
+            this.limpaComboNomeTurma();
+            this.limpaCampos();
+            return;
+        }
+        for (Aluno i : turma.buscaTodosAlunos()) {
+            comboNomeDoAluno.addItem(i);
+        }
+    }//GEN-LAST:event_comboNomeDoAlunoPopupMenuWillBecomeVisible
+
+    private void comboNomeDoAlunoPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_comboNomeDoAlunoPopupMenuWillBecomeInvisible
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        this.limpaCampos();
+        if (student == null) {
+            return;
+        }
+
+
+
+        Avaliacao avaliacao = (Avaliacao) student.getLastAvaliation();
+        if (avaliacao.getData() == null) {
+            fieldTestDate.getDateEditor().getUiComponent().setToolTipText("");
+        } else {
+            fieldTestDate.setDate(avaliacao.getData());
+        }
+
+        if (avaliacao.getHorario() == null) {
+            fieldTime.setText("");
+        } else {
+            fieldTime.setText(avaliacao.getHorario());
+        }
+
+        if (avaliacao.getTemperatura() == null) {
+            fieldTemperature.setText("");
+        } else {
+            fieldTemperature.setText(avaliacao.getTemperatura());
+        }
+
+        if (avaliacao.getMassaCorporal() == -1) {
+            fieldBodyMass.setText("");
+        } else {
+            fieldBodyMass.setText(String.valueOf(avaliacao.getMassaCorporal()));
+        }
+
+        if (avaliacao.getEstatura() == -1) {
+            fieldHeight.setText("");
+        } else {
+            fieldHeight.setText(String.valueOf(avaliacao.getEstatura()));
+        }
+
+        if (avaliacao.getIMC() == -1) {
+            fieldIMC.setText("");
+        } else {
+            fieldIMC.setText(String.valueOf(avaliacao.getIMC()));
+        }
+
+        if (avaliacao.getEnvergadura() == -1) {
+            fieldSpread.setText("");
+        } else {
+            fieldSpread.setText(String.valueOf(avaliacao.getEnvergadura()));
+        }
+
+        if (avaliacao.getAbdominal() == -1) {
+            fieldSitUp.setText("");
+        } else {
+            fieldSitUp.setText(String.valueOf(avaliacao.getAbdominal()));
+        }
+
+        if (avaliacao.getSentarEAlcancar() == -1) {
+            fieldSitAndAchieve.setText("");
+        } else {
+            fieldSitAndAchieve.setText(String.valueOf(avaliacao.getSentarEAlcancar()));
+        }
+
+        if (avaliacao.get6Minutos() == -1 && avaliacao.get9Minutos() == -1) {
+            fieldRun.setText("");
+            radio6Minutes.setSelected(true);
+            radio9Minutes.setSelected(false);
+
+        } else {
+            if (avaliacao.get6Minutos() != -1) {
+                fieldRun.setText(String.valueOf(avaliacao.get6Minutos()));
+                radio6Minutes.setSelected(true);
+                radio9Minutes.setSelected(false);
+            } else {
+                fieldRun.setText(String.valueOf(avaliacao.get9Minutos()));
+                radio6Minutes.setSelected(false);
+                radio9Minutes.setSelected(true);
+            }
+        }
+
+        if (avaliacao.getSaltoHorizontal() == -1) {
+            fieldHorizontalJump.setText("");
+        } else {
+            fieldHorizontalJump.setText(String.valueOf(avaliacao.getSaltoHorizontal()));
+        }
+
+        if (avaliacao.getArremessoMedicineBall() == -1) {
+            fieldThrowOfMedicineBall.setText("");
+        } else {
+            fieldThrowOfMedicineBall.setText(String.valueOf(avaliacao.getArremessoMedicineBall()));
+        }
+
+        if (avaliacao.getTesteDoQuadrado() == -1) {
+            fiedlSquareTest.setText("");
+        } else {
+            fiedlSquareTest.setText(String.valueOf(avaliacao.getArremessoMedicineBall()));
+        }
+
+        if (avaliacao.getCorrida20Metros() == -1) {
+            field20MetersRun.setText("");
+        } else {
+            field20MetersRun.setText(String.valueOf(avaliacao.getCorrida20Metros()));
+        }
+
+        if (avaliacao.isSentarEAlcancarComBanco() == true) {
+            radioSitAndAchieveWithSeat.setSelected(true);
+            radioSitAndAchieveWithoutSeat.setSelected(false);
+        } else {
+            radioSitAndAchieveWithSeat.setSelected(false);
+            radioSitAndAchieveWithoutSeat.setSelected(true);
+        }
+    }//GEN-LAST:event_comboNomeDoAlunoPopupMenuWillBecomeInvisible
+
+    private void radioSitAndAchieveWithSeatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_radioSitAndAchieveWithSeatFocusLost
+        saveWithSeat();
+    }//GEN-LAST:event_radioSitAndAchieveWithSeatFocusLost
+
+    private void radioSitAndAchieveWithoutSeatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_radioSitAndAchieveWithoutSeatFocusLost
+        saveWithoutSeat();
+    }//GEN-LAST:event_radioSitAndAchieveWithoutSeatFocusLost
+
+    private void radio6MinutesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_radio6MinutesFocusLost
+       saveRadio6();
+    }//GEN-LAST:event_radio6MinutesFocusLost
+
+    private void radio9MinutesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_radio9MinutesFocusLost
+        saveRadio9();
+    }//GEN-LAST:event_radio9MinutesFocusLost
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonSave;
     private javax.swing.ButtonGroup chairButtonGroup;
@@ -1296,277 +1083,433 @@ public class TestPanel extends javax.swing.JPanel
     private static javax.swing.JRadioButton radioSitAndAchieveWithoutSeat;
     private javax.swing.ButtonGroup runningButtonGroup;
     // End of variables declaration//GEN-END:variables
-   private static boolean turmaAdicionada;
-   private static int numeroDeTurmasAdicionadas = 0;
-   private static boolean turmaAdicionadaComboTurma;
-   private static int numeroDeTurmasAdicionadasComboTurma = 0;
+    private static boolean turmaAdicionada;
+    private static int numeroDeTurmasAdicionadas = 0;
+    private static boolean turmaAdicionadaComboTurma;
+    private static int numeroDeTurmasAdicionadasComboTurma = 0;
 
-   public static boolean isTurmaAdicionadaComboTurma()
-   {
-      return turmaAdicionadaComboTurma;
-   }
+    public static boolean isTurmaAdicionadaComboTurma() {
+        return turmaAdicionadaComboTurma;
+    }
 
-   public static void setTurmaAdicionadaComboTurma(boolean turmaAdicionadaComboTurma)
-   {
-      TestPanel.turmaAdicionadaComboTurma = turmaAdicionadaComboTurma;
-   }
+    public static void setTurmaAdicionadaComboTurma(boolean turmaAdicionadaComboTurma) {
+        TestPanel.turmaAdicionadaComboTurma = turmaAdicionadaComboTurma;
+    }
 
-   public static int getNumeroDeTurmasAdicionadasComboTurma()
-   {
-      return numeroDeTurmasAdicionadasComboTurma;
-   }
+    public static int getNumeroDeTurmasAdicionadasComboTurma() {
+        return numeroDeTurmasAdicionadasComboTurma;
+    }
 
-   public static void setNumeroDeTurmasAdicionadasComboTurma(int numeroDeTurmasAdicionadasComboTurma)
-   {
-      TestPanel.numeroDeTurmasAdicionadasComboTurma = numeroDeTurmasAdicionadasComboTurma;
-   }
-   
-   public static boolean isTurmaAdicionada()
-   {
-      return turmaAdicionada;
-   }
+    public static void setNumeroDeTurmasAdicionadasComboTurma(int numeroDeTurmasAdicionadasComboTurma) {
+        TestPanel.numeroDeTurmasAdicionadasComboTurma = numeroDeTurmasAdicionadasComboTurma;
+    }
 
-   public static void setTurmaAdicionada(boolean turmaAdicionada)
-   {
-      TestPanel.turmaAdicionada = turmaAdicionada;
-   }
+    public static boolean isTurmaAdicionada() {
+        return turmaAdicionada;
+    }
 
-   public static int getNumeroDeTurmasAdicionadas()
-   {
-      return numeroDeTurmasAdicionadas;
-   }
+    public static void setTurmaAdicionada(boolean turmaAdicionada) {
+        TestPanel.turmaAdicionada = turmaAdicionada;
+    }
 
-   public static void setNumeroDeTurmasAdicionadas(int numeroDeTurmasAdicionadas)
-   {
-      TestPanel.numeroDeTurmasAdicionadas = numeroDeTurmasAdicionadas;
-   }
-   
-   public static Date getCampoDataDaAvaliacao()
-   {
-      if(fieldTestDate.getDate() == null)
-      {
-         //labelDataDaAvaliacao.setForeground(Color.red);
-         //JOptionPane.showMessageDialog(null, "Escolha uma " + labelDataDaAvaliacao.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
-         return null;
-      }
-      else
-      {
-         //labelDataDaAvaliacao.setForeground(Color.black);
-         return fieldTestDate.getDate();
-      }
-   }
+    public static int getNumeroDeTurmasAdicionadas() {
+        return numeroDeTurmasAdicionadas;
+    }
 
-   public static String getCampoHora()
-   {
-      if(fieldTime.getText().isEmpty())
-      {
-         //labelHorario.setForeground(Color.red);
-         //JOptionPane.showMessageDialog(null, "Digite um " + labelHorario.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
-         return null;
-      }
-      else
-      {
-         return fieldTime.getText();
-      }
-   }
+    public static void setNumeroDeTurmasAdicionadas(int numeroDeTurmasAdicionadas) {
+        TestPanel.numeroDeTurmasAdicionadas = numeroDeTurmasAdicionadas;
+    }
 
-   public static String getCampoTemperatura()
-   {
-      if(fieldTemperature.getText().isEmpty())
-      {
-         //labelTemperatura.setForeground(Color.red);
-         //JOptionPane.showMessageDialog(null, "Digite uma " + labelTemperatura.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
-         return null;
-      }
-      else
-      {
-         //labelTemperatura.setForeground(Color.black);
-         return fieldTemperature.getText();
-      }
-   }
+    public static Date getCampoDataDaAvaliacao() {
+        if (fieldTestDate.getDate() == null) {
+            //labelDataDaAvaliacao.setForeground(Color.red);
+            //JOptionPane.showMessageDialog(null, "Escolha uma " + labelDataDaAvaliacao.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+            return null;
+        } else {
+            //labelDataDaAvaliacao.setForeground(Color.black);
+            return fieldTestDate.getDate();
+        }
+    }
 
-   public static float getCampoMassaCorporal()
-   {
-      try
-      {
-         return Float.parseFloat(fieldBodyMass.getText());
-      }
-      catch (NumberFormatException ex)
-      {
-	 JOptionPane.showMessageDialog(null, "Digite um número em " + labelBodyMass.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
-	 return -1;
-      }
-   }
+    public static String getCampoHora() {
+        if (fieldTime.getText().isEmpty()) {
+            //labelHorario.setForeground(Color.red);
+            //JOptionPane.showMessageDialog(null, "Digite um " + labelHorario.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+            return null;
+        } else {
+            return fieldTime.getText();
+        }
+    }
 
-   public static float getCampoEstatura()
-   {
-      try
-      {
-	 return Float.parseFloat(fieldHeight.getText());
-      }
-      catch (NumberFormatException ex)
-      {
-	 JOptionPane.showMessageDialog(null, "Digite um número em " + labelHeight.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
-	 return -1;
-      }
-   }
+    public static String getCampoTemperatura() {
+        if (fieldTemperature.getText().isEmpty()) {
+            //labelTemperatura.setForeground(Color.red);
+            //JOptionPane.showMessageDialog(null, "Digite uma " + labelTemperatura.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+            return null;
+        } else {
+            //labelTemperatura.setForeground(Color.black);
+            return fieldTemperature.getText();
+        }
+    }
 
-   public static float getCampoIMC()
-   {
-      try
-      {
-	 return Float.parseFloat(fieldIMC.getText());
-      }
-      catch (NumberFormatException ex)
-      {
-	 JOptionPane.showMessageDialog(null, "Digite um número em " + labelIMC.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
-	 return -1;
-      }
-   }
+    public static float getCampoMassaCorporal() {
+        try {
+            return Float.parseFloat(fieldBodyMass.getText());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Digite um número em " + labelBodyMass.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+            return -1;
+        }
+    }
 
-   public static float getCampoEnvergadura()
-   {
-      try
-      {
-	 return Float.parseFloat(fieldSpread.getText());
-      }
-      catch (NumberFormatException ex)
-      {
-	 JOptionPane.showMessageDialog(null, "Digite um número em " + labelSpread.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
-	 return -1;
-      }
-   }
+    public static float getCampoEstatura() {
+        try {
+            return Float.parseFloat(fieldHeight.getText());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Digite um número em " + labelHeight.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+            return -1;
+        }
+    }
 
-   public static int getCampoAbdominal()
-   {
-      try
-      {
-	 return Integer.parseInt(fieldSitUp.getText());
-      }
-      catch (NumberFormatException ex)
-      {
-	 JOptionPane.showMessageDialog(null, "Digite um número em " + labelSitUp.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
-	 return -1;
-      }
-   }
+    public static float getCampoIMC() {
+        try {
+            return Float.parseFloat(fieldIMC.getText());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Digite um número em " + labelIMC.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+            return -1;
+        }
+    }
 
-   public static float getCampoSentarEAlcancar()
-   {
-      try
-      {
-	 return Float.parseFloat(fieldSitAndAchieve.getText());
-      }
-      catch (NumberFormatException ex)
-      {
-	 JOptionPane.showMessageDialog(null, "Digite um número em " + labelSitAndAchieve.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
-	 return -1;
-      }
-   }
-   
-   public static boolean getRadioSentarEAlcancarComBanco()
-   {
-      if(radioSitAndAchieveWithSeat.isSelected())
-         return true;
-      else
-         return false;
-   }
+    public static float getCampoEnvergadura() {
+        try {
+            return Float.parseFloat(fieldSpread.getText());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Digite um número em " + labelSpread.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+            return -1;
+        }
+    }
 
-   public static boolean getRadioSentarEAlcancarSemBanco()
-   {
-      if(radioSitAndAchieveWithoutSeat.isSelected())
-         return true;
-      else
-         return false;
-   }
+    public static int getCampoAbdominal() {
+        try {
+            return Integer.parseInt(fieldSitUp.getText());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Digite um número em " + labelSitUp.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+            return -1;
+        }
+    }
 
-   public static float getCampoCorrida6Ou9Minutos()
-   {
-      try
-      {
-	 return Float.parseFloat(fieldRun.getText());
-      }
-      catch (NumberFormatException ex)
-      {
-	 JOptionPane.showMessageDialog(null, "Digite um número em " + labelRun.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
-	 return -1;
-      }
-   }
+    public static float getCampoSentarEAlcancar() {
+        try {
+            return Float.parseFloat(fieldSitAndAchieve.getText());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Digite um número em " + labelSitAndAchieve.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+            return -1;
+        }
+    }
 
-   public static boolean getRadio6Minutos()
-   {
-      if(radio6Minutes.isSelected())
-         return true;
-      else
-         return false;
-   }
+    public static boolean getRadioSentarEAlcancarComBanco() {
+        if (radioSitAndAchieveWithSeat.isSelected()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-   public static boolean getRadio9Minutos()
-   {
-      if(radio9Minutes.isSelected())
-         return true;
-      else
-         return false;
-   }
-   
-   public static float getCampoSaltoHorizontal()
-   {
-      try
-      {
-	 return Float.parseFloat(fieldHorizontalJump.getText());
-      }
-      catch (NumberFormatException ex)
-      {
-	 JOptionPane.showMessageDialog(null, "Digite um número em " + labelHorizontalJump.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
-	 return -1;
-      }
-   }
+    public static boolean getRadioSentarEAlcancarSemBanco() {
+        if (radioSitAndAchieveWithoutSeat.isSelected()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-   public static float getCampoQuadrado()
-   {
-      try
-      {
-	 return Float.parseFloat(fiedlSquareTest.getText());
-      }
-      catch (NumberFormatException ex)
-      {
-	 JOptionPane.showMessageDialog(null, "Digite um número em " + labelSquareTest.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
-	 return -1;
-      }
-   }
-   
-   public static float getCampoArremessoDeMedicineBall()
-   {
-      try
-      {
-	 return Float.parseFloat(fieldThrowOfMedicineBall.getText());
-      }
-      catch (NumberFormatException ex)
-      {
-	 JOptionPane.showMessageDialog(null, "Digite um número em " + labelThrowOfMedicineBall.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
-	 return -1;
-      }
-   }
-   
-   public static float getCampoCorridaDe20Metros()
-   {
-      try
-      {
-	 return Float.parseFloat(field20MetersRun.getText());
-      }
-      catch (NumberFormatException ex)
-      {
-	 JOptionPane.showMessageDialog(null, "Digite um número em " + label20MetersRun.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
-	 return -1;
-      }
-   }
+    public static float getCampoCorrida6Ou9Minutos() {
+        try {
+            return Float.parseFloat(fieldRun.getText());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Digite um número em " + labelRun.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+            return -1;
+        }
+    }
 
-   private void limpaComboNomeDoAluno()
-   {
-      comboNomeDoAluno.removeAllItems();
-   }
-   
-   public void clearAll(){
-       //implementar!
-       this.jTabbedPane1.setSelectedIndex(0);
-   }
+    public static boolean getRadio6Minutos() {
+        if (radio6Minutes.isSelected()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean getRadio9Minutos() {
+        if (radio9Minutes.isSelected()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static float getCampoSaltoHorizontal() {
+        try {
+            return Float.parseFloat(fieldHorizontalJump.getText());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Digite um número em " + labelHorizontalJump.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+            return -1;
+        }
+    }
+
+    public static float getCampoQuadrado() {
+        try {
+            return Float.parseFloat(fiedlSquareTest.getText());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Digite um número em " + labelSquareTest.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+            return -1;
+        }
+    }
+
+    public static float getCampoArremessoDeMedicineBall() {
+        try {
+            return Float.parseFloat(fieldThrowOfMedicineBall.getText());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Digite um número em " + labelThrowOfMedicineBall.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+            return -1;
+        }
+    }
+
+    public static float getCampoCorridaDe20Metros() {
+        try {
+            return Float.parseFloat(field20MetersRun.getText());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Digite um número em " + label20MetersRun.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
+            return -1;
+        }
+    }
+
+    private void limpaComboNomeDoAluno() {
+        comboNomeDoAluno.removeAllItems();
+    }
+
+    private void limpaComboNomeTurma() {
+        comboTurma.removeAllItems();
+    }
+
+    private void limpaCampos() {
+        fieldTestDate.getDateEditor().getUiComponent().setToolTipText("");
+        fieldTime.setText("");
+        fieldTemperature.setText("");
+        fieldBodyMass.setText("");
+        fieldHeight.setText("");
+        fieldIMC.setText("");
+        fieldSpread.setText("");
+        fieldSitUp.setText("");
+        fieldSitAndAchieve.setText("");
+        fieldRun.setText("");
+        fieldHorizontalJump.setText("");
+        fieldThrowOfMedicineBall.setText("");
+        fiedlSquareTest.setText("");
+        field20MetersRun.setText("");
+        radioSitAndAchieveWithSeat.setSelected(true);
+        radio6Minutes.setSelected(true);
+        radioSitAndAchieveWithoutSeat.setSelected(false);
+        radio9Minutes.setSelected(false);
+    }
+    
+    private void saveData(){
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        if (student == null) {
+            return;
+        }
+        Avaliacao avaliacao = student.getLastAvaliation();
+        avaliacao.setData(fieldTestDate.getDate());
+    }
+    
+    private void saveTime(){
+        String horaDaAvaliacaoString = getCampoHora();
+        boolean Error = false;
+        if (getCampoHora() != null) {
+            String splitedTime[] = horaDaAvaliacaoString.split(":");
+            //pega o que esta antes e depois dos dois pontos e põe no vetor horarioDividido
+            if (horaDaAvaliacaoString.length() != 5 || splitedTime.length == 1) {
+                Error = true;
+            } else if (Integer.parseInt(splitedTime[0]) > 23 || Integer.parseInt(splitedTime[1]) > 59) {
+                Error = true;
+            }
+        }
+        if (getCampoHora() == null || Error == true) {
+            fieldTime.setForeground(Color.red);
+            labelHorario.setForeground(Color.red);
+        } else {
+            fieldTime.setForeground(Color.black);
+            labelHorario.setForeground(Color.black);
+            Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+            if (student == null) {
+                return;
+            }
+            Avaliacao avaliacao = student.getLastAvaliation();
+            avaliacao.setHorario(fieldTime.getText());
+        }
+    }
+    
+    private void saveTemperature(){
+        if (getCampoTemperatura() == null) {
+            labelTemperatura.setForeground(Color.red);
+            fieldTemperature.setForeground(Color.red);
+        } else {
+            labelTemperatura.setForeground(Color.black);
+            fieldTemperature.setForeground(Color.black);
+            Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+            if (student == null) {
+                return;
+            }
+            Avaliacao avaliacao = student.getLastAvaliation();
+            avaliacao.setTemperatura(fieldTemperature.getText());
+        }
+    }
+    
+    private void saveBodyMass(){
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        if (student == null || "".equals(fieldBodyMass.getText())) {
+            return;
+        }
+        Avaliacao avaliacao = student.getLastAvaliation();
+        avaliacao.setMassaCorporal(Float.valueOf(fieldBodyMass.getText()));
+        
+    }
+    
+    private void saveHeight(){
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        if (student == null || "".equals(fieldHeight.getText())) {
+            return;
+        }
+        Avaliacao avaliacao = student.getLastAvaliation();
+        avaliacao.setEstatura(Float.valueOf(fieldHeight.getText()));
+    }
+    
+    private void saveIMC(){
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        if (student == null || "".equals(fieldIMC.getText())) {
+            return;
+        }
+        Avaliacao avaliacao = student.getLastAvaliation();
+        avaliacao.setIMC(Float.valueOf(fieldIMC.getText()));
+    }
+    
+    private void saveSpread(){
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        if (student == null || !"".equals(fieldSpread.getText())) {
+            return;
+        }
+        Avaliacao avaliacao = student.getLastAvaliation();
+        avaliacao.setEnvergadura(Float.valueOf(fieldSpread.getText()));
+    }
+    
+    private void saveSitUp(){
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        if (student == null || "".equals(fieldSitUp.getText())) {
+            return;
+        }
+        Avaliacao avaliacao = student.getLastAvaliation();
+        avaliacao.setAbdominal(Integer.valueOf(fieldSitUp.getText()));
+    }
+    
+    private void saveSitUpAndAchieve(){
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        if (student == null || "".equals(fieldSitAndAchieve.getText())) {
+            return;
+        }
+        Avaliacao avaliacao = student.getLastAvaliation();
+        avaliacao.setSentarEAlcancar(Float.valueOf(fieldSitAndAchieve.getText()));
+    }
+    
+    private void saveRun(){
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        if (student == null || "".equals(fieldRun.getText())) {
+            return;
+        }
+        Avaliacao avaliacao = student.getLastAvaliation();
+        if (getRadio6Minutos()) {
+            avaliacao.set6Minutos(getCampoCorrida6Ou9Minutos());
+            avaliacao.set9Minutos(-1);
+        } else {
+            avaliacao.set6Minutos(-1);
+            avaliacao.set9Minutos(getCampoCorrida6Ou9Minutos());
+        }
+    }
+    
+    private void saveWithSeat(){
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        if (student == null) {
+            return;
+        }
+        Avaliacao avaliacao = student.getLastAvaliation();
+        avaliacao.setSentarEAlcancarComBanco(true);
+    }
+    
+    private void saveWithoutSeat(){
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        if (student == null) {
+            return;
+        }
+        Avaliacao avaliacao = student.getLastAvaliation();
+        avaliacao.setSentarEAlcancarComBanco(false);
+    }
+    
+    private void saveRadio6(){
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        if (student == null || "".equals(fieldRun.getText())) {
+            return;
+        }
+        Avaliacao avaliacao = student.getLastAvaliation();
+        avaliacao.set6Minutos(Float.valueOf(fieldRun.getText()));
+        avaliacao.set9Minutos(-1);
+    }
+    
+    private void saveRadio9(){
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        if (student == null || "".equals(fieldRun.getText())) {
+            return;
+        }
+        Avaliacao avaliacao = student.getLastAvaliation();
+        avaliacao.set9Minutos(Float.valueOf(fieldRun.getText()));
+        avaliacao.set6Minutos(-1);
+    }
+    
+    private void saveHorizontalJump(){
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        if (student == null || "".equals(fieldHorizontalJump.getText())) {
+            return;
+        }
+        Avaliacao avaliacao = student.getLastAvaliation();
+        avaliacao.setSaltoHorizontal(Float.valueOf(fieldHorizontalJump.getText()));
+    }
+    
+    private void saveMedicineBallThrow(){
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        if (student == null || "".equals(fieldThrowOfMedicineBall.getText())) {
+            return;
+        }
+        Avaliacao avaliacao = student.getLastAvaliation();
+        avaliacao.setEstatura(Float.valueOf(fieldThrowOfMedicineBall.getText()));
+    }
+    
+    private void saveSquareTest(){
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        if (student == null || "".equals(fiedlSquareTest.getText())) {
+            return;
+        }
+        Avaliacao avaliacao = student.getLastAvaliation();
+        avaliacao.setEstatura(Float.valueOf(fiedlSquareTest.getText()));
+    }
+    
+    private void save20MettersRun(){
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        if (student == null || "".equals(field20MetersRun.getText())) {
+            return;
+        }
+        Avaliacao avaliacao = student.getLastAvaliation();
+        avaliacao.setEstatura(Float.valueOf(field20MetersRun.getText()));
+    }
+
+    public void clearAll() {
+        //implementar!
+        this.jTabbedPane1.setSelectedIndex(0);
+    }
 }
