@@ -612,7 +612,7 @@ public class TestPanel extends javax.swing.JPanel
                      {
                         if(MainPanel.alunosLidos.get(i).getNome().equals(comboNomeDoAluno.getSelectedItem()))
                         {
-                           dataDeNascimento = MainPanel.alunosLidos.get(i).getDataDeNascimento();
+                           dataDeNascimento = MainPanel.alunosLidos.get(i).getDataDeNascimento().getTime();
                            y = i;
                         }
                      }
