@@ -1,20 +1,24 @@
 package Interface;
 
+import com.toedter.calendar.JDateChooser;
 import dsproject.*;
 import java.awt.Color;
-import java.io.IOException;
 import java.util.Calendar;
-import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
 *
-* @author Günther
+* @author Günther, Andrei
 */
 public class StudentPanel extends javax.swing.JPanel {
 
     public StudentPanel() {
         initComponents();
+        Calendar idadeMin = Calendar.getInstance();
+        Calendar idadeMax = Calendar.getInstance();
+        idadeMin.add(Calendar.YEAR, -9);
+        idadeMax.add(Calendar.YEAR, -21);
+        this.birthday.setSelectableDateRange(idadeMax.getTime(), idadeMin.getTime());
     }
     
     @SuppressWarnings("unchecked")
@@ -374,19 +378,14 @@ public class StudentPanel extends javax.swing.JPanel {
            Aluno student = new Aluno(nameNewStudent, newTurma, newBirthday, newGender, newAddress, newCity, newMotherName, newFatherName, newTelephone, newMobile, newEmail);
            
            try{
-               if (newTurma == null) {
-                   Escola.getInstance().getLogado().getTurmas().get(0).inserirAluno(student);
-               } else {
-                   newTurma.inserirAluno(student);
-               }
-           } catch (IOException e) {
-               JOptionPane.showMessageDialog(null, "Erro ao cadastrar aluno nesta turma", "", JOptionPane.ERROR_MESSAGE);
+               newTurma.inserirAluno(student);
+           } catch (Exception e) {
+               JOptionPane.showMessageDialog(null, "Erro ao cadastrar aluno na turma", "", JOptionPane.ERROR_MESSAGE);
                return;
            }
 
-           JOptionPane.showMessageDialog(null, "Aluno "+student.toString()+" criado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
-
            clearNewStudent();
+           JOptionPane.showMessageDialog(null, "Aluno "+student.toString()+" criado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
        }
    }                                                
 
@@ -433,9 +432,8 @@ public class StudentPanel extends javax.swing.JPanel {
             student.setCelular(newMobile);
             student.setEmail(newEmail);
 
-            JOptionPane.showMessageDialog(null, "Aluno editado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
-
             clearEditStudent();
+            JOptionPane.showMessageDialog(null, "Aluno editado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_editSaveButtonActionPerformed
 
@@ -467,13 +465,10 @@ public class StudentPanel extends javax.swing.JPanel {
         
         if (student != null){
             
-            Turma turm = student.getTurma();
-            turm.removeAluno(student);
+            student.getTurma().removeAluno(student);
             
             this.deleteCombo.removeAllItems();
-            this.editName.removeAllItems();
             clearEditStudent();
-            
             JOptionPane.showMessageDialog(null, "Aluno removido com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_deleteButtonActionPerformed

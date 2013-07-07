@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Aluno implements Serializable {
 
@@ -47,30 +49,18 @@ public class Aluno implements Serializable {
     public static void parse(String nome, Calendar nascimento, String endereco, String cidade,
             String nomeMae, String nomePai) throws Exception {
         
-        if(nome != null && !nome.contains(" ")){
-            throw new Exception("O nome deve ser completo");
-        }
-        
-        if (nascimento != null){
-            Calendar hoje = Calendar.getInstance();
+        Pattern p = Pattern.compile("([a-z]+\\s)+[a-z]*");
 
-            int anos = 0;
-            while (hoje.after(nascimento)) {
-                hoje.add(Calendar.YEAR, -1);
-                anos++;
-            }
-
-            if (anos > 21 || anos < 11){
-                throw new Exception("O aluno deve ter entre 10 e 20 anos");
-            }
+        if(nome != null && !p.matcher(nome.toLowerCase()).matches()){
+            throw new Exception("Erro no nome do Aluno");
         }
         
-        if(!nome.contains(" ")){
-            throw new Exception("O nome da Mãe deve ser completo");
+        if(!p.matcher(nomeMae.toLowerCase()).matches()){
+            throw new Exception("Erro no nome da Mãe do Aluno");
         }
         
-        if(!nome.contains(" ")){
-            throw new Exception("O nome do Pai deve ser completo");
+        if(!p.matcher(nomePai.toLowerCase()).matches()){
+            throw new Exception("Erro no nome do Pai do Aluno");
         }        
     }
     
