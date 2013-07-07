@@ -1564,4 +1564,9 @@ public class TestPanel extends javax.swing.JPanel
    {
       comboNomeDoAluno.removeAllItems();
    }
+   
+   public void clearAll(){
+       //implementar!
+       this.jTabbedPane1.setSelectedIndex(0);
+   }
 }

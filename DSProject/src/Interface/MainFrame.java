@@ -1,23 +1,20 @@
-
 package Interface;
 
 import dsproject.Escola;
 import java.io.IOException;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 public class MainFrame extends javax.swing.JFrame {
 
     public MainFrame() {
-       try
-       {
-          initComponents();
-          Escola escola = Escola.getInstance();
-          escola.carregar();
-       }
-       catch (IOException | ClassNotFoundException ex)
-       {
-          System.err.println(ex);
-       }
+        try {
+            initComponents();
+            Escola escola = Escola.getInstance();
+            escola.carregar();
+        } catch (IOException | ClassNotFoundException ex) {
+            System.err.println(ex);
+        }
     }
 
     /**
@@ -30,7 +27,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
-        loginJPanel1 = new Interface.LoginJPanel(mainPanel);
+        loginJPanel1 = new Interface.LoginJPanel(mainPanel,this);
         mainPanel1 = new Interface.MainPanel(mainPanel);
         newTeacherPanel1 = new Interface.NewTeacherPanel(mainPanel);
 
@@ -65,123 +62,118 @@ public class MainFrame extends javax.swing.JFrame {
 
    private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing
    {//GEN-HEADEREND:event_formWindowClosing
-      if(evt.getID() == 201)
-      {
-         int x;
-         x = JOptionPane.showConfirmDialog(rootPane, "Tem certeza que quer fechar o programa? ");
-         if(x == 0)
-         {
-            Escola escola = Escola.getInstance();
-            try
-            {
-               escola.salvarContadores();
-            }
-            catch (IOException ex)
-            {
-               System.err.println(ex);
-            }
-            System.exit(x);
-            /*File arquivoAlunos = new File("alunos.txt");
-            File arquivoTurmas = new File("turmas.txt");
-            FileInputStream arquivoDasTurmas;
-            ObjectInputStream inTurmas;
-            ObjectOutputStream outTurmas;
-            FileInputStream arquivoDosAlunos;
-            ObjectInputStream inAlunos;
-            ObjectOutputStream outAlunos;
+       if (evt.getID() == 201) {
+           int x;
+           x = JOptionPane.showConfirmDialog(rootPane, "Tem certeza que quer fechar o programa? ");
+           if (x == 0) {
+               Escola escola = Escola.getInstance();
+               try {
+                   escola.salvarContadores();
+               } catch (IOException ex) {
+                   System.err.println(ex);
+               }
+               System.exit(x);
+               /*File arquivoAlunos = new File("alunos.txt");
+                File arquivoTurmas = new File("turmas.txt");
+                FileInputStream arquivoDasTurmas;
+                ObjectInputStream inTurmas;
+                ObjectOutputStream outTurmas;
+                FileInputStream arquivoDosAlunos;
+                ObjectInputStream inAlunos;
+                ObjectOutputStream outAlunos;
             
-            if(arquivoTurmas.exists())
-            {
-               if(!arquivoTurmas.canWrite())
-                  arquivoTurmas.setWritable(true);
-               try
-               {
-                  arquivoDasTurmas = new FileInputStream(arquivoTurmas);
-                  inTurmas = new ObjectInputStream(arquivoDasTurmas);
-                  outTurmas = new ObjectOutputStream(new FileOutputStream("turmas.txt"));
-                  outTurmas.writeObject(MainPanel.turmasLidas);
-                  outTurmas.close();
+                if(arquivoTurmas.exists())
+                {
+                if(!arquivoTurmas.canWrite())
+                arquivoTurmas.setWritable(true);
+                try
+                {
+                arquivoDasTurmas = new FileInputStream(arquivoTurmas);
+                inTurmas = new ObjectInputStream(arquivoDasTurmas);
+                outTurmas = new ObjectOutputStream(new FileOutputStream("turmas.txt"));
+                outTurmas.writeObject(MainPanel.turmasLidas);
+                outTurmas.close();
                   
-                  //arquivo pode ser lido
-                  arquivoTurmas.setReadable(true);
-                  if(arquivoTurmas.canWrite())
-                  {
-                     //arquivo nao pode ser escrito por ninguém nem pelo seu próprio dono
-                     arquivoTurmas.setWritable(false, false);
-                  }
-               }
-               catch (IOException ex)
-               {
-                  System.err.println(ex);
-               }
-            }
-            else
-            {
-               try
-               {
-                  outTurmas = new ObjectOutputStream(new FileOutputStream("turmas.txt"));
-                  outTurmas.writeObject(MainPanel.turmasLidas);                  
-                  outTurmas.close();
-               }
-               catch (IOException ex)
-               {
-                  System.err.println(ex);
-               }
-               //arquivo pode ser lido
-               arquivoTurmas.setReadable(true);
-               if(arquivoTurmas.canWrite())
-               {
-                  //arquivo nao pode ser escrito por ninguém nem pelo seu próprio dono
-                  arquivoTurmas.setWritable(false, false);
-               }
-            }
+                //arquivo pode ser lido
+                arquivoTurmas.setReadable(true);
+                if(arquivoTurmas.canWrite())
+                {
+                //arquivo nao pode ser escrito por ninguém nem pelo seu próprio dono
+                arquivoTurmas.setWritable(false, false);
+                }
+                }
+                catch (IOException ex)
+                {
+                System.err.println(ex);
+                }
+                }
+                else
+                {
+                try
+                {
+                outTurmas = new ObjectOutputStream(new FileOutputStream("turmas.txt"));
+                outTurmas.writeObject(MainPanel.turmasLidas);                  
+                outTurmas.close();
+                }
+                catch (IOException ex)
+                {
+                System.err.println(ex);
+                }
+                //arquivo pode ser lido
+                arquivoTurmas.setReadable(true);
+                if(arquivoTurmas.canWrite())
+                {
+                //arquivo nao pode ser escrito por ninguém nem pelo seu próprio dono
+                arquivoTurmas.setWritable(false, false);
+                }
+                }
             
-            if(arquivoAlunos.exists())
-            {
-               if(!arquivoAlunos.canWrite())
-                  arquivoAlunos.setWritable(true);
-               try
-               {
-                  arquivoDosAlunos = new FileInputStream(arquivoAlunos);
-                  inAlunos = new ObjectInputStream(arquivoDosAlunos);
-                  outAlunos = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
-                  outAlunos.writeObject(MainPanel.alunosLidos);
-                  outAlunos.close();
-                  //arquivo pode ser lido
-                  arquivoAlunos.setReadable(true);
-                  if(arquivoAlunos.canWrite())
-                  {
-                     //arquivo nao pode ser escrito por ninguém nem pelo seu próprio dono
-                     arquivoAlunos.setWritable(false, false);
-                  }
-               }
-               catch (IOException ex)
-               {
-                  System.err.println(ex);
-               }
-            }
-            else
-            {
-               try
-               {
-                  outAlunos = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
-                  outAlunos.writeObject(MainPanel.alunosLidos);
-                  outAlunos.close();
-               }
-               catch (IOException ex)
-               {
-                  System.err.println(ex);
-               }
-               //arquivo pode ser lido
-               arquivoAlunos.setReadable(true);
-               if(arquivoAlunos.canWrite())
-               {
-                  //arquivo nao pode ser escrito por ninguém nem pelo seu próprio dono
-                  arquivoAlunos.setWritable(false, false);
-               }
-            }*/
-         }
-      }
+                if(arquivoAlunos.exists())
+                {
+                if(!arquivoAlunos.canWrite())
+                arquivoAlunos.setWritable(true);
+                try
+                {
+                arquivoDosAlunos = new FileInputStream(arquivoAlunos);
+                inAlunos = new ObjectInputStream(arquivoDosAlunos);
+                outAlunos = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
+                outAlunos.writeObject(MainPanel.alunosLidos);
+                outAlunos.close();
+                //arquivo pode ser lido
+                arquivoAlunos.setReadable(true);
+                if(arquivoAlunos.canWrite())
+                {
+                //arquivo nao pode ser escrito por ninguém nem pelo seu próprio dono
+                arquivoAlunos.setWritable(false, false);
+                }
+                }
+                catch (IOException ex)
+                {
+                System.err.println(ex);
+                }
+                }
+                else
+                {
+                try
+                {
+                outAlunos = new ObjectOutputStream(new FileOutputStream("alunos.txt"));
+                outAlunos.writeObject(MainPanel.alunosLidos);
+                outAlunos.close();
+                }
+                catch (IOException ex)
+                {
+                System.err.println(ex);
+                }
+                //arquivo pode ser lido
+                arquivoAlunos.setReadable(true);
+                if(arquivoAlunos.canWrite())
+                {
+                //arquivo nao pode ser escrito por ninguém nem pelo seu próprio dono
+                arquivoAlunos.setWritable(false, false);
+                }
+                }*/
+           }
+       }
    }//GEN-LAST:event_formWindowClosing
 
     /**
@@ -219,4 +211,8 @@ public class MainFrame extends javax.swing.JFrame {
     private Interface.MainPanel mainPanel1;
     private Interface.NewTeacherPanel newTeacherPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public MainPanel getMainPanel1() {
+        return this.mainPanel1;
+    }
 }

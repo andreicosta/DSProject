@@ -4,6 +4,9 @@
  */
 package Interface;
 
+import dsproject.Escola;
+import javax.swing.JLabel;
+
 /**
  *
  * @author pazuti
@@ -26,31 +29,21 @@ public class WelcomePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        welcomeMessage = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(833, 515));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        jLabel1.setText("Bem Vindo ao PRODOWN");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(613, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(482, Short.MAX_VALUE))
-        );
+        welcomeMessage.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        welcomeMessage.setText("Bem Vindo ao PRODOWN");
+        add(welcomeMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel welcomeMessage;
     // End of variables declaration//GEN-END:variables
+
+public void setWelcomeMessage(String s){
+    this.welcomeMessage.setText(s + ", Bem Vindo ao PRODOWN");
+}
+
 }

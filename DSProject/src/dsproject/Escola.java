@@ -318,7 +318,7 @@ public class Escola
       return (errorlist);
    }
 
-   public void login(String cpf, String senha)
+   public boolean login(String cpf, String senha)
    {
       cpf = cpf.replace(".", "");
       cpf = cpf.replace("-", "");
@@ -352,29 +352,29 @@ public class Escola
                      logado = this.professList.get(i);
                      System.out.println(" achou o professor e logou");
                      islogado = true;
-                     return;
+                     return true;
                   }
                   else
                   {
                      System.out.println("Ja existe Professor logado no sistema");
-                     return;
+                     return false;
                   }
                }
                else
                {
                   // senha errada seu viadinho
                   System.out.println("senha errada - " + senha);
-                  return;
+                  return false;
                }
             }
 
          }
       }
-
+      
       /*      
-       * //professor no existe
-       * System.out.println("Nao existe cadastro com cpf =" + cpf );
-       */
+       * //professor no existe*/
+       System.out.println("Nao existe cadastro com cpf =" + cpf );
+       return false;
    }
 
    public Professor getProfessorLogado()
@@ -669,4 +669,9 @@ public class Escola
         f.delete();
     }
 
+    public void logout(){
+        this.logado = null;
+        this.islogado = false;
+    }
+    
 }

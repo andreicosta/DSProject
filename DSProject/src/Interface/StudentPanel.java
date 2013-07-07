@@ -643,6 +643,7 @@ public class StudentPanel extends javax.swing.JPanel {
     }
 
     public void clearEditStudent() {
+        editName.removeAllItems();
         editMobile.setText("");
         editCity.setText("");
         editTurma.removeAllItems();
@@ -652,5 +653,11 @@ public class StudentPanel extends javax.swing.JPanel {
         editMother.setText("");
         editFather.setText("");
         editTelephone.setText("");
+    }
+    
+    public void clearAll(){
+        this.clearNewStudent();
+        this.clearEditStudent();
+        this.jTabbedPane1.setSelectedIndex(0);
     }
 }
