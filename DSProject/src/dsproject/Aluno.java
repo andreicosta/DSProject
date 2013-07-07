@@ -2,16 +2,16 @@ package dsproject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.Objects;
 
-public final class Aluno implements Serializable {
+public class Aluno implements Serializable {
 
     static int cont = 0;
     private int num_dir;
     private String dir;
     private String nome;
-    private Date nascimento;
+    private Calendar nascimento;
     private String genero;
     private String endereco;
     private String cidade;
@@ -23,18 +23,18 @@ public final class Aluno implements Serializable {
     private Turma turma;
     private ArrayList<Avaliacao> avaliacoes;
 
-    public Aluno(String nome, Turma turma, Date nascimento, String genero, String endereco, String cidade,
+    public Aluno(String nome, Turma turma, Calendar nascimento, String genero, String endereco, String cidade,
             String nomeMae, String nomePai, String telefone, String celular, String email) {
         this.nome = nome;
         this.nascimento = nascimento;
         this.genero = genero;
         this.endereco = endereco;
         this.cidade = cidade;
-        this.setNomeDaMae(nomeMae);
-        this.setNomeDoPai(nomePai);
-        this.setTelefone(telefone);
-        this.setCelular(celular);
-        this.setEmail(email);
+        this.nomeMae = nomeMae;
+        this.nomePai = nomePai;
+        this.telefone = telefone;
+        this.celular = celular;
+        this.email = email;
         this.turma = turma;
         this.avaliacoes = new ArrayList<>();
         num_dir = cont;
@@ -44,6 +44,36 @@ public final class Aluno implements Serializable {
         this.addAvaliacao(avaliacao);
     }
 
+    public static void parse(String nome, Calendar nascimento, String endereco, String cidade,
+            String nomeMae, String nomePai) throws Exception {
+        
+        if(nome != null && !nome.contains(" ")){
+            throw new Exception("O nome deve ser completo");
+        }
+        
+        if (nascimento != null){
+            Calendar hoje = Calendar.getInstance();
+
+            int anos = 0;
+            while (hoje.after(nascimento)) {
+                hoje.add(Calendar.YEAR, -1);
+                anos++;
+            }
+
+            if (anos > 21 || anos < 11){
+                throw new Exception("O aluno deve ter entre 10 e 20 anos");
+            }
+        }
+        
+        if(!nome.contains(" ")){
+            throw new Exception("O nome da Mãe deve ser completo");
+        }
+        
+        if(!nome.contains(" ")){
+            throw new Exception("O nome do Pai deve ser completo");
+        }        
+    }
+    
     public boolean inserirAvaliacao() {        
         Avaliacao avaliacao = new Avaliacao();
         this.addAvaliacao(avaliacao);
@@ -54,11 +84,11 @@ public final class Aluno implements Serializable {
         return nome;
     }
 
-    public Date getDataDeNascimento() {
+    public Calendar getDataDeNascimento() {
         return nascimento;
     }
 
-    public void setDataDeNascimento(Date nascimento) {
+    public void setDataDeNascimento(Calendar nascimento) {
         this.nascimento = nascimento;
     }
 
@@ -110,7 +140,7 @@ public final class Aluno implements Serializable {
         return celular;
     }
     
-    public Date getBirthday(){
+    public Calendar getBirthday(){
         return this.nascimento;
     }
 
@@ -181,13 +211,12 @@ public final class Aluno implements Serializable {
         this.avaliacoes = avaliacoes;
     }
 
-
     @Override
     public int hashCode() {
         int hash = 5;
         hash = 13 * hash + Objects.hashCode(this.nomeMae);
         hash = 13 * hash + Objects.hashCode(this.nomePai);
-        hash = 13 * hash + Objects.hashCode(this.getNome());
+        hash = 13 * hash + Objects.hashCode(this.nome);
         return hash;
     }
 
@@ -206,7 +235,7 @@ public final class Aluno implements Serializable {
         if (!Objects.equals(this.nomePai, other.nomePai)) {
             return false;
         }
-        if (!Objects.equals(this.getNome(), other.getNome())) {
+        if (!Objects.equals(this.nome, other.nome)) {
             return false;
         }
         return true;
