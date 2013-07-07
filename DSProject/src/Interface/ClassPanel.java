@@ -268,7 +268,7 @@ public class ClassPanel extends javax.swing.JPanel {
    {//GEN-HEADEREND:event_listClassesPanelComponentShown
        listaListaDeTurmas.removeAllElements();
        Professor tmpProf = Escola.getInstance().getLogado();
-       for (int i = 0; i < tmpProf.getTurmas().size(); i++) {
+       for (int i = 1; i < tmpProf.getTurmas().size(); i++) {
            listaListaDeTurmas.addElement(tmpProf.getTurmas().get(i));
        }
    }//GEN-LAST:event_listClassesPanelComponentShown
@@ -303,7 +303,7 @@ public class ClassPanel extends javax.swing.JPanel {
    {//GEN-HEADEREND:event_comboTurmaRemoverTurmaPopupMenuWillBecomeVisible
        comboTurmaRemoverTurma.removeAllItems();
        Professor tmpProf = Escola.getInstance().getLogado();
-       for (int i = 0; i < tmpProf.getTurmas().size(); i++) {
+       for (int i = 1; i < tmpProf.getTurmas().size(); i++) {
            comboTurmaRemoverTurma.addItem(tmpProf.getTurmas().get(i));
        }
    }//GEN-LAST:event_comboTurmaRemoverTurmaPopupMenuWillBecomeVisible
