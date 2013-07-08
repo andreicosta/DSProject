@@ -51,6 +51,11 @@ public class LoginJPanel extends javax.swing.JPanel {
         campocpflogin = new javax.swing.JFormattedTextField();
 
         setPreferredSize(new java.awt.Dimension(984, 536));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("CPF");
@@ -59,7 +64,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         jLabel2.setText("Senha");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 263, -1, -1));
 
-        loginpassw.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        loginpassw.setFont(new java.awt.Font("Ubuntu", 1, 15));
         loginpassw.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 loginpasswKeyTyped(evt);
@@ -84,7 +89,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         add(cadbut, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 292, 113, -1));
 
         campocpflogin.setFormatterFactory(setFormatoData());
-        campocpflogin.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        campocpflogin.setFont(new java.awt.Font("Ubuntu", 1, 15));
         add(campocpflogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 218, 178, -1));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -125,6 +130,11 @@ public class LoginJPanel extends javax.swing.JPanel {
             this.login();
         }
     }//GEN-LAST:event_loginpasswKeyTyped
+
+private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+    this.campocpflogin.requestFocus();
+    this.frame.setTitle("ProDown");
+}//GEN-LAST:event_formComponentShown
 
     public static DefaultFormatterFactory setFormatoData() {
         MaskFormatter comFoco = null;

@@ -218,7 +218,7 @@ public class Escola
       {
          //if(!nome.isEmpty())
          //{
-         nome = nome.toLowerCase();
+         //nome = nome.toLowerCase();
          if (nome.charAt(nome.length() - 1) == ' ')
          {
             System.out.println(nome.length());
@@ -228,7 +228,7 @@ public class Escola
          System.out.println(nome);
 
          Pattern p = Pattern.compile("([a-z]+\\s)+[a-z]*");
-         Matcher m = p.matcher(nome);
+         Matcher m = p.matcher(nome.toLowerCase());
          boolean matchFound = m.matches();
 
          if (!matchFound)

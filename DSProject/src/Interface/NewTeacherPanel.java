@@ -270,7 +270,7 @@ public class NewTeacherPanel extends javax.swing.JPanel {
 
     public void clear() {
         this.campoNomeCompleto.setText("");
-        this.campoFormatadoCpf.setText("");
+        this.campoFormatadoCpf.setValue("");
         this.campoPasswordSenha.setText("");
         this.campoPasswordConfirmarSenha.setText("");
     }
