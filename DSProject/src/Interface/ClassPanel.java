@@ -5,7 +5,10 @@ import dsproject.Turma;
 import dsproject.Professor;
 import dsproject.Escola;
 import java.awt.Color;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -29,9 +32,11 @@ public class ClassPanel extends javax.swing.JPanel {
         botaoCadastrar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        availableStudentList = new javax.swing.JList();
+        listaAlunosSemTurmaCad = new DefaultListModel();
+        availableStudentList = new javax.swing.JList(listaAlunosSemTurmaCad);
         jScrollPane3 = new javax.swing.JScrollPane();
-        studentInClassList = new javax.swing.JList();
+        listaAlunosMatriculadosCad = new DefaultListModel();
+        studentInClassList = new javax.swing.JList(listaAlunosMatriculadosCad);
         addToClassButton = new javax.swing.JButton();
         removeStudentFromClassButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -47,9 +52,11 @@ public class ClassPanel extends javax.swing.JPanel {
         campoAnoLetivoEditarTurma = new javax.swing.JTextField();
         botaoSalvar = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
-        availableStudentList2 = new javax.swing.JList();
+        listaAlunosSemTurma = new DefaultListModel();
+        availableStudentList2 = new javax.swing.JList(listaAlunosSemTurma);
         jScrollPane7 = new javax.swing.JScrollPane();
-        studentInClassList2 = new javax.swing.JList();
+        listaAlunosMatriculadosEdi = new DefaultListModel();
+        studentInClassList2 = new javax.swing.JList(listaAlunosMatriculadosEdi);
         addToClassButton2 = new javax.swing.JButton();
         removeStudentFromClassButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -62,6 +69,11 @@ public class ClassPanel extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(833, 515));
         setMinimumSize(new java.awt.Dimension(833, 515));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(833, 515));
@@ -108,9 +120,19 @@ public class ClassPanel extends javax.swing.JPanel {
         newClassPanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 121, 220, 345));
 
         addToClassButton.setText("Adicionar");
+        addToClassButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addToClassButtonActionPerformed(evt);
+            }
+        });
         newClassPanel.add(addToClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 221, 90, -1));
 
         removeStudentFromClassButton.setText("Remover");
+        removeStudentFromClassButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeStudentFromClassButtonActionPerformed(evt);
+            }
+        });
         newClassPanel.add(removeStudentFromClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 268, 90, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -163,6 +185,11 @@ public class ClassPanel extends javax.swing.JPanel {
         editClassPanel.add(campoAnoLetivoEditarTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 21, 110, -1));
 
         botaoSalvar.setText("Salvar");
+        botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSalvarActionPerformed(evt);
+            }
+        });
         editClassPanel.add(botaoSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(725, 437, 85, -1));
 
         availableStudentList2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -176,9 +203,19 @@ public class ClassPanel extends javax.swing.JPanel {
         editClassPanel.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 121, 220, 345));
 
         addToClassButton2.setText("Adicionar");
+        addToClassButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addToClassButton2ActionPerformed(evt);
+            }
+        });
         editClassPanel.add(addToClassButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 221, 90, -1));
 
         removeStudentFromClassButton2.setText("Remover");
+        removeStudentFromClassButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeStudentFromClassButton2ActionPerformed(evt);
+            }
+        });
         editClassPanel.add(removeStudentFromClassButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 268, 90, -1));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -209,6 +246,11 @@ public class ClassPanel extends javax.swing.JPanel {
         deleteClassPanel.add(comboTurmaRemoverTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 22, 500, -1));
 
         botaoRemover.setText("Remover");
+        botaoRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoRemoverActionPerformed(evt);
+            }
+        });
         deleteClassPanel.add(botaoRemover, new org.netbeans.lib.awtextra.AbsoluteConstraints(605, 67, 86, -1));
 
         jTabbedPane1.addTab("Remover Turma", deleteClassPanel);
@@ -261,6 +303,15 @@ public class ClassPanel extends javax.swing.JPanel {
        for (int i = 0; i < students.size(); i++) {
            listaAlunosMatriculadosEdi.addElement(students.get(i));
        }
+       
+       listaAlunosSemTurma.removeAllElements();
+       Professor tmpProf = Escola.getInstance().getLogado();
+       ArrayList<Turma> turmas = tmpProf.getTurmas();
+       tmpTurma = turmas.get(0);
+       students = tmpTurma.buscaTodosAlunos();        
+       for (int i = 0; i < students.size(); i++) {
+           listaAlunosSemTurma.addElement(students.get(i));
+       }
    }//GEN-LAST:event_comboTurmaEditarTurmaItemStateChanged
 
    private void comboTurmaRemoverTurmaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboTurmaRemoverTurmaPopupMenuWillBecomeVisible
@@ -284,6 +335,32 @@ public class ClassPanel extends javax.swing.JPanel {
         if (erroslist.get(0).equals(0)) {
             labelTurma.setForeground(Color.black);
             labelAnoLetivo.setForeground(Color.black);
+            Aluno tmpAluno;
+            ArrayList<Turma> turmas = tmpProf.getTurmas();
+            Turma semTurma = turmas.get(0);
+            Turma tmpTurma = turmas.get(turmas.size()-1);
+            for (int i = 0;i < listaAlunosMatriculadosCad.size(); i++) {
+                tmpAluno = (Aluno) listaAlunosMatriculadosCad.get(i);
+                if(tmpTurma.buscaAluno(tmpAluno) < 0){
+                    try {
+                        tmpTurma.inserirAluno(tmpAluno);
+                        semTurma.removeAluno(tmpAluno);
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "Erro", "Erro", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+            for (int i = 0;i < listaAlunosSemTurmaCad.size(); i++) {
+                tmpAluno = (Aluno) listaAlunosSemTurmaCad.get(i);
+                if(semTurma.buscaAluno(tmpAluno) < 0){
+                    try {
+                        semTurma.inserirAluno(tmpAluno);
+                        tmpTurma.removeAluno(tmpAluno);
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "Erro", "Erro", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
             limpaCamposCadastrarTurma();
             return;
         } else {
@@ -310,27 +387,109 @@ public class ClassPanel extends javax.swing.JPanel {
 
     //quando fecha o programa aparece a turma que foi deletada denovo
     private void botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemoverActionPerformed
-        Turma turma = (Turma) this.comboTurmaRemoverTurma.getSelectedItem();
-        Professor tmpProf = Escola.getInstance().getLogado();
+        try{
+            Turma turma = (Turma) this.comboTurmaRemoverTurma.getSelectedItem();
+            Professor tmpProf = Escola.getInstance().getLogado();
         
-        tmpProf.removeTurma(turma);
+            tmpProf.removeTurma(turma);
             
-        clearAll();
-            
-        JOptionPane.showMessageDialog(null, "Turma removido com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
-
+            clearAll();
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Erro ao remover turma", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_botaoRemoverActionPerformed
 
-    private void editClassPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editClassPanelMouseClicked
-        listaAlunosSemTurma.removeAllElements();
+    private void addToClassButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToClassButton2ActionPerformed
+        try {
+            Aluno tmpAluno = (Aluno)availableStudentList2.getSelectedValue();
+            
+            listaAlunosMatriculadosEdi.addElement(tmpAluno);
+            listaAlunosSemTurma.removeElement(tmpAluno);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao adicionar aluno na turma", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_addToClassButton2ActionPerformed
+
+    private void removeStudentFromClassButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeStudentFromClassButton2ActionPerformed
+        try {
+            Aluno tmpAluno = (Aluno)studentInClassList2.getSelectedValue();
+            
+            listaAlunosMatriculadosEdi.removeElement(tmpAluno);
+            listaAlunosSemTurma.addElement(tmpAluno);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao remover aluno na turma", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_removeStudentFromClassButton2ActionPerformed
+
+    private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
+        Aluno tmpAluno;
+        Turma tmpTurma = (Turma)comboTurmaEditarTurma.getSelectedItem();
         Professor tmpProf = Escola.getInstance().getLogado();
         ArrayList<Turma> turmas = tmpProf.getTurmas();
-        Turma tmpTurma = turmas.get(0);
-        ArrayList<Aluno> students = tmpTurma.buscaTodosAlunos();        
-        for (int i = 0; i < students.size(); i++) {
-            listaAlunosMatriculadosEdi.addElement(students.get(i));
+        Turma semTurma = turmas.get(0);
+        for (int i = 0;i < listaAlunosMatriculadosEdi.size(); i++) {
+            tmpAluno = (Aluno) listaAlunosMatriculadosEdi.get(i);
+            if(tmpTurma.buscaAluno(tmpAluno) < 0){
+                try {
+                    tmpTurma.inserirAluno(tmpAluno);
+                    semTurma.removeAluno(tmpAluno);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Erro", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+            }
         }
-    }//GEN-LAST:event_editClassPanelMouseClicked
+        for (int i = 0;i < listaAlunosSemTurma.size(); i++) {
+            tmpAluno = (Aluno) listaAlunosSemTurma.get(i);
+            if(semTurma.buscaAluno(tmpAluno) < 0){
+                try {
+                    semTurma.inserirAluno(tmpAluno);
+                    tmpTurma.removeAluno(tmpAluno);
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Erro", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+        limpaCamposEditarTurma();
+    }//GEN-LAST:event_botaoSalvarActionPerformed
+
+    private void addToClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToClassButtonActionPerformed
+        try {
+            Aluno tmpAluno = (Aluno)availableStudentList.getSelectedValue();
+            
+            listaAlunosMatriculadosCad.addElement(tmpAluno);
+            listaAlunosSemTurmaCad.removeElement(tmpAluno);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao adicionar aluno na turma", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_addToClassButtonActionPerformed
+
+    private void removeStudentFromClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeStudentFromClassButtonActionPerformed
+        try {
+            Aluno tmpAluno = (Aluno)studentInClassList2.getSelectedValue();
+            
+            listaAlunosMatriculadosCad.removeElement(tmpAluno);
+            listaAlunosSemTurmaCad.addElement(tmpAluno);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao remover aluno na turma", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_removeStudentFromClassButtonActionPerformed
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        listaAlunosSemTurmaCad.removeAllElements();
+        Professor tmpProf = Escola.getInstance().getLogado();
+        if(tmpProf != null){
+            Turma tmpTurma = tmpProf.getTurmas().get(0);
+            ArrayList<Aluno> students = tmpTurma.buscaTodosAlunos();        
+            if(students != null){
+                for (int i = 0; i < students.size(); i++) {
+                    listaAlunosSemTurmaCad.addElement(students.get(i));
+                }
+            }
+       }
+    }//GEN-LAST:event_formComponentShown
+
+    
     private ArrayList<Integer> erroslist;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addToClassButton;
@@ -377,6 +536,7 @@ public class ClassPanel extends javax.swing.JPanel {
     private static DefaultListModel listaAlunosSemTurma;
     private static DefaultListModel listaAlunosMatriculadosEdi;
     private static DefaultListModel listaListaDeTurmas;
+    private static DefaultListModel listaAlunosSemTurmaCad;
     private static boolean alunoAdicionadoComboAluno;
     private static boolean alunoAdicionadoComboNomeDoAluno;
     private static boolean alunoAdicionadoComboAdicionarAluno;
@@ -496,13 +656,16 @@ public class ClassPanel extends javax.swing.JPanel {
 
     public void limpaCamposEditarTurma() {
         campoAnoLetivoEditarTurma.setText("");
-        //comboRemoverAluno.removeAllItems();
         comboTurmaEditarTurma.removeAllItems();
+        listaAlunosMatriculadosEdi.removeAllElements();
+        listaAlunosSemTurma.removeAllElements();
     }
 
     public void limpaCamposCadastrarTurma() {
         campoTurma.setText("");
         campoAnoLetivo.setText("");
+        listaAlunosMatriculadosCad.removeAllElements();
+        listaAlunosSemTurma.removeAllElements();
     }
 
     public void limpaCamposListaTurma() {

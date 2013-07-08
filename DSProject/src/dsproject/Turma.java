@@ -3,6 +3,8 @@ package dsproject;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Turma implements Serializable, Cloneable
 {
@@ -75,6 +77,18 @@ public class Turma implements Serializable, Cloneable
       return -1;
    }
 
+   public void excluirTurma(){
+      Turma semTurma = Escola.getInstance().getLogado().getTurmas().get(0);
+      for (Aluno i: alunos){
+          try {
+              semTurma.inserirAluno(i);
+              this.removeAluno(i);
+          } catch (Exception e) {
+              Logger.getLogger(Turma.class.getName()).log(Level.SEVERE, null, e);
+          }
+      }
+   }
+   
    public ArrayList<Aluno> buscaTodosAlunos()
    {
       return alunos;
