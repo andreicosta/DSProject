@@ -90,8 +90,10 @@ public class LoginJPanel extends javax.swing.JPanel {
 
     private void cadbutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadbutActionPerformed
         clear();
+        
         CardLayout card = (CardLayout) superPanel.getLayout();
         card.show(superPanel, "cardNewTeacher");
+        //frame.getNewTeacherPanel1().campoFormatadoCpfRequestFocus();
     }//GEN-LAST:event_cadbutActionPerformed
 
     private void loginbutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbutActionPerformed
@@ -107,12 +109,14 @@ public class LoginJPanel extends javax.swing.JPanel {
             card.show(superPanel, "cardMain");
             String name = escola.getProfessorLogado().getNome();
             this.frame.getMainPanel1().getWelcomePanel1().setWelcomeMessage(name);
+            String title = this.frame.getTitle();
+            this.frame.setTitle(name + " - " + title);
         }
 
     }
 
     private void clear() {
-        this.campocpflogin.setText("");
+        this.campocpflogin.setValue("");
         this.loginpassw.setText("");
     }
 

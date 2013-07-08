@@ -215,4 +215,9 @@ public class MainFrame extends javax.swing.JFrame {
     public MainPanel getMainPanel1() {
         return this.mainPanel1;
     }
+    
+    public NewTeacherPanel getNewTeacherPanel1() {
+        return this.newTeacherPanel1;
+    }
+    
 }
