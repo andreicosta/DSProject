@@ -4,10 +4,7 @@
  */
 package Interface;
 
-import dsproject.Aluno;
-import dsproject.Avaliacao;
-import dsproject.Escola;
-import dsproject.Turma;
+import dsproject.*;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -22,6 +19,7 @@ import java.io.ObjectOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
@@ -145,10 +143,6 @@ public class TestPanel extends javax.swing.JPanel {
 
         setMinimumSize(new java.awt.Dimension(833, 515));
         setPreferredSize(new java.awt.Dimension(833, 515));
-
-        jTabbedPane1.setMaximumSize(new java.awt.Dimension(833, 515));
-        jTabbedPane1.setMinimumSize(new java.awt.Dimension(833, 515));
-        jTabbedPane1.setPreferredSize(new java.awt.Dimension(833, 515));
 
         newEditPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -522,6 +516,11 @@ public class TestPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Nova Avaliação / Editar Avaliação", newEditPanel);
 
+        controlPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                controlPanelComponentShown(evt);
+            }
+        });
         controlPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -564,6 +563,11 @@ public class TestPanel extends javax.swing.JPanel {
         controlPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 25, 710, 390));
 
         jButton1.setText("Gerar Arquivo para Envio");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         controlPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(609, 427, -1, -1));
 
         jTabbedPane1.addTab("Controle de Avaliações", controlPanel);
@@ -572,41 +576,49 @@ public class TestPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 809, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1))
         );
     }// </editor-fold>//GEN-END:initComponents
 
    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_buttonSaveActionPerformed
    {//GEN-HEADEREND:event_buttonSaveActionPerformed
-       saveData();
-       saveTime();
-       saveTemperature();
-       saveBodyMass();
-       saveHeight();
-       saveIMC();
-       saveSpread();
-       saveSitUp();
-       saveSitUpAndAchieve();
-       saveWithSeat();
-       saveWithoutSeat();
-       saveRun();
-       saveRadio6();
-       saveRadio9();
-       saveHorizontalJump();
-       saveMedicineBallThrow();
-       saveSquareTest();
-       save20MettersRun();
-       
-        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
-        if (student == null) {
-            return;
-        }
-        Avaliacao avaliacao = student.getLastAvaliation();
-        avaliacao.setSalvoParaEnviar(true);
+       boolean trySave = true;
+       trySave = saveData() && trySave;
+       trySave = saveTime() && trySave;
+       trySave = saveTemperature() && trySave;
+       if(trySave){
+            saveBodyMass();
+            saveHeight();
+            saveIMC();
+            saveSpread();
+            saveSitUp();
+            saveSitUpAndAchieve();
+            saveWithSeat();
+            saveWithoutSeat();
+            saveRun();
+            saveRadio6();
+            saveRadio9();
+            saveHorizontalJump();
+            saveMedicineBallThrow();
+            saveSquareTest();
+            save20MettersRun();
+
+            Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+            if (student == null) {
+                return;
+            }
+            Avaliacao avaliacao = student.getLastAvaliation();
+            avaliacao.setSalvoParaEnviar(true);
+       }
    }//GEN-LAST:event_buttonSaveActionPerformed
 
    private void fieldTimeKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldTimeKeyTyped
@@ -1019,6 +1031,65 @@ public class TestPanel extends javax.swing.JPanel {
     private void radio9MinutesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_radio9MinutesFocusLost
         saveRadio9();
     }//GEN-LAST:event_radio9MinutesFocusLost
+
+    private void controlPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_controlPanelComponentShown
+        clearJTable();
+        
+        int jTableRow = 0;
+        
+        Date data = null;
+        boolean addTurma;
+        int quantidadeTotal;
+        int quantidadeAvaliacao;
+        
+        for(Turma i : Escola.getInstance().getLogado().getTurmas()){
+            addTurma = false;
+            quantidadeTotal = i.buscaTodosAlunos().size();
+            quantidadeAvaliacao = 0;
+            for(Aluno j : i.buscaTodosAlunos()){
+                if(j != null){
+                    Avaliacao avaliacao = (Avaliacao) j.getLastAvaliation();
+                    if (avaliacao.isSalvoParaEnviar()){
+
+                        addTurma = true;
+                        if(data == null){
+                            data = avaliacao.getData();
+                        }
+                        else if(avaliacao.getData().before(data)){
+                            data = avaliacao.getData();
+                        }
+                        quantidadeAvaliacao++;
+
+                    }
+                    quantidadeTotal++;                
+                }
+            }
+            if(addTurma){
+                String porcento = String.valueOf(quantidadeAvaliacao / (float) quantidadeTotal);
+                jTable1.setValueAt(i.getId(), jTableRow, 0);
+                String[] dataSplit = data.toString().split(" ");
+                jTable1.setValueAt(String.valueOf(dataSplit[2]) + " de " + returnMonth(dataSplit[1]) + " de "+dataSplit[5], jTableRow, 1);
+                jTable1.setValueAt(String.valueOf(quantidadeAvaliacao) + " alunos avaliado de " + String.valueOf(quantidadeTotal), jTableRow, 2);
+            }
+        }
+    }//GEN-LAST:event_controlPanelComponentShown
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ArrayList<Turma> turmasParaSalvar = new ArrayList<>();
+        for(Turma i : Escola.getInstance().getLogado().getTurmas()){
+            for(Aluno j : i.buscaTodosAlunos()){
+                if(j != null){
+                    Avaliacao avaliacao = (Avaliacao) j.getLastAvaliation();
+                    if (avaliacao.isSalvoParaEnviar()){
+                        turmasParaSalvar.add(i);
+                        break;
+                    }
+                }  
+            }
+        }
+        //Escola.getInstance().getLogado().medoto(turmasParaSalvar);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonSave;
     private javax.swing.ButtonGroup chairButtonGroup;
@@ -1087,6 +1158,49 @@ public class TestPanel extends javax.swing.JPanel {
     private static boolean turmaAdicionadaComboTurma;
     private static int numeroDeTurmasAdicionadasComboTurma = 0;
 
+    private String returnMonth(String mes){
+        String literal = "";
+        switch (mes){
+            case "Jan":
+                literal = "Janeiro";
+                break;
+            case "Fev":
+                literal = "Fevereiro";
+                break;
+            case "Mar":
+                literal = "Marco";
+                break;
+            case "Abr":
+                literal = "Abril"; 
+                break;
+            case "May":
+                literal = "Maio";
+                break;
+            case "Jun":
+                literal = "Junho";
+                break;
+            case "Jul":
+                literal = "Julho";
+                break;
+            case "Ago":
+                literal = "Agosto";
+                break;
+            case "Sep":
+                literal = "Setembro";
+                break;
+            case "Oct":
+                literal = "Outubro";
+                break;
+            case "Nov":
+                literal = "Novembro";
+                break;
+            case "Dec":              
+                literal = "Dezembro";
+                break;
+        }
+        return literal;
+    }
+    
     public static boolean isTurmaAdicionadaComboTurma() {
         return turmaAdicionadaComboTurma;
     }
@@ -1311,16 +1425,17 @@ public class TestPanel extends javax.swing.JPanel {
         radio9Minutes.setSelected(false);
     }
     
-    private void saveData(){
+    private boolean saveData(){
         Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
         if (student == null) {
-            return;
+            return false;
         }
         Avaliacao avaliacao = student.getLastAvaliation();
         avaliacao.setData(fieldTestDate.getDate());
+        return true;
     }
     
-    private void saveTime(){
+    private boolean saveTime(){
         String horaDaAvaliacaoString = getCampoHora();
         boolean Error = false;
         if (getCampoHora() != null) {
@@ -1335,32 +1450,36 @@ public class TestPanel extends javax.swing.JPanel {
         if (getCampoHora() == null || Error == true) {
             fieldTime.setForeground(Color.red);
             labelHorario.setForeground(Color.red);
+            return false;
         } else {
             fieldTime.setForeground(Color.black);
             labelHorario.setForeground(Color.black);
             Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
             if (student == null) {
-                return;
+                return false;
             }
             Avaliacao avaliacao = student.getLastAvaliation();
             avaliacao.setHorario(fieldTime.getText());
         }
+        return true;
     }
     
-    private void saveTemperature(){
+    private boolean saveTemperature(){
         if (getCampoTemperatura() == null) {
             labelTemperatura.setForeground(Color.red);
             fieldTemperature.setForeground(Color.red);
+            return false;
         } else {
             labelTemperatura.setForeground(Color.black);
             fieldTemperature.setForeground(Color.black);
             Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
             if (student == null) {
-                return;
+                return false;
             }
             Avaliacao avaliacao = student.getLastAvaliation();
             avaliacao.setTemperatura(fieldTemperature.getText());
         }
+        return true;
     }
     
     private void saveBodyMass(){
@@ -1393,7 +1512,7 @@ public class TestPanel extends javax.swing.JPanel {
     
     private void saveSpread(){
         Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
-        if (student == null || !"".equals(fieldSpread.getText())) {
+        if (student == null || "".equals(fieldSpread.getText())) {
             return;
         }
         Avaliacao avaliacao = student.getLastAvaliation();
@@ -1510,5 +1629,19 @@ public class TestPanel extends javax.swing.JPanel {
     public void clearAll() {
         //implementar!
         this.jTabbedPane1.setSelectedIndex(0);
+    }
+    
+    private void clearJTable(){
+        int i=0;
+        while(true){
+            if(jTable1.getValueAt(i, 0) != null){
+                jTable1.setValueAt(null, i, 0);
+                jTable1.setValueAt(null, i, 1);
+                jTable1.setValueAt(null, i, 2);
+            }
+            else
+                return;
+            i++;
+        }
     }
 }

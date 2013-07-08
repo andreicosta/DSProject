@@ -34,6 +34,10 @@ public class Avaliacao implements Serializable
    private float corrida20Metros; //tempo do percurso em segundos e centésimos de segundos (duas casas após a vírgula).
    
    private boolean salvoParaEnviar;
+
+    public boolean isSalvoParaEnviar() {
+        return salvoParaEnviar;
+    }
    
    private boolean enviado;
 
@@ -49,7 +53,7 @@ public class Avaliacao implements Serializable
    public Avaliacao()
    {    
        
-       //this.data = null;
+       this.data = null;
        this.horario = null;
        this.temperatura = null;
        
@@ -69,29 +73,6 @@ public class Avaliacao implements Serializable
        
        this.salvoParaEnviar = false;
        this.enviado = false;
-      /*
-      System.out.println("data = " + dataFormatada.format(avaliacao.getData()));
-      System.out.println("horario = " + avaliacao.getHorario());
-      System.out.println("temperatura = " + avaliacao.getTemperatura() + "°C");
-      System.out.println("massa corporal = " + avaliacao.getMassaCorporal() + "Kg");
-      System.out.println("estatura = " + avaliacao.getEstatura() + "cm");
-      System.out.println("IMC = " + avaliacao.getIMC());
-      System.out.println("envergadura = " + avaliacao.getEnvergadura() + "cm");
-      System.out.println("abdominal = " + avaliacao.getAbdominal());
-      System.out.println("sentar e alcançar = " + avaliacao.getSentarEAlcancar() + "com banco = " + avaliacao.isSentarEAlcancarComBanco());
-      if (avaliacao.get6Minutos() == -1)
-      {
-         System.out.println("corrida 9 minutos = " + avaliacao.get9Minutos());
-      }
-      else
-      {
-         System.out.println("corrida 6 minutos = " + avaliacao.get6Minutos());
-      }
-      System.out.println("salto Horizontal = " + avaliacao.getSaltoHorizontal());
-      System.out.println("arremesso medicine ball = " + avaliacao.getArremessoMedicineBall() + "cm");
-      System.out.println("teste do quadrado = " + avaliacao.getTesteDoQuadrado());
-      System.out.println("corrida de 20 metros = " + avaliacao.getCorrida20Metros());
-      */
    }
 
    public void setMassaCorporal(float massaCorporal)
@@ -239,7 +220,7 @@ public class Avaliacao implements Serializable
       return corrida20Metros;
    }
     
-        public void setData(Date data) {
+    public void setData(Date data) {
         this.data = data;
     }
 
