@@ -55,11 +55,9 @@ public class ClassPanel extends javax.swing.JPanel {
         botaoCadastrar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        listaAlunosSemTurma = new DefaultListModel();
-        availableStudentList = new javax.swing.JList(listaAlunosSemTurma);
+        availableStudentList = new javax.swing.JList();
         jScrollPane3 = new javax.swing.JScrollPane();
-        listaAlunosMatriculadosCad = new DefaultListModel();
-        studentInClassList = new javax.swing.JList(listaAlunosMatriculadosCad);
+        studentInClassList = new javax.swing.JList();
         addToClassButton = new javax.swing.JButton();
         removeStudentFromClassButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -75,10 +73,9 @@ public class ClassPanel extends javax.swing.JPanel {
         campoAnoLetivoEditarTurma = new javax.swing.JTextField();
         botaoSalvar = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
-        availableStudentList2 = new javax.swing.JList(listaAlunosSemTurma);
+        availableStudentList2 = new javax.swing.JList();
         jScrollPane7 = new javax.swing.JScrollPane();
-        listaAlunosMatriculadosEdi = new DefaultListModel();
-        studentInClassList2 = new javax.swing.JList(listaAlunosMatriculadosEdi);
+        studentInClassList2 = new javax.swing.JList();
         addToClassButton2 = new javax.swing.JButton();
         removeStudentFromClassButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -89,8 +86,11 @@ public class ClassPanel extends javax.swing.JPanel {
         comboTurmaRemoverTurma = new javax.swing.JComboBox();
         botaoRemover = new javax.swing.JButton();
 
+        setMaximumSize(new java.awt.Dimension(833, 515));
         setMinimumSize(new java.awt.Dimension(833, 515));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTabbedPane1.setPreferredSize(new java.awt.Dimension(833, 515));
 
         newClassPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -163,11 +163,6 @@ public class ClassPanel extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Lista de Turmas", listClassesPanel);
 
-        editClassPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                editClassPanelMouseClicked(evt);
-            }
-        });
         editClassPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelTurmaEditarTurma.setText("Turma");
@@ -240,11 +235,6 @@ public class ClassPanel extends javax.swing.JPanel {
         deleteClassPanel.add(comboTurmaRemoverTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 22, 500, -1));
 
         botaoRemover.setText("Remover");
-        botaoRemover.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoRemoverActionPerformed(evt);
-            }
-        });
         deleteClassPanel.add(botaoRemover, new org.netbeans.lib.awtextra.AbsoluteConstraints(605, 67, 86, -1));
 
         jTabbedPane1.addTab("Remover Turma", deleteClassPanel);

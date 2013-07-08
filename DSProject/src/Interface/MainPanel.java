@@ -66,6 +66,8 @@ public class MainPanel extends javax.swing.JPanel {
         testPanel1 = new Interface.TestPanel();
         exportPanel1 = new Interface.HelpPanel();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         leftBarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         studentButton.setText("<html><center>Aluno</center></html>");
@@ -125,6 +127,9 @@ public class MainPanel extends javax.swing.JPanel {
         });
         leftBarPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 384, 145, 75));
 
+        add(leftBarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        displayPanel.setPreferredSize(new java.awt.Dimension(833, 515));
         displayPanel.setLayout(new java.awt.CardLayout());
         displayPanel.add(welcomePanel1, "cardWelcome");
         displayPanel.add(classPanel1, "cardClass");
@@ -135,20 +140,7 @@ public class MainPanel extends javax.swing.JPanel {
         displayPanel.add(testPanel1, "cardTest");
         displayPanel.add(exportPanel1, "cardHelp");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(leftBarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(leftBarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        add(displayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 0, -1, 536));
     }// </editor-fold>//GEN-END:initComponents
 
     private void studentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentButtonActionPerformed

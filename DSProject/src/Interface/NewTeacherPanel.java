@@ -209,6 +209,7 @@ public class NewTeacherPanel extends javax.swing.JPanel {
         CardLayout card = (CardLayout) this.superPanel.getLayout();
         card.show(this.superPanel, "cardLogin");
     }//GEN-LAST:event_voltarButtonActionPerformed
+    
     private ArrayList<Integer> erroscadlist;
     private boolean errorflag;
     private MaskFormatter cpfmask;

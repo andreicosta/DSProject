@@ -146,6 +146,10 @@ public class TestPanel extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(833, 515));
         setPreferredSize(new java.awt.Dimension(833, 515));
 
+        jTabbedPane1.setMaximumSize(new java.awt.Dimension(833, 515));
+        jTabbedPane1.setMinimumSize(new java.awt.Dimension(833, 515));
+        jTabbedPane1.setPreferredSize(new java.awt.Dimension(833, 515));
+
         newEditPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         comboTurma.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
@@ -568,16 +572,11 @@ public class TestPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 809, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

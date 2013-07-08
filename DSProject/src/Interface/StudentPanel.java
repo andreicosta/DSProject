@@ -19,6 +19,9 @@ public class StudentPanel extends javax.swing.JPanel {
         idadeMin.add(Calendar.YEAR, -9);
         idadeMax.add(Calendar.YEAR, -21);
         this.birthday.setSelectableDateRange(idadeMax.getTime(), idadeMin.getTime());
+        this.editBirthday.setSelectableDateRange(idadeMax.getTime(), idadeMin.getTime());
+        this.birthday.setDate(idadeMin.getTime());
+        this.editBirthday.setDate(idadeMin.getTime());
     }
     
     @SuppressWarnings("unchecked")
@@ -80,7 +83,12 @@ public class StudentPanel extends javax.swing.JPanel {
         deleteCombo = new javax.swing.JComboBox();
         deleteButton = new javax.swing.JButton();
 
+        setMaximumSize(new java.awt.Dimension(833, 515));
         setMinimumSize(new java.awt.Dimension(833, 515));
+        setPreferredSize(new java.awt.Dimension(833, 515));
+
+        jTabbedPane1.setMinimumSize(new java.awt.Dimension(833, 515));
+        jTabbedPane1.setPreferredSize(new java.awt.Dimension(833, 515));
 
         newStudentPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -137,12 +145,12 @@ public class StudentPanel extends javax.swing.JPanel {
         newStudentPanel.add(birthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 106, 396, -1));
 
         turma.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                turmaPopupMenuWillBecomeVisible(evt);
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
             }
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+                turmaPopupMenuWillBecomeVisible(evt);
             }
         });
         newStudentPanel.add(turma, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 73, 396, -1));
@@ -185,13 +193,13 @@ public class StudentPanel extends javax.swing.JPanel {
         editStudentPanel.add(editEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 371, 396, -1));
 
         editName.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                editNamePopupMenuWillBecomeVisible(evt);
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
                 editNamePopupMenuWillBecomeInvisible(evt);
             }
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+                editNamePopupMenuWillBecomeVisible(evt);
             }
         });
         editStudentPanel.add(editName, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 30, 396, -1));
@@ -218,12 +226,12 @@ public class StudentPanel extends javax.swing.JPanel {
         editStudentPanel.add(editBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 106, -1, -1));
 
         editTurma.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                editTurmaPopupMenuWillBecomeVisible(evt);
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
             }
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+                editTurmaPopupMenuWillBecomeVisible(evt);
             }
         });
         editStudentPanel.add(editTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 73, 396, -1));
@@ -240,12 +248,12 @@ public class StudentPanel extends javax.swing.JPanel {
         deleteStudentPanel.add(deleteLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 45, -1, -1));
 
         deleteCombo.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
-            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
-                deleteComboPopupMenuWillBecomeVisible(evt);
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
             public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
             }
-            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+                deleteComboPopupMenuWillBecomeVisible(evt);
             }
         });
         deleteStudentPanel.add(deleteCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, 536, -1));
@@ -264,11 +272,11 @@ public class StudentPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
