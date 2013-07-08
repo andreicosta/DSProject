@@ -6,10 +6,6 @@ import java.util.Calendar;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
-/**
-*
-* @author Andrei
-*/
 public class Aluno implements Serializable {
 
     static int cont = 0;

@@ -1,17 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package dsproject;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.swing.JOptionPane;
 
-/**
- *
- * @author vinicius
- */
 public class Avaliacao implements Serializable
 {
    private Date data;
