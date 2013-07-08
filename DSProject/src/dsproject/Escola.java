@@ -651,18 +651,30 @@ public class Escola
     }
 
     public void removeProfessor(Professor p) {
-        File f = new File(p.getDir());
-        f.delete();
+        deleteDir(new File(p.getDir()));
     }
 
     public void removeTurma(Turma t) {
-        File f = new File(t.getDir());
-        f.delete();
+        deleteDir (new File(t.getDir()));
     }
 
     public void removeAluno(Aluno a) {
-        File f = new File(a.getDir());
-        f.delete();
+        deleteDir(new File(a.getDir()));
+    }
+    
+    public boolean deleteDir(File dir){
+        if (dir.isDirectory()) {  
+           String[] children = dir.list();  
+           for (int i=0; i<children.length; i++) {   
+              boolean success = deleteDir(new File(dir, children[i]));  
+               if (!success) {  
+                   return false;  
+               }  
+           }  
+       }  
+       // Agora o diretório está vazio, restando apenas deletá-lo.  
+       return dir.delete();
+        
     }
 
     public void logout(){
