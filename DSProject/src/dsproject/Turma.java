@@ -47,20 +47,22 @@ public class Turma implements Serializable, Cloneable
    {
        aluno.setDir(this.dir + "/alunos/" + aluno.getNumDir());
 
-       Escola.getInstance().salvarAluno(aluno);
+       Escola.getInstance().salvarAluno(aluno, true);
 
        this.alunos.add(aluno);
+       aluno.setTurma(this);
    }
    
    public void setAlunos(ArrayList<Aluno> alunos){
        this.alunos = alunos;
    }
    
-   public void removeAluno(Aluno aluno)
+   public void removeAluno(Aluno aluno) throws IOException
    {
-      int idAluno;
-      idAluno = buscaAluno(aluno);      
-      this.alunos.remove(idAluno);
+      //int idAluno;
+      //idAluno = buscaAluno(aluno);      
+      //this.alunos.remove(idAluno);
+      this.alunos.remove(aluno);
       Escola.getInstance().removeAluno(aluno);
    }
 
@@ -68,7 +70,7 @@ public class Turma implements Serializable, Cloneable
    {
       for (int i = 0; i < alunos.size(); i++)
       {
-         if (alunos.get(i).getNome().equals(aluno.getNome()))
+         if (alunos.get(i).equals(aluno))
             return i;
       }
       return -1;
