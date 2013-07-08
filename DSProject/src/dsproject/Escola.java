@@ -494,6 +494,11 @@ public class Escola
         {
            f.mkdirs();
         }
+        
+        Turma tmp = a.getTurma();
+        a.setTurma(null);
+        ArrayList<Avaliacao> ava = a.getAvaliacoes();
+        a.setAvaliacoes(null);
 
         //salva o obj turma
         ObjectOutputStream out;
@@ -502,8 +507,11 @@ public class Escola
         out.close();
 
         out = new ObjectOutputStream(new FileOutputStream(a.getDir() + "/avaliacoes.dat"));
-        out.writeObject(a.getAvaliacoes());
+        out.writeObject(ava);
         out.close();
+        
+        a.setTurma(tmp);
+        a.setAvaliacoes(ava);
       }
       catch (IOException ex)
       {
@@ -600,11 +608,14 @@ public class Escola
             String lista[] = f.list();
 
             ArrayList<Aluno> alunos = new ArrayList<>();
-
+            Aluno tmp;
+            
             for (int i = 0; lista != null && i < lista.length; i++) {
                 if (!lista[i].equalsIgnoreCase("info.dat")) {
                     System.out.println("Aluno em: " + lista[i]);
-                    alunos.add(carregarAluno(diretorio + "/alunos/" + lista[i]));
+                    tmp = (carregarAluno(diretorio + "/alunos/" + lista[i]));
+                    alunos.add(tmp);
+                    tmp.setTurma(t);
                 }
             }
 
