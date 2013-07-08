@@ -5,10 +5,6 @@ import java.awt.Color;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 
-/**
-*
-* @author Günther, Andrei
-*/
 public class StudentPanel extends javax.swing.JPanel {
     Calendar idadeMin;
     
