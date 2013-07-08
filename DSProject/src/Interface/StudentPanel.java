@@ -1,6 +1,5 @@
 package Interface;
 
-import com.toedter.calendar.JDateChooser;
 import dsproject.*;
 import java.awt.Color;
 import java.util.Calendar;
@@ -20,8 +19,6 @@ public class StudentPanel extends javax.swing.JPanel {
         idadeMax.add(Calendar.YEAR, -21);
         this.birthday.setSelectableDateRange(idadeMax.getTime(), idadeMin.getTime());
         this.editBirthday.setSelectableDateRange(idadeMax.getTime(), idadeMin.getTime());
-        this.birthday.setDate(idadeMin.getTime());
-        this.editBirthday.setDate(idadeMin.getTime());
     }
     
     @SuppressWarnings("unchecked")
@@ -490,9 +487,13 @@ public class StudentPanel extends javax.swing.JPanel {
         }
         
         this.editBirthday.setDate(student.getBirthday().getTime());
+        //VERIFICAR se é necessário
         this.editBirthday.setMaxSelectableDate(student.getBirthday().getTime());
         this.editBirthday.setMinSelectableDate(student.getBirthday().getTime());
-        this.editTurma.setSelectedItem(student.getTurma());
+        
+        this.editTurma.removeAllItems();
+        this.editTurma.addItem(student.getTurma());
+        this.editTurma.setSelectedIndex(0);
         this.editGender.setSelectedItem(student.getGenero());
         this.editAddress.setText(student.getEndereco());
         this.editCity.setText(student.getCidade());
