@@ -19,6 +19,7 @@ public class StudentPanel extends javax.swing.JPanel {
         idadeMax.add(Calendar.YEAR, -21);
         this.birthday.setSelectableDateRange(idadeMax.getTime(), idadeMin.getTime());
         this.editBirthday.setSelectableDateRange(idadeMax.getTime(), idadeMin.getTime());
+        this.birthday.setDate(idadeMin.getTime());
     }
     
     @SuppressWarnings("unchecked")
