@@ -2,7 +2,10 @@ package Interface;
 
 import dsproject.*;
 import java.awt.Color;
+import java.io.IOException;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class StudentPanel extends javax.swing.JPanel {
@@ -382,8 +385,12 @@ public class StudentPanel extends javax.swing.JPanel {
            try{
                newTurma.inserirAluno(student);
            } catch (Exception e) {
-               JOptionPane.showMessageDialog(null, "Erro ao cadastrar aluno na turma", "", JOptionPane.ERROR_MESSAGE);
-               return;
+               try {
+                   Escola.getInstance().getLogado().getTurmas().get(0).inserirAluno(student);
+                   System.out.println("aluno adicionado sem turma");
+               } catch (IOException ex) {
+                   System.out.println("problemas em adicionar aluno na turma");
+               }
            }
 
            clearNewStudent();
