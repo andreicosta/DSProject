@@ -59,10 +59,9 @@ public class Turma implements Serializable, Cloneable
    
    public void removeAluno(Aluno aluno) throws IOException
    {
-      //int idAluno;
-      //idAluno = buscaAluno(aluno);      
-      //this.alunos.remove(idAluno);
-      this.alunos.remove(aluno);
+      int idAluno;
+      idAluno = buscaAluno(aluno);      
+      this.alunos.remove(idAluno);
       Escola.getInstance().removeAluno(aluno);
    }
 

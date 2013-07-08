@@ -4,8 +4,6 @@ import dsproject.*;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class StudentPanel extends javax.swing.JPanel {
@@ -393,7 +391,6 @@ public class StudentPanel extends javax.swing.JPanel {
                }
            }
 
-           System.out.println(student.getTurma());
            clearNewStudent();
            JOptionPane.showMessageDialog(null, "Aluno "+student.toString()+" criado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
        }
@@ -434,7 +431,6 @@ public class StudentPanel extends javax.swing.JPanel {
                 if (!turm.equals(newTurma)) {
                     turm.removeAluno(student);
                     newTurma.inserirAluno(student);
-                    student.setTurma(newTurma);
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Erro ao mover aluno da turma", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -451,7 +447,6 @@ public class StudentPanel extends javax.swing.JPanel {
             student.setCelular(newMobile);
             student.setEmail(newEmail);
 
-            System.out.println(student.getTurma());
             clearEditStudent();
             JOptionPane.showMessageDialog(null, "Aluno editado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -481,11 +476,13 @@ public class StudentPanel extends javax.swing.JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         Aluno student = (Aluno) this.deleteCombo.getSelectedItem();
-        System.out.println(student.getTurma());
         
         if (student != null){
-            
-            student.getTurma().removeAluno(student);
+            try {
+                student.getTurma().removeAluno(student);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Erro ao remover aluno", "", JOptionPane.ERROR_MESSAGE);
+            }
             
             clearDeleteStudent();
             clearEditStudent();
