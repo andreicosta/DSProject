@@ -1,6 +1,7 @@
 package dsproject;
 
 import java.io.Serializable;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Objects;
@@ -50,18 +51,29 @@ public class Aluno implements Serializable {
         
         Pattern p = Pattern.compile("([a-z]+\\s)+[a-z]*");
 
-        if(nome != null && !p.matcher(nome.toLowerCase()).matches()){
+        if(nome != null && !p.matcher(Aluno.removeAccents(nome.toLowerCase())).matches()){
             throw new Exception("Erro no nome do Aluno");
         }
         
-        if(!p.matcher(nomeMae.toLowerCase()).matches()){
+        if(!p.matcher(Aluno.removeAccents(nomeMae.toLowerCase())).matches()){
             throw new Exception("Erro no nome da Mãe do Aluno");
         }
         
-        if(!p.matcher(nomePai.toLowerCase()).matches()){
+        if(!p.matcher(Aluno.removeAccents(nomePai.toLowerCase())).matches()){
             throw new Exception("Erro no nome do Pai do Aluno");
         }        
     }
+    
+    private static String removeAccents(String str) {
+
+        str = Normalizer.normalize(str, Normalizer.Form.NFD);
+
+        str = str.replaceAll("[^\\p{ASCII}]", "");
+
+        return str;
+
+    }
+
     
     public boolean inserirAvaliacao() {        
         Avaliacao avaliacao = new Avaliacao();
