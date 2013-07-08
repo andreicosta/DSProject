@@ -21,33 +21,30 @@ public class Professor implements Serializable
     private String cpf;
     private String nome;
     private String senha;
+    private Turma turmaDefault;
     private ArrayList<Turma> turmas;
     
-
     Professor(String cpf, String nome, String senha) {
-            this.cpf = cpf;
-            this.nome = nome;
-            this.senha = senha;
-            this.turmas = new ArrayList<>();
-            Turma defaultTurma = new Turma("","");
-            turmas.add(defaultTurma);
-            this.num_dir = cont;
-            this.dir = "professores/" + cont;
-            cont++;
+        this.cpf = cpf;
+        this.nome = nome;
+        this.senha = senha;
+        this.turmaDefault = new Turma("", "");
+        this.turmas = new ArrayList<>();
+        this.num_dir = cont;
+        this.dir = "professores/" + cont;
+        cont++;
     }
-    
+
     public ArrayList<Integer> cadastrarTurma(String nome, String ano){
         ArrayList<Integer> errorlist;
         errorlist = new ArrayList<>();
         boolean errors = false ;
         
-        if(this.turmas != null){
-            for (int i=0 ; i < this.turmas.size() ; i++){ 
-                if ( this.turmas.get(i).getId().equals(nome) ){
-                    System.out.println("ja existe Turma com esse nome");
-                    errorlist.add(1);
-                    errors =  true;
-                }
+        for (int i=0 ; i < this.turmas.size() ; i++){ 
+            if ( this.turmas.get(i).getId().equals(nome) ){
+                System.out.println("ja existe Turma com esse nome");
+                errorlist.add(1);
+                errors =  true;
             }
         }
         
@@ -61,18 +58,18 @@ public class Professor implements Serializable
             errorlist.add(3);
             errors =true;
         }
-        if(errors == false){
-            Turma novaTurma;
+        if (errors == false) {
+            Turma novaTurma = new Turma(nome, ano);
+            turmas.add(novaTurma);
+            errorlist.add(0); // nao possui erros
+            System.out.println(turmas.size());
+
+            novaTurma.setDir(this.dir + "/turmas/" + novaTurma.getNumDir());
+            
             try {
-                novaTurma = new Turma(nome, ano);
-                turmas.add(novaTurma);
-                errorlist.add(0); // nao possui erros
-                System.out.println(turmas.size());
-                novaTurma.setDir(this.dir + "/turmas/" + novaTurma.getNumDir());
-                Escola.getInstance().salvarTurma(novaTurma);     
+                Escola.getInstance().salvarTurma(novaTurma);
             } catch (Exception e) {
                 // tens que tratar este erro
-                
             }
             
         }
@@ -96,7 +93,6 @@ public class Professor implements Serializable
         this.nome = Nome;
     }
 
-    
     public String getSenha() {
         return senha;
     }
@@ -114,8 +110,16 @@ public class Professor implements Serializable
         return this.turmas;
     }
     
-    public void removeTurma(Turma turma)
-    {
+    public ArrayList<Aluno> getAlunos(){
+        ArrayList<Aluno> temp = new ArrayList<>();
+        temp.addAll(this.turmaDefault.buscaTodosAlunos());
+        for(Turma i: this.turmas){
+            temp.addAll(i.buscaTodosAlunos());
+        }
+        return temp;
+    }
+    
+    public void removeTurma(Turma turma){
         int idTurma;
         idTurma = buscaTurma(turma);
 
@@ -125,8 +129,7 @@ public class Professor implements Serializable
         f.delete();
     }
      
-    public int buscaTurma(Turma turma)
-    {
+    public int buscaTurma(Turma turma){
         for (int i = 0; i < turmas.size(); i++)
         {
            if ((turmas.get(i).getId().equals(turma.getId())) && (turmas.get(i).getAno() == turma.getAno()))
@@ -136,7 +139,6 @@ public class Professor implements Serializable
     }
     
     public Turma getTurmaPorDir(int num_dir){
-        
         return null;
     }
     

@@ -4,7 +4,6 @@
  */
 package dsproject;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -54,7 +53,6 @@ public class Turma implements Serializable, Cloneable
        aluno.setDir(this.dir + "/alunos/" + aluno.getNumDir());
 
        Escola.getInstance().salvarAluno(aluno);
-
 
        this.alunos.add(aluno);
    }

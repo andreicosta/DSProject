@@ -19,13 +19,13 @@ import java.util.regex.Pattern;
 
 public class Escola
 {
-
    private static Escola instance = new Escola();
    private String nome;
    private ArrayList<Professor> professList;
    private Professor logado;
    private boolean islogado;
    private CriptografiaLogix cripto;
+   private boolean errors;
 
    private Escola(){
        try{
@@ -54,7 +54,6 @@ public class Escola
    {
       return errors;
    }
-   private boolean errors;
 
    public static synchronized Escola getInstance()
    {

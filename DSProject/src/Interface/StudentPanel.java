@@ -10,15 +10,15 @@ import javax.swing.JOptionPane;
 * @author Günther, Andrei
 */
 public class StudentPanel extends javax.swing.JPanel {
-
+    Calendar idadeMin;
+    
     public StudentPanel() {
         initComponents();
-        Calendar idadeMin = Calendar.getInstance();
+        idadeMin = Calendar.getInstance();
         Calendar idadeMax = Calendar.getInstance();
         idadeMin.add(Calendar.YEAR, -9);
         idadeMax.add(Calendar.YEAR, -21);
         this.birthday.setSelectableDateRange(idadeMax.getTime(), idadeMin.getTime());
-        this.editBirthday.setSelectableDateRange(idadeMax.getTime(), idadeMin.getTime());
         this.birthday.setDate(idadeMin.getTime());
     }
     
@@ -397,10 +397,8 @@ public class StudentPanel extends javax.swing.JPanel {
 
    private void deleteComboPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt){//GEN-FIRST:event_deleteComboPopupMenuWillBecomeVisible
        this.deleteCombo.removeAllItems();
-       for (Turma i : Escola.getInstance().getLogado().getTurmas()) {
-           for (Aluno j : i.buscaTodosAlunos()){
-               this.deleteCombo.addItem(j);
-           }
+       for (Aluno i : Escola.getInstance().getLogado().getAlunos()) {
+           this.deleteCombo.addItem(i);
        }
    }//GEN-LAST:event_deleteComboPopupMenuWillBecomeVisible
 
@@ -408,7 +406,7 @@ public class StudentPanel extends javax.swing.JPanel {
         flag = false;
         Aluno student = getEditStudent();
         Turma newTurma = getEditTurma();
-        Calendar newBirthday = getEditBirthday();
+        //Calendar newBirthday = getEditBirthday();
         String newGender = getEditGender();
         String newAddress = getEditAddress();
         String newCity = getEditCity();
@@ -426,9 +424,20 @@ public class StudentPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
                 return;
             } 
+   
+            try {
+                Turma turm = student.getTurma();
+                if (!turm.equals(newTurma)) {
+                    turm.removeAluno(student);
+                    newTurma.inserirAluno(student);
+                    student.setTurma(newTurma);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Erro ao mover aluno da turma", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             
-            student.setTurma(newTurma);
-            student.setDataDeNascimento(newBirthday);
+            //student.setDataDeNascimento(newBirthday);
             student.setGenero(newGender);
             student.setEndereco(newAddress);
             student.setCidade(newCity);
@@ -459,10 +468,8 @@ public class StudentPanel extends javax.swing.JPanel {
 
     private void editNamePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_editNamePopupMenuWillBecomeVisible
         this.editName.removeAllItems();
-        for (Turma i : Escola.getInstance().getLogado().getTurmas()){
-           for (Aluno j : i.buscaTodosAlunos()){
-               this.editName.addItem(j);
-           }
+        for(Aluno i: Escola.getInstance().getLogado().getAlunos()){
+            this.editName.addItem(i);
         }
     }//GEN-LAST:event_editNamePopupMenuWillBecomeVisible
 
@@ -473,7 +480,8 @@ public class StudentPanel extends javax.swing.JPanel {
             
             student.getTurma().removeAluno(student);
             
-            this.deleteCombo.removeAllItems();
+            
+            clearDeleteStudent();
             clearEditStudent();
             JOptionPane.showMessageDialog(null, "Aluno removido com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -488,13 +496,12 @@ public class StudentPanel extends javax.swing.JPanel {
         }
         
         this.editBirthday.setDate(student.getBirthday().getTime());
-        //VERIFICAR se é necessário
-        this.editBirthday.setMaxSelectableDate(student.getBirthday().getTime());
-        this.editBirthday.setMinSelectableDate(student.getBirthday().getTime());
+        this.editBirthday.setEnabled(false);
         
         this.editTurma.removeAllItems();
         this.editTurma.addItem(student.getTurma());
         this.editTurma.setSelectedIndex(0);
+        
         this.editGender.setSelectedItem(student.getGenero());
         this.editAddress.setText(student.getEndereco());
         this.editCity.setText(student.getCidade());
@@ -525,7 +532,7 @@ public class StudentPanel extends javax.swing.JPanel {
         return (Turma) this.editTurma.getSelectedItem();
     }
     
-    private Calendar getEditBirthday() {
+    /*private Calendar getEditBirthday() {
         Calendar temp = editBirthday.getCalendar();
         if (temp == null) {
             editLabelBirthday.setForeground(Color.red);
@@ -534,7 +541,7 @@ public class StudentPanel extends javax.swing.JPanel {
         }
         editLabelBirthday.setForeground(Color.black);
         return temp;
-    }
+    }*/
 
     private String getEditGender() {
         return editGender.getSelectedItem().toString();
@@ -656,7 +663,7 @@ public class StudentPanel extends javax.swing.JPanel {
         address.setText("");
         mobile.setText("");
         city.setText("");
-        birthday.setDate(null);
+        birthday.setDate(this.idadeMin.getTime());
         email.setText("");
         father.setText("");
         mother.setText("");
@@ -668,6 +675,7 @@ public class StudentPanel extends javax.swing.JPanel {
         editMobile.setText("");
         editCity.setText("");
         editTurma.removeAllItems();
+        editBirthday.setEnabled(true);
         editBirthday.setDate(null);
         editEmail.setText("");
         editAddress.setText("");
