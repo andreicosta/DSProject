@@ -297,8 +297,6 @@ public class Escola
             novoprof = new Professor(cpf, nome, cripto.getSenhaCriptografada());
             errorlist.add(0); // nao possui erros
             this.professList.add(novoprof);
-            Turma tmpTurma = new Turma("", "");
-            novoprof.addTurma(tmpTurma);
             try
             {
                this.salvarProfessor(novoprof);

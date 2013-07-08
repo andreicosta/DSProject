@@ -450,6 +450,7 @@ public class StudentPanel extends javax.swing.JPanel {
 
     private void turmaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_turmaPopupMenuWillBecomeVisible
         this.turma.removeAllItems();
+        System.out.println(Escola.getInstance().getLogado().getTurmas());
         for (Turma i : Escola.getInstance().getLogado().getTurmas()){
             this.turma.addItem(i);
         }
@@ -475,7 +476,6 @@ public class StudentPanel extends javax.swing.JPanel {
         if (student != null){
             
             student.getTurma().removeAluno(student);
-            
             
             clearDeleteStudent();
             clearEditStudent();

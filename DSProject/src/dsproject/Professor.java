@@ -12,18 +12,17 @@ public class Professor implements Serializable
     private String cpf;
     private String nome;
     private String senha;
-    private Turma turmaDefault;
     private ArrayList<Turma> turmas;
     
     Professor(String cpf, String nome, String senha) {
         this.cpf = cpf;
         this.nome = nome;
         this.senha = senha;
-        this.turmaDefault = new Turma("", "");
         this.turmas = new ArrayList<>();
         this.num_dir = cont;
         this.dir = "professores/" + cont;
         cont++;
+        this.cadastrarTurma("Sem Turma", "1");
     }
 
     public ArrayList<Integer> cadastrarTurma(String nome, String ano){
@@ -103,7 +102,6 @@ public class Professor implements Serializable
     
     public ArrayList<Aluno> getAlunos(){
         ArrayList<Aluno> temp = new ArrayList<>();
-        temp.addAll(this.turmaDefault.buscaTodosAlunos());
         for(Turma i: this.turmas){
             temp.addAll(i.buscaTodosAlunos());
         }

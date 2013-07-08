@@ -100,8 +100,8 @@ public class Turma implements Serializable, Cloneable
 
     @Override
     public String toString() {
-        if(id.isEmpty()){
-            return "";
+        if(id.equals("Sem Turma")){
+            return id;
         }
         return id + ", " + ano;
     }
