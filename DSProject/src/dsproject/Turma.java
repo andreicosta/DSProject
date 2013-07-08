@@ -61,6 +61,7 @@ public class Turma implements Serializable, Cloneable
       int idAluno;
       idAluno = buscaAluno(aluno);      
       this.alunos.remove(idAluno);
+      Escola.getInstance().removeAluno(aluno);
    }
 
    public int buscaAluno(Aluno aluno)

@@ -369,7 +369,7 @@ public class StudentPanel extends javax.swing.JPanel {
        String newTelephone = getTelephone();
        String newMobile = getMobile();
        String newEmail = getEmail();
-       
+              
        if (!flag) {
            
            try{
@@ -393,6 +393,7 @@ public class StudentPanel extends javax.swing.JPanel {
                }
            }
 
+           System.out.println(student.getTurma());
            clearNewStudent();
            JOptionPane.showMessageDialog(null, "Aluno "+student.toString()+" criado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
        }
@@ -450,6 +451,7 @@ public class StudentPanel extends javax.swing.JPanel {
             student.setCelular(newMobile);
             student.setEmail(newEmail);
 
+            System.out.println(student.getTurma());
             clearEditStudent();
             JOptionPane.showMessageDialog(null, "Aluno editado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -479,6 +481,7 @@ public class StudentPanel extends javax.swing.JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         Aluno student = (Aluno) this.deleteCombo.getSelectedItem();
+        System.out.println(student.getTurma());
         
         if (student != null){
             
