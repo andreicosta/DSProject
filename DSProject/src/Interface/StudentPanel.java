@@ -4,10 +4,7 @@ import dsproject.*;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.ToolTipManager;
 
 public class StudentPanel extends javax.swing.JPanel {
     Calendar idadeMin;
@@ -423,6 +420,9 @@ public class StudentPanel extends javax.swing.JPanel {
        if (!flag) {
            
            try{
+               if (Escola.getInstance().getProfessorLogado().haveYouAStudentWithThisName(nameNewStudent)) {
+                   throw new Exception("Aluno já existente");
+               }
                Aluno.parse(nameNewStudent, newBirthday, newAddress, newCity, newMotherName, newFatherName, newEmail);
            }
            catch(Exception e){
@@ -431,7 +431,7 @@ public class StudentPanel extends javax.swing.JPanel {
            }
            
            Aluno student = new Aluno(nameNewStudent, newTurma, newBirthday, newGender, newAddress, newCity, newMotherName, newFatherName, newTelephone, newMobile, newEmail);
-           
+                      
            try{
                newTurma.inserirAluno(student);
            } catch (Exception e) {
