@@ -1,6 +1,9 @@
 package Interface;
 
-import dsproject.*;
+import dsproject.Aluno;
+import dsproject.Avaliacao;
+import dsproject.Escola;
+import dsproject.Turma;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -114,6 +117,15 @@ public class TestPanel extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(833, 515));
         setPreferredSize(new java.awt.Dimension(833, 515));
 
+        jTabbedPane1.setMaximumSize(new java.awt.Dimension(833, 515));
+        jTabbedPane1.setMinimumSize(new java.awt.Dimension(833, 515));
+        jTabbedPane1.setPreferredSize(new java.awt.Dimension(833, 515));
+
+        newEditPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                newEditPanelComponentShown(evt);
+            }
+        });
         newEditPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         comboTurma.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
@@ -267,6 +279,11 @@ public class TestPanel extends javax.swing.JPanel {
         fieldBodyMass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 fieldBodyMassFocusLost(evt);
+            }
+        });
+        fieldBodyMass.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                fieldBodyMassPropertyChange(evt);
             }
         });
         fieldBodyMass.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -524,7 +541,15 @@ public class TestPanel extends javax.swing.JPanel {
             new String [] {
                 "Turma", "Dia da Avaliação", "Status"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
         jTable1.getColumnModel().getColumn(0).setResizable(false);
         jTable1.getColumnModel().getColumn(1).setResizable(false);
@@ -546,16 +571,11 @@ public class TestPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 809, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -574,9 +594,9 @@ public class TestPanel extends javax.swing.JPanel {
             saveSitUpAndAchieve();
             saveWithSeat();
             saveWithoutSeat();
-            saveRun();
             saveRadio6();
             saveRadio9();
+            saveRun();
             saveHorizontalJump();
             saveMedicineBallThrow();
             saveSquareTest();
@@ -588,6 +608,11 @@ public class TestPanel extends javax.swing.JPanel {
             }
             Avaliacao avaliacao = student.getLastAvaliation();
             avaliacao.setSalvoParaEnviar(true);
+            
+            this.limpaCampos();
+            this.limpaComboNomeDoAluno();
+            this.limpaComboNomeTurma();
+            JOptionPane.showMessageDialog(null, "Avaliacao salva com sucesso!", "", JOptionPane.INFORMATION_MESSAGE);
        }
    }//GEN-LAST:event_buttonSaveActionPerformed
 
@@ -689,7 +714,9 @@ public class TestPanel extends javax.swing.JPanel {
    {//GEN-HEADEREND:event_comboTurmaPopupMenuWillBecomeVisible
        this.comboTurma.removeAllItems();
        for (Turma i : Escola.getInstance().getLogado().getTurmas()) {
-           this.comboTurma.addItem(i);
+           if(!i.getId().equals("Sem Turma")){
+                this.comboTurma.addItem(i);
+           }
        }
    }//GEN-LAST:event_comboTurmaPopupMenuWillBecomeVisible
 
@@ -859,6 +886,7 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_comboTurmaPopupMenuWillBecomeInvisible
 
     private void comboNomeDoAlunoPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_comboNomeDoAlunoPopupMenuWillBecomeVisible
+        saveAll();
         Turma turma = (Turma) this.comboTurma.getSelectedItem();
         comboNomeDoAluno.removeAllItems();
         if (turma == null) {
@@ -876,14 +904,26 @@ public class TestPanel extends javax.swing.JPanel {
         Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
         this.limpaCampos();
         if (student == null) {
+            this.limpaComboNomeDoAluno();
             return;
         }
 
 
 
         Avaliacao avaliacao = (Avaliacao) student.getLastAvaliation();
+        
+        fieldTime.setForeground(Color.black);
+        labelHorario.setForeground(Color.black);
+        
+        labelTemperatura.setForeground(Color.black);
+        fieldTemperature.setForeground(Color.black);
+        
+        labelDataDaAvaliacao.setForeground(Color.black);
+        fieldTestDate.setForeground(Color.black);
+        
         if (avaliacao.getData() == null) {
-            fieldTestDate.getDateEditor().getUiComponent().setToolTipText("");
+            //fieldTestDate.getDateEditor().getUiComponent().setToolTipText("");
+            fieldTestDate.setDate(null);
         } else {
             fieldTestDate.setDate(avaliacao.getData());
         }
@@ -968,7 +1008,7 @@ public class TestPanel extends javax.swing.JPanel {
         if (avaliacao.getTesteDoQuadrado() == -1) {
             fiedlSquareTest.setText("");
         } else {
-            fiedlSquareTest.setText(String.valueOf(avaliacao.getArremessoMedicineBall()));
+            fiedlSquareTest.setText(String.valueOf(avaliacao.getTesteDoQuadrado()));
         }
 
         if (avaliacao.getCorrida20Metros() == -1) {
@@ -1003,7 +1043,7 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_radio9MinutesFocusLost
 
     private void controlPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_controlPanelComponentShown
-        clearJTable();
+        clearJTable();        
         
         int jTableRow = 0;
         
@@ -1013,40 +1053,49 @@ public class TestPanel extends javax.swing.JPanel {
         int quantidadeAvaliacao;
         
         for(Turma i : Escola.getInstance().getLogado().getTurmas()){
-            addTurma = false;
-            quantidadeTotal = i.buscaTodosAlunos().size();
-            quantidadeAvaliacao = 0;
-            for(Aluno j : i.buscaTodosAlunos()){
-                if(j != null){
-                    Avaliacao avaliacao = (Avaliacao) j.getLastAvaliation();
-                    if (avaliacao.isSalvoParaEnviar()){
+            if(!i.getId().equals("Sem Turma") && i != null){
+                addTurma = false;
+                quantidadeTotal = i.buscaTodosAlunos().size();
+                quantidadeAvaliacao = 0;
+                for(Aluno j : i.buscaTodosAlunos()){
+                    if(j != null){
+                        Avaliacao avaliacao = (Avaliacao) j.getLastAvaliation();
+                        if (avaliacao.isSalvoParaEnviar()){
 
-                        addTurma = true;
-                        if(data == null){
-                            data = avaliacao.getData();
-                        }
-                        else if(avaliacao.getData().before(data)){
-                            data = avaliacao.getData();
-                        }
-                        quantidadeAvaliacao++;
+                            addTurma = true;
+                            if(data == null){
+                                data = avaliacao.getData();
+                            }
+                            else if(avaliacao.getData().before(data)){
+                                data = avaliacao.getData();
+                            }
+                            quantidadeAvaliacao++;
 
+                        }             
                     }
-                    quantidadeTotal++;                
                 }
-            }
-            if(addTurma){
-                String porcento = String.valueOf(quantidadeAvaliacao / (float) quantidadeTotal);
-                jTable1.setValueAt(i.getId(), jTableRow, 0);
-                String[] dataSplit = data.toString().split(" ");
-                jTable1.setValueAt(String.valueOf(dataSplit[2]) + " de " + returnMonth(dataSplit[1]) + " de "+dataSplit[5], jTableRow, 1);
-                jTable1.setValueAt(String.valueOf(quantidadeAvaliacao) + " alunos avaliado de " + String.valueOf(quantidadeTotal), jTableRow, 2);
-            }
+                if(addTurma){
+                    jTable1.setValueAt(i, jTableRow, 0);
+                    String[] dataSplit = data.toString().split(" ");
+                    jTable1.setValueAt(String.valueOf(dataSplit[2]) + " de " + returnMonth(dataSplit[1]) + " de "+dataSplit[5], jTableRow, 1);
+                    jTable1.setValueAt(String.valueOf(quantidadeAvaliacao) + " aluno(s) avaliado(s) de " + String.valueOf(quantidadeTotal), jTableRow, 2);
+                }
+            }   
         }
     }//GEN-LAST:event_controlPanelComponentShown
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ArrayList<Turma> turmasParaSalvar = new ArrayList<>();
-        for(Turma i : Escola.getInstance().getLogado().getTurmas()){
+        
+        System.out.println(jTable1.getSelectedRows());
+        for (int i : jTable1.getSelectedRows()){
+            Turma tmp = (Turma) jTable1.getValueAt(i, 0);
+            if(tmp != null){
+                turmasParaSalvar.add(tmp);
+            }
+        }
+        
+        for(Turma i : turmasParaSalvar){
             for(Aluno j : i.buscaTodosAlunos()){
                 if(j != null){
                     Avaliacao avaliacao = (Avaliacao) j.getLastAvaliation();
@@ -1059,6 +1108,14 @@ public class TestPanel extends javax.swing.JPanel {
         }
         //Escola.getInstance().getLogado().medoto(turmasParaSalvar);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void newEditPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_newEditPanelComponentShown
+
+    }//GEN-LAST:event_newEditPanelComponentShown
+
+    private void fieldBodyMassPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fieldBodyMassPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldBodyMassPropertyChange
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonSave;
@@ -1366,16 +1423,16 @@ public class TestPanel extends javax.swing.JPanel {
         }
     }
 
-    private void limpaComboNomeDoAluno() {
+    public void limpaComboNomeDoAluno() {
         comboNomeDoAluno.removeAllItems();
     }
 
-    private void limpaComboNomeTurma() {
+    public void limpaComboNomeTurma() {
         comboTurma.removeAllItems();
     }
 
-    private void limpaCampos() {
-        fieldTestDate.getDateEditor().getUiComponent().setToolTipText("");
+    public void limpaCampos() {
+        fieldTestDate.setDate(null);
         fieldTime.setText("");
         fieldTemperature.setText("");
         fieldBodyMass.setText("");
@@ -1400,6 +1457,9 @@ public class TestPanel extends javax.swing.JPanel {
         if (student == null) {
             return false;
         }
+        if(fieldTestDate.getDate() == null){
+            labelDataDaAvaliacao.setForeground(Color.red);
+        }
         Avaliacao avaliacao = student.getLastAvaliation();
         avaliacao.setData(fieldTestDate.getDate());
         return true;
@@ -1411,9 +1471,9 @@ public class TestPanel extends javax.swing.JPanel {
         if (getCampoHora() != null) {
             String splitedTime[] = horaDaAvaliacaoString.split(":");
             //pega o que esta antes e depois dos dois pontos e põe no vetor horarioDividido
-            if (horaDaAvaliacaoString.length() != 5 || splitedTime.length == 1) {
+            if ((horaDaAvaliacaoString.length() != 5) || !(splitedTime.length == 2)) {
                 Error = true;
-            } else if (Integer.parseInt(splitedTime[0]) > 23 || Integer.parseInt(splitedTime[1]) > 59) {
+            } else if (Integer.parseInt(splitedTime[0]) > 23 || Integer.parseInt(splitedTime[0]) < 0 || Integer.parseInt(splitedTime[1]) > 59 || Integer.parseInt(splitedTime[1]) < 0 ) {
                 Error = true;
             }
         }
@@ -1528,7 +1588,8 @@ public class TestPanel extends javax.swing.JPanel {
             return;
         }
         Avaliacao avaliacao = student.getLastAvaliation();
-        avaliacao.setSentarEAlcancarComBanco(true);
+        if(getRadioSentarEAlcancarComBanco())
+            avaliacao.setSentarEAlcancarComBanco(true);
     }
     
     private void saveWithoutSeat(){
@@ -1537,7 +1598,8 @@ public class TestPanel extends javax.swing.JPanel {
             return;
         }
         Avaliacao avaliacao = student.getLastAvaliation();
-        avaliacao.setSentarEAlcancarComBanco(false);
+        if(getRadioSentarEAlcancarSemBanco())
+            avaliacao.setSentarEAlcancarComBanco(false);
     }
     
     private void saveRadio6(){
@@ -1546,8 +1608,10 @@ public class TestPanel extends javax.swing.JPanel {
             return;
         }
         Avaliacao avaliacao = student.getLastAvaliation();
-        avaliacao.set6Minutos(Float.valueOf(fieldRun.getText()));
-        avaliacao.set9Minutos(-1);
+        if(getRadio6Minutos()){
+            avaliacao.set6Minutos(Float.valueOf(fieldRun.getText()));
+            avaliacao.set9Minutos(-1);
+        }
     }
     
     private void saveRadio9(){
@@ -1556,8 +1620,10 @@ public class TestPanel extends javax.swing.JPanel {
             return;
         }
         Avaliacao avaliacao = student.getLastAvaliation();
-        avaliacao.set9Minutos(Float.valueOf(fieldRun.getText()));
-        avaliacao.set6Minutos(-1);
+        if(getRadio9Minutos()){
+            avaliacao.set9Minutos(Float.valueOf(fieldRun.getText()));
+            avaliacao.set6Minutos(-1);
+        }
     }
     
     private void saveHorizontalJump(){
@@ -1575,7 +1641,7 @@ public class TestPanel extends javax.swing.JPanel {
             return;
         }
         Avaliacao avaliacao = student.getLastAvaliation();
-        avaliacao.setEstatura(Float.valueOf(fieldThrowOfMedicineBall.getText()));
+        avaliacao.setArremessoMedicineBall(Float.valueOf(fieldThrowOfMedicineBall.getText()));
     }
     
     private void saveSquareTest(){
@@ -1584,7 +1650,7 @@ public class TestPanel extends javax.swing.JPanel {
             return;
         }
         Avaliacao avaliacao = student.getLastAvaliation();
-        avaliacao.setEstatura(Float.valueOf(fiedlSquareTest.getText()));
+        avaliacao.setTesteDoQuadrado(Float.valueOf(fiedlSquareTest.getText()));
     }
     
     private void save20MettersRun(){
@@ -1593,7 +1659,7 @@ public class TestPanel extends javax.swing.JPanel {
             return;
         }
         Avaliacao avaliacao = student.getLastAvaliation();
-        avaliacao.setEstatura(Float.valueOf(field20MetersRun.getText()));
+        avaliacao.setCorrida20Metros(Float.valueOf(field20MetersRun.getText()));
     }
 
     public void clearAll() {
@@ -1610,8 +1676,33 @@ public class TestPanel extends javax.swing.JPanel {
                 jTable1.setValueAt(null, i, 2);
             }
             else
-                return;
+                break;
             i++;
         }
+    }
+    
+    private void saveAll(){
+        saveData();
+        saveTime();
+        saveTemperature();
+        saveBodyMass();
+        saveHeight();
+        saveIMC();
+        saveSpread();
+        saveSitUp();
+        saveSitUpAndAchieve();
+        saveWithSeat();
+        saveWithoutSeat();
+        saveRadio6();
+        saveRadio9();
+        saveRun();
+        saveHorizontalJump();
+        saveMedicineBallThrow();
+        saveSquareTest();
+        save20MettersRun();
+        
+        labelDataDaAvaliacao.setForeground(Color.black);
+        labelHorario.setForeground(Color.black);
+        labelTemperatura.setForeground(Color.black);
     }
 }
