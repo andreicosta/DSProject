@@ -103,6 +103,7 @@ public class TestPanel extends javax.swing.JPanel {
         fieldTime = new javax.swing.JTextField();
         labelIMC = new javax.swing.JLabel();
         fieldIMC = new javax.swing.JTextField();
+        avaliacaoFinalizadaCheckBox = new javax.swing.JCheckBox();
         controlPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -121,11 +122,6 @@ public class TestPanel extends javax.swing.JPanel {
         jTabbedPane1.setMinimumSize(new java.awt.Dimension(833, 515));
         jTabbedPane1.setPreferredSize(new java.awt.Dimension(833, 515));
 
-        newEditPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                newEditPanelComponentShown(evt);
-            }
-        });
         newEditPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         comboTurma.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
@@ -279,11 +275,6 @@ public class TestPanel extends javax.swing.JPanel {
         fieldBodyMass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 fieldBodyMassFocusLost(evt);
-            }
-        });
-        fieldBodyMass.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                fieldBodyMassPropertyChange(evt);
             }
         });
         fieldBodyMass.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -462,14 +453,14 @@ public class TestPanel extends javax.swing.JPanel {
         jLabel27.setText("s");
         newEditPanel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(677, 391, -1, -1));
 
-        buttonSave.setText("Salvar");
+        buttonSave.setText("Salvar Alterações");
         buttonSave.setPreferredSize(new java.awt.Dimension(80, 29));
         buttonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonSaveActionPerformed(evt);
             }
         });
-        newEditPanel.add(buttonSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(699, 425, 90, -1));
+        newEditPanel.add(buttonSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(659, 425, 140, -1));
 
         labelHorario.setText("Horário");
         newEditPanel.add(labelHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 74, -1, -1));
@@ -501,13 +492,11 @@ public class TestPanel extends javax.swing.JPanel {
         });
         newEditPanel.add(fieldIMC, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 220, 80, -1));
 
+        avaliacaoFinalizadaCheckBox.setText("Avaliação Finalizada");
+        newEditPanel.add(avaliacaoFinalizadaCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 427, -1, -1));
+
         jTabbedPane1.addTab("Nova Avaliação / Editar Avaliação", newEditPanel);
 
-        controlPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                controlPanelComponentShown(evt);
-            }
-        });
         controlPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -541,15 +530,7 @@ public class TestPanel extends javax.swing.JPanel {
             new String [] {
                 "Turma", "Dia da Avaliação", "Status"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(jTable1);
         jTable1.getColumnModel().getColumn(0).setResizable(false);
         jTable1.getColumnModel().getColumn(1).setResizable(false);
@@ -558,11 +539,6 @@ public class TestPanel extends javax.swing.JPanel {
         controlPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 25, 710, 390));
 
         jButton1.setText("Gerar Arquivo para Envio");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
         controlPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(609, 427, -1, -1));
 
         jTabbedPane1.addTab("Controle de Avaliações", controlPanel);
@@ -1118,6 +1094,7 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldBodyMassPropertyChange
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox avaliacaoFinalizadaCheckBox;
     private javax.swing.JButton buttonSave;
     private javax.swing.ButtonGroup chairButtonGroup;
     private javax.swing.JComboBox comboNomeDoAluno;

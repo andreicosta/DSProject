@@ -1,4 +1,4 @@
-<?xml version="1.1" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <NonVisualComponents>
@@ -683,7 +683,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="buttonSave">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Salvar"/>
+                <Property name="text" type="java.lang.String" value="Salvar Altera&#xe7;&#xf5;es"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[80, 29]"/>
                 </Property>
@@ -693,7 +693,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="699" y="425" width="90" height="-1"/>
+                  <AbsoluteConstraints x="659" y="425" width="140" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -748,6 +748,16 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="131" y="220" width="80" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="avaliacaoFinalizadaCheckBox">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Avalia&#xe7;&#xe3;o Finalizada"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="490" y="427" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>

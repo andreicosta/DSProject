@@ -43,7 +43,7 @@ public class LoginJPanel extends javax.swing.JPanel {
             BufferedImage pic = ImageIO.read(new File("prodown.png"));
             jLabel3 = new javax.swing.JLabel(new ImageIcon(pic));
 
-            setPreferredSize(new java.awt.Dimension(995, 558));
+            setPreferredSize(new java.awt.Dimension(995, 515));
             addComponentListener(new java.awt.event.ComponentAdapter() {
                 public void componentShown(java.awt.event.ComponentEvent evt) {
                     formComponentShown(evt);
