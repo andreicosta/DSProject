@@ -29,7 +29,7 @@ public class ImportPanel extends javax.swing.JPanel {
 
         importPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("<html>A parte de importação, recebe uma copia do banco de dados local ou todos os dados do banco de dados local com exceçãos das avaliações</html>");
+        jLabel1.setText("<html>A parte de importação, recebe um arquivo previamente exportado, apaga os dados atuais e carrega os dados salvos neste arquivo. </html>");
         importPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 29, 807, 54));
 
         jButton1.setText("Importar");
@@ -38,13 +38,13 @@ public class ImportPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        importPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 101, -1, -1));
+        importPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
         jTabbedPane1.addTab("Importar ", importPanel);
 
         exportPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("<html>A parte de exportação, gera uma copia do banco de dados local ou todos os dados do banco de dados local com exceçãos das avaliações?????</html>");
+        jLabel2.setText("<html>A parte de exportação,  gera um arquivo com uma copia de todos os dados atuais (turmas, alunos e avaliações). </html>");
         exportPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 29, 807, 54));
 
         jButton2.setText("Exportar");
@@ -53,7 +53,7 @@ public class ImportPanel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        exportPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(729, 101, -1, -1));
+        exportPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
         jTabbedPane1.addTab("Exportar", exportPanel);
 
@@ -65,7 +65,7 @@ public class ImportPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -104,7 +104,7 @@ public class ImportPanel extends javax.swing.JPanel {
         File file;
         JFileChooser arquivo = new JFileChooser();
         
-        arquivo.setDialogTitle("Selecione um arquivo para importar");    
+        arquivo.setDialogTitle("Selecione o local para exportar o arquivo");    
         arquivo.setFileSelectionMode(JFileChooser.FILES_ONLY);    
         FileNameExtensionFilter filter = new FileNameExtensionFilter("PDO Files", new String[]{"pdo"});    
         arquivo.setFileFilter(filter);          
