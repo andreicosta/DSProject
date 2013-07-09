@@ -113,9 +113,9 @@ public class Professor implements Serializable
         idTurma = buscaTurma(turma);
 
         this.turmas.remove(idTurma);
-        turma.excluirTurma();
-        File f = new File(turmas.get(idTurma).getDir());
-        f.delete();
+        //turma.excluirTurma();
+        
+        Escola.getInstance().removeTurma(turma);
     }
      
     public int buscaTurma(Turma turma){

@@ -343,24 +343,23 @@ public class ClassPanel extends javax.swing.JPanel {
                 tmpAluno = (Aluno) listaAlunosMatriculadosCad.get(i);
                 if(tmpTurma.buscaAluno(tmpAluno) < 0){
                     try {
-                        tmpTurma.inserirAluno(tmpAluno);
                         semTurma.removeAluno(tmpAluno);
+                        tmpTurma.inserirAluno(tmpAluno);
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, "Erro", "Erro", JOptionPane.ERROR_MESSAGE);
                     }
                 }
             }
-            for (int i = 0;i < listaAlunosSemTurmaCad.size(); i++) {
+            /*for (int i = 0;i < listaAlunosSemTurmaCad.size(); i++) {
                 tmpAluno = (Aluno) listaAlunosSemTurmaCad.get(i);
                 if(semTurma.buscaAluno(tmpAluno) < 0){
                     try {
                         semTurma.inserirAluno(tmpAluno);
-                        tmpTurma.removeAluno(tmpAluno);
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, "Erro", "Erro", JOptionPane.ERROR_MESSAGE);
                     }
                 }
-            }
+            }*/
             limpaCamposCadastrarTurma();
             return;
         } else {
