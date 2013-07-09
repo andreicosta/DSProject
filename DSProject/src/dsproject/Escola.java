@@ -493,11 +493,13 @@ public class Escola {
                 //System.out.println(p.getTurmas().get(0).getId());
 
                 ArrayList<Turma> turmas = new ArrayList<>();
+                Turma t;
 
                 for (int i = 0; lista != null && i < lista.length; i++) {
                     if (!lista[i].equalsIgnoreCase("info.dat")) {
-                        System.out.println("Turma em: " + lista[i]);
-                        turmas.add(0, carregarTurma(diretorio + "/turmas/" + lista[i]));
+                        t = carregarTurma(diretorio + "/turmas/" + lista[i]);
+                        turmas.add(0, t);
+                        System.out.println("Turma: " + t.getId());
                     }
                 }
                 
@@ -630,19 +632,39 @@ public class Escola {
     
     public boolean importar(String path) {
         try{
-            Professor p;
+            Professor p, tmp;
             ObjectInputStream in;
             
             in = new ObjectInputStream(new FileInputStream(path));
-            p = (Professor)in.readObject();
+            tmp = (Professor)in.readObject();
             in.close();
             
-            for (Turma t : p.getTurmas()){
+            p = this.getLogado();
+            removeProfessor(p);
+            
+            ArrayList<Turma> turmas;
+            ArrayList<Aluno> alunos;
+            
+            turmas = new ArrayList();
+            for (Turma t : tmp.getTurmas()){
+                t.setNumDir(Turma.getCont());
+                Turma.setCont(Turma.getCont()+1);
+                t.setDir(p.getDir() + "/turmas/" + t.getNumDir());
+                
+                alunos = new ArrayList();
                 for (Aluno a : t.buscaTodosAlunos()){
-                    
+                    a.setNumDir(Aluno.getCont());
+                    Aluno.setCont(Aluno.getCont()+1);
+                    a.setDir(t.getDir() + "/alunos/" + a.getNumDir());
+                    alunos.add(a);
                 }
+                
+                t.setAlunos(alunos);
+                turmas.add(t);
             }
             
+            p.setTurmas(turmas);
+            salvarProfessor(p, true);
             
             return true;
         }

@@ -246,6 +246,10 @@ public class Aluno implements Serializable {
         return this.num_dir;
     }
     
+    public void setNumDir(int num_dir){
+        this.num_dir = num_dir;
+    }
+    
     public void setDir(String dir){
         this.dir = dir;
     }

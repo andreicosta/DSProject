@@ -106,6 +106,10 @@ public class Turma implements Serializable, Cloneable
        return this.num_dir;
    }
    
+   public void setNumDir(int num_dir){
+       this.num_dir = num_dir;
+   }
+   
    public static int getCont(){
        return cont;
    }
