@@ -49,7 +49,7 @@ public class Aluno implements Serializable {
     public static void parse(String nome, Calendar nascimento, String endereco, String cidade,
             String nomeMae, String nomePai) throws Exception {
         
-        Pattern p = Pattern.compile("([a-z]+\\s)+[a-z]*");
+        Pattern p = Pattern.compile("([a-z]+\\s)+[a-z]+");
 
         if(nome != null && !p.matcher(Aluno.removeAccents(nome.toLowerCase())).matches()){
             throw new Exception("Erro no nome do Aluno");
