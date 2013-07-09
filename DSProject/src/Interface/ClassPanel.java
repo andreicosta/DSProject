@@ -197,6 +197,8 @@ public class ClassPanel extends javax.swing.JPanel {
 
         labelAnoLetivoEditarTurma.setText("Ano Letivo");
         editClassPanel.add(labelAnoLetivoEditarTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 26, -1, -1));
+
+        campoAnoLetivoEditarTurma.setEditable(false);
         editClassPanel.add(campoAnoLetivoEditarTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 21, 110, -1));
 
         botaoSalvar.setText("Salvar");
