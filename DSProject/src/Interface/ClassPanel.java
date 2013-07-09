@@ -431,8 +431,8 @@ public class ClassPanel extends javax.swing.JPanel {
             tmpAluno = (Aluno) listaAlunosMatriculadosEdi.get(i);
             if(tmpTurma.buscaAluno(tmpAluno) < 0){
                 try {
-                    tmpTurma.inserirAluno(tmpAluno);
                     semTurma.removeAluno(tmpAluno);
+                    tmpTurma.inserirAluno(tmpAluno);
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "Erro", "Erro", JOptionPane.ERROR_MESSAGE);
                 }
@@ -442,8 +442,8 @@ public class ClassPanel extends javax.swing.JPanel {
             tmpAluno = (Aluno) listaAlunosSemTurma.get(i);
             if(semTurma.buscaAluno(tmpAluno) < 0){
                 try {
-                    semTurma.inserirAluno(tmpAluno);
                     tmpTurma.removeAluno(tmpAluno);
+                    semTurma.inserirAluno(tmpAluno);
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, "Erro", "Erro", JOptionPane.ERROR_MESSAGE);
                 }
