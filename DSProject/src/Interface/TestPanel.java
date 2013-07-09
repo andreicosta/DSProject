@@ -493,10 +493,25 @@ public class TestPanel extends javax.swing.JPanel {
         newEditPanel.add(fieldIMC, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 220, 80, -1));
 
         avaliacaoFinalizadaCheckBox.setText("Avaliação Finalizada");
+        avaliacaoFinalizadaCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                avaliacaoFinalizadaCheckBoxActionPerformed(evt);
+            }
+        });
+        avaliacaoFinalizadaCheckBox.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                avaliacaoFinalizadaCheckBoxPropertyChange(evt);
+            }
+        });
         newEditPanel.add(avaliacaoFinalizadaCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 427, -1, -1));
 
         jTabbedPane1.addTab("Nova Avaliação / Editar Avaliação", newEditPanel);
 
+        controlPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                controlPanelComponentShown(evt);
+            }
+        });
         controlPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -530,7 +545,15 @@ public class TestPanel extends javax.swing.JPanel {
             new String [] {
                 "Turma", "Dia da Avaliação", "Status"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
         jTable1.getColumnModel().getColumn(0).setResizable(false);
         jTable1.getColumnModel().getColumn(1).setResizable(false);
@@ -539,6 +562,11 @@ public class TestPanel extends javax.swing.JPanel {
         controlPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 25, 710, 390));
 
         jButton1.setText("Gerar Arquivo para Envio");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         controlPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(609, 427, -1, -1));
 
         jTabbedPane1.addTab("Controle de Avaliações", controlPanel);
@@ -557,39 +585,7 @@ public class TestPanel extends javax.swing.JPanel {
 
    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_buttonSaveActionPerformed
    {//GEN-HEADEREND:event_buttonSaveActionPerformed
-       boolean trySave = true;
-       trySave = saveData() && trySave;
-       trySave = saveTime() && trySave;
-       trySave = saveTemperature() && trySave;
-       if(trySave){
-            saveBodyMass();
-            saveHeight();
-            saveIMC();
-            saveSpread();
-            saveSitUp();
-            saveSitUpAndAchieve();
-            saveWithSeat();
-            saveWithoutSeat();
-            saveRadio6();
-            saveRadio9();
-            saveRun();
-            saveHorizontalJump();
-            saveMedicineBallThrow();
-            saveSquareTest();
-            save20MettersRun();
-
-            Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
-            if (student == null) {
-                return;
-            }
-            Avaliacao avaliacao = student.getLastAvaliation();
-            avaliacao.setSalvoParaEnviar(true);
-            
-            this.limpaCampos();
-            this.limpaComboNomeDoAluno();
-            this.limpaComboNomeTurma();
-            JOptionPane.showMessageDialog(null, "Avaliacao salva com sucesso!", "", JOptionPane.INFORMATION_MESSAGE);
-       }
+       saveAll();
    }//GEN-LAST:event_buttonSaveActionPerformed
 
    private void fieldTimeKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldTimeKeyTyped
@@ -712,7 +708,7 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldBodyMassMouseClicked
 
     private void fieldBodyMassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldBodyMassFocusLost
-        saveBodyMass();
+
     }//GEN-LAST:event_fieldBodyMassFocusLost
 
     private void fieldSitAndAchieveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldSitAndAchieveKeyTyped
@@ -785,66 +781,58 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldTestDateFocusLost
 
     private void fieldTestDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fieldTestDatePropertyChange
-        if (getCampoDataDaAvaliacao() != null) {
-            labelDataDaAvaliacao.setForeground(Color.black);
-            Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
-            if (student == null) {
-                return;
-            }
-            Avaliacao avaliacao = student.getLastAvaliation();
-            avaliacao.setData(fieldTestDate.getDate());
-        }
+
     }//GEN-LAST:event_fieldTestDatePropertyChange
 
     private void fieldTestDateKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldTestDateKeyTyped
     }//GEN-LAST:event_fieldTestDateKeyTyped
 
     private void fieldTimeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldTimeFocusLost
-        saveTime();
+
     }//GEN-LAST:event_fieldTimeFocusLost
 
     private void fieldTemperatureFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldTemperatureFocusLost
-        saveTemperature();
+
     }//GEN-LAST:event_fieldTemperatureFocusLost
 
     private void fieldHeightFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldHeightFocusLost
-        saveHeight();
+
     }//GEN-LAST:event_fieldHeightFocusLost
 
     private void fieldIMCFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldIMCFocusLost
-        saveIMC();
+
     }//GEN-LAST:event_fieldIMCFocusLost
 
     private void fieldSpreadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldSpreadFocusLost
-        saveSpread();
+
     }//GEN-LAST:event_fieldSpreadFocusLost
 
     private void fieldSitUpFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldSitUpFocusLost
-        saveSitUp();
+
     }//GEN-LAST:event_fieldSitUpFocusLost
 
     private void fieldSitAndAchieveFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldSitAndAchieveFocusLost
-        saveSitUpAndAchieve();
+
     }//GEN-LAST:event_fieldSitAndAchieveFocusLost
 
     private void fieldRunFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldRunFocusLost
-        saveRun();
+
     }//GEN-LAST:event_fieldRunFocusLost
 
     private void fieldHorizontalJumpFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldHorizontalJumpFocusLost
-        saveHorizontalJump();
+
     }//GEN-LAST:event_fieldHorizontalJumpFocusLost
 
     private void fieldThrowOfMedicineBallFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldThrowOfMedicineBallFocusLost
-        saveMedicineBallThrow();
+ 
     }//GEN-LAST:event_fieldThrowOfMedicineBallFocusLost
 
     private void fiedlSquareTestFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fiedlSquareTestFocusLost
-        saveSquareTest();
+
     }//GEN-LAST:event_fiedlSquareTestFocusLost
 
     private void field20MetersRunFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_field20MetersRunFocusLost
-        save20MettersRun();
+
     }//GEN-LAST:event_field20MetersRunFocusLost
 
     private void radioSitAndAchieveWithSeatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioSitAndAchieveWithSeatActionPerformed
@@ -862,7 +850,6 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_comboTurmaPopupMenuWillBecomeInvisible
 
     private void comboNomeDoAlunoPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_comboNomeDoAlunoPopupMenuWillBecomeVisible
-        saveAll();
         Turma turma = (Turma) this.comboTurma.getSelectedItem();
         comboNomeDoAluno.removeAllItems();
         if (turma == null) {
@@ -878,14 +865,14 @@ public class TestPanel extends javax.swing.JPanel {
 
     private void comboNomeDoAlunoPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_comboNomeDoAlunoPopupMenuWillBecomeInvisible
         Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        
         this.limpaCampos();
+        
         if (student == null) {
             this.limpaComboNomeDoAluno();
             return;
         }
-
-
-
+        
         Avaliacao avaliacao = (Avaliacao) student.getLastAvaliation();
         
         fieldTime.setForeground(Color.black);
@@ -898,7 +885,6 @@ public class TestPanel extends javax.swing.JPanel {
         fieldTestDate.setForeground(Color.black);
         
         if (avaliacao.getData() == null) {
-            //fieldTestDate.getDateEditor().getUiComponent().setToolTipText("");
             fieldTestDate.setDate(null);
         } else {
             fieldTestDate.setDate(avaliacao.getData());
@@ -1000,26 +986,33 @@ public class TestPanel extends javax.swing.JPanel {
             radioSitAndAchieveWithSeat.setSelected(false);
             radioSitAndAchieveWithoutSeat.setSelected(true);
         }
+        
+        if (avaliacao.isSalvoParaEnviar() == true){
+            avaliacaoFinalizadaCheckBox.setSelected(true);
+        }
+        else{
+            avaliacaoFinalizadaCheckBox.setSelected(false);
+        }
     }//GEN-LAST:event_comboNomeDoAlunoPopupMenuWillBecomeInvisible
 
     private void radioSitAndAchieveWithSeatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_radioSitAndAchieveWithSeatFocusLost
-        saveWithSeat();
+
     }//GEN-LAST:event_radioSitAndAchieveWithSeatFocusLost
 
     private void radioSitAndAchieveWithoutSeatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_radioSitAndAchieveWithoutSeatFocusLost
-        saveWithoutSeat();
+    
     }//GEN-LAST:event_radioSitAndAchieveWithoutSeatFocusLost
 
     private void radio6MinutesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_radio6MinutesFocusLost
-       saveRadio6();
+
     }//GEN-LAST:event_radio6MinutesFocusLost
 
     private void radio9MinutesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_radio9MinutesFocusLost
-        saveRadio9();
+
     }//GEN-LAST:event_radio9MinutesFocusLost
 
     private void controlPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_controlPanelComponentShown
-        clearJTable();        
+        clearJTable();       
         
         int jTableRow = 0;
         
@@ -1036,7 +1029,7 @@ public class TestPanel extends javax.swing.JPanel {
                 for(Aluno j : i.buscaTodosAlunos()){
                     if(j != null){
                         Avaliacao avaliacao = (Avaliacao) j.getLastAvaliation();
-                        if (avaliacao.isSalvoParaEnviar()){
+                        if (avaliacao.isSalvoParaEnviar() && !avaliacao.isEnviado()){
 
                             addTurma = true;
                             if(data == null){
@@ -1092,6 +1085,14 @@ public class TestPanel extends javax.swing.JPanel {
     private void fieldBodyMassPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fieldBodyMassPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldBodyMassPropertyChange
+
+    private void avaliacaoFinalizadaCheckBoxPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_avaliacaoFinalizadaCheckBoxPropertyChange
+
+    }//GEN-LAST:event_avaliacaoFinalizadaCheckBoxPropertyChange
+
+    private void avaliacaoFinalizadaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avaliacaoFinalizadaCheckBoxActionPerformed
+ 
+    }//GEN-LAST:event_avaliacaoFinalizadaCheckBoxActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox avaliacaoFinalizadaCheckBox;
@@ -1427,6 +1428,7 @@ public class TestPanel extends javax.swing.JPanel {
         radio6Minutes.setSelected(true);
         radioSitAndAchieveWithoutSeat.setSelected(false);
         radio9Minutes.setSelected(false);
+        avaliacaoFinalizadaCheckBox.setSelected(false);
     }
     
     private boolean saveData(){
@@ -1436,7 +1438,9 @@ public class TestPanel extends javax.swing.JPanel {
         }
         if(fieldTestDate.getDate() == null){
             labelDataDaAvaliacao.setForeground(Color.red);
+            return false;
         }
+        labelDataDaAvaliacao.setForeground(Color.black);
         Avaliacao avaliacao = student.getLastAvaliation();
         avaliacao.setData(fieldTestDate.getDate());
         return true;
@@ -1659,27 +1663,46 @@ public class TestPanel extends javax.swing.JPanel {
     }
     
     private void saveAll(){
-        saveData();
-        saveTime();
-        saveTemperature();
-        saveBodyMass();
-        saveHeight();
-        saveIMC();
-        saveSpread();
-        saveSitUp();
-        saveSitUpAndAchieve();
-        saveWithSeat();
-        saveWithoutSeat();
-        saveRadio6();
-        saveRadio9();
-        saveRun();
-        saveHorizontalJump();
-        saveMedicineBallThrow();
-        saveSquareTest();
-        save20MettersRun();
-        
-        labelDataDaAvaliacao.setForeground(Color.black);
-        labelHorario.setForeground(Color.black);
-        labelTemperatura.setForeground(Color.black);
+       boolean trySave = true;
+       trySave = saveData() && trySave;
+       trySave = saveTime() && trySave;
+       trySave = saveTemperature() && trySave;
+       if(trySave){
+           salvarEnviadoCheckbox();
+            saveBodyMass();
+            saveHeight();
+            saveIMC();
+            saveSpread();
+            saveSitUp();
+            saveSitUpAndAchieve();
+            saveWithSeat();
+            saveWithoutSeat();
+            saveRadio6();
+            saveRadio9();
+            saveRun();
+            saveHorizontalJump();
+            saveMedicineBallThrow();
+            saveSquareTest();
+            save20MettersRun();
+            
+            this.limpaCampos();
+            this.limpaComboNomeDoAluno();
+            this.limpaComboNomeTurma();
+            JOptionPane.showMessageDialog(null, "Avaliacao salva com sucesso!", "", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    
+    private void salvarEnviadoCheckbox(){
+       Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+       if (student == null) {
+           return;
+       }
+       Avaliacao avaliacao = student.getLastAvaliation();
+       if(avaliacaoFinalizadaCheckBox.isSelected()){
+            avaliacao.setSalvoParaEnviar(true); 
+       }
+       else{
+            avaliacao.setSalvoParaEnviar(false); 
+       }
     }
 }
