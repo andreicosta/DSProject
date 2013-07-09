@@ -2,7 +2,12 @@ package Interface;
 
 import dsproject.Escola;
 import java.awt.CardLayout;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRootPane;
 import javax.swing.text.DefaultFormatterFactory;
@@ -34,48 +39,60 @@ public class LoginJPanel extends javax.swing.JPanel {
         loginbut = new javax.swing.JButton();
         cadbut = new javax.swing.JButton();
         campocpflogin = new javax.swing.JFormattedTextField();
+        try{
+            BufferedImage pic = ImageIO.read(new File("prodown.png"));
+            jLabel3 = new javax.swing.JLabel(new ImageIcon(pic));
 
-        setPreferredSize(new java.awt.Dimension(984, 536));
-        addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                formComponentShown(evt);
-            }
-        });
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+            setPreferredSize(new java.awt.Dimension(995, 558));
+            addComponentListener(new java.awt.event.ComponentAdapter() {
+                public void componentShown(java.awt.event.ComponentEvent evt) {
+                    formComponentShown(evt);
+                }
+            });
+            setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("CPF");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 224, -1, -1));
+            jLabel1.setText("CPF");
+            add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 224, -1, -1));
 
-        jLabel2.setText("Senha");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 263, -1, -1));
+            jLabel2.setText("Senha");
+            add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 263, -1, -1));
 
-        loginpassw.setFont(new java.awt.Font("Ubuntu", 1, 15));
-        loginpassw.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                loginpasswKeyTyped(evt);
-            }
-        });
-        add(loginpassw, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 258, 178, -1));
+            loginpassw.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+            loginpassw.addKeyListener(new java.awt.event.KeyAdapter() {
+                public void keyTyped(java.awt.event.KeyEvent evt) {
+                    loginpasswKeyTyped(evt);
+                }
+            });
+            add(loginpassw, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 258, 178, -1));
 
-        loginbut.setText("Login");
-        loginbut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginbutActionPerformed(evt);
-            }
-        });
-        add(loginbut, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 292, 114, -1));
+            loginbut.setText("Login");
+            loginbut.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    loginbutActionPerformed(evt);
+                }
+            });
+            add(loginbut, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 292, 114, -1));
 
-        cadbut.setText("Cadastrar");
-        cadbut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadbutActionPerformed(evt);
-            }
-        });
-        add(cadbut, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 292, 113, -1));
+            cadbut.setText("Cadastrar");
+            cadbut.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    cadbutActionPerformed(evt);
+                }
+            });
+            add(cadbut, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 292, 113, -1));
 
-        campocpflogin.setFormatterFactory(setFormatoData());
-        campocpflogin.setFont(new java.awt.Font("Ubuntu", 1, 15));
-        add(campocpflogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 218, 178, -1));
+            campocpflogin.setFormatterFactory(setFormatoData());
+            campocpflogin.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+            add(campocpflogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 218, 178, -1));
+
+            /*
+            jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            jLabel3.setText(null);
+            */
+        }catch(Exception e){
+            jLabel1.setText("");
+        }
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 995, 120));
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadbutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadbutActionPerformed
@@ -101,6 +118,9 @@ public class LoginJPanel extends javax.swing.JPanel {
             this.frame.getMainPanel1().getWelcomePanel1().setWelcomeMessage(name);
             String title = this.frame.getTitle();
             this.frame.setTitle(name + " - " + title);
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao Fazer Login.","",JOptionPane.ERROR_MESSAGE);
+            this.loginpassw.setText("");
         }
 
     }
@@ -135,6 +155,7 @@ private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:
     private javax.swing.JFormattedTextField campocpflogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton loginbut;
     private javax.swing.JPasswordField loginpassw;
     // End of variables declaration//GEN-END:variables
