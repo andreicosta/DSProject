@@ -108,6 +108,17 @@ public class Professor implements Serializable
         return temp;
     }
     
+    public boolean haveYouAStudentWithThisName(String name){
+        
+        for(Aluno i : this.getAlunos()){
+            if (i.getNome().equals(name)){
+                return true; 
+           }
+        }
+        
+        return false;
+    }
+    
     public void removeTurma(Turma turma){
         int idTurma;
         idTurma = buscaTurma(turma);

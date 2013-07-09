@@ -10,6 +10,7 @@ import java.awt.event.FocusListener;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class TestPanel extends javax.swing.JPanel {
 
@@ -1022,21 +1023,25 @@ public class TestPanel extends javax.swing.JPanel {
         int jTableRow = 0;
         
         Date data = null;
-        boolean addTurma;
         int quantidadeTotal;
         int quantidadeAvaliacao;
         
+        int rowsTotalSize = Escola.getInstance().getLogado().getTurmas().size();
+        if(rowsTotalSize > jTable1.getRowCount()){
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setRowCount(rowsTotalSize);
+        }
         for(Turma i : Escola.getInstance().getLogado().getTurmas()){
             if(!i.getId().equals("Sem Turma") && i != null){
-                addTurma = false;
                 quantidadeTotal = i.buscaTodosAlunos().size();
                 quantidadeAvaliacao = 0;
+                
+                
                 for(Aluno j : i.buscaTodosAlunos()){
                     if(j != null){
                         Avaliacao avaliacao = (Avaliacao) j.getLastAvaliation();
                         if (avaliacao.isSalvoParaEnviar() && !avaliacao.isEnviado()){
 
-                            addTurma = true;
                             if(data == null){
                                 data = avaliacao.getData();
                             }
@@ -1048,13 +1053,18 @@ public class TestPanel extends javax.swing.JPanel {
                         }             
                     }
                 }
-                if(addTurma){
+                if(quantidadeAvaliacao > 0){
                     jTable1.setValueAt(i, jTableRow, 0);
                     String[] dataSplit = data.toString().split(" ");
                     jTable1.setValueAt(String.valueOf(dataSplit[2]) + " de " + returnMonth(dataSplit[1]) + " de "+dataSplit[5], jTableRow, 1);
                     jTable1.setValueAt(String.valueOf(quantidadeAvaliacao) + " aluno(s) avaliado(s) de " + String.valueOf(quantidadeTotal), jTableRow, 2);
                 }
-            }   
+                else{
+                    jTable1.setValueAt(i, jTableRow, 0);
+                    jTable1.setValueAt("0 aluno(s) avaliado(s) de " + String.valueOf(quantidadeTotal), jTableRow, 2);
+                }
+                jTableRow++;
+           }   
         }
     }//GEN-LAST:event_controlPanelComponentShown
 

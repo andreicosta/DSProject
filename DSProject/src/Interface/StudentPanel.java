@@ -128,16 +128,29 @@ public class StudentPanel extends javax.swing.JPanel {
         labelEmail.setText("E-mail");
         newStudentPanel.add(labelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 376, -1, -1));
 
-        name.setToolTipText("teste");
+        name.setToolTipText("Nome e Sobrenome");
         newStudentPanel.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 40, 396, -1));
+
+        mother.setToolTipText("Entre com o nome da Mãe do Aluno");
         newStudentPanel.add(mother, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 238, 396, -1));
+
+        father.setToolTipText("Entre com o nome do Pai do Aluno (Opcional)");
         newStudentPanel.add(father, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 271, 396, -1));
+
+        telephone.setToolTipText("Entre com o Telefone (Opcional)");
         newStudentPanel.add(telephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 304, 396, -1));
+
+        address.setToolTipText("Entre com o Endereço");
         newStudentPanel.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 172, 396, -1));
+
+        mobile.setToolTipText("Entre com o Celular do Aluno (Opcional)");
         newStudentPanel.add(mobile, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 337, 396, -1));
+
+        email.setToolTipText("Entre com o E-mail do Aluno (Opcional)");
         newStudentPanel.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 371, 396, -1));
 
         createButton.setText("Cadastrar");
+        createButton.setToolTipText("Clique aqui para Finalizar o Cadastro do Aluno");
         createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createButtonActionPerformed(evt);
@@ -149,13 +162,19 @@ public class StudentPanel extends javax.swing.JPanel {
         newStudentPanel.add(labelGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 144, -1, -1));
 
         gender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
+        gender.setToolTipText("Selecione o Gênero");
         newStudentPanel.add(gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 139, 396, -1));
 
         labelCity.setText("Cidade/Estado");
         newStudentPanel.add(labelCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 210, -1, -1));
+
+        city.setToolTipText("Entre com a Cidade / Estado");
         newStudentPanel.add(city, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 205, 396, -1));
+
+        birthday.setToolTipText("Clique no botão à direita ");
         newStudentPanel.add(birthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 106, 396, -1));
 
+        turma.setToolTipText("Selecione uma Turma (Opcional)");
         turma.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
@@ -197,13 +216,26 @@ public class StudentPanel extends javax.swing.JPanel {
 
         editLabelEmail.setText("E-mail");
         editStudentPanel.add(editLabelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 376, -1, -1));
+
+        editMother.setToolTipText("Entre com o nome da Mãe do Aluno");
         editStudentPanel.add(editMother, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 238, 396, -1));
+
+        editFather.setToolTipText("Entre com o nome do Pai do Aluno (Opcional)");
         editStudentPanel.add(editFather, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 271, 396, -1));
+
+        editTelephone.setToolTipText("Entre com o Telefone (Opcional)");
         editStudentPanel.add(editTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 304, 396, -1));
+
+        editAddress.setToolTipText("Entre com o Endereço");
         editStudentPanel.add(editAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 172, 396, -1));
+
+        editMobile.setToolTipText("Entre com o Celular do Aluno (Opcional)");
         editStudentPanel.add(editMobile, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 337, 396, -1));
+
+        editEmail.setToolTipText("Entre com o E-mail do Aluno (Opcional)");
         editStudentPanel.add(editEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 371, 396, -1));
 
+        editName.setToolTipText("Selecione um Aluno ja Cadastrado");
         editName.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
@@ -217,6 +249,7 @@ public class StudentPanel extends javax.swing.JPanel {
         editStudentPanel.add(editName, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 30, 396, -1));
 
         editSaveButton.setText("Salvar");
+        editSaveButton.setToolTipText("Cique aqui para salvar as alterações feitas no cadastro do Aluno");
         editSaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editSaveButtonActionPerformed(evt);
@@ -228,15 +261,20 @@ public class StudentPanel extends javax.swing.JPanel {
         editStudentPanel.add(editLabelGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 144, -1, -1));
 
         editGender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
+        editGender.setToolTipText("Selecione o Gênero");
         editStudentPanel.add(editGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 139, 396, -1));
 
         editLabelCity.setText("Cidade/Estado");
         editStudentPanel.add(editLabelCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 210, -1, -1));
+
+        editCity.setToolTipText("Entre com a Cidade / Estado");
         editStudentPanel.add(editCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 205, 396, -1));
 
+        editBirthday.setToolTipText("Data de Nascimento não pode ser alterada");
         editBirthday.setPreferredSize(new java.awt.Dimension(396, 27));
         editStudentPanel.add(editBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 106, -1, -1));
 
+        editTurma.setToolTipText("Selecione uma Turma (Opcional)");
         editTurma.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
@@ -349,12 +387,6 @@ public class StudentPanel extends javax.swing.JPanel {
     }
 
     private String getFatherName() {
-        if (father.getText().isEmpty()) {
-            labelFather.setForeground(Color.red);
-            flag = true;
-            return null;
-        }
-        labelFather.setForeground(Color.black);
         return father.getText();
     }
 
@@ -388,7 +420,10 @@ public class StudentPanel extends javax.swing.JPanel {
        if (!flag) {
            
            try{
-               Aluno.parse(nameNewStudent, newBirthday, newAddress, newCity, newMotherName, newFatherName);
+               if (Escola.getInstance().getProfessorLogado().haveYouAStudentWithThisName(nameNewStudent)) {
+                   throw new Exception("Aluno já existente");
+               }
+               Aluno.parse(nameNewStudent, newBirthday, newAddress, newCity, newMotherName, newFatherName, newEmail);
            }
            catch(Exception e){
                JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
@@ -396,7 +431,7 @@ public class StudentPanel extends javax.swing.JPanel {
            }
            
            Aluno student = new Aluno(nameNewStudent, newTurma, newBirthday, newGender, newAddress, newCity, newMotherName, newFatherName, newTelephone, newMobile, newEmail);
-           
+                      
            try{
                newTurma.inserirAluno(student);
            } catch (Exception e) {
@@ -438,7 +473,7 @@ public class StudentPanel extends javax.swing.JPanel {
         if (!flag) {
             
             try {
-                Aluno.parse(null, null, newAddress, newCity, newMotherName, newFatherName);
+                Aluno.parse(null, null, newAddress, newCity, newMotherName, newFatherName, newEmail);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
                 return;
@@ -464,7 +499,14 @@ public class StudentPanel extends javax.swing.JPanel {
             student.setTelefone(newTelephone);
             student.setCelular(newMobile);
             student.setEmail(newEmail);
-
+            
+            try {
+                Escola.getInstance().salvarAluno(student);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Erro ao salvar aluno", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
             clearEditStudent();
             JOptionPane.showMessageDialog(null, "Aluno editado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
             superPanel.getClassPanel().limpaCamposEditarTurma();
@@ -605,12 +647,6 @@ public class StudentPanel extends javax.swing.JPanel {
     }
 
     private String getEditFatherName() {
-        if (editFather.getText().isEmpty()) {
-            editLabelFather.setForeground(Color.red);
-            flag = true;
-            return null;
-        }
-        editLabelFather.setForeground(Color.black);
         return editFather.getText();
     }
 
