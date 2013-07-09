@@ -8,9 +8,21 @@ import javax.swing.JOptionPane;
 
 public class StudentPanel extends javax.swing.JPanel {
     Calendar idadeMin;
+    private MainPanel superPanel;
     
     public StudentPanel() {
         initComponents();
+        idadeMin = Calendar.getInstance();
+        Calendar idadeMax = Calendar.getInstance();
+        idadeMin.add(Calendar.YEAR, -9);
+        idadeMax.add(Calendar.YEAR, -21);
+        this.birthday.setSelectableDateRange(idadeMax.getTime(), idadeMin.getTime());
+        this.birthday.setDate(idadeMin.getTime());
+    }
+    
+    public StudentPanel(MainPanel superPanel) {
+        initComponents();
+        this.superPanel = superPanel;
         idadeMin = Calendar.getInstance();
         Calendar idadeMax = Calendar.getInstance();
         idadeMin.add(Calendar.YEAR, -9);
@@ -23,7 +35,7 @@ public class StudentPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        studentTabbedPane = new javax.swing.JTabbedPane();
         newStudentPanel = new javax.swing.JPanel();
         labelName = new javax.swing.JLabel();
         labelBirthday = new javax.swing.JLabel();
@@ -81,9 +93,14 @@ public class StudentPanel extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(833, 515));
         setMinimumSize(new java.awt.Dimension(833, 515));
         setPreferredSize(new java.awt.Dimension(833, 515));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
 
-        jTabbedPane1.setMinimumSize(new java.awt.Dimension(833, 515));
-        jTabbedPane1.setPreferredSize(new java.awt.Dimension(833, 515));
+        studentTabbedPane.setMinimumSize(new java.awt.Dimension(833, 515));
+        studentTabbedPane.setPreferredSize(new java.awt.Dimension(833, 515));
 
         newStudentPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -153,7 +170,7 @@ public class StudentPanel extends javax.swing.JPanel {
         labelTurma.setText("Turma");
         newStudentPanel.add(labelTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 79, -1, -1));
 
-        jTabbedPane1.addTab("Cadastrar Aluno", newStudentPanel);
+        studentTabbedPane.addTab("Cadastrar Aluno", newStudentPanel);
 
         editStudentPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -235,7 +252,7 @@ public class StudentPanel extends javax.swing.JPanel {
         editStudentPanel.add(editLabelTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 79, -1, -1));
         editStudentPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 830, 10));
 
-        jTabbedPane1.addTab("Editar Informações do Aluno", editStudentPanel);
+        studentTabbedPane.addTab("Editar Informações do Aluno", editStudentPanel);
 
         deleteStudentPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -261,17 +278,17 @@ public class StudentPanel extends javax.swing.JPanel {
         });
         deleteStudentPanel.add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 80, 90, -1));
 
-        jTabbedPane1.addTab("Excluir Cadastro do Aluno", deleteStudentPanel);
+        studentTabbedPane.addTab("Excluir Cadastro do Aluno", deleteStudentPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(studentTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(studentTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -393,6 +410,7 @@ public class StudentPanel extends javax.swing.JPanel {
 
            clearNewStudent();
            JOptionPane.showMessageDialog(null, "Aluno "+student.toString()+" criado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
+           superPanel.getClassPanel().limpaCamposEditarTurma();
        }
    }                                                
 
@@ -449,6 +467,7 @@ public class StudentPanel extends javax.swing.JPanel {
 
             clearEditStudent();
             JOptionPane.showMessageDialog(null, "Aluno editado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
+            superPanel.getClassPanel().limpaCamposEditarTurma();
         }
     }//GEN-LAST:event_editSaveButtonActionPerformed
 
@@ -487,6 +506,7 @@ public class StudentPanel extends javax.swing.JPanel {
             clearDeleteStudent();
             clearEditStudent();
             JOptionPane.showMessageDialog(null, "Aluno removido com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
+            superPanel.getClassPanel().limpaCamposEditarTurma();
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
@@ -514,6 +534,10 @@ public class StudentPanel extends javax.swing.JPanel {
         this.editMobile.setText(student.getCelular());
         this.editEmail.setText(student.getEmail());
     }//GEN-LAST:event_editNamePopupMenuWillBecomeInvisible
+
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+        studentTabbedPane.setSelectedIndex(0);
+    }//GEN-LAST:event_formComponentHidden
 
 	/*MÉTODOS NO EDITAR ALUNO*/
     private Aluno getEditStudent(){
@@ -639,7 +663,6 @@ public class StudentPanel extends javax.swing.JPanel {
     private javax.swing.JTextField father;
     private javax.swing.JComboBox gender;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private static javax.swing.JLabel labelAddress;
     private static javax.swing.JLabel labelBirthday;
     private static javax.swing.JLabel labelCity;
@@ -655,6 +678,7 @@ public class StudentPanel extends javax.swing.JPanel {
     private javax.swing.JTextField mother;
     private javax.swing.JTextField name;
     private javax.swing.JPanel newStudentPanel;
+    private javax.swing.JTabbedPane studentTabbedPane;
     private javax.swing.JTextField telephone;
     private javax.swing.JComboBox turma;
     // End of variables declaration//GEN-END:variables
@@ -695,6 +719,6 @@ public class StudentPanel extends javax.swing.JPanel {
         this.clearNewStudent();
         this.clearEditStudent();
         this.clearDeleteStudent();
-        this.jTabbedPane1.setSelectedIndex(0);
+        this.studentTabbedPane.setSelectedIndex(0);
     }
 }

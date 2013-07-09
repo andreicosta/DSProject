@@ -27,12 +27,12 @@ public class MainPanel extends javax.swing.JPanel {
         sendButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         displayPanel = new javax.swing.JPanel();
-        welcomePanel1 = new Interface.WelcomePanel();
-        classPanel1 = new Interface.ClassPanel();
+        welcomePanel2 = new Interface.WelcomePanel();
+        classPanel1 = new Interface.ClassPanel(this);
         importPanel1 = new Interface.ImportPanel();
         personalInformationPanel1 = new Interface.PersonalInformationPanel();
         sendPanel1 = new Interface.SendPanel();
-        studentPanel1 = new Interface.StudentPanel();
+        studentPanel1 = new Interface.StudentPanel(this);
         testPanel1 = new Interface.TestPanel();
         exportPanel1 = new Interface.HelpPanel();
 
@@ -101,7 +101,7 @@ public class MainPanel extends javax.swing.JPanel {
 
         displayPanel.setPreferredSize(new java.awt.Dimension(833, 515));
         displayPanel.setLayout(new java.awt.CardLayout());
-        displayPanel.add(welcomePanel1, "cardWelcome");
+        displayPanel.add(welcomePanel2, "card9");
         displayPanel.add(classPanel1, "cardClass");
         displayPanel.add(importPanel1, "cardImport");
         displayPanel.add(personalInformationPanel1, "cardPersonalInformation");
@@ -173,12 +173,20 @@ public class MainPanel extends javax.swing.JPanel {
     private Interface.StudentPanel studentPanel1;
     private javax.swing.JButton testButton;
     private Interface.TestPanel testPanel1;
-    private Interface.WelcomePanel welcomePanel1;
+    private Interface.WelcomePanel welcomePanel2;
     // End of variables declaration//GEN-END:variables
     private javax.swing.JPanel superPanel;
 
+    public ClassPanel getClassPanel(){
+        return this.classPanel1;
+    }
+    
+    public StudentPanel getStudentPanel(){
+        return this.studentPanel1;
+    }
+    
     public WelcomePanel getWelcomePanel1() {
-        return welcomePanel1;
+        return this.welcomePanel2;
     }
 
     private void clear() {

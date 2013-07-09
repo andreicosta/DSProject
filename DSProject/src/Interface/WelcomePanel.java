@@ -1,10 +1,5 @@
 package Interface;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-
 public class WelcomePanel extends javax.swing.JPanel {
 
     public WelcomePanel() {

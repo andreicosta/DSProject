@@ -48,7 +48,7 @@ public class TestPanel extends javax.swing.JPanel {
 
         chairButtonGroup = new javax.swing.ButtonGroup();
         runningButtonGroup = new javax.swing.ButtonGroup();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        testTabbedPane = new javax.swing.JTabbedPane();
         newEditPanel = new javax.swing.JPanel();
         comboTurma = new javax.swing.JComboBox();
         comboNomeDoAluno = new javax.swing.JComboBox();
@@ -117,10 +117,15 @@ public class TestPanel extends javax.swing.JPanel {
 
         setMinimumSize(new java.awt.Dimension(833, 515));
         setPreferredSize(new java.awt.Dimension(833, 515));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
 
-        jTabbedPane1.setMaximumSize(new java.awt.Dimension(833, 515));
-        jTabbedPane1.setMinimumSize(new java.awt.Dimension(833, 515));
-        jTabbedPane1.setPreferredSize(new java.awt.Dimension(833, 515));
+        testTabbedPane.setMaximumSize(new java.awt.Dimension(833, 515));
+        testTabbedPane.setMinimumSize(new java.awt.Dimension(833, 515));
+        testTabbedPane.setPreferredSize(new java.awt.Dimension(833, 515));
 
         newEditPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -505,7 +510,7 @@ public class TestPanel extends javax.swing.JPanel {
         });
         newEditPanel.add(avaliacaoFinalizadaCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 427, -1, -1));
 
-        jTabbedPane1.addTab("Nova Avaliação / Editar Avaliação", newEditPanel);
+        testTabbedPane.addTab("Nova Avaliação / Editar Avaliação", newEditPanel);
 
         controlPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -569,17 +574,17 @@ public class TestPanel extends javax.swing.JPanel {
         });
         controlPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(609, 427, -1, -1));
 
-        jTabbedPane1.addTab("Controle de Avaliações", controlPanel);
+        testTabbedPane.addTab("Controle de Avaliações", controlPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(testTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(testTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1094,6 +1099,10 @@ public class TestPanel extends javax.swing.JPanel {
  
     }//GEN-LAST:event_avaliacaoFinalizadaCheckBoxActionPerformed
 
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+        this.testTabbedPane.setSelectedIndex(0);
+    }//GEN-LAST:event_formComponentHidden
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox avaliacaoFinalizadaCheckBox;
     private javax.swing.JButton buttonSave;
@@ -1133,7 +1142,6 @@ public class TestPanel extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private static javax.swing.JLabel label20MetersRun;
     private static javax.swing.JLabel labelBodyMass;
@@ -1157,6 +1165,7 @@ public class TestPanel extends javax.swing.JPanel {
     private static javax.swing.JRadioButton radioSitAndAchieveWithSeat;
     private static javax.swing.JRadioButton radioSitAndAchieveWithoutSeat;
     private javax.swing.ButtonGroup runningButtonGroup;
+    private javax.swing.JTabbedPane testTabbedPane;
     // End of variables declaration//GEN-END:variables
     private static boolean turmaAdicionada;
     private static int numeroDeTurmasAdicionadas = 0;
@@ -1645,7 +1654,7 @@ public class TestPanel extends javax.swing.JPanel {
 
     public void clearAll() {
         //implementar!
-        this.jTabbedPane1.setSelectedIndex(0);
+        this.testTabbedPane.setSelectedIndex(0);
     }
     
     private void clearJTable(){
