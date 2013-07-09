@@ -171,7 +171,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="name">
               <Properties>
-                <Property name="toolTipText" type="java.lang.String" value="teste"/>
+                <Property name="toolTipText" type="java.lang.String" value="Nome e Sobrenome"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -180,6 +180,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="mother">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Entre com o nome da M&#xe3;e do Aluno"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="304" y="238" width="396" height="-1"/>
@@ -187,6 +190,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="father">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Entre com o nome do Pai do Aluno (Opcional)"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="304" y="271" width="396" height="-1"/>
@@ -194,6 +200,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="telephone">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Entre com o Telefone (Opcional)"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="304" y="304" width="396" height="-1"/>
@@ -201,6 +210,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="address">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Entre com o Endere&#xe7;o"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="304" y="172" width="396" height="-1"/>
@@ -208,6 +220,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="mobile">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Entre com o Celular do Aluno (Opcional)"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="304" y="337" width="396" height="-1"/>
@@ -215,6 +230,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="email">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Entre com o E-mail do Aluno (Opcional)"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="304" y="371" width="396" height="-1"/>
@@ -224,6 +242,7 @@
             <Component class="javax.swing.JButton" name="createButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
+                <Property name="toolTipText" type="java.lang.String" value="Clique aqui para Finalizar o Cadastro do Aluno"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createButtonActionPerformed"/>
@@ -255,6 +274,7 @@
                     <StringItem index="1" value="Feminino"/>
                   </StringArray>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Selecione o G&#xea;nero"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -276,6 +296,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="city">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Entre com a Cidade / Estado"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="304" y="205" width="396" height="-1"/>
@@ -283,6 +306,9 @@
               </Constraints>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="birthday">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Clique no bot&#xe3;o &#xe0; direita "/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="304" y="106" width="396" height="-1"/>
@@ -294,6 +320,7 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Selecione uma Turma (Opcional)"/>
               </Properties>
               <Events>
                 <EventHandler event="popupMenuWillBecomeVisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="turmaPopupMenuWillBecomeVisible"/>
@@ -410,6 +437,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="editMother">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Entre com o nome da M&#xe3;e do Aluno"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="304" y="238" width="396" height="-1"/>
@@ -417,6 +447,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="editFather">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Entre com o nome do Pai do Aluno (Opcional)"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="304" y="271" width="396" height="-1"/>
@@ -424,6 +457,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="editTelephone">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Entre com o Telefone (Opcional)"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="304" y="304" width="396" height="-1"/>
@@ -431,6 +467,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="editAddress">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Entre com o Endere&#xe7;o"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="304" y="172" width="396" height="-1"/>
@@ -438,6 +477,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="editMobile">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Entre com o Celular do Aluno (Opcional)"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="304" y="337" width="396" height="-1"/>
@@ -445,6 +487,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="editEmail">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Entre com o E-mail do Aluno (Opcional)"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="304" y="371" width="396" height="-1"/>
@@ -456,6 +501,7 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Selecione um Aluno ja Cadastrado"/>
               </Properties>
               <Events>
                 <EventHandler event="popupMenuWillBecomeVisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="editNamePopupMenuWillBecomeVisible"/>
@@ -470,6 +516,7 @@
             <Component class="javax.swing.JButton" name="editSaveButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salvar"/>
+                <Property name="toolTipText" type="java.lang.String" value="Cique aqui para salvar as altera&#xe7;&#xf5;es feitas no cadastro do Aluno"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editSaveButtonActionPerformed"/>
@@ -498,6 +545,7 @@
                     <StringItem index="1" value="Feminino"/>
                   </StringArray>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Selecione o G&#xea;nero"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -516,6 +564,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="editCity">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Entre com a Cidade / Estado"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="304" y="205" width="396" height="-1"/>
@@ -524,6 +575,7 @@
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="editBirthday">
               <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Data de Nascimento n&#xe3;o pode ser alterada"/>
                 <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[396, 27]"/>
                 </Property>
@@ -539,6 +591,7 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Selecione uma Turma (Opcional)"/>
               </Properties>
               <Events>
                 <EventHandler event="popupMenuWillBecomeVisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="editTurmaPopupMenuWillBecomeVisible"/>

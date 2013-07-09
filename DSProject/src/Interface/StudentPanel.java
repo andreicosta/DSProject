@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.io.IOException;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
+import javax.swing.ToolTipManager;
 
 public class StudentPanel extends javax.swing.JPanel {
     Calendar idadeMin;
@@ -128,16 +129,29 @@ public class StudentPanel extends javax.swing.JPanel {
         labelEmail.setText("E-mail");
         newStudentPanel.add(labelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 376, -1, -1));
 
-        name.setToolTipText("teste");
+        name.setToolTipText("Nome e Sobrenome");
         newStudentPanel.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 40, 396, -1));
+
+        mother.setToolTipText("Entre com o nome da Mãe do Aluno");
         newStudentPanel.add(mother, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 238, 396, -1));
+
+        father.setToolTipText("Entre com o nome do Pai do Aluno (Opcional)");
         newStudentPanel.add(father, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 271, 396, -1));
+
+        telephone.setToolTipText("Entre com o Telefone (Opcional)");
         newStudentPanel.add(telephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 304, 396, -1));
+
+        address.setToolTipText("Entre com o Endereço");
         newStudentPanel.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 172, 396, -1));
+
+        mobile.setToolTipText("Entre com o Celular do Aluno (Opcional)");
         newStudentPanel.add(mobile, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 337, 396, -1));
+
+        email.setToolTipText("Entre com o E-mail do Aluno (Opcional)");
         newStudentPanel.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 371, 396, -1));
 
         createButton.setText("Cadastrar");
+        createButton.setToolTipText("Clique aqui para Finalizar o Cadastro do Aluno");
         createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createButtonActionPerformed(evt);
@@ -149,13 +163,19 @@ public class StudentPanel extends javax.swing.JPanel {
         newStudentPanel.add(labelGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 144, -1, -1));
 
         gender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
+        gender.setToolTipText("Selecione o Gênero");
         newStudentPanel.add(gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 139, 396, -1));
 
         labelCity.setText("Cidade/Estado");
         newStudentPanel.add(labelCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 210, -1, -1));
+
+        city.setToolTipText("Entre com a Cidade / Estado");
         newStudentPanel.add(city, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 205, 396, -1));
+
+        birthday.setToolTipText("Clique no botão à direita ");
         newStudentPanel.add(birthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 106, 396, -1));
 
+        turma.setToolTipText("Selecione uma Turma (Opcional)");
         turma.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
@@ -197,13 +217,26 @@ public class StudentPanel extends javax.swing.JPanel {
 
         editLabelEmail.setText("E-mail");
         editStudentPanel.add(editLabelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 376, -1, -1));
+
+        editMother.setToolTipText("Entre com o nome da Mãe do Aluno");
         editStudentPanel.add(editMother, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 238, 396, -1));
+
+        editFather.setToolTipText("Entre com o nome do Pai do Aluno (Opcional)");
         editStudentPanel.add(editFather, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 271, 396, -1));
+
+        editTelephone.setToolTipText("Entre com o Telefone (Opcional)");
         editStudentPanel.add(editTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 304, 396, -1));
+
+        editAddress.setToolTipText("Entre com o Endereço");
         editStudentPanel.add(editAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 172, 396, -1));
+
+        editMobile.setToolTipText("Entre com o Celular do Aluno (Opcional)");
         editStudentPanel.add(editMobile, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 337, 396, -1));
+
+        editEmail.setToolTipText("Entre com o E-mail do Aluno (Opcional)");
         editStudentPanel.add(editEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 371, 396, -1));
 
+        editName.setToolTipText("Selecione um Aluno ja Cadastrado");
         editName.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
@@ -217,6 +250,7 @@ public class StudentPanel extends javax.swing.JPanel {
         editStudentPanel.add(editName, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 30, 396, -1));
 
         editSaveButton.setText("Salvar");
+        editSaveButton.setToolTipText("Cique aqui para salvar as alterações feitas no cadastro do Aluno");
         editSaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editSaveButtonActionPerformed(evt);
@@ -228,15 +262,20 @@ public class StudentPanel extends javax.swing.JPanel {
         editStudentPanel.add(editLabelGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 144, -1, -1));
 
         editGender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
+        editGender.setToolTipText("Selecione o Gênero");
         editStudentPanel.add(editGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 139, 396, -1));
 
         editLabelCity.setText("Cidade/Estado");
         editStudentPanel.add(editLabelCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 210, -1, -1));
+
+        editCity.setToolTipText("Entre com a Cidade / Estado");
         editStudentPanel.add(editCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 205, 396, -1));
 
+        editBirthday.setToolTipText("Data de Nascimento não pode ser alterada");
         editBirthday.setPreferredSize(new java.awt.Dimension(396, 27));
         editStudentPanel.add(editBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 106, -1, -1));
 
+        editTurma.setToolTipText("Selecione uma Turma (Opcional)");
         editTurma.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
