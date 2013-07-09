@@ -163,13 +163,6 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="Interface.PersonalInformationPanel" name="personalInformationPanel1">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="cardPersonalInformation"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Component class="Interface.SendPanel" name="sendPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
