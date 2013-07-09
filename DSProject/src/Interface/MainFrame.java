@@ -3,18 +3,11 @@ package Interface;
 import dsproject.Escola;
 import java.io.IOException;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 public class MainFrame extends javax.swing.JFrame {
 
     public MainFrame() {
-        try {
-            initComponents();
-            Escola escola = Escola.getInstance();
-            escola.carregar();
-        } catch (IOException | ClassNotFoundException ex) {
-            System.err.println(ex);
-        }
+        initComponents();
     }
 
     /**
@@ -215,9 +208,8 @@ public class MainFrame extends javax.swing.JFrame {
     public MainPanel getMainPanel1() {
         return this.mainPanel1;
     }
-    
+
     public NewTeacherPanel getNewTeacherPanel1() {
         return this.newTeacherPanel1;
     }
-    
 }

@@ -100,7 +100,7 @@ public class MainPanel extends javax.swing.JPanel {
 
         displayPanel.setPreferredSize(new java.awt.Dimension(833, 515));
         displayPanel.setLayout(new java.awt.CardLayout());
-        displayPanel.add(welcomePanel2, "card9");
+        displayPanel.add(welcomePanel2, "cardWelcome");
         displayPanel.add(classPanel1, "cardClass");
         displayPanel.add(importPanel1, "cardImport");
         displayPanel.add(sendPanel1, "cardSend");
