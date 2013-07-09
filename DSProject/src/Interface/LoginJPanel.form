@@ -111,7 +111,7 @@
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JLabel(new ImageIcon(pic))"/>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="try{&#xa;    BufferedImage pic = ImageIO.read(new File(&quot;prodown.png&quot;));"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="try{&#xa;    BufferedImage pic = ImageIO.read(new File(&quot;images/prodown.png&quot;));"/>
         <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="*/&#xa;}catch(Exception e){&#xa;    jLabel1.setText(&quot;&quot;);&#xa;}"/>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="/*"/>
       </AuxValues>

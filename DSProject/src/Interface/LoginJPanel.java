@@ -40,7 +40,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         cadbut = new javax.swing.JButton();
         campocpflogin = new javax.swing.JFormattedTextField();
         try{
-            BufferedImage pic = ImageIO.read(new File("prodown.png"));
+            BufferedImage pic = ImageIO.read(new File("images/prodown.png"));
             jLabel3 = new javax.swing.JLabel(new ImageIcon(pic));
 
             setPreferredSize(new java.awt.Dimension(995, 515));
