@@ -513,6 +513,7 @@ public class ClassPanel extends javax.swing.JPanel {
     
     private void attListaAlunosCad() {
         listaAlunosSemTurmaCad.removeAllElements();
+        listaAlunosMatriculadosCad.removeAllElements();
         Professor tmpProf = Escola.getInstance().getLogado();
         if (tmpProf != null) {
             Turma tmpTurma = tmpProf.getTurmas().get(0);
