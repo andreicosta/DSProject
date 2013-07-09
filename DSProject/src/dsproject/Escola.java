@@ -622,7 +622,9 @@ public class Escola {
     }
     
     public boolean exportar(String path){
+        System.out.println("Caminho: " + path);
         try{
+            System.out.println();
             ObjectOutputStream out;
             out = new ObjectOutputStream(new FileOutputStream(path));
             out.writeObject(this.getLogado());
@@ -636,6 +638,7 @@ public class Escola {
     }
     
     public boolean importar(String path) {
+        System.out.println("Caminho: " + path);
         try{
             Professor p, tmp;
             ObjectInputStream in;

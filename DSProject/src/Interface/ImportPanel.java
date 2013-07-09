@@ -71,7 +71,7 @@ public class ImportPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-            UIManager.put("FileChooser.openButtonText", "Abrir"); 
+        UIManager.put("FileChooser.openButtonText", "Abrir"); 
         
         File file;
         JFileChooser arquivo = new JFileChooser();    
@@ -92,7 +92,7 @@ public class ImportPanel extends javax.swing.JPanel {
               String extensao = nomeArquivo.substring(e);  
                 
               if(extensao.equals(".pdo")){
-                  Escola.getInstance().importar(nomeArquivo);
+                  Escola.getInstance().importar(file.getAbsolutePath());
               }  
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -121,7 +121,7 @@ public class ImportPanel extends javax.swing.JPanel {
               String extensao = nomeArquivo.substring(e);  
                 
               if(extensao.equals(".pdo")){
-                  Escola.getInstance().exportar(nomeArquivo);
+                  Escola.getInstance().exportar(file.getAbsolutePath());
               }  
       }   
     }//GEN-LAST:event_jButton2ActionPerformed
