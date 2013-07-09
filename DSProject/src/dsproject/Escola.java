@@ -422,9 +422,10 @@ public class Escola {
 
             a.setTurma(tmp);
             a.setAvaliacoes(ava);
-
-
-            salvarAvaliacoes(a);
+            
+            if (all) {
+                salvarAvaliacoes(a);
+            }
         } catch (IOException ex) {
             System.err.println(ex);
         }
@@ -496,10 +497,10 @@ public class Escola {
                 for (int i = 0; lista != null && i < lista.length; i++) {
                     if (!lista[i].equalsIgnoreCase("info.dat")) {
                         System.out.println("Turma em: " + lista[i]);
-                        turmas.add(carregarTurma(diretorio + "/turmas/" + lista[i]));
+                        turmas.add(0, carregarTurma(diretorio + "/turmas/" + lista[i]));
                     }
                 }
-
+                
                 p.setTurmas(turmas);
             }
             return p;
@@ -606,11 +607,49 @@ public class Escola {
         }
         // Agora o diretório está vazio, restando apenas deletá-lo.  
         return dir.delete();
-
     }
 
     public void logout() {
         this.logado = null;
         this.islogado = false;
     }
+    
+    public boolean exportar(String path){
+        try{
+            ObjectOutputStream out;
+            out = new ObjectOutputStream(new FileOutputStream(path));
+            out.writeObject(this.getLogado());
+            out.close();
+            return true;
+        }
+        catch (IOException ex) {
+            System.err.println(ex);
+            return false;
+        }
+    }
+    
+    public boolean importar(String path) {
+        try{
+            Professor p;
+            ObjectInputStream in;
+            
+            in = new ObjectInputStream(new FileInputStream(path));
+            p = (Professor)in.readObject();
+            in.close();
+            
+            for (Turma t : p.getTurmas()){
+                for (Aluno a : t.buscaTodosAlunos()){
+                    
+                }
+            }
+            
+            
+            return true;
+        }
+        catch (IOException | ClassNotFoundException ex) {
+            System.err.println(ex);
+            return false;
+        }
+    }
+    
 }
