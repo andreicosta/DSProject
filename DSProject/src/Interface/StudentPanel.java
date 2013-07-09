@@ -4,6 +4,8 @@ import dsproject.*;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.ToolTipManager;
 
@@ -421,7 +423,7 @@ public class StudentPanel extends javax.swing.JPanel {
        if (!flag) {
            
            try{
-               Aluno.parse(nameNewStudent, newBirthday, newAddress, newCity, newMotherName, newFatherName);
+               Aluno.parse(nameNewStudent, newBirthday, newAddress, newCity, newMotherName, newFatherName, newEmail);
            }
            catch(Exception e){
                JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
@@ -471,7 +473,7 @@ public class StudentPanel extends javax.swing.JPanel {
         if (!flag) {
             
             try {
-                Aluno.parse(null, null, newAddress, newCity, newMotherName, newFatherName);
+                Aluno.parse(null, null, newAddress, newCity, newMotherName, newFatherName, newEmail);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
                 return;
@@ -497,7 +499,14 @@ public class StudentPanel extends javax.swing.JPanel {
             student.setTelefone(newTelephone);
             student.setCelular(newMobile);
             student.setEmail(newEmail);
-
+            
+            try {
+                Escola.getInstance().salvarAluno(student);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Erro ao salvar aluno", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
             clearEditStudent();
             JOptionPane.showMessageDialog(null, "Aluno editado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
             superPanel.getClassPanel().limpaCamposEditarTurma();

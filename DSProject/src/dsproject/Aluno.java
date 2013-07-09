@@ -47,12 +47,15 @@ public class Aluno implements Serializable {
     }
 
     public static void parse(String nome, Calendar nascimento, String endereco, String cidade,
-            String nomeMae, String nomePai) throws Exception {
-        
-        Pattern p = Pattern.compile("([a-z]+\\s)+[a-z]+");
+            String nomeMae, String nomePai, String email) throws Exception {
+        String temp;
+        Pattern p = Pattern.compile("([a-z]+\\s)+[a-z]+(\\s[a-z]+)*");
 
-        if(nome != null && !p.matcher(Aluno.removeAccents(nome.toLowerCase())).matches()){
-            throw new Exception("Erro no nome do Aluno");
+        if (nome != null) {
+            temp = Aluno.removeAccents(nome.toLowerCase());
+            if (!p.matcher(temp).matches()) {
+                throw new Exception("Erro no nome do Aluno");
+            }
         }
         
         if(!p.matcher(Aluno.removeAccents(nomeMae.toLowerCase())).matches()){
@@ -61,7 +64,23 @@ public class Aluno implements Serializable {
         
         if(!nomePai.isEmpty() && !p.matcher(Aluno.removeAccents(nomePai.toLowerCase())).matches()){
             throw new Exception("Erro no nome do Pai do Aluno");
+        }
+        
+        String EMAIL_PATTERN = 
+		"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+		+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        Pattern emailPattern = Pattern.compile(EMAIL_PATTERN);
+        
+        if(!email.isEmpty() && !emailPattern.matcher(email).matches()){
+            throw new Exception("Erro no e-mail");
+        }
+
+        Pattern cityPattern = Pattern.compile("[a-z]+/[a-z]+");
+        temp = Aluno.removeAccents(cidade.toLowerCase()).replaceAll(" ", "");
+        if(!cidade.isEmpty() && !cityPattern.matcher(temp).matches()){
+            throw new Exception("Erro no nome da cidade");
         }        
+    
     }
     
     private static String removeAccents(String str) {
