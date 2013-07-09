@@ -388,12 +388,6 @@ public class StudentPanel extends javax.swing.JPanel {
     }
 
     private String getFatherName() {
-        if (father.getText().isEmpty()) {
-            labelFather.setForeground(Color.red);
-            flag = true;
-            return null;
-        }
-        labelFather.setForeground(Color.black);
         return father.getText();
     }
 
@@ -644,12 +638,6 @@ public class StudentPanel extends javax.swing.JPanel {
     }
 
     private String getEditFatherName() {
-        if (editFather.getText().isEmpty()) {
-            editLabelFather.setForeground(Color.red);
-            flag = true;
-            return null;
-        }
-        editLabelFather.setForeground(Color.black);
         return editFather.getText();
     }
 

@@ -59,7 +59,7 @@ public class Aluno implements Serializable {
             throw new Exception("Erro no nome da Mãe do Aluno");
         }
         
-        if(!p.matcher(Aluno.removeAccents(nomePai.toLowerCase())).matches()){
+        if(!nomePai.isEmpty() && !p.matcher(Aluno.removeAccents(nomePai.toLowerCase())).matches()){
             throw new Exception("Erro no nome do Pai do Aluno");
         }        
     }
