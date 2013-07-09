@@ -81,7 +81,6 @@ public class Turma implements Serializable, Cloneable
       Turma semTurma = Escola.getInstance().getLogado().getTurmas().get(0);
       for (Aluno i: alunos){
           try {
-               //this.removeAluno(i);
               semTurma.inserirAluno(i);
           } catch (Exception e) {
               Logger.getLogger(Turma.class.getName()).log(Level.SEVERE, null, e);
