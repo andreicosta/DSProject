@@ -104,7 +104,7 @@ public class ImportPanel extends javax.swing.JPanel {
         File file;
         JFileChooser arquivo = new JFileChooser();
         
-        arquivo.setDialogTitle("Selecione um arquivo para importar");    
+        arquivo.setDialogTitle("Selecione um arquivo para exportar");    
         arquivo.setFileSelectionMode(JFileChooser.FILES_ONLY);    
         FileNameExtensionFilter filter = new FileNameExtensionFilter("PDO Files", new String[]{"pdo"});    
         arquivo.setFileFilter(filter);          
