@@ -498,7 +498,12 @@ public class Escola {
                 for (int i = 0; lista != null && i < lista.length; i++) {
                     if (!lista[i].equalsIgnoreCase("info.dat")) {
                         t = carregarTurma(diretorio + "/turmas/" + lista[i]);
-                        turmas.add(0, t);
+                        if ("Sem Turma".equals(t.getId()) && "0".equals(t.getAno())){
+                            turmas.add(0, t);
+                        }
+                        else{
+                            turmas.add(t);
+                        }
                         System.out.println("Turma: " + t.getId());
                     }
                 }
