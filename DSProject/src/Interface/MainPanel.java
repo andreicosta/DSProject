@@ -30,7 +30,6 @@ public class MainPanel extends javax.swing.JPanel {
         welcomePanel2 = new Interface.WelcomePanel();
         classPanel1 = new Interface.ClassPanel(this);
         importPanel1 = new Interface.ImportPanel();
-        personalInformationPanel1 = new Interface.PersonalInformationPanel();
         sendPanel1 = new Interface.SendPanel();
         studentPanel1 = new Interface.StudentPanel(this);
         testPanel1 = new Interface.TestPanel();
@@ -101,10 +100,9 @@ public class MainPanel extends javax.swing.JPanel {
 
         displayPanel.setPreferredSize(new java.awt.Dimension(833, 515));
         displayPanel.setLayout(new java.awt.CardLayout());
-        displayPanel.add(welcomePanel2, "card9");
+        displayPanel.add(welcomePanel2, "cardWelcome");
         displayPanel.add(classPanel1, "cardClass");
         displayPanel.add(importPanel1, "cardImport");
-        displayPanel.add(personalInformationPanel1, "cardPersonalInformation");
         displayPanel.add(sendPanel1, "cardSend");
         displayPanel.add(studentPanel1, "cardStudent");
         displayPanel.add(testPanel1, "cardTest");
@@ -166,7 +164,6 @@ public class MainPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel leftBarPanel;
     private javax.swing.JButton logoutButton;
-    private Interface.PersonalInformationPanel personalInformationPanel1;
     private javax.swing.JButton sendButton;
     private Interface.SendPanel sendPanel1;
     private javax.swing.JButton studentButton;

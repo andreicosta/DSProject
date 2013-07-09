@@ -142,7 +142,7 @@
         <Component class="Interface.WelcomePanel" name="welcomePanel2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card9"/>
+              <CardConstraints cardName="cardWelcome"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -160,13 +160,6 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="cardImport"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="Interface.PersonalInformationPanel" name="personalInformationPanel1">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="cardPersonalInformation"/>
             </Constraint>
           </Constraints>
         </Component>
