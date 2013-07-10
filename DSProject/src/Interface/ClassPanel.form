@@ -84,9 +84,6 @@
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoTurmaKeyTyped"/>
               </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
-              </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="265" y="21" width="110" height="-1"/>
@@ -468,7 +465,7 @@
                 <Component class="javax.swing.JTable" name="alunosListaTurmaTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="1" rowCount="24">
+                      <Table columnCount="1" rowCount="25">
                         <Column editable="false" title="Aluno" type="java.lang.Object"/>
                       </Table>
                     </Property>
@@ -503,7 +500,7 @@
                 <Component class="javax.swing.JTable" name="turmaAlunosTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="2" rowCount="24">
+                      <Table columnCount="2" rowCount="25">
                         <Column editable="false" title="Turma" type="java.lang.Object"/>
                         <Column editable="false" title="N&#xba; Alunos" type="java.lang.Object"/>
                       </Table>

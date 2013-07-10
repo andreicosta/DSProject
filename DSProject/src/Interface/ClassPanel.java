@@ -16,6 +16,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.CellEditorListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 
 public class ClassPanel extends javax.swing.JPanel {
@@ -285,6 +286,7 @@ public class ClassPanel extends javax.swing.JPanel {
                 {null},
                 {null},
                 {null},
+                {null},
                 {null}
             },
             new String [] {
@@ -308,6 +310,7 @@ public class ClassPanel extends javax.swing.JPanel {
         listSelectionModel.addListSelectionListener(new SharedListSelectionHandler());
         turmaAlunosTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null},
                 {null, null},
                 {null, null},
                 {null, null},
@@ -404,6 +407,13 @@ public class ClassPanel extends javax.swing.JPanel {
        clearJTable(turmaAlunosTable, 2);
        clearJTable(alunosListaTurmaTable, 1);
        Professor tmpProf = Escola.getInstance().getLogado();
+       
+        int rowsTotalSize = tmpProf.getTurmas().size();
+        if(rowsTotalSize > turmaAlunosTable.getRowCount()){
+            DefaultTableModel model = (DefaultTableModel) turmaAlunosTable.getModel();
+            model.setRowCount(rowsTotalSize);
+        }
+       
        int linha = 0;
        for (Turma turma : tmpProf.getTurmas()) {
            if (!turma.getId().equals("Sem Turma")) {
@@ -505,6 +515,7 @@ public class ClassPanel extends javax.swing.JPanel {
              }*/
             this.superPanel.getStudentPanel().clearEditStudent();
             limpaCamposCadastrarTurma();
+            this.campoTurma.requestFocus();
             return;
         } else {
             for (int i = 0; i < erroslist.size(); i++) {
@@ -628,11 +639,16 @@ public class ClassPanel extends javax.swing.JPanel {
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         attListaAlunosCad();
-
+        if(Escola.getInstance().getLogado() != null){
+            this.campoTurma.requestFocus();
+        }
     }//GEN-LAST:event_formComponentShown
 
     private void newClassPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_newClassPanelComponentShown
         attListaAlunosCad();
+        if(Escola.getInstance().getLogado() != null){
+            this.campoTurma.requestFocus();
+        }
     }//GEN-LAST:event_newClassPanelComponentShown
 
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
@@ -643,12 +659,17 @@ public class ClassPanel extends javax.swing.JPanel {
         listaAlunos();
     }//GEN-LAST:event_turmaAlunosTableMouseClicked
 
-    private void turmaAlunosTableValueChanged(ListSelectionEvent evt) {
-    }
 
     public void listaAlunos() {
         int secLinha = turmaAlunosTable.getSelectedRow();
         Turma selecTurma = (Turma) turmaAlunosTable.getValueAt(secLinha, 0);
+        
+        int rowsTotalSize = selecTurma.getAlunosSize();
+        if(rowsTotalSize > alunosListaTurmaTable.getRowCount()){
+            DefaultTableModel model = (DefaultTableModel) alunosListaTurmaTable.getModel();
+            model.setRowCount(rowsTotalSize);
+        }
+
         if (selecTurma != null) {
             clearJTable(alunosListaTurmaTable, 1);
             int linha = 0;
@@ -703,7 +724,7 @@ public class ClassPanel extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup1;
     private static javax.swing.JTextField campoAnoLetivo;
     private javax.swing.JTextField campoAnoLetivoEditarTurma;
-    private static javax.swing.JTextField campoTurma;
+    private javax.swing.JTextField campoTurma;
     private javax.swing.JTabbedPane classTabbedPane;
     private javax.swing.JComboBox comboTurmaEditarTurma;
     private javax.swing.JComboBox comboTurmaRemoverTurma;
@@ -848,7 +869,7 @@ public class ClassPanel extends javax.swing.JPanel {
         ClassPanel.alunoAdicionadoComboAluno = studentAdded;
     }
 
-    public static String getCampoTurma() {
+    public String getCampoTurma() {
         return campoTurma.getText();
     }
 

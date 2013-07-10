@@ -141,7 +141,8 @@ public class LoginJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_loginpasswKeyTyped
 
 private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-    this.campocpflogin.requestFocus();
+    this.campocpflogin.requestFocus(true);
+    
     this.frame.setTitle("ProDown");
 }//GEN-LAST:event_formComponentShown
 

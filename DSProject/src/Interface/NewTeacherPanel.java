@@ -87,6 +87,12 @@ public class NewTeacherPanel extends javax.swing.JPanel {
         campoFormatadoCpf.setFormatterFactory(setFormatoData());
         jPanel1.add(campoFormatadoCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 45, 427, -1));
         jPanel1.add(campoPasswordSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 122, 427, -1));
+
+        campoPasswordConfirmarSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campoPasswordConfirmarSenhaKeyTyped(evt);
+            }
+        });
         jPanel1.add(campoPasswordConfirmarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 161, 427, -1));
 
         jTabbedPane1.addTab("Cadastrar Professor", jPanel1);
@@ -104,6 +110,10 @@ public class NewTeacherPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        this.save();
+    }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void save() {
         errorflag = false;
 
         char[] password = campoPasswordSenha.getPassword();
@@ -186,7 +196,7 @@ public class NewTeacherPanel extends javax.swing.JPanel {
                 }
             }
         }
-    }//GEN-LAST:event_saveButtonActionPerformed
+    }
 
     private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
         clear();
@@ -197,6 +207,12 @@ public class NewTeacherPanel extends javax.swing.JPanel {
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         campoFormatadoCpf.requestFocus();
     }//GEN-LAST:event_formComponentShown
+
+    private void campoPasswordConfirmarSenhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoPasswordConfirmarSenhaKeyTyped
+        if (evt.getKeyChar() == '\n') {
+            this.save();
+        }
+    }//GEN-LAST:event_campoPasswordConfirmarSenhaKeyTyped
     private ArrayList<Integer> erroscadlist;
     private boolean errorflag;
     private MaskFormatter cpfmask;
@@ -216,11 +232,10 @@ public class NewTeacherPanel extends javax.swing.JPanel {
     private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
 
-   
-   public void campoFormatadoCpfRequestFocus(){
-       campoFormatadoCpf.requestFocus();
-   }
-   
+    public void campoFormatadoCpfRequestFocus() {
+        campoFormatadoCpf.requestFocus();
+    }
+
     public static JLabel getLabelCpf() {
         return labelCpf;
     }

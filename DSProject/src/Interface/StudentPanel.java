@@ -7,9 +7,10 @@ import java.util.Calendar;
 import javax.swing.JOptionPane;
 
 public class StudentPanel extends javax.swing.JPanel {
+
     Calendar idadeMin;
     private MainPanel superPanel;
-    
+
     public StudentPanel() {
         initComponents();
         idadeMin = Calendar.getInstance();
@@ -19,7 +20,7 @@ public class StudentPanel extends javax.swing.JPanel {
         this.birthday.setSelectableDateRange(idadeMax.getTime(), idadeMin.getTime());
         this.birthday.setDate(idadeMin.getTime());
     }
-    
+
     public StudentPanel(MainPanel superPanel) {
         initComponents();
         this.superPanel = superPanel;
@@ -30,7 +31,7 @@ public class StudentPanel extends javax.swing.JPanel {
         this.birthday.setSelectableDateRange(idadeMax.getTime(), idadeMin.getTime());
         this.birthday.setDate(idadeMin.getTime());
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -97,11 +98,19 @@ public class StudentPanel extends javax.swing.JPanel {
             public void componentHidden(java.awt.event.ComponentEvent evt) {
                 formComponentHidden(evt);
             }
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
         });
 
         studentTabbedPane.setMinimumSize(new java.awt.Dimension(833, 515));
         studentTabbedPane.setPreferredSize(new java.awt.Dimension(833, 515));
 
+        newStudentPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                newStudentPanelComponentShown(evt);
+            }
+        });
         newStudentPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelName.setText("Nome Completo");
@@ -330,7 +339,7 @@ public class StudentPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-	/*MÉTODOS NO CRIAR ALUNO*/
+    /*MÉTODOS NO CRIAR ALUNO*/
     private String getNameStudent() {
         if (name.getText().isEmpty()) {
             labelName.setForeground(Color.red);
@@ -401,53 +410,53 @@ public class StudentPanel extends javax.swing.JPanel {
     private String getEmail() {
         return email.getText();
     }
-    
-    /*MÉTODOS DE EVENTOS*/
-   private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
-       flag = false;
-       String nameNewStudent = getNameStudent();
-       Turma newTurma = getTurma();
-       Calendar newBirthday = getBirthday();
-       String newGender = getGender();
-       String newAddress = getAddress();
-       String newCity = getCity();
-       String newMotherName = getMotherName();
-       String newFatherName = getFatherName();
-       String newTelephone = getTelephone();
-       String newMobile = getMobile();
-       String newEmail = getEmail();
-              
-       if (!flag) {
-           
-           try{
-               if (Escola.getInstance().getProfessorLogado().haveYouAStudentWithThisName(nameNewStudent)) {
-                   throw new Exception("Aluno já existente");
-               }
-               Aluno.parse(nameNewStudent, newBirthday, newTelephone, newMobile, newCity, newMotherName, newFatherName, newEmail);
-           }
-           catch(Exception e){
-               JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-               return;
-           }
-           
-           Aluno student = new Aluno(nameNewStudent, newTurma, newBirthday, newGender, newAddress, newCity, newMotherName, newFatherName, newTelephone, newMobile, newEmail);
-                      
-           try{
-               newTurma.inserirAluno(student);
-           } catch (Exception e) {
-               try {
-                   Escola.getInstance().getLogado().getTurmaDefault().inserirAluno(student);
-                   System.out.println("aluno adicionado sem turma");
-               } catch (IOException ex) {
-                   System.out.println("problemas em adicionar aluno na turma");
-               }
-           }
 
-           clearNewStudent();
-           JOptionPane.showMessageDialog(null, "Aluno "+student.toString()+" criado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
-           superPanel.getClassPanel().limpaCamposEditarTurma();
-       }
-   }                                                
+    /*MÉTODOS DE EVENTOS*/
+    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        flag = false;
+        String nameNewStudent = getNameStudent();
+        Turma newTurma = getTurma();
+        Calendar newBirthday = getBirthday();
+        String newGender = getGender();
+        String newAddress = getAddress();
+        String newCity = getCity();
+        String newMotherName = getMotherName();
+        String newFatherName = getFatherName();
+        String newTelephone = getTelephone();
+        String newMobile = getMobile();
+        String newEmail = getEmail();
+
+        if (!flag) {
+
+            try {
+                if (Escola.getInstance().getProfessorLogado().haveYouAStudentWithThisName(nameNewStudent)) {
+                    throw new Exception("Aluno já existente");
+                }
+                Aluno.parse(nameNewStudent, newBirthday, newTelephone, newMobile, newCity, newMotherName, newFatherName, newEmail);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            Aluno student = new Aluno(nameNewStudent, newTurma, newBirthday, newGender, newAddress, newCity, newMotherName, newFatherName, newTelephone, newMobile, newEmail);
+
+            try {
+                newTurma.inserirAluno(student);
+            } catch (Exception e) {
+                try {
+                    Escola.getInstance().getLogado().getTurmaDefault().inserirAluno(student);
+                    System.out.println("aluno adicionado sem turma");
+                } catch (IOException ex) {
+                    System.out.println("problemas em adicionar aluno na turma");
+                }
+            }
+
+            clearNewStudent();
+            JOptionPane.showMessageDialog(null, "Aluno " + student.toString() + " criado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
+            superPanel.getClassPanel().limpaCamposEditarTurma();
+            this.name.requestFocus();
+        }
+    }
 
    private void deleteComboPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt){//GEN-FIRST:event_deleteComboPopupMenuWillBecomeVisible
        this.deleteCombo.removeAllItems();
@@ -468,16 +477,16 @@ public class StudentPanel extends javax.swing.JPanel {
         String newTelephone = getEditTelephone();
         String newMobile = getEditMobile();
         String newEmail = getEditEmail();
-        
+
         if (!flag) {
-            
+
             try {
                 Aluno.parse(null, null, newTelephone, newMobile, newCity, newMotherName, newFatherName, newEmail);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
                 return;
-            } 
-   
+            }
+
             try {
                 Turma turm = student.getTurma();
                 if (!turm.equals(newTurma)) {
@@ -488,7 +497,7 @@ public class StudentPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Erro ao mover aluno da turma", "Erro", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            
+
             student.setGenero(newGender);
             student.setEndereco(newAddress);
             student.setCidade(newCity);
@@ -497,14 +506,14 @@ public class StudentPanel extends javax.swing.JPanel {
             student.setTelefone(newTelephone);
             student.setCelular(newMobile);
             student.setEmail(newEmail);
-            
+
             try {
                 Escola.getInstance().salvarAluno(student);
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Erro ao salvar aluno", "Erro", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            
+
             clearEditStudent();
             JOptionPane.showMessageDialog(null, "Aluno editado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
             superPanel.getClassPanel().limpaCamposEditarTurma();
@@ -514,35 +523,35 @@ public class StudentPanel extends javax.swing.JPanel {
     private void turmaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_turmaPopupMenuWillBecomeVisible
         this.turma.removeAllItems();
         System.out.println(Escola.getInstance().getLogado().getTurmas());
-        for (Turma i : Escola.getInstance().getLogado().getTurmas()){
+        for (Turma i : Escola.getInstance().getLogado().getTurmas()) {
             this.turma.addItem(i);
         }
     }//GEN-LAST:event_turmaPopupMenuWillBecomeVisible
 
     private void editTurmaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_editTurmaPopupMenuWillBecomeVisible
         this.editTurma.removeAllItems();
-        for(Turma i : Escola.getInstance().getLogado().getTurmas()){
+        for (Turma i : Escola.getInstance().getLogado().getTurmas()) {
             this.editTurma.addItem(i);
         }
     }//GEN-LAST:event_editTurmaPopupMenuWillBecomeVisible
 
     private void editNamePopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_editNamePopupMenuWillBecomeVisible
         this.editName.removeAllItems();
-        for(Aluno i: Escola.getInstance().getLogado().getAlunos()){
+        for (Aluno i : Escola.getInstance().getLogado().getAlunos()) {
             this.editName.addItem(i);
         }
     }//GEN-LAST:event_editNamePopupMenuWillBecomeVisible
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         Aluno student = (Aluno) this.deleteCombo.getSelectedItem();
-        
-        if (student != null){
+
+        if (student != null) {
             try {
                 student.getTurma().removeAluno(student);
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Erro ao remover aluno", "", JOptionPane.ERROR_MESSAGE);
             }
-            
+
             clearDeleteStudent();
             clearEditStudent();
             JOptionPane.showMessageDialog(null, "Aluno removido com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
@@ -552,19 +561,19 @@ public class StudentPanel extends javax.swing.JPanel {
 
     private void editNamePopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_editNamePopupMenuWillBecomeInvisible
         Aluno student = (Aluno) this.editName.getSelectedItem();
-        
-        if (student == null){
+
+        if (student == null) {
             clearEditStudent();
             return;
         }
-        
+
         this.editBirthday.setDate(student.getBirthday().getTime());
         this.editBirthday.setEnabled(false);
-        
+
         this.editTurma.removeAllItems();
         this.editTurma.addItem(student.getTurma());
         this.editTurma.setSelectedIndex(0);
-        
+
         this.editGender.setSelectedItem(student.getGenero());
         this.editAddress.setText(student.getEndereco());
         this.editCity.setText(student.getCidade());
@@ -579,18 +588,30 @@ public class StudentPanel extends javax.swing.JPanel {
         studentTabbedPane.setSelectedIndex(0);
     }//GEN-LAST:event_formComponentHidden
 
-	/*MÉTODOS NO EDITAR ALUNO*/
-    private Aluno getEditStudent(){
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        if (Escola.getInstance().getLogado() != null) {
+            this.name.requestFocus();
+        }
+    }//GEN-LAST:event_formComponentShown
+
+    private void newStudentPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_newStudentPanelComponentShown
+        if (Escola.getInstance().getLogado() != null) {
+            this.name.requestFocus();
+        }
+    }//GEN-LAST:event_newStudentPanelComponentShown
+
+    /*MÉTODOS NO EDITAR ALUNO*/
+    private Aluno getEditStudent() {
         Aluno temp = (Aluno) this.editName.getSelectedItem();
-        if (temp == null){
+        if (temp == null) {
             this.editLabelName.setForeground(Color.red);
             flag = true;
             return null;
         }
         this.editLabelName.setForeground(Color.black);
         return temp;
-    }    
-    
+    }
+
     private Turma getTurma() {
         return (Turma) this.turma.getSelectedItem();
     }
@@ -648,7 +669,6 @@ public class StudentPanel extends javax.swing.JPanel {
     private String getEditEmail() {
         return editEmail.getText();
     }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField address;
     private com.toedter.calendar.JDateChooser birthday;
@@ -707,7 +727,7 @@ public class StudentPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
     private boolean flag;
 
-	/*LIMPAR PANELS*/
+    /*LIMPAR PANELS*/
     public void clearNewStudent() {
         name.setText("");
         address.setText("");
@@ -733,12 +753,12 @@ public class StudentPanel extends javax.swing.JPanel {
         editFather.setText("");
         editTelephone.setText("");
     }
-    
-    public void clearDeleteStudent(){
+
+    public void clearDeleteStudent() {
         deleteCombo.removeAllItems();
     }
-    
-     public void clearAll(){
+
+    public void clearAll() {
         this.clearNewStudent();
         this.clearEditStudent();
         this.clearDeleteStudent();
