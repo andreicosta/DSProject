@@ -105,7 +105,7 @@ public class ImportPanel extends javax.swing.JPanel {
         
         arquivo.setDialogTitle("Selecione um arquivo para importar");    
         arquivo.setFileSelectionMode(JFileChooser.FILES_ONLY);    
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("PDO Files", new String[]{"pdo"});    
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("EPD Files", new String[]{"epd"});    
         arquivo.setFileFilter(filter);          
         arquivo.setAcceptAllFileFilterUsed(false);  
         arquivo.setMultiSelectionEnabled(false); 
@@ -118,7 +118,7 @@ public class ImportPanel extends javax.swing.JPanel {
               int e = nomeArquivo.lastIndexOf(".");  
               String extensao = nomeArquivo.substring(e);  
                 
-              if(extensao.equals(".pdo")){
+              if(extensao.equals(".epd")){
                   Escola.getInstance().importar(file.getAbsolutePath());
               }  
         }
@@ -133,7 +133,7 @@ public class ImportPanel extends javax.swing.JPanel {
         
         arquivo.setDialogTitle("Selecione o local para exportar o arquivo");    
         arquivo.setFileSelectionMode(JFileChooser.FILES_ONLY);    
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("PDO Files", new String[]{"pdo"});    
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("EPD Files", new String[]{"epd"});    
         arquivo.setFileFilter(filter);          
         arquivo.setAcceptAllFileFilterUsed(false);  
         arquivo.setMultiSelectionEnabled(false); 
@@ -145,12 +145,12 @@ public class ImportPanel extends javax.swing.JPanel {
 {
 	file = arquivo.getSelectedFile();
 
-	if (!file.getAbsolutePath().endsWith(".pdo"))
+	if (!file.getAbsolutePath().endsWith(".epd"))
 	{
             /*se o arquivo não termina com a extensão do filtro então ele põe todo o caminho do arquivo
              * mais o nome seguido da extensão do filtro
              */
-            file = new File(file.getAbsolutePath() + ".pdo");
+            file = new File(file.getAbsolutePath() + ".epd");
             Escola.getInstance().exportar(file.getAbsolutePath());
 	}
 	else
