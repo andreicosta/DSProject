@@ -234,8 +234,8 @@ public class Escola {
                 errorlist.add(0); // nao possui erros
                 this.professList.add(novoprof);
                 this.salvarProfessor(novoprof);
-                    //System.out.println(professList.size());
-                    //return (errorlist);
+                //System.out.println(professList.size());
+                //return (errorlist);
             }
         }
 
@@ -294,7 +294,7 @@ public class Escola {
         return this.logado;
     }
 
-    public void salvar(){
+    public void salvar() {
         Professor p;
         for (int i = 0; i < professList.size(); i++) {
             p = professList.get(i);
@@ -303,25 +303,24 @@ public class Escola {
     }
 
     /*
-    public void salvarContadores() throws IOException {
-        ArrayList<Integer> contadores = new ArrayList<>();
+     public void salvarContadores() throws IOException {
+     ArrayList<Integer> contadores = new ArrayList<>();
 
-        contadores.add(Professor.getCont());
-        contadores.add(Turma.getCont());
-        contadores.add(Aluno.getCont());
+     contadores.add(Professor.getCont());
+     contadores.add(Turma.getCont());
+     contadores.add(Aluno.getCont());
 
-        ObjectOutputStream out;
-        out = new ObjectOutputStream(new FileOutputStream("info.dat"));
-        out.writeObject(contadores);
-        out.close();
-    }
-    */
-
-    public void salvarProfessor(Professor p){
+     ObjectOutputStream out;
+     out = new ObjectOutputStream(new FileOutputStream("info.dat"));
+     out.writeObject(contadores);
+     out.close();
+     }
+     */
+    public void salvarProfessor(Professor p) {
         salvarProfessor(p, false);
     }
 
-    public void salvarProfessor(Professor p, boolean all){
+    public void salvarProfessor(Professor p, boolean all) {
 
         ArrayList<Turma> turmas = p.getTurmas();
         p.setTurmas(new ArrayList<Turma>());
@@ -334,31 +333,29 @@ public class Escola {
             f.mkdirs();
         }
 
-        try{
+        try {
             //salva o obj professor
             ObjectOutputStream out;
             out = new ObjectOutputStream(new FileOutputStream(diretorio + "/info.dat"));
             out.writeObject(p);
             out.close();
-        }
-        catch(IOException ex){
-            
+        } catch (IOException ex) {
         }
         if (all) {
             for (int i = 0; i < turmas.size(); i++) {
-                 t = turmas.get(i);
-                 this.salvarTurma(t, true);
+                t = turmas.get(i);
+                this.salvarTurma(t, true);
             }
         }
-            
+
         p.setTurmas(turmas);
     }
 
-    public void salvarTurma(Turma t){
+    public void salvarTurma(Turma t) {
         salvarTurma(t, false);
     }
 
-    public void salvarTurma(Turma t, boolean all){
+    public void salvarTurma(Turma t, boolean all) {
         //salva obj
         ArrayList<Aluno> alunos = t.buscaTodosAlunos();
         t.setAlunos(new ArrayList<Aluno>());
@@ -374,14 +371,12 @@ public class Escola {
 
 
         //salva o obj turma
-        try{
+        try {
             ObjectOutputStream out;
             out = new ObjectOutputStream(new FileOutputStream(t.getDir() + "/info.dat"));
             out.writeObject(t);
             out.close();
-        }
-        catch(IOException ex){
-            
+        } catch (IOException ex) {
         }
 
         if (all) {
@@ -394,47 +389,47 @@ public class Escola {
         t.setAlunos(alunos);
     }
 
-    public void salvarAluno(Aluno a){
+    public void salvarAluno(Aluno a) {
         salvarAluno(a, false);
     }
 
-    public void salvarAluno(Aluno a, boolean all){
+    public void salvarAluno(Aluno a, boolean all) {
         //salva aluno
         //salva arrayList de avaliaÃ§Ãµes do aluno
-        
-            File f;
-            f = new File(a.getDir());
-            if (!f.exists()) {
-                f.mkdirs();
-            }
 
-            Turma tmp = a.getTurma();
-            a.setTurma(null);
-            ArrayList<Avaliacao> ava = a.getAvaliacoes();
-            a.setAvaliacoes(null);
+        File f;
+        f = new File(a.getDir());
+        if (!f.exists()) {
+            f.mkdirs();
+        }
 
-            //salva o obj turma
-            try{
-                ObjectOutputStream out;
-                out = new ObjectOutputStream(new FileOutputStream(a.getDir() + "/info.dat"));
-                out.writeObject(a);
-                out.close();
-            } catch (IOException ex) {
-                System.err.println(ex);
-            }
+        Turma tmp = a.getTurma();
+        a.setTurma(null);
+        ArrayList<Avaliacao> ava = a.getAvaliacoes();
+        a.setAvaliacoes(null);
 
-            a.setTurma(tmp);
-            a.setAvaliacoes(ava);
-            
-            if (all) {
-                salvarAvaliacoes(a);
-            }
-        
+        //salva o obj turma
+        try {
+            ObjectOutputStream out;
+            out = new ObjectOutputStream(new FileOutputStream(a.getDir() + "/info.dat"));
+            out.writeObject(a);
+            out.close();
+        } catch (IOException ex) {
+            System.err.println(ex);
+        }
+
+        a.setTurma(tmp);
+        a.setAvaliacoes(ava);
+
+        if (all) {
+            salvarAvaliacoes(a);
+        }
+
     }
 
-    public void salvarAvaliacoes(Aluno a){
+    public void salvarAvaliacoes(Aluno a) {
         System.out.println(a.getNome());
-        try{
+        try {
             ObjectOutputStream out;
             out = new ObjectOutputStream(new FileOutputStream(a.getDir() + "/avaliacoes.dat"));
             out.writeObject(a.getAvaliacoes());
@@ -444,50 +439,53 @@ public class Escola {
         }
     }
 
-    public void carregar(){
-            //carregarContadores();
-            File f = new File("professores");
-            String lista[] = f.list();
-            ArrayList<Professor> professores = new ArrayList<>();
-            
-            int pro_cont = 0;
-            
-            Professor p;
-            for (int i = 0; lista != null && i < lista.length; i++) {
-                System.out.println("Professor em: " + lista[i]);
-                p = carregarProfessor("professores/" + lista[i]);
-                
-                if (p.getNumDir() > pro_cont) pro_cont = p.getNumDir();
-                
-                professores.add(p);
+    public void carregar() {
+        //carregarContadores();
+        File f = new File("professores");
+        String lista[] = f.list();
+        ArrayList<Professor> professores = new ArrayList<>();
+
+        int pro_cont = 0;
+
+        Professor p;
+        for (int i = 0; lista != null && i < lista.length; i++) {
+            System.out.println("Professor em: " + lista[i]);
+            p = carregarProfessor("professores/" + lista[i]);
+
+            if (p.getNumDir() > pro_cont) {
+                pro_cont = p.getNumDir();
             }
-            
-            this.setProfessList(professores);
-            
-            if (Professor.getCont() < pro_cont) Professor.setCont(pro_cont);
-            
-            System.out.println("Contadores: " + Professor.getCont() + " " + Turma.getCont() + " " + Aluno.getCont());
+
+            professores.add(p);
+        }
+
+        this.setProfessList(professores);
+
+        if (Professor.getCont() < pro_cont) {
+            Professor.setCont(pro_cont);
+        }
+
+        System.out.println("Contadores: " + Professor.getCont() + " " + Turma.getCont() + " " + Aluno.getCont());
     }
 
     /*
-    public void carregarContadores() throws ClassNotFoundException {
-        try {
-            FileInputStream file = new FileInputStream(new File("info.dat"));
-            ObjectInputStream in = new ObjectInputStream(file);
+     public void carregarContadores() throws ClassNotFoundException {
+     try {
+     FileInputStream file = new FileInputStream(new File("info.dat"));
+     ObjectInputStream in = new ObjectInputStream(file);
 
-            ArrayList<Integer> contadores = (ArrayList<Integer>) in.readObject();
+     ArrayList<Integer> contadores = (ArrayList<Integer>) in.readObject();
 
-            Professor.setCont(contadores.get(0));
-            Turma.setCont(contadores.get(1));
-            Aluno.setCont(contadores.get(2));
-            System.out.println("Contadores: " + contadores.get(0) + " " + contadores.get(1) + " " + contadores.get(2));
-        } catch (IOException ex) {
-            System.err.println(ex);
-        }
+     Professor.setCont(contadores.get(0));
+     Turma.setCont(contadores.get(1));
+     Aluno.setCont(contadores.get(2));
+     System.out.println("Contadores: " + contadores.get(0) + " " + contadores.get(1) + " " + contadores.get(2));
+     } catch (IOException ex) {
+     System.err.println(ex);
+     }
 
-    }*/
-
-    public Professor carregarProfessor(String diretorio){
+     }*/
+    public Professor carregarProfessor(String diretorio) {
         try {
             Professor p;
 
@@ -505,38 +503,41 @@ public class Escola {
 
                 ArrayList<Turma> turmas = new ArrayList<>();
                 Turma t;
-                
+
                 int tur_cont = 0;
 
                 for (int i = 0; lista != null && i < lista.length; i++) {
                     if (!lista[i].equalsIgnoreCase("info.dat")) {
                         t = carregarTurma(diretorio + "/turmas/" + lista[i]);
-                        
-                        if (t.getNumDir() > tur_cont) tur_cont = t.getNumDir();
-                        
-                        if ("Sem Turma".equals(t.getId()) && "1".equals(t.getAno())){
-                            turmas.add(0, t);
+
+                        if (t.getNumDir() > tur_cont) {
+                            tur_cont = t.getNumDir();
                         }
-                        else{
+
+                        if ("Sem Turma".equals(t.getId()) && "1".equals(t.getAno())) {
+                            turmas.add(0, t);
+                        } else {
                             turmas.add(t);
                         }
-                                                
+
                         System.out.println("Turma: " + t.getId());
                     }
                 }
-                
+
                 p.setTurmas(turmas);
-                
-                if (Turma.getCont() < tur_cont) Turma.setCont(tur_cont);
+
+                if (Turma.getCont() < tur_cont) {
+                    Turma.setCont(tur_cont);
+                }
             }
             return p;
-        } catch (IOException | ClassNotFoundException ex){
+        } catch (IOException | ClassNotFoundException ex) {
             System.err.println(ex);
             return null;
         }
     }
 
-    public Turma carregarTurma(String diretorio){
+    public Turma carregarTurma(String diretorio) {
         //salva obj
         try {
             Turma t;
@@ -552,7 +553,7 @@ public class Escola {
 
             ArrayList<Aluno> alunos = new ArrayList<>();
             Aluno tmp;
-            
+
             int alu_cont = 0;
 
             for (int i = 0; lista != null && i < lista.length; i++) {
@@ -561,24 +562,28 @@ public class Escola {
                     tmp = (carregarAluno(diretorio + "/alunos/" + lista[i]));
                     alunos.add(tmp);
                     tmp.setTurma(t);
-                    
-                    if (tmp.getNumDir() > alu_cont) alu_cont = tmp.getNumDir();
+
+                    if (tmp.getNumDir() > alu_cont) {
+                        alu_cont = tmp.getNumDir();
+                    }
                 }
             }
 
             t.setAlunos(alunos);
 
-            if (Aluno.getCont() < alu_cont) Aluno.setCont(alu_cont);
-            
+            if (Aluno.getCont() < alu_cont) {
+                Aluno.setCont(alu_cont);
+            }
+
             return t;
-        } catch (IOException | ClassNotFoundException ex){
+        } catch (IOException | ClassNotFoundException ex) {
             System.err.println(ex);
             return null;
         }
 
     }
 
-    public Aluno carregarAluno(String diretorio){
+    public Aluno carregarAluno(String diretorio) {
         try {
             Aluno a;
             //salva aluno
@@ -596,15 +601,14 @@ public class Escola {
             carregarAvaliacoes(a);
 
             return a;
-        }
-        catch (IOException | ClassNotFoundException ex){
+        } catch (IOException | ClassNotFoundException ex) {
             System.err.println(ex);
             return null;
         }
     }
 
-    public void carregarAvaliacoes(Aluno a){
-        try{
+    public void carregarAvaliacoes(Aluno a) {
+        try {
             FileInputStream file;
             ObjectInputStream in;
             file = new FileInputStream(new File(a.getDir() + "/avaliacoes.dat"));
@@ -614,8 +618,7 @@ public class Escola {
             in.close();
 
             a.setAvaliacoes(avaliacoes);
-        }
-        catch (IOException | ClassNotFoundException ex){
+        } catch (IOException | ClassNotFoundException ex) {
             System.err.println(ex);
         }
     }
@@ -650,108 +653,105 @@ public class Escola {
         this.logado = null;
         this.islogado = false;
     }
-    
-    public boolean exportar(String path){
+
+    public boolean exportar(String path) {
         System.out.println("Caminho: " + path);
-        try{
+        try {
             System.out.println();
             ObjectOutputStream out;
             out = new ObjectOutputStream(new FileOutputStream(path));
             out.writeObject(this.getLogado());
             out.close();
             return true;
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             System.err.println(ex);
             return false;
         }
     }
-    
+
     public boolean importar(String path) {
         System.out.println("Caminho: " + path);
-        try{
+        try {
             Professor p, tmp;
             ObjectInputStream in;
-            
+
             in = new ObjectInputStream(new FileInputStream(path));
-            tmp = (Professor)in.readObject();
+            tmp = (Professor) in.readObject();
             in.close();
-            
+
             p = this.getLogado();
             removeProfessor(p);
-            
+
             ArrayList<Turma> turmas;
             ArrayList<Aluno> alunos;
-            
+
             turmas = new ArrayList();
-            for (Turma t : tmp.getTurmas()){
+            for (Turma t : tmp.getTurmas()) {
                 t.setNumDir(Turma.getCont());
-                Turma.setCont(Turma.getCont()+1);
+                Turma.setCont(Turma.getCont() + 1);
                 t.setDir(p.getDir() + "/turmas/" + t.getNumDir());
-                
+
                 alunos = new ArrayList();
-                for (Aluno a : t.buscaTodosAlunos()){
+                for (Aluno a : t.buscaTodosAlunos()) {
                     a.setNumDir(Aluno.getCont());
-                    Aluno.setCont(Aluno.getCont()+1);
+                    Aluno.setCont(Aluno.getCont() + 1);
                     a.setDir(t.getDir() + "/alunos/" + a.getNumDir());
                     alunos.add(a);
                 }
-                
+
                 t.setAlunos(alunos);
-                if ("Sem Turma".equals(t.getId()) && "1".equals(t.getAno())){
-                    turmas.add(0,t);
-                }
-                else{
+                if ("Sem Turma".equals(t.getId()) && "1".equals(t.getAno())) {
+                    turmas.add(0, t);
+                } else {
                     turmas.add(t);
                 }
             }
-            
+
             p.setTurmas(turmas);
             salvarProfessor(p, true);
-            
+
             return true;
-        }
-        catch (IOException | ClassNotFoundException ex) {
+        } catch (IOException | ClassNotFoundException ex) {
             System.err.println(ex);
             return false;
         }
     }
-    
-    public void salvarParaEnviar(ArrayList<Turma> turmas, String path){
-        ArrayList <Aluno> paraEnviar = new ArrayList();
+
+    public void salvarParaEnviar(ArrayList<Turma> turmas, String path) {
+        ArrayList<Aluno> paraEnviar = new ArrayList();
         Avaliacao tmp;
-        
-        for (Turma t : turmas){
-            for (Aluno a : t.buscaTodosAlunos()){
+
+        for (Turma t : turmas) {
+            for (Aluno a : t.buscaTodosAlunos()) {
                 tmp = a.getLastAvaliation();
-                if (tmp.isSalvoParaEnviar()){
+                if (tmp.isSalvoParaEnviar()) {
                     tmp.setEnviado(true);
                     paraEnviar.add(a);
                 }
             }
         }
-        
+
         //int num = 1;
-        
+
         String xml = "";
-        
+
         xml += "<prodown_envio>\n";
         xml += "<alunos>";
-        for (Aluno a : paraEnviar){
+        for (Aluno a : paraEnviar) {
             xml += "<aluno ";
-            xml += "nome=\"" + a.getNome()+"\" ";
-            xml += "aniversario=\"" + a.getBirthday().getTime()+"\" ";
-            xml += "genero=\"" + a.getGenero()+"\" ";
-            xml += "endereco=\"" + a.getEndereco()+"\" ";
-            xml += "cidade=\"" + a.getCidade()+"\" ";
-            xml += "nome_mae=\"" + a.getNomeMae()+"\" ";
-            xml += "nome_pai=\"" + a.getNomePai()+"\" ";
-            xml += "telefone=\"" + a.getTelefone()+"\" ";
-            xml += "celular=\"" + a.getCelular()+"\" ";
-            xml += "email=\"" + a.getEmail()+"\">";
-            
+            xml += "nome=\"" + a.getNome() + "\" ";
+            xml += "aniversario=\"" + a.getBirthday().getTime() + "\" ";
+            xml += "genero=\"" + a.getGenero() + "\" ";
+            xml += "endereco=\"" + a.getEndereco() + "\" ";
+            xml += "cidade=\"" + a.getCidade() + "\" ";
+            xml += "nome_mae=\"" + a.getNomeMae() + "\" ";
+            xml += "nome_pai=\"" + a.getNomePai() + "\" ";
+            xml += "telefone=\"" + a.getTelefone() + "\" ";
+            xml += "celular=\"" + a.getCelular() + "\" ";
+            xml += "email=\"" + a.getEmail() + "\">";
+
             tmp = a.getLastAvaliation();
-            
+
             xml += "\n<avaliacao ";
             xml += "data=\"" + tmp.getData().getTime() + "\" ";
             xml += "horario=\"" + tmp.getHorario() + "\" ";
@@ -769,27 +769,25 @@ public class Escola {
             xml += "quadrado=\"" + tmp.getTesteDoQuadrado() + "\" ";
             xml += "corrida=\"" + tmp.getCorrida20Metros() + "\" ";
             xml += "> </avaliacao>\n";
-            
+
             xml += "</aluno>\n";
-            
+
             a.inserirAvaliacao();
             Escola.getInstance().salvarAvaliacoes(a);
         }
         xml += "</alunos>\n";
         xml += "</prodown_envio>\n";
-        
-        
-        
-        try{
+
+
+
+        try {
             File arquivo;
             arquivo = new File(path);
             FileOutputStream fos = new FileOutputStream(arquivo);
             fos.write(xml.getBytes());
-            
-        }
-        catch(IOException ex){
+
+        } catch (IOException ex) {
             System.err.println(ex);
         }
     }
-    
 }

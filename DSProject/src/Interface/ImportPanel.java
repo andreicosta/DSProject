@@ -15,6 +15,7 @@ public class ImportPanel extends javax.swing.JPanel {
     public ImportPanel() {
         initComponents();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -98,68 +99,63 @@ public class ImportPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        UIManager.put("FileChooser.openButtonText", "Abrir"); 
-        
+        UIManager.put("FileChooser.openButtonText", "Abrir");
+
         File file;
-        JFileChooser arquivo = new JFileChooser();    
-        
-        arquivo.setDialogTitle("Selecione um arquivo para importar");    
-        arquivo.setFileSelectionMode(JFileChooser.FILES_ONLY);    
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("EPD Files", new String[]{"epd"});    
-        arquivo.setFileFilter(filter);          
-        arquivo.setAcceptAllFileFilterUsed(false);  
-        arquivo.setMultiSelectionEnabled(false); 
-        arquivo.setPreferredSize( new Dimension(600, 400) );
-        int option = arquivo.showOpenDialog(this); 
-        
-        if(option == JFileChooser.APPROVE_OPTION) {  
-              file = arquivo.getSelectedFile();  
-              String nomeArquivo = file.getName();  
-              int e = nomeArquivo.lastIndexOf(".");  
-              String extensao = nomeArquivo.substring(e);  
-                
-              if(extensao.equals(".epd")){
-                  Escola.getInstance().importar(file.getAbsolutePath());
-              }  
+        JFileChooser arquivo = new JFileChooser();
+
+        arquivo.setDialogTitle("Selecione um arquivo para importar");
+        arquivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("EPD Files", new String[]{"epd"});
+        arquivo.setFileFilter(filter);
+        arquivo.setAcceptAllFileFilterUsed(false);
+        arquivo.setMultiSelectionEnabled(false);
+        arquivo.setPreferredSize(new Dimension(600, 400));
+        int option = arquivo.showOpenDialog(this);
+
+        if (option == JFileChooser.APPROVE_OPTION) {
+            file = arquivo.getSelectedFile();
+            String nomeArquivo = file.getName();
+            int e = nomeArquivo.lastIndexOf(".");
+            String extensao = nomeArquivo.substring(e);
+
+            if (extensao.equals(".epd")) {
+                Escola.getInstance().importar(file.getAbsolutePath());
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        UIManager.put("FileChooser.openButtonText", "Salvar"); 
-        
+        UIManager.put("FileChooser.openButtonText", "Salvar");
+
         File file;
         JFileChooser arquivo = new JFileChooser();
-        
-        arquivo.setDialogTitle("Selecione o local para exportar o arquivo");    
-        arquivo.setFileSelectionMode(JFileChooser.FILES_ONLY);    
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("EPD Files", new String[]{"epd"});    
-        arquivo.setFileFilter(filter);          
-        arquivo.setAcceptAllFileFilterUsed(false);  
-        arquivo.setMultiSelectionEnabled(false); 
-        arquivo.setPreferredSize( new Dimension(600, 400) );
-        
+
+        arquivo.setDialogTitle("Selecione o local para exportar o arquivo");
+        arquivo.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("EPD Files", new String[]{"epd"});
+        arquivo.setFileFilter(filter);
+        arquivo.setAcceptAllFileFilterUsed(false);
+        arquivo.setMultiSelectionEnabled(false);
+        arquivo.setPreferredSize(new Dimension(600, 400));
+
         int option = arquivo.showOpenDialog(this);
-        
-        if (option == JFileChooser.APPROVE_OPTION)
-{
-	file = arquivo.getSelectedFile();
 
-	if (!file.getAbsolutePath().endsWith(".epd"))
-	{
-            /*se o arquivo não termina com a extensão do filtro então ele põe todo o caminho do arquivo
-             * mais o nome seguido da extensão do filtro
-             */
-            file = new File(file.getAbsolutePath() + ".epd");
-            Escola.getInstance().exportar(file.getAbsolutePath());
-	}
-	else
-	{
-            Escola.getInstance().exportar(file.getAbsolutePath());
-	}
-}   
+        if (option == JFileChooser.APPROVE_OPTION) {
+            file = arquivo.getSelectedFile();
+
+            if (!file.getAbsolutePath().endsWith(".epd")) {
+                /*se o arquivo não termina com a extensão do filtro então ele põe todo o caminho do arquivo
+                 * mais o nome seguido da extensão do filtro
+                 */
+                file = new File(file.getAbsolutePath() + ".epd");
+                Escola.getInstance().exportar(file.getAbsolutePath());
+            } else {
+                Escola.getInstance().exportar(file.getAbsolutePath());
+            }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel exportPanel;
     private javax.swing.JPanel importPanel;
@@ -172,4 +168,3 @@ public class ImportPanel extends javax.swing.JPanel {
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
-
