@@ -20,7 +20,7 @@ public class WelcomePanel extends javax.swing.JPanel {
         welcomeMessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         welcomeMessage.setText("Bem Vindo ao PRODOWN");
         welcomeMessage.setPreferredSize(new java.awt.Dimension(833, 21));
-        add(welcomeMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(welcomeMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel welcomeMessage;
