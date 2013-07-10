@@ -391,11 +391,11 @@ public class StudentPanel extends javax.swing.JPanel {
     }
 
     private String getTelephone() {
-        return telephone.getText();
+        return telephone.getText().replaceAll(" ", "");
     }
 
     private String getMobile() {
-        return mobile.getText();
+        return mobile.getText().replaceAll(" ", "");
     }
 
     private String getEmail() {
@@ -423,7 +423,7 @@ public class StudentPanel extends javax.swing.JPanel {
                if (Escola.getInstance().getProfessorLogado().haveYouAStudentWithThisName(nameNewStudent)) {
                    throw new Exception("Aluno já existente");
                }
-               Aluno.parse(nameNewStudent, newBirthday, newAddress, newCity, newMotherName, newFatherName, newEmail);
+               Aluno.parse(nameNewStudent, newBirthday, newTelephone, newMobile, newCity, newMotherName, newFatherName, newEmail);
            }
            catch(Exception e){
                JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
@@ -460,7 +460,6 @@ public class StudentPanel extends javax.swing.JPanel {
         flag = false;
         Aluno student = getEditStudent();
         Turma newTurma = getEditTurma();
-        //Calendar newBirthday = getEditBirthday();
         String newGender = getEditGender();
         String newAddress = getEditAddress();
         String newCity = getEditCity();
@@ -473,7 +472,7 @@ public class StudentPanel extends javax.swing.JPanel {
         if (!flag) {
             
             try {
-                Aluno.parse(null, null, newAddress, newCity, newMotherName, newFatherName, newEmail);
+                Aluno.parse(null, null, newTelephone, newMobile, newCity, newMotherName, newFatherName, newEmail);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
                 return;
@@ -490,7 +489,6 @@ public class StudentPanel extends javax.swing.JPanel {
                 return;
             }
             
-            //student.setDataDeNascimento(newBirthday);
             student.setGenero(newGender);
             student.setEndereco(newAddress);
             student.setCidade(newCity);
@@ -600,17 +598,6 @@ public class StudentPanel extends javax.swing.JPanel {
     private Turma getEditTurma() {
         return (Turma) this.editTurma.getSelectedItem();
     }
-    
-    /*private Calendar getEditBirthday() {
-        Calendar temp = editBirthday.getCalendar();
-        if (temp == null) {
-            editLabelBirthday.setForeground(Color.red);
-            flag = true;
-            return null;
-        }
-        editLabelBirthday.setForeground(Color.black);
-        return temp;
-    }*/
 
     private String getEditGender() {
         return editGender.getSelectedItem().toString();
@@ -651,11 +638,11 @@ public class StudentPanel extends javax.swing.JPanel {
     }
 
     private String getEditTelephone() {
-        return editTelephone.getText();
+        return editTelephone.getText().replaceAll(" ", "");
     }
 
     private String getEditMobile() {
-        return editMobile.getText();
+        return editMobile.getText().replaceAll(" ", "");
     }
 
     private String getEditEmail() {

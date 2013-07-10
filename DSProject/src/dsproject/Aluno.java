@@ -46,8 +46,8 @@ public class Aluno implements Serializable {
         this.addAvaliacao(avaliacao);
     }
 
-    public static void parse(String nome, Calendar nascimento, String endereco, String cidade,
-            String nomeMae, String nomePai, String email) throws Exception {
+    public static void parse(String nome, Calendar nascimento, String telefone, String celular, 
+            String cidade, String nomeMae, String nomePai, String email) throws Exception {
         String temp;
         Pattern p = Pattern.compile("([a-z]+\\s)+[a-z]+(\\s[a-z]+)*");
 
@@ -79,8 +79,17 @@ public class Aluno implements Serializable {
         temp = Aluno.removeAccents(cidade.toLowerCase()).replaceAll(" ", "");
         if(!cidade.isEmpty() && !cityPattern.matcher(temp).matches()){
             throw new Exception("Erro no nome da cidade");
-        }        
-    
+        }
+        
+        Pattern telPattern = Pattern.compile("([\\(]?)([0-9]{2})?([\\)]?)([0-9]{4})([-]?)([0-9]{4})([0-9])?");
+        
+        if (!telefone.isEmpty() && !telPattern.matcher(telefone).matches()){
+            throw new Exception("Erro no número do telefone");
+        }
+
+        if (!celular.isEmpty() && !telPattern.matcher(celular).matches()){
+            throw new Exception("Erro no número do celular");
+        }
     }
     
     private static String removeAccents(String str) {
