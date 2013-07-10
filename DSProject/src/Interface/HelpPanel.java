@@ -22,51 +22,54 @@ public class HelpPanel extends javax.swing.JPanel {
     
     private String[] defAluno = {"<html><center><b>Cadastrar Aluno</b><br>Esta parte do programa é responsável pelo cadastro de novos alunos.<br></center></html>",
                                  "<html><center><b>Nome Completo</b><br>Insira o nome completo do aluno.<br> Este campo é obrigatório.</center></html>",
-                                 "<html><center><b>Selecionar Turma</b><br> É possível selecionar a opção <i>Sem Turma</i>, caso a turma do aluno ainda não tenha sido cadastrada. É possivel adicionar a turma do aluno após o cadastro editando as informações do mesmo. Caso a turma do aluno já esteja criada, basta selecionar a turma para que o aluno seja adicionado à mesma.<br> Este campo é obrigatório.</center></html>",
+                                 "<html><center><b>Selecionar Turma</b><br> É possível selecionar a opção <i>Sem Turma</i>, caso a turma do aluno ainda não tenha sido cadastrada. É possivel adicionar a turma ao aluno após o cadastro, editando as informações do mesmo. Caso a turma do aluno já esteja criada, basta selecionar a turma para que o aluno seja adicionado à mesma.<br> Este campo é obrigatório.</center></html>",
                                  "<html><center><b>Data de Nascimento</b><br> É possível cadastrar somente alunos com idade entre 10 e 20 anos.<br> Este campo é obrigatório.<html><center>",
                                  "<html><center><b>Gênero</b><br>Selecione o gênero do aluno.<br>Este campo é obrigatório.</center></html>",
-                                 "<html><center><b>Endereço</b><br>Insira o endereço do aluno. Utilize o padrão <i>Rua</i> ou <i>Avenida</i><br> <i>Nome Completo<i> por extenso, <i>Numero</i>,<i> Bairro</i>.<br> Este campo é obrigatório.</center></html>",
-                                 "<html><center><b>Cidade/Estado</b<br>Insira a Cidade e Estado onde mora o aluno.<br>Este campo é obrigatório.</center></html>",
+                                 "<html><center><b>Endereço</b><br>Insira o endereço do aluno. Utilize o padrão <i>Rua</i> ou <i>Avenida</i><br> seguido pelo <i>Nome Completo da Rua</i> por extenso, <i>Numero</i>,<i> Bairro</i>.<br> Este campo é obrigatório.</center></html>",
+                                 "<html><center><b>Cidade/Estado</b<br>Insira a cidade e o estado onde mora o aluno.<br>Este campo é obrigatório.</center></html>",
                                  "<html><center><b>Nome Completo da Mae</b><br>Insira o nome completo da mãe do aluno.<br>Este campo é obrigatório.</center></html>",
                                  "<html><center><b>Nome Completo do Pai</b><br>Insira o nome completo do pai.<br> Este campo é opcional.</center></html>",
-                                 "<html><center><b>Telefone, Celular e E-mail</b><br>Insira <i>Telefone</i> e <i>Celular</i> do aluno, <br>separando os quatro primeiros números dos demais com um traço (-).<br> Insira o e-mail do aluno.<br> Estes campos são opcionais.</center></html>",
-                                 "<html><center><b>Botão Cadastrar</b><br>Clique no botão <i>Cadastrar</i> para finalizar o cadastro do aluno.</center></html>",
+                                 "<html><center><b>Telefone, Celular e E-mail</b><br>Insira o telefone e/ou o celular do aluno, <br>separando os quatro primeiros números dos demais com um traço (-).<br> Insira o e-mail do aluno.<br> Estes campos são opcionais.</center></html>",
+                                 "<html><center><b>Efetivar o Cadastro</b><br>Clique no botão <i>Cadastrar</i> para finalizar o cadastro do aluno.</center></html>",
                                  "<html><center><b>Editar Cadastro do Aluno</b><br>Esta parte do programa permite a modificação de algumas informações do aluno.</center></html>",
                                  "<html><center><b>Selecionar Aluno</b><br>Selecione o aluno do qual deseja modificar alguma informação.</center></html>",
                                  "<html><center><b>Campos para Edição</b><br>Após selecionar o aluno, suas informações aparecerão automaticamente nos campos em branco.</center></html>",
-                                 "<html><center><b>Botão Salvar</b><br>Após concluir as alterações desejadas, <br>clique no botão <i>Salvar</b> para armazenar as novas informações.</center></html>",                              
-                                 "<html><center><b>Excluir Cadastro do Aluno</b><br>Para ocasiões em que alguma informação que não pode ser editada, ou no termino da participação do aluno nas atividades, <br> é possivel remover o cadastro do mesmo do programa.</center></html>",
-                                 "<html><center><b>Selecionar Aluno</b><br>Selecione o aluno que deseja remover. Todas as informações presentes <br>no programa referentes aquele aluno serão apagadas.</center></html>",
-                                 "<html><center><b>Botão Excluir</b><br>Clique no botão <i>Excluir</i> para executar a remoção das informações do aluno previamente selecionado.</center></html>"
+                                 "<html><center><b>Salvar Modificações</b><br>Após concluir as alterações desejadas, <br>clique no botão <i>Salvar</i> para armazenar as novas informações.</center></html>",                              
+                                 "<html><center><b>Excluir Cadastro do Aluno</b><br>Para ocasiões em que alguma informação que não pode ser editada esta errada, ou no termino da participação do aluno nas atividades, <br> é possivel remover o cadastro do mesmo.</center></html>",
+                                 "<html><center><b>Selecionar Aluno</b><br>Selecione o aluno que deseja remover. Todas as informações referentes aquele aluno serão apagadas.</center></html>",
+                                 "<html><center><b>Excluir</b><br>Clique no botão <i>Excluir</i> para executar a remoção do aluno e suas informações.</center></html>"
     };
-    private String[] defTurma = {"<html><center></center></html>",
-                                 "<html><center></center></html>",
-                                 "<html><center></center></html>",
-                                 "<html><center></center></html>",
-                                 "<html><center></center></html>",
-                                 "<html><center></center></html>",
-                                 "<html><center></center></html>",
-                                 "<html><center></center></html>",
-                                 "<html><center></center></html>",
-                                 "<html><center></center></html>",
-                                 "<html><center></center></html>"
+    private String[] defTurma = {"<html><center><b>Cadastrar Turma</b><br>Nesta parte do sistema são cadastradas as turmas. As turmas são importantes para a organização dos relatorios de atividade e controle do progresso dos alunos.</center></html>",
+                                 "<html><center><b>Turma</b><br>Entre com a identificação da turma.</center></html>",
+                                 "<html><center><b>Ano Letivo</b><br>Entre com o ano letivo corrente.</center></html>",
+                                 "<html><center><b>Listas</b><br>Existem duas lista na parte de <i>Turmas</i>, a dos <i>Alunos</i> e a de <i>Alunos na Turma</i>.<br> A primeira contem os alunos cadastrados que ainda não possuem uma turma.<br> A segunda lista possui os alunos já cadastrados na turma em questão.</center></html>",
+                                 "<html><center><b>Adicionar Aluno</b><br>Selecione um aluno da primeira lista. <br>Após isso, clique no botão <i>Adicionar</i> para cadastrar o aluno na turma em questão</center></html>",
+                                 "<html><center><b>Remover Aluno</b><br>Selecione um aluno da segunda lista. <br>Após isso, clique no botão <i>Remover</i> para remover o cadastro do aluno da turma em questão</center></html>",
+                                 "<html><center><b>Concluir o Cadastro</b><br>Após todos os alunos da turma estarem devidamente cadastrados,<br> clique no botão <i>Cadastrar</i> para criar a turma.</center></html>",
+                                 "<html><center><b>Lista de Turmas</b><br>Esta parte do programa exibe duas tabelas.<br> A primeira tabela contem todas as turmas cadastradas no nome do professor utilizando o programa e o numero de alunos em cada turma.<br> A segunda exibe, após selecionar uma das turmas, os alunos cadastrados na mesma.</center></html>",
+                                 "<html><center><b>Selecionar Turma</b><br>Clique em uma das turmas para ter acesso a lista de alunos cadastrados na mesma.</center></html>",
+                                 "<html><center><b>Editar Turma</b><br>É possivel editar os alunos de uma turma, podendo assim adicionar ou remover alunos. Não é possivel alterar o nome ou o ano letivo da turma.</center></html>",
+                                 "<html><center><b>Adicionar/Remover Alunos</b><br>Funcões de adicionar e remover aluno na mesma forma da parte de cadastro. Após as mudanças, clique no botão <i>Salvar</i>.</center></html>",
+                                 "<html><center><b>Selecionar Turma para Remoção</b><br>É possivel remover turmas da sua lista de turmas.</center></html>",
+                                 "<html><center><b>Removendo uma Turma</b><br>Com a turma selecionada, clique no botão <i>Remover</i> para retirar a turma de sua lista.</center></html>"
     };
-    private String[] defAval = {"<html><center></center></html>",
-                                "<html><center></center></html>",
-                                "<html><center></center></html>",
-                                "<html><center></center></html>",
-                                "<html><center></center></html>",
-                                "<html><center></center></html>",
-                                "<html><center></center></html>",
-                                "<html><center></center></html>",
-                                "<html><center></center></html>",
-                                "<html><center></center></html>",
-                                "<html><center></center></html>",
-                                "<html><center></center></html>",
-                                "<html><center></center></html>",
-                                "<html><center></center></html>",
-                                "<html><center></center></html>",
-                                "<html><center></center></html>"
+    private String[] defAval = {"<html><center><b>Nova avaliação/Editar Avaliação</b><br>Nesta parte do programa são criadas e editadas as avaliações dos alunos. Basta selecionar uma turma, selecionar individualmente os alunos e preencher o formulario. Caso o aluno não tenho realizado algum teste, deixe o campo em branco.<br> Caso o aluno não tenha realizado nenhuma atividade, podesse criar uma avaliação totalmente em branco ou não criar a avaliação.</center></html>",
+                                "<html><center><b>Selecionar Turma</b><br>Selecione a turma para criar avaliações para os alunos matriculados na mesma.</center></html>",
+                                "<html><center><b>Selecionar Aluno</b><br>Selecione um dos alunos para criar sua respectiva avaliação.</center></html>",
+                                "<html><center><b>Data da Avaliação</b><br>Selecione a data em que a avaliação foi realizada</center></html>",
+                                "<html><center><b>Horário da Avaliação</b><br>Entre com o horario em que a avaliação teve inicio</center></html>",
+                                "<html><center><b>Temperadura na hora da Avaliação</b><br>Entre com a temperatura referente a hora da avaliação.</center></html>",
+                                "<html><center><b>Massa Corporal</b><br>Entre com o peso do aluno</center></html>",
+                                "<html><center><b>Estatura e IMC</b><br>Entre com a altura do aluno.<br> Após preencher estes dois campos (massa e estatura) o campo IMC será automaticamente preenchido.</center></html>",
+                                "<html><center><b>Envergadura</b><br>Entre com a envergadura (distância da ponta de uma das mãos até a outra com os braços esticados horizontalmente) do aluno</center></html>",
+                                "<html><center><b>Abdominal</b><br>Entre com o numero de abdominais realizadas pelo aluno.</center></html>",
+                                "<html><center><b>Sentar e Alcançar</b><br>Entre com a distância alcançada pelo aluno. Marque também se o teste foi realizado com ou sem o uso de banco.</center></html>",
+                                "<html><center><b>Corrida</b><br>Entre com a distância percorrida pelo aluno. Marque também a duração da corrida <br>(6 ou 9 minutos)</center></html>",
+                                "<html><center><b>Desempenho Motor</b><br>Entre com as informações referentes ao desempenho motor do aluno.</center></html>",
+                                "<html><center><b>Salvar Avaliação</b><br>Clique no botão <i>Salvar</i> para salvar formularios de avaliação incompletos. As avaliações podem ser retomadas a qualquer momento (enquanto em aberto), sendo necessario apenas a seleção da turma e do aluno.</center></html>",
+                                "<html><center><b>Avaliação Finalizada</b><br>Quando o formulario estiver completamente preenchido, marque a opção <i>Avaliação Finalizada</i> e clique no botão <i>Salvar</i>. Com isso, a avaliação será adicionada ao <i>Controle de Avaliações</i>. A avaliação ainda pode ser editada.</center></html>",
+                                "<html><center><b>Controle de Avaliações</b><br>Tabela contendo as avaliações salvas como finalizadas. São informados a turma, data da avaliação, e quantas avaliações ja foram marcadas como <i>Finalizadas</i></center></html>",
+                                "<html><center><b>Gerar Arquivo para Envio</b><br>Após salvar todas as avaliações realizadas pela turma em um determinado dia, é preciso gerar um arquivo que será enviado para o bando de dados central atraves do portal do PRODOWN. Só sera permitido começar uma nova avaliação quando todas as anteriores estiverem prontas para enviar. Após gerado o arquivo, as avaliações não podem mais ser acessadas ou editadas.</center></html>"
     };
     private String[] defImpExp = {"<html><center><b>Importar</b><br>Clique no botão <i>Importar</i> para abrir a janela de seleção de arquivo.</center></html>",
                                   "<html><center><b>Abrir arquivo</b><br>Selecione o arquivo EPD e clique no botão <i>Abrir</i> para carregar o arquivo. Arquivos EPD são gerados previamente a partir da parte de exportação deste programa. <br> Os dados atuais serão apagados e substituidos pelos dados do arquivo importado.</center></html>",
@@ -134,7 +137,7 @@ public class HelpPanel extends javax.swing.JPanel {
                         definicaoAluno.setBackground(new java.awt.Color(204, 204, 255));
                         definicaoAluno.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
                         definicaoAluno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                        definicaoAluno.setText("<html><center><b>Nome Completo</b><br>Insira o nome completo do aluno.<br> Este campo é obrigatório.</center></html>");
+                        definicaoAluno.setText("<html><center><b>Cadastrar Aluno</b><br>Esta parte do programa é responsável pelo cadastro de novos alunos.<br></center></html>");
                         helpStudentPanel.add(definicaoAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 480, 90));
 
                         anteriorAluno.setText("Passo Anterior");
@@ -177,6 +180,7 @@ public class HelpPanel extends javax.swing.JPanel {
 
                     definicaoTurma.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
                     definicaoTurma.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                    definicaoTurma.setText("<html><center><b>Cadastrar Turma</b><br>Nesta parte do sistem são cadastradas as turmas. As turmas são importantes para a organização dos relatorios de atividade e controle do progresso dos alunos.</center></html>");
                     definicaoTurma.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                     helpClassPanel.add(definicaoTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 480, 90));
 
@@ -188,7 +192,7 @@ public class HelpPanel extends javax.swing.JPanel {
                     });
                     helpClassPanel.add(proximoTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 433, -1, 30));
 
-                    contTurma.setText("1 / 11");
+                    contTurma.setText("1 / 13");
                     helpClassPanel.add(contTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 400, -1, -1));
 
                     jTabbedPane1.addTab("Turma", helpClassPanel);
@@ -212,7 +216,7 @@ public class HelpPanel extends javax.swing.JPanel {
 
                 definicaoAval.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
                 definicaoAval.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                definicaoAval.setText("<html>TEXTO</html>");
+                definicaoAval.setText("<html><center><b>Nova avaliação/Editar Avaliação</b><br>Nesta parte do programa são criadas e editas as avaliações dos alunos. Basta selecionar uma turma, selecionar individualmente os alunos e preencher o formulario. Caso o aluno não tenho realizado algum teste, deixe o campo em branco.<br> Caso o aluno não tenha realizado nenhuma atividade, podesse criar uma avaliação totalmente em branco ou não criar a avaliação.</center></html>");
                 definicaoAval.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 helpTestPanel.add(definicaoAval, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 480, 90));
 
@@ -224,7 +228,7 @@ public class HelpPanel extends javax.swing.JPanel {
                 });
                 helpTestPanel.add(proximoAval, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 433, -1, 30));
 
-                contAval.setText("1 / 16");
+                contAval.setText("1 / 17");
                 helpTestPanel.add(contAval, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 400, -1, -1));
 
                 jTabbedPane1.addTab("Avaliações", helpTestPanel);
@@ -327,9 +331,9 @@ public class HelpPanel extends javax.swing.JPanel {
 
     private void anteriorAvalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorAvalActionPerformed
         
-        if(figuraAval > 1 && figuraAval <= 16){
+        if(figuraAval > 1 && figuraAval <= 17){
             figuraAval--;
-            contAval.setText(figuraAval + " / 16");
+            contAval.setText(figuraAval + " / 17");
             definicaoAval.setText(defAval[figuraAval - 1]);
             pathAval = "aval" + figuraAval + ".png";
             try {
@@ -343,9 +347,9 @@ public class HelpPanel extends javax.swing.JPanel {
 
     private void proximoAvalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proximoAvalActionPerformed
         
-        if(figuraAval >= 1 && figuraAval < 16){
+        if(figuraAval >= 1 && figuraAval < 17){
             figuraAval++;
-            contAval.setText(figuraAval + " / 16");
+            contAval.setText(figuraAval + " / 17");
             definicaoAval.setText(defAval[figuraAval - 1]);
             pathAval = "aval" + figuraAval + ".png";
             try {
@@ -391,9 +395,9 @@ public class HelpPanel extends javax.swing.JPanel {
 
     private void anteriorTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorTurmaActionPerformed
         
-        if(figuraTurma > 1 && figuraTurma <= 11){
+        if(figuraTurma > 1 && figuraTurma <= 13){
             figuraTurma--;
-            contTurma.setText(figuraTurma + " / 11");
+            contTurma.setText(figuraTurma + " / 13");
             definicaoTurma.setText(defTurma[figuraTurma - 1]);
             pathTurma = "turma" + figuraTurma + ".png";
             try {
@@ -407,9 +411,9 @@ public class HelpPanel extends javax.swing.JPanel {
 
     private void proximoTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proximoTurmaActionPerformed
         
-        if(figuraTurma >= 1 && figuraTurma < 11){
+        if(figuraTurma >= 1 && figuraTurma < 13){
             figuraTurma++;
-            contTurma.setText(figuraTurma + " / 11");
+            contTurma.setText(figuraTurma + " / 13");
             definicaoTurma.setText(defTurma[figuraTurma - 1]);
             pathTurma = "turma" + figuraTurma + ".png";
             try {
