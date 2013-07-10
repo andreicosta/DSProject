@@ -48,10 +48,6 @@ public class ClassPanel extends javax.swing.JPanel {
         removeStudentFromClassButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        listClassesPanel = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        listaListaDeTurmas = new DefaultListModel();
-        listaDeTurmas = new javax.swing.JList(listaListaDeTurmas);
         editClassPanel = new javax.swing.JPanel();
         labelTurmaEditarTurma = new javax.swing.JLabel();
         comboTurmaEditarTurma = new javax.swing.JComboBox();
@@ -69,6 +65,10 @@ public class ClassPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
+        listClassesPanel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        listaListaDeTurmas = new DefaultListModel();
+        listaDeTurmas = new javax.swing.JList(listaListaDeTurmas);
         deleteClassPanel = new javax.swing.JPanel();
         labelTurmaRemoverTurma = new javax.swing.JLabel();
         comboTurmaRemoverTurma = new javax.swing.JComboBox();
@@ -98,6 +98,7 @@ public class ClassPanel extends javax.swing.JPanel {
         labelTurma.setText("Turma");
         newClassPanel.add(labelTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 26, -1, -1));
 
+        campoTurma.setToolTipText("Entre o Nome da Turma");
         campoTurma.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campoTurmaKeyTyped(evt);
@@ -108,6 +109,7 @@ public class ClassPanel extends javax.swing.JPanel {
         labelAnoLetivo.setText("Ano Letivo");
         newClassPanel.add(labelAnoLetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 26, -1, -1));
 
+        campoAnoLetivo.setToolTipText("Entre com o Ano Letivo");
         campoAnoLetivo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campoAnoLetivoKeyTyped(evt);
@@ -116,6 +118,7 @@ public class ClassPanel extends javax.swing.JPanel {
         newClassPanel.add(campoAnoLetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 21, 110, -1));
 
         botaoCadastrar.setText("Cadastrar");
+        botaoCadastrar.setToolTipText("Cadastra uma Nova Turma");
         botaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoCadastrarActionPerformed(evt);
@@ -125,16 +128,19 @@ public class ClassPanel extends javax.swing.JPanel {
         newClassPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 825, 10));
 
         availableStudentList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        availableStudentList.setToolTipText("Alunos sem Turma");
         jScrollPane1.setViewportView(availableStudentList);
 
         newClassPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 121, 220, 345));
 
         studentInClassList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        studentInClassList.setToolTipText("Alunos a serem Adicionados na turma");
         jScrollPane3.setViewportView(studentInClassList);
 
         newClassPanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 121, 220, 345));
 
         addToClassButton.setText("Adicionar");
+        addToClassButton.setToolTipText("Adiciona um Aluno na Turma a ser criada");
         addToClassButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addToClassButtonActionPerformed(evt);
@@ -143,6 +149,7 @@ public class ClassPanel extends javax.swing.JPanel {
         newClassPanel.add(addToClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 221, 90, -1));
 
         removeStudentFromClassButton.setText("Remover");
+        removeStudentFromClassButton.setToolTipText("Remover um Aluno a ser criada");
         removeStudentFromClassButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeStudentFromClassButtonActionPerformed(evt);
@@ -160,25 +167,12 @@ public class ClassPanel extends javax.swing.JPanel {
 
         classTabbedPane.addTab("Cadastrar Turma", newClassPanel);
 
-        listClassesPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                listClassesPanelComponentShown(evt);
-            }
-        });
-        listClassesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        listaDeTurmas.setBackground(new java.awt.Color(240, 240, 240));
-        jScrollPane2.setViewportView(listaDeTurmas);
-
-        listClassesPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 33, 763, 422));
-
-        classTabbedPane.addTab("Lista de Turmas", listClassesPanel);
-
         editClassPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelTurmaEditarTurma.setText("Turma");
         editClassPanel.add(labelTurmaEditarTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 26, -1, -1));
 
+        comboTurmaEditarTurma.setToolTipText("Selecione uma Turma");
         comboTurmaEditarTurma.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
@@ -199,9 +193,11 @@ public class ClassPanel extends javax.swing.JPanel {
         editClassPanel.add(labelAnoLetivoEditarTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 26, -1, -1));
 
         campoAnoLetivoEditarTurma.setEditable(false);
+        campoAnoLetivoEditarTurma.setToolTipText("Ano Letivo da turma Selecionada");
         editClassPanel.add(campoAnoLetivoEditarTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 21, 110, -1));
 
         botaoSalvar.setText("Salvar");
+        botaoSalvar.setToolTipText("Salva as Alterações Realizadas na Turma");
         botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoSalvarActionPerformed(evt);
@@ -210,16 +206,19 @@ public class ClassPanel extends javax.swing.JPanel {
         editClassPanel.add(botaoSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(725, 437, 85, -1));
 
         availableStudentList2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        availableStudentList2.setToolTipText("Alunos sem Turma");
         jScrollPane6.setViewportView(availableStudentList2);
 
         editClassPanel.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 121, 220, 345));
 
         studentInClassList2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        studentInClassList2.setToolTipText("Alunos atualmente na Turma Selecionada");
         jScrollPane7.setViewportView(studentInClassList2);
 
         editClassPanel.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 121, 220, 345));
 
         addToClassButton2.setText("Adicionar");
+        addToClassButton2.setToolTipText("Adiciona o Aluno sem Turma selecionado na Turma");
         addToClassButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addToClassButton2ActionPerformed(evt);
@@ -228,6 +227,7 @@ public class ClassPanel extends javax.swing.JPanel {
         editClassPanel.add(addToClassButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 221, 90, -1));
 
         removeStudentFromClassButton2.setText("Remover");
+        removeStudentFromClassButton2.setToolTipText("Remover um Aluno da Turma");
         removeStudentFromClassButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeStudentFromClassButton2ActionPerformed(evt);
@@ -245,6 +245,20 @@ public class ClassPanel extends javax.swing.JPanel {
         editClassPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 830, 10));
 
         classTabbedPane.addTab("Editar Turma", editClassPanel);
+
+        listClassesPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                listClassesPanelComponentShown(evt);
+            }
+        });
+        listClassesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        listaDeTurmas.setBackground(new java.awt.Color(240, 240, 240));
+        jScrollPane2.setViewportView(listaDeTurmas);
+
+        listClassesPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 33, 763, 422));
+
+        classTabbedPane.addTab("Lista de Turmas", listClassesPanel);
 
         deleteClassPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -272,7 +286,7 @@ public class ClassPanel extends javax.swing.JPanel {
 
         classTabbedPane.addTab("Remover Turma", deleteClassPanel);
 
-        add(classTabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 833, 515));
+        add(classTabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 833, 515));
     }// </editor-fold>//GEN-END:initComponents
 
    private void campoAnoLetivoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_campoAnoLetivoKeyTyped
