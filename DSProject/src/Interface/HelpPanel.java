@@ -22,7 +22,7 @@ public class HelpPanel extends javax.swing.JPanel {
     
     private String[] defAluno = {"<html><center><b>Cadastrar Aluno</b><br>Esta parte do programa é responsável pelo cadastro de novos alunos.<br></center></html>",
                                  "<html><center><b>Nome Completo</b><br>Insira o nome completo do aluno.<br> Este campo é obrigatório.</center></html>",
-                                 "<html><center><b>Selecionar Turma</b><br> É possível selecionar a opção <i>Sem Turma</i>, caso a turma do aluno ainda não tenha sido cadastrada. É possivel adicionar a turma ao aluno após o cadastro, editando as informações do mesmo. Caso a turma do aluno já esteja criada, basta selecionar a turma para que o aluno seja adicionado à mesma.<br> Este campo é obrigatório.</center></html>",
+                                 "<html><center><b>Selecionar Turma</b><br> É possível selecionar a opção <i>Sem Turma</i>, caso a turma do aluno ainda não tenha sido cadastrada. É possivel adicionar a turma ao aluno após o cadastro, editando as informações do mesmo. Caso a turma do aluno já esteja criada, basta selecionar a turma para que o aluno seja adicionado à mesma. Este campo é obrigatório.</center></html>",
                                  "<html><center><b>Data de Nascimento</b><br> É possível cadastrar somente alunos com idade entre 10 e 20 anos.<br> Este campo é obrigatório.<html><center>",
                                  "<html><center><b>Gênero</b><br>Selecione o gênero do aluno.<br>Este campo é obrigatório.</center></html>",
                                  "<html><center><b>Endereço</b><br>Insira o endereço do aluno. Utilize o padrão <i>Rua</i> ou <i>Avenida</i><br> seguido pelo <i>Nome Completo da Rua</i> por extenso, <i>Numero</i>,<i> Bairro</i>.<br> Este campo é obrigatório.</center></html>",
@@ -138,7 +138,7 @@ public class HelpPanel extends javax.swing.JPanel {
                         definicaoAluno.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
                         definicaoAluno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                         definicaoAluno.setText("<html><center><b>Cadastrar Aluno</b><br>Esta parte do programa é responsável pelo cadastro de novos alunos.<br></center></html>");
-                        helpStudentPanel.add(definicaoAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 480, 90));
+                        helpStudentPanel.add(definicaoAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 520, 90));
 
                         anteriorAluno.setText("Passo Anterior");
                         anteriorAluno.addActionListener(new java.awt.event.ActionListener() {
@@ -182,7 +182,7 @@ public class HelpPanel extends javax.swing.JPanel {
                     definicaoTurma.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                     definicaoTurma.setText("<html><center><b>Cadastrar Turma</b><br>Nesta parte do sistem são cadastradas as turmas. As turmas são importantes para a organização dos relatorios de atividade e controle do progresso dos alunos.</center></html>");
                     definicaoTurma.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                    helpClassPanel.add(definicaoTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 480, 90));
+                    helpClassPanel.add(definicaoTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 520, 90));
 
                     proximoTurma.setText("Proximo Passo");
                     proximoTurma.addActionListener(new java.awt.event.ActionListener() {
@@ -218,7 +218,7 @@ public class HelpPanel extends javax.swing.JPanel {
                 definicaoAval.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 definicaoAval.setText("<html><center><b>Nova avaliação/Editar Avaliação</b><br>Nesta parte do programa são criadas e editas as avaliações dos alunos. Basta selecionar uma turma, selecionar individualmente os alunos e preencher o formulario. Caso o aluno não tenho realizado algum teste, deixe o campo em branco.<br> Caso o aluno não tenha realizado nenhuma atividade, podesse criar uma avaliação totalmente em branco ou não criar a avaliação.</center></html>");
                 definicaoAval.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                helpTestPanel.add(definicaoAval, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 480, 90));
+                helpTestPanel.add(definicaoAval, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 520, 90));
 
                 proximoAval.setText("Proximo Passo");
                 proximoAval.addActionListener(new java.awt.event.ActionListener() {
@@ -254,7 +254,7 @@ public class HelpPanel extends javax.swing.JPanel {
             definicaoImpExp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
             definicaoImpExp.setText("<html><center><b>Importar</b><br>Clique no botão <i>Importar</i> para abrir a janela de seleção de arquivo.</center></html>");
             definicaoImpExp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-            helpImpExpPanel.add(definicaoImpExp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 480, 90));
+            helpImpExpPanel.add(definicaoImpExp, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 520, 90));
 
             proximoImpExp.setText("Proximo Passo");
             proximoImpExp.addActionListener(new java.awt.event.ActionListener() {
@@ -281,7 +281,7 @@ public class HelpPanel extends javax.swing.JPanel {
         definicaoEnviar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         definicaoEnviar.setText("<html><center><b>Enviar</b><br>Clique no botão <i>Enviar</i> para ser redirecionado diretamente ao site do projeto Prodown para enviar as avaliações realizadas. <br> Esta função irá facilitar e agilizar a continuidade do processo.</center></html>");
         definicaoEnviar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        helpSendPanel.add(definicaoEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 480, 90));
+        helpSendPanel.add(definicaoEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 520, 90));
 
         jTabbedPane1.addTab("Enviar", helpSendPanel);
 
