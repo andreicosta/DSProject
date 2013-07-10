@@ -20,10 +20,58 @@ public class HelpPanel extends javax.swing.JPanel {
     private String pathAval;
     private String pathImpExp;
     
-    private String[] defAluno = {"<html> </html>","<html> </html>"};
-    private String[] defTurma = {"",""};
-    private String[] defAval = {"",""};
-    private String[] defImpExp = {"",""};
+    private String[] defAluno = {"<html><center><b>Cadastrar Aluno</b><br>Esta parte do programa é responsável pelo cadastro de novos alunos.<br></center></html>",
+                                 "<html><center><b>Nome Completo</b><br>Insira o nome completo do aluno.<br> Este campo é obrigatório.</center></html>",
+                                 "<html><center><b>Selecionar Turma</b><br> É possível selecionar a opção <i>Sem Turma</i>, caso a turma do aluno ainda não tenha sido cadastrada. É possivel adicionar a turma do aluno após o cadastro editando as informações do mesmo. Caso a turma do aluno já esteja criada, basta selecionar a turma para que o aluno seja adicionado à mesma.<br> Este campo é obrigatório.</center></html>",
+                                 "<html><center><b>Data de Nascimento</b><br> É possível cadastrar somente alunos com idade entre 10 e 20 anos.<br> Este campo é obrigatório.<html><center>",
+                                 "<html><center><b>Gênero</b><br>Selecione o gênero do aluno.<br>Este campo é obrigatório.</center></html>",
+                                 "<html><center><b>Endereço</b><br>Insira o endereço do aluno. Utilize o padrão <i>Rua</i> ou <i>Avenida</i><br> <i>Nome Completo<i> por extenso, <i>Numero</i>,<i> Bairro</i>.<br> Este campo é obrigatório.</center></html>",
+                                 "<html><center><b>Cidade/Estado</b<br>Insira a Cidade e Estado onde mora o aluno.<br>Este campo é obrigatório.</center></html>",
+                                 "<html><center><b>Nome Completo da Mae</b><br>Insira o nome completo da mãe do aluno.<br>Este campo é obrigatório.</center></html>",
+                                 "<html><center><b>Nome Completo do Pai</b><br>Insira o nome completo do pai.<br> Este campo é opcional.</center></html>",
+                                 "<html><center><b>Telefone, Celular e E-mail</b><br>Insira <i>Telefone</i> e <i>Celular</i> do aluno, <br>separando os quatro primeiros números dos demais com um traço (-).<br> Insira o e-mail do aluno.<br> Estes campos são opcionais.</center></html>",
+                                 "<html><center><b>Botão Cadastrar</b><br>Clique no botão <i>Cadastrar</i> para finalizar o cadastro do aluno.</center></html>",
+                                 "<html><center><b>Editar Cadastro do Aluno</b><br>Esta parte do programa permite a modificação de algumas informações do aluno.</center></html>",
+                                 "<html><center><b>Selecionar Aluno</b><br>Selecione o aluno do qual deseja modificar alguma informação.</center></html>",
+                                 "<html><center><b>Campos para Edição</b><br>Após selecionar o aluno, suas informações aparecerão automaticamente nos campos em branco.</center></html>",
+                                 "<html><center><b>Botão Salvar</b><br>Após concluir as alterações desejadas, <br>clique no botão <i>Salvar</b> para armazenar as novas informações.</center></html>",                              
+                                 "<html><center><b>Excluir Cadastro do Aluno</b><br>Para ocasiões em que alguma informação que não pode ser editada, ou no termino da participação do aluno nas atividades, <br> é possivel remover o cadastro do mesmo do programa.</center></html>",
+                                 "<html><center><b>Selecionar Aluno</b><br>Selecione o aluno que deseja remover. Todas as informações presentes <br>no programa referentes aquele aluno serão apagadas.</center></html>",
+                                 "<html><center><b>Botão Excluir</b><br>Clique no botão <i>Excluir</i> para executar a remoção das informações do aluno previamente selecionado.</center></html>"
+    };
+    private String[] defTurma = {"<html><center></center></html>",
+                                 "<html><center></center></html>",
+                                 "<html><center></center></html>",
+                                 "<html><center></center></html>",
+                                 "<html><center></center></html>",
+                                 "<html><center></center></html>",
+                                 "<html><center></center></html>",
+                                 "<html><center></center></html>",
+                                 "<html><center></center></html>",
+                                 "<html><center></center></html>",
+                                 "<html><center></center></html>"
+    };
+    private String[] defAval = {"<html><center></center></html>",
+                                "<html><center></center></html>",
+                                "<html><center></center></html>",
+                                "<html><center></center></html>",
+                                "<html><center></center></html>",
+                                "<html><center></center></html>",
+                                "<html><center></center></html>",
+                                "<html><center></center></html>",
+                                "<html><center></center></html>",
+                                "<html><center></center></html>",
+                                "<html><center></center></html>",
+                                "<html><center></center></html>",
+                                "<html><center></center></html>",
+                                "<html><center></center></html>",
+                                "<html><center></center></html>",
+                                "<html><center></center></html>"
+    };
+    private String[] defImpExp = {"<html><center><b>Importar</b><br>Clique no botão <i>Importar</i> para abrir a janela de seleção de arquivo.</center></html>",
+                                  "<html><center><b>Abrir arquivo</b><br>Selecione o arquivo EPD e clique no botão <i>Abrir</i> para carregar o arquivo. Arquivos EPD são gerados previamente a partir da parte de exportação deste programa. <br> Os dados atuais serão apagados e substituidos pelos dados do arquivo importado.</center></html>",
+                                  "<html><center><b>Exportar</b><br>Clique no botão <i>Exportar</i> para gerar um arquivo contendo uma copia de todos os dados atuais (turmas, alunos e avaliações).<br> Esses dados podem ser carregados em outro computador que também possua este programa.</center></html>"
+    };
             
     public HelpPanel() {
         initComponents();
@@ -82,6 +130,11 @@ public class HelpPanel extends javax.swing.JPanel {
                             labelAluno.setText("");
                         }
                         helpStudentPanel.add(labelAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 830, 370));
+
+                        definicaoAluno.setBackground(new java.awt.Color(204, 204, 255));
+                        definicaoAluno.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                        definicaoAluno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                        definicaoAluno.setText("<html><center><b>Nome Completo</b><br>Insira o nome completo do aluno.<br> Este campo é obrigatório.</center></html>");
                         helpStudentPanel.add(definicaoAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 480, 90));
 
                         anteriorAluno.setText("Passo Anterior");
@@ -100,7 +153,7 @@ public class HelpPanel extends javax.swing.JPanel {
                         });
                         helpStudentPanel.add(proximoAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 433, -1, 30));
 
-                        contAluno.setText("1 / 15");
+                        contAluno.setText("1 / 18");
                         helpStudentPanel.add(contAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 400, -1, -1));
 
                         jTabbedPane1.addTab("Aluno", helpStudentPanel);
@@ -121,6 +174,10 @@ public class HelpPanel extends javax.swing.JPanel {
                         }
                     });
                     helpClassPanel.add(anteriorTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 433, -1, 30));
+
+                    definicaoTurma.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                    definicaoTurma.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                    definicaoTurma.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                     helpClassPanel.add(definicaoTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 480, 90));
 
                     proximoTurma.setText("Proximo Passo");
@@ -153,7 +210,10 @@ public class HelpPanel extends javax.swing.JPanel {
                 });
                 helpTestPanel.add(anteriorAval, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 433, -1, 30));
 
+                definicaoAval.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+                definicaoAval.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 definicaoAval.setText("<html>TEXTO</html>");
+                definicaoAval.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
                 helpTestPanel.add(definicaoAval, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 480, 90));
 
                 proximoAval.setText("Proximo Passo");
@@ -186,7 +246,10 @@ public class HelpPanel extends javax.swing.JPanel {
             });
             helpImpExpPanel.add(anteriorImpExp, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 433, -1, 30));
 
-            definicaoImpExp.setText("<html>TEXTO</html>");
+            definicaoImpExp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+            definicaoImpExp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            definicaoImpExp.setText("<html><center><b>Importar</b><br>Clique no botão <i>Importar</i> para abrir a janela de seleção de arquivo.</center></html>");
+            definicaoImpExp.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
             helpImpExpPanel.add(definicaoImpExp, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 480, 90));
 
             proximoImpExp.setText("Proximo Passo");
@@ -197,7 +260,7 @@ public class HelpPanel extends javax.swing.JPanel {
             });
             helpImpExpPanel.add(proximoImpExp, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 433, -1, 30));
 
-            contImpExp.setText("1 / 2");
+            contImpExp.setText("1 / 3");
             helpImpExpPanel.add(contImpExp, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 400, -1, -1));
 
             jTabbedPane1.addTab("Importar/Exportar", helpImpExpPanel);
@@ -211,7 +274,9 @@ public class HelpPanel extends javax.swing.JPanel {
         }
         helpSendPanel.add(labelEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 830, 370));
 
-        definicaoEnviar.setText("<html>TEXTO</html>");
+        definicaoEnviar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        definicaoEnviar.setText("<html><center><b>Enviar</b><br>Clique no botão <i>Enviar</i> para ser redirecionado diretamente ao site do projeto Prodown para enviar as avaliações realizadas. <br> Esta função irá facilitar e agilizar a continuidade do processo.</center></html>");
+        definicaoEnviar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         helpSendPanel.add(definicaoEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 480, 90));
 
         jTabbedPane1.addTab("Enviar", helpSendPanel);
@@ -230,10 +295,10 @@ public class HelpPanel extends javax.swing.JPanel {
 
     private void anteriorAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorAlunoActionPerformed
         
-        if(figuraAluno > 1 && figuraAluno <= 15){
+        if(figuraAluno > 1 && figuraAluno <= 18){
             figuraAluno--;
-            contAluno.setText(figuraAluno + " / 15");
-            //definicaoAluno.setText(defAluno[figuraAluno - 1]);
+            contAluno.setText(figuraAluno + " / 18");
+            definicaoAluno.setText(defAluno[figuraAluno - 1]);
             pathAluno = "aluno" + figuraAluno + ".png";
             try {
                 BufferedImage importImg = ImageIO.read(new File("images/ajuda/aluno/" + pathAluno));
@@ -246,10 +311,10 @@ public class HelpPanel extends javax.swing.JPanel {
         
     private void proximoAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proximoAlunoActionPerformed
         
-        if(figuraAluno >= 1 && figuraAluno < 15){
+        if(figuraAluno >= 1 && figuraAluno < 18){
             figuraAluno++;
-            contAluno.setText(figuraAluno + " / 15");
-            //definicaoAluno.setText(defAluno[figuraAluno - 1]);
+            contAluno.setText(figuraAluno + " / 18");
+            definicaoAluno.setText(defAluno[figuraAluno - 1]);
             pathAluno = "aluno" + figuraAluno + ".png";
             try {
                 BufferedImage importImg = ImageIO.read(new File("images/ajuda/aluno/" + pathAluno));
@@ -265,7 +330,7 @@ public class HelpPanel extends javax.swing.JPanel {
         if(figuraAval > 1 && figuraAval <= 16){
             figuraAval--;
             contAval.setText(figuraAval + " / 16");
-            //definicaoAval.setText(defAval[figuraAval - 1]);
+            definicaoAval.setText(defAval[figuraAval - 1]);
             pathAval = "aval" + figuraAval + ".png";
             try {
                 BufferedImage importImg = ImageIO.read(new File("images/ajuda/avaliacoes/" + pathAval));
@@ -281,7 +346,7 @@ public class HelpPanel extends javax.swing.JPanel {
         if(figuraAval >= 1 && figuraAval < 16){
             figuraAval++;
             contAval.setText(figuraAval + " / 16");
-            //definicaoAval.setText(defAval[figuraAval - 1]);
+            definicaoAval.setText(defAval[figuraAval - 1]);
             pathAval = "aval" + figuraAval + ".png";
             try {
                 BufferedImage importImg = ImageIO.read(new File("images/ajuda/avaliacoes/" + pathAval));
@@ -294,10 +359,10 @@ public class HelpPanel extends javax.swing.JPanel {
 
     private void anteriorImpExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorImpExpActionPerformed
         
-        if(figuraImpExp > 1 && figuraImpExp <= 2){
+        if(figuraImpExp > 1 && figuraImpExp <= 3){
             figuraImpExp--;
-            contImpExp.setText(figuraImpExp + " / 2");
-            //definicaoImpExp.setText(defImpExp[figuraImpExp - 1]);
+            contImpExp.setText(figuraImpExp + " / 3");
+            definicaoImpExp.setText(defImpExp[figuraImpExp - 1]);
             pathImpExp = "impexp" + figuraImpExp + ".png";
             try {
                 BufferedImage importImg = ImageIO.read(new File("images/ajuda/importarExportar/" + pathImpExp));
@@ -310,10 +375,10 @@ public class HelpPanel extends javax.swing.JPanel {
 
     private void proximoImpExpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proximoImpExpActionPerformed
        
-        if(figuraImpExp >= 1 && figuraImpExp < 2){
+        if(figuraImpExp >= 1 && figuraImpExp < 3){
             figuraImpExp++;
-            contImpExp.setText(figuraImpExp + " / 2");
-            //definicaoImpExp.setText(defImpExp[figuraImpExp - 1]);
+            contImpExp.setText(figuraImpExp + " / 3");
+            definicaoImpExp.setText(defImpExp[figuraImpExp - 1]);
             pathImpExp = "impexp" + figuraImpExp + ".png";
             try {
                 BufferedImage importImg = ImageIO.read(new File("images/ajuda/importarExportar/" + pathImpExp));
@@ -329,7 +394,7 @@ public class HelpPanel extends javax.swing.JPanel {
         if(figuraTurma > 1 && figuraTurma <= 11){
             figuraTurma--;
             contTurma.setText(figuraTurma + " / 11");
-            //definicaoTurma.setText(defTurma[figuraTurma - 1]);
+            definicaoTurma.setText(defTurma[figuraTurma - 1]);
             pathTurma = "turma" + figuraTurma + ".png";
             try {
                 BufferedImage importImg = ImageIO.read(new File("images/ajuda/turma/" + pathTurma));
@@ -345,7 +410,7 @@ public class HelpPanel extends javax.swing.JPanel {
         if(figuraTurma >= 1 && figuraTurma < 11){
             figuraTurma++;
             contTurma.setText(figuraTurma + " / 11");
-            //definicaoTurma.setText(defTurma[figuraTurma - 1]);
+            definicaoTurma.setText(defTurma[figuraTurma - 1]);
             pathTurma = "turma" + figuraTurma + ".png";
             try {
                 BufferedImage importImg = ImageIO.read(new File("images/ajuda/turma/" + pathTurma));
