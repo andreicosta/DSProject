@@ -41,7 +41,7 @@ public class TestPanel extends javax.swing.JPanel {
             @Override
             public void focusLost(FocusEvent e) {
                 if (getCampoDataDaAvaliacao() == null) {
-                    labelDataDaAvaliacao.setForeground(Color.red);
+                    //labelDataDaAvaliacao.setForeground(Color.red);
                 } else {
                     labelDataDaAvaliacao.setForeground(Color.black);
                     saveData();
