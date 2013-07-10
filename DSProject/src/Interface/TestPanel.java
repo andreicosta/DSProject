@@ -1101,7 +1101,7 @@ public class TestPanel extends javax.swing.JPanel {
                 }  
             }
         }
-        //Escola.getInstance().getLogado().medoto(turmasParaSalvar);
+        Escola.getInstance().salvarParaEnviar(turmasParaSalvar);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void newEditPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_newEditPanelComponentShown

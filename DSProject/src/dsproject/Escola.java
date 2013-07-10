@@ -717,4 +717,9 @@ public class Escola {
         }
     }
     
+    public void salvarParaEnviar(ArrayList<Turma> turmas){
+        
+        
+    }
+    
 }
