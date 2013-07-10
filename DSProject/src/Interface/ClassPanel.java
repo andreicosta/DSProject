@@ -12,8 +12,11 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.TableModel;
 
 public class ClassPanel extends javax.swing.JPanel {
+
     private MainPanel superPanel = null;
 
     public ClassPanel() {
@@ -24,7 +27,7 @@ public class ClassPanel extends javax.swing.JPanel {
         initComponents();
         this.superPanel = superPanel;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -48,10 +51,6 @@ public class ClassPanel extends javax.swing.JPanel {
         removeStudentFromClassButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        listClassesPanel = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        listaListaDeTurmas = new DefaultListModel();
-        listaDeTurmas = new javax.swing.JList(listaListaDeTurmas);
         editClassPanel = new javax.swing.JPanel();
         labelTurmaEditarTurma = new javax.swing.JLabel();
         comboTurmaEditarTurma = new javax.swing.JComboBox();
@@ -69,6 +68,11 @@ public class ClassPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
+        listClassesPanel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        alunosListaTurmaTable = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        turmaAlunosTable = new javax.swing.JTable();
         deleteClassPanel = new javax.swing.JPanel();
         labelTurmaRemoverTurma = new javax.swing.JLabel();
         comboTurmaRemoverTurma = new javax.swing.JComboBox();
@@ -98,6 +102,7 @@ public class ClassPanel extends javax.swing.JPanel {
         labelTurma.setText("Turma");
         newClassPanel.add(labelTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 26, -1, -1));
 
+        campoTurma.setToolTipText("Entre o Nome da Turma");
         campoTurma.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campoTurmaKeyTyped(evt);
@@ -108,6 +113,7 @@ public class ClassPanel extends javax.swing.JPanel {
         labelAnoLetivo.setText("Ano Letivo");
         newClassPanel.add(labelAnoLetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 26, -1, -1));
 
+        campoAnoLetivo.setToolTipText("Entre com o Ano Letivo");
         campoAnoLetivo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campoAnoLetivoKeyTyped(evt);
@@ -116,6 +122,7 @@ public class ClassPanel extends javax.swing.JPanel {
         newClassPanel.add(campoAnoLetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 21, 110, -1));
 
         botaoCadastrar.setText("Cadastrar");
+        botaoCadastrar.setToolTipText("Cadastra uma Nova Turma");
         botaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoCadastrarActionPerformed(evt);
@@ -125,16 +132,19 @@ public class ClassPanel extends javax.swing.JPanel {
         newClassPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 825, 10));
 
         availableStudentList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        availableStudentList.setToolTipText("Alunos sem Turma");
         jScrollPane1.setViewportView(availableStudentList);
 
         newClassPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 121, 220, 345));
 
         studentInClassList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        studentInClassList.setToolTipText("Alunos a serem Adicionados na turma");
         jScrollPane3.setViewportView(studentInClassList);
 
         newClassPanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 121, 220, 345));
 
         addToClassButton.setText("Adicionar");
+        addToClassButton.setToolTipText("Adiciona um Aluno na Turma a ser criada");
         addToClassButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addToClassButtonActionPerformed(evt);
@@ -143,6 +153,7 @@ public class ClassPanel extends javax.swing.JPanel {
         newClassPanel.add(addToClassButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 221, 90, -1));
 
         removeStudentFromClassButton.setText("Remover");
+        removeStudentFromClassButton.setToolTipText("Remover um Aluno a ser criada");
         removeStudentFromClassButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeStudentFromClassButtonActionPerformed(evt);
@@ -160,25 +171,12 @@ public class ClassPanel extends javax.swing.JPanel {
 
         classTabbedPane.addTab("Cadastrar Turma", newClassPanel);
 
-        listClassesPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                listClassesPanelComponentShown(evt);
-            }
-        });
-        listClassesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        listaDeTurmas.setBackground(new java.awt.Color(240, 240, 240));
-        jScrollPane2.setViewportView(listaDeTurmas);
-
-        listClassesPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 33, 763, 422));
-
-        classTabbedPane.addTab("Lista de Turmas", listClassesPanel);
-
         editClassPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelTurmaEditarTurma.setText("Turma");
         editClassPanel.add(labelTurmaEditarTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 26, -1, -1));
 
+        comboTurmaEditarTurma.setToolTipText("Selecione uma Turma");
         comboTurmaEditarTurma.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
             public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
             }
@@ -199,9 +197,11 @@ public class ClassPanel extends javax.swing.JPanel {
         editClassPanel.add(labelAnoLetivoEditarTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 26, -1, -1));
 
         campoAnoLetivoEditarTurma.setEditable(false);
+        campoAnoLetivoEditarTurma.setToolTipText("Ano Letivo da turma Selecionada");
         editClassPanel.add(campoAnoLetivoEditarTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 21, 110, -1));
 
         botaoSalvar.setText("Salvar");
+        botaoSalvar.setToolTipText("Salva as Alterações Realizadas na Turma");
         botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoSalvarActionPerformed(evt);
@@ -210,16 +210,19 @@ public class ClassPanel extends javax.swing.JPanel {
         editClassPanel.add(botaoSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(725, 437, 85, -1));
 
         availableStudentList2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        availableStudentList2.setToolTipText("Alunos sem Turma");
         jScrollPane6.setViewportView(availableStudentList2);
 
         editClassPanel.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 121, 220, 345));
 
         studentInClassList2.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        studentInClassList2.setToolTipText("Alunos atualmente na Turma Selecionada");
         jScrollPane7.setViewportView(studentInClassList2);
 
         editClassPanel.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 121, 220, 345));
 
         addToClassButton2.setText("Adicionar");
+        addToClassButton2.setToolTipText("Adiciona o Aluno sem Turma selecionado na Turma");
         addToClassButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addToClassButton2ActionPerformed(evt);
@@ -228,6 +231,7 @@ public class ClassPanel extends javax.swing.JPanel {
         editClassPanel.add(addToClassButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 221, 90, -1));
 
         removeStudentFromClassButton2.setText("Remover");
+        removeStudentFromClassButton2.setToolTipText("Remover um Aluno da Turma");
         removeStudentFromClassButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeStudentFromClassButton2ActionPerformed(evt);
@@ -245,6 +249,99 @@ public class ClassPanel extends javax.swing.JPanel {
         editClassPanel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 830, 10));
 
         classTabbedPane.addTab("Editar Turma", editClassPanel);
+
+        listClassesPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                listClassesPanelComponentShown(evt);
+            }
+        });
+        listClassesPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        alunosListaTurmaTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Aluno"
+            }
+        ));
+        jScrollPane2.setViewportView(alunosListaTurmaTable);
+
+        listClassesPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 250, -1));
+
+        turmaAlunosTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Turma", "Nº Alunos"
+            }
+        ));
+        turmaAlunosTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                turmaAlunosTableMouseClicked(evt);
+            }
+        });
+        turmaAlunosTable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                turmaAlunosTableKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                turmaAlunosTableKeyTyped(evt);
+            }
+        });
+        jScrollPane4.setViewportView(turmaAlunosTable);
+        turmaAlunosTable.getColumnModel().getColumn(1).setHeaderValue("Nº Alunos");
+
+        listClassesPanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 380, -1));
+
+        classTabbedPane.addTab("Lista de Turmas", listClassesPanel);
 
         deleteClassPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -272,7 +369,7 @@ public class ClassPanel extends javax.swing.JPanel {
 
         classTabbedPane.addTab("Remover Turma", deleteClassPanel);
 
-        add(classTabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 833, 515));
+        add(classTabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 833, 515));
     }// </editor-fold>//GEN-END:initComponents
 
    private void campoAnoLetivoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_campoAnoLetivoKeyTyped
@@ -289,19 +386,29 @@ public class ClassPanel extends javax.swing.JPanel {
 
    private void listClassesPanelComponentShown(java.awt.event.ComponentEvent evt)//GEN-FIRST:event_listClassesPanelComponentShown
    {//GEN-HEADEREND:event_listClassesPanelComponentShown
-       listaListaDeTurmas.removeAllElements();
+       clearJTable(turmaAlunosTable, 2);
+       clearJTable(alunosListaTurmaTable, 1);
        Professor tmpProf = Escola.getInstance().getLogado();
-       for (int i = 1; i < tmpProf.getTurmas().size(); i++) {
-           listaListaDeTurmas.addElement(tmpProf.getTurmas().get(i));
+       int linha = 0;
+       for (Turma turma : tmpProf.getTurmas()) {
+           if (!turma.getId().equals("Sem Turma")) {
+               turmaAlunosTable.setValueAt(turma, linha, 0);
+               turmaAlunosTable.setValueAt(turma.getAlunosSize(), linha, 1);
+               linha++;
+           }
        }
+
    }//GEN-LAST:event_listClassesPanelComponentShown
 
    private void comboTurmaEditarTurmaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
    {//GEN-HEADEREND:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
        comboTurmaEditarTurma.removeAllItems();
        Professor tmpProf = Escola.getInstance().getLogado();
-       for (int i = 1; i < tmpProf.getTurmas().size(); i++) {
-           comboTurmaEditarTurma.addItem(tmpProf.getTurmas().get(i));
+       //for (int i = 1; i < tmpProf.getTurmas().size(); i++) {
+       for (Turma turma : tmpProf.getTurmas()) {
+           if (!turma.getId().equals("Sem Turma")) {
+               comboTurmaEditarTurma.addItem(turma);
+           }
        }
    }//GEN-LAST:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
 
@@ -323,8 +430,8 @@ public class ClassPanel extends javax.swing.JPanel {
 
        listaAlunosSemTurma.removeAllElements();
        Professor tmpProf = Escola.getInstance().getLogado();
-       ArrayList<Turma> turmas = tmpProf.getTurmas();
-       tmpTurma = turmas.get(0);
+       //ArrayList<Turma> turmas = tmpProf.getTurmas();
+       tmpTurma = tmpProf.getTurmaDefault();
        students = tmpTurma.buscaTodosAlunos();
        for (int i = 0; i < students.size(); i++) {
            listaAlunosSemTurma.addElement(students.get(i));
@@ -335,9 +442,13 @@ public class ClassPanel extends javax.swing.JPanel {
    {//GEN-HEADEREND:event_comboTurmaRemoverTurmaPopupMenuWillBecomeVisible
        comboTurmaRemoverTurma.removeAllItems();
        Professor tmpProf = Escola.getInstance().getLogado();
-       for (int i = 1; i < tmpProf.getTurmas().size(); i++) {
-           comboTurmaRemoverTurma.addItem(tmpProf.getTurmas().get(i));
+
+       for (Turma turma : tmpProf.getTurmas()) {
+           if (!turma.getId().equals("Sem Turma")) {
+               comboTurmaRemoverTurma.addItem(turma);
+           }
        }
+
    }//GEN-LAST:event_comboTurmaRemoverTurmaPopupMenuWillBecomeVisible
 
     private void campoTurmaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTurmaKeyTyped
@@ -354,7 +465,7 @@ public class ClassPanel extends javax.swing.JPanel {
             labelAnoLetivo.setForeground(Color.black);
             Aluno tmpAluno;
             ArrayList<Turma> turmas = tmpProf.getTurmas();
-            Turma semTurma = turmas.get(0);
+            Turma semTurma = tmpProf.getTurmaDefault();
             Turma tmpTurma = turmas.get(turmas.size() - 1);
             for (int i = 0; i < listaAlunosMatriculadosCad.size(); i++) {
                 tmpAluno = (Aluno) listaAlunosMatriculadosCad.get(i);
@@ -379,7 +490,7 @@ public class ClassPanel extends javax.swing.JPanel {
              }*/
             this.superPanel.getStudentPanel().clearEditStudent();
             limpaCamposCadastrarTurma();
-            return; 
+            return;
         } else {
             for (int i = 0; i < erroslist.size(); i++) {
                 error = erroslist.get(i);
@@ -399,7 +510,7 @@ public class ClassPanel extends javax.swing.JPanel {
                 }
             }
         }
-        
+
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
     //quando fecha o programa aparece a turma que foi deletada denovo
@@ -419,8 +530,8 @@ public class ClassPanel extends javax.swing.JPanel {
     private void addToClassButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToClassButton2ActionPerformed
         try {
             Aluno tmpAluno = (Aluno) availableStudentList2.getSelectedValue();
-            
-            if(tmpAluno != null){
+
+            if (tmpAluno != null) {
                 listaAlunosMatriculadosEdi.addElement(tmpAluno);
                 listaAlunosSemTurma.removeElement(tmpAluno);
             }
@@ -432,8 +543,8 @@ public class ClassPanel extends javax.swing.JPanel {
     private void removeStudentFromClassButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeStudentFromClassButton2ActionPerformed
         try {
             Aluno tmpAluno = (Aluno) studentInClassList2.getSelectedValue();
-            
-            if(tmpAluno != null){
+
+            if (tmpAluno != null) {
                 listaAlunosMatriculadosEdi.removeElement(tmpAluno);
                 listaAlunosSemTurma.addElement(tmpAluno);
             }
@@ -447,7 +558,7 @@ public class ClassPanel extends javax.swing.JPanel {
         Turma tmpTurma = (Turma) comboTurmaEditarTurma.getSelectedItem();
         Professor tmpProf = Escola.getInstance().getLogado();
         ArrayList<Turma> turmas = tmpProf.getTurmas();
-        Turma semTurma = turmas.get(0);
+        Turma semTurma = tmpProf.getTurmaDefault();
         for (int i = 0; i < listaAlunosMatriculadosEdi.size(); i++) {
             tmpAluno = (Aluno) listaAlunosMatriculadosEdi.get(i);
             if (tmpTurma.buscaAluno(tmpAluno) < 0) {
@@ -477,8 +588,8 @@ public class ClassPanel extends javax.swing.JPanel {
     private void addToClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToClassButtonActionPerformed
         try {
             Aluno tmpAluno = (Aluno) availableStudentList.getSelectedValue();
-            
-            if(tmpAluno != null){
+
+            if (tmpAluno != null) {
                 listaAlunosMatriculadosCad.addElement(tmpAluno);
                 listaAlunosSemTurmaCad.removeElement(tmpAluno);
             }
@@ -490,8 +601,8 @@ public class ClassPanel extends javax.swing.JPanel {
     private void removeStudentFromClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeStudentFromClassButtonActionPerformed
         try {
             Aluno tmpAluno = (Aluno) studentInClassList.getSelectedValue();
-            
-            if(tmpAluno != null){
+
+            if (tmpAluno != null) {
                 listaAlunosMatriculadosCad.removeElement(tmpAluno);
                 listaAlunosSemTurmaCad.addElement(tmpAluno);
             }
@@ -502,9 +613,9 @@ public class ClassPanel extends javax.swing.JPanel {
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         attListaAlunosCad();
-        
+
     }//GEN-LAST:event_formComponentShown
-    
+
     private void newClassPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_newClassPanelComponentShown
         attListaAlunosCad();
     }//GEN-LAST:event_newClassPanelComponentShown
@@ -512,13 +623,40 @@ public class ClassPanel extends javax.swing.JPanel {
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
         classTabbedPane.setSelectedIndex(0);
     }//GEN-LAST:event_formComponentHidden
-    
+
+    private void turmaAlunosTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turmaAlunosTableMouseClicked
+        listaAlunos();
+    }//GEN-LAST:event_turmaAlunosTableMouseClicked
+
+    private void turmaAlunosTableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_turmaAlunosTableKeyPressed
+        listaAlunos();
+    }//GEN-LAST:event_turmaAlunosTableKeyPressed
+
+    private void turmaAlunosTableKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_turmaAlunosTableKeyTyped
+        //listaAlunos();
+    }//GEN-LAST:event_turmaAlunosTableKeyTyped
+
+    private void listaAlunos() {
+        int secLinha = turmaAlunosTable.getSelectedRow();
+        Turma selecTurma = (Turma) turmaAlunosTable.getValueAt(secLinha, 0);
+        if (selecTurma != null) {
+            clearJTable(alunosListaTurmaTable, 1);
+            int linha = 0;
+            for (Aluno aluno : selecTurma.buscaTodosAlunos()) {
+                alunosListaTurmaTable.setValueAt(aluno, linha, 0);
+                linha++;
+            }
+        }
+    }
+
     private void attListaAlunosCad() {
         listaAlunosSemTurmaCad.removeAllElements();
         listaAlunosMatriculadosCad.removeAllElements();
         Professor tmpProf = Escola.getInstance().getLogado();
         if (tmpProf != null) {
-            Turma tmpTurma = tmpProf.getTurmas().get(0);
+
+            Turma tmpTurma = tmpProf.getTurmaDefault();
+
             ArrayList<Aluno> students = tmpTurma.buscaTodosAlunos();
             if (students != null) {
                 for (int i = 0; i < students.size(); i++) {
@@ -528,11 +666,25 @@ public class ClassPanel extends javax.swing.JPanel {
         }
     }
 
-    
+    private void clearJTable(JTable jtable, int campos) {
+
+        int i = 0;
+        while (true) {
+            if (jtable.getValueAt(i, 0) != null) {
+                for (int j = 0; j < campos; j++) {
+                    jtable.setValueAt(null, i, j);
+                }
+            } else {
+                break;
+            }
+            i++;
+        }
+    }
     private ArrayList<Integer> erroslist;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addToClassButton;
     private javax.swing.JButton addToClassButton2;
+    private javax.swing.JTable alunosListaTurmaTable;
     private javax.swing.JList availableStudentList;
     private javax.swing.JList availableStudentList2;
     private javax.swing.JButton botaoCadastrar;
@@ -554,6 +706,7 @@ public class ClassPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
@@ -564,12 +717,12 @@ public class ClassPanel extends javax.swing.JPanel {
     private javax.swing.JLabel labelTurmaEditarTurma;
     private javax.swing.JLabel labelTurmaRemoverTurma;
     private javax.swing.JPanel listClassesPanel;
-    private javax.swing.JList listaDeTurmas;
     private javax.swing.JPanel newClassPanel;
     private javax.swing.JButton removeStudentFromClassButton;
     private javax.swing.JButton removeStudentFromClassButton2;
     private javax.swing.JList studentInClassList;
     private javax.swing.JList studentInClassList2;
+    private javax.swing.JTable turmaAlunosTable;
     // End of variables declaration//GEN-END:variables
     private static DefaultListModel listaAlunosMatriculadosCad;
     private static DefaultListModel listaAlunosSemTurma;
@@ -718,7 +871,7 @@ public class ClassPanel extends javax.swing.JPanel {
     public void clearAll() {
         this.limpaCamposCadastrarTurma();
         this.limpaCamposEditarTurma();
-        this.limpaCamposListaTurma();
+        //11this.limpaCamposListaTurma();
         this.limpaCamposRemoverTurma();
         this.classTabbedPane.setSelectedIndex(0);
     }

@@ -161,4 +161,16 @@ public class Professor implements Serializable
     public static void setCont(int n){
         cont = n;
     }   
+    
+    public Turma getTurmaDefault(){
+        Turma semTurma = null;
+        for(Turma turma:this.turmas){
+            if(turma.getId().equals("Sem Turma")){
+                semTurma = turma;
+                break;
+            }
+        }
+        return semTurma;
+    }
+    
 }

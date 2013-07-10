@@ -51,6 +51,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="15" style="1"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Entre com a senha v&#xe1;lida"/>
       </Properties>
       <Events>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="loginpasswKeyTyped"/>
@@ -64,6 +65,7 @@
     <Component class="javax.swing.JButton" name="loginbut">
       <Properties>
         <Property name="text" type="java.lang.String" value="Login"/>
+        <Property name="toolTipText" type="java.lang.String" value="Clique aqui para logar com o usu&#xe1;rio acima"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginbutActionPerformed"/>
@@ -77,6 +79,7 @@
     <Component class="javax.swing.JButton" name="cadbut">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Clique aqui para cadastrar um novo Usu&#xe1;rio"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadbutActionPerformed"/>
@@ -92,6 +95,7 @@
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="setFormatoData()" type="code"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Entre com um CPF ja cadastrado (Somente n&#xfa;meros)"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="15" style="1"/>
         </Property>

@@ -42,7 +42,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="833" height="515"/>
+          <AbsoluteConstraints x="0" y="10" width="833" height="515"/>
         </Constraint>
       </Constraints>
 
@@ -78,6 +78,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="campoTurma">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Entre o Nome da Turma"/>
+              </Properties>
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoTurmaKeyTyped"/>
               </Events>
@@ -104,6 +107,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="campoAnoLetivo">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="Entre com o Ano Letivo"/>
+              </Properties>
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoAnoLetivoKeyTyped"/>
               </Events>
@@ -119,6 +125,7 @@
             <Component class="javax.swing.JButton" name="botaoCadastrar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastrar"/>
+                <Property name="toolTipText" type="java.lang.String" value="Cadastra uma Nova Turma"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCadastrarActionPerformed"/>
@@ -154,6 +161,7 @@
                       <StringArray count="0"/>
                     </Property>
                     <Property name="selectionMode" type="int" value="0"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Alunos sem Turma"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JList(listaAlunosSemTurmaCad)"/>
@@ -180,6 +188,7 @@
                       <StringArray count="0"/>
                     </Property>
                     <Property name="selectionMode" type="int" value="0"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Alunos a serem Adicionados na turma"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JList(listaAlunosMatriculadosCad)"/>
@@ -191,6 +200,7 @@
             <Component class="javax.swing.JButton" name="addToClassButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Adicionar"/>
+                <Property name="toolTipText" type="java.lang.String" value="Adiciona um Aluno na Turma a ser criada"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addToClassButtonActionPerformed"/>
@@ -204,6 +214,7 @@
             <Component class="javax.swing.JButton" name="removeStudentFromClassButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Remover"/>
+                <Property name="toolTipText" type="java.lang.String" value="Remover um Aluno a ser criada"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeStudentFromClassButtonActionPerformed"/>
@@ -238,52 +249,6 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="listClassesPanel">
-          <Events>
-            <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="listClassesPanelComponentShown"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Lista de Turmas">
-                <Property name="tabTitle" type="java.lang.String" value="Lista de Turmas"/>
-              </JTabbedPaneConstraints>
-            </Constraint>
-          </Constraints>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-            <Property name="useNullLayout" type="boolean" value="false"/>
-          </Layout>
-          <SubComponents>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="31" y="33" width="763" height="422"/>
-                </Constraint>
-              </Constraints>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JList" name="listaDeTurmas">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="f0" green="f0" red="f0" type="rgb"/>
-                    </Property>
-                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="0"/>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JList(listaListaDeTurmas)"/>
-                    <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="listaListaDeTurmas = new DefaultListModel();"/>
-                  </AuxValues>
-                </Component>
-              </SubComponents>
-            </Container>
-          </SubComponents>
-        </Container>
         <Container class="javax.swing.JPanel" name="editClassPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
@@ -312,6 +277,7 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="0"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Selecione uma Turma"/>
               </Properties>
               <Events>
                 <EventHandler event="popupMenuWillBecomeVisible" listener="javax.swing.event.PopupMenuListener" parameters="javax.swing.event.PopupMenuEvent" handler="comboTurmaEditarTurmaPopupMenuWillBecomeVisible"/>
@@ -336,6 +302,7 @@
             <Component class="javax.swing.JTextField" name="campoAnoLetivoEditarTurma">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="toolTipText" type="java.lang.String" value="Ano Letivo da turma Selecionada"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -346,6 +313,7 @@
             <Component class="javax.swing.JButton" name="botaoSalvar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salvar"/>
+                <Property name="toolTipText" type="java.lang.String" value="Salva as Altera&#xe7;&#xf5;es Realizadas na Turma"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoSalvarActionPerformed"/>
@@ -374,6 +342,7 @@
                       <StringArray count="0"/>
                     </Property>
                     <Property name="selectionMode" type="int" value="0"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Alunos sem Turma"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JList(listaAlunosSemTurma)"/>
@@ -400,6 +369,7 @@
                       <StringArray count="0"/>
                     </Property>
                     <Property name="selectionMode" type="int" value="0"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Alunos atualmente na Turma Selecionada"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JList(listaAlunosMatriculadosEdi)"/>
@@ -411,6 +381,7 @@
             <Component class="javax.swing.JButton" name="addToClassButton2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Adicionar"/>
+                <Property name="toolTipText" type="java.lang.String" value="Adiciona o Aluno sem Turma selecionado na Turma"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addToClassButton2ActionPerformed"/>
@@ -424,6 +395,7 @@
             <Component class="javax.swing.JButton" name="removeStudentFromClassButton2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Remover"/>
+                <Property name="toolTipText" type="java.lang.String" value="Remover um Aluno da Turma"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeStudentFromClassButton2ActionPerformed"/>
@@ -463,6 +435,105 @@
                 </Constraint>
               </Constraints>
             </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="listClassesPanel">
+          <Events>
+            <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="listClassesPanelComponentShown"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Lista de Turmas">
+                <Property name="tabTitle" type="java.lang.String" value="Lista de Turmas"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+            <Property name="useNullLayout" type="boolean" value="false"/>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="510" y="20" width="250" height="-1"/>
+                </Constraint>
+              </Constraints>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="alunosListaTurmaTable">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="1" rowCount="24">
+                        <Column editable="true" title="Aluno" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="30" y="20" width="380" height="-1"/>
+                </Constraint>
+              </Constraints>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="turmaAlunosTable">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="2" rowCount="24">
+                        <Column editable="true" title="Turma" type="java.lang.Object"/>
+                        <Column editable="true" title="N&#xba; Alunos" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title value="N&#xba; Alunos"/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="turmaAlunosTableMouseClicked"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="turmaAlunosTableKeyPressed"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="turmaAlunosTableKeyTyped"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="deleteClassPanel">

@@ -58,6 +58,7 @@ public class LoginJPanel extends javax.swing.JPanel {
             add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 263, -1, -1));
 
             loginpassw.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+            loginpassw.setToolTipText("Entre com a senha válida");
             loginpassw.addKeyListener(new java.awt.event.KeyAdapter() {
                 public void keyTyped(java.awt.event.KeyEvent evt) {
                     loginpasswKeyTyped(evt);
@@ -66,6 +67,7 @@ public class LoginJPanel extends javax.swing.JPanel {
             add(loginpassw, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 258, 178, -1));
 
             loginbut.setText("Login");
+            loginbut.setToolTipText("Clique aqui para logar com o usuário acima");
             loginbut.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     loginbutActionPerformed(evt);
@@ -74,6 +76,7 @@ public class LoginJPanel extends javax.swing.JPanel {
             add(loginbut, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 292, 114, -1));
 
             cadbut.setText("Cadastrar");
+            cadbut.setToolTipText("Clique aqui para cadastrar um novo Usuário");
             cadbut.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     cadbutActionPerformed(evt);
@@ -82,6 +85,7 @@ public class LoginJPanel extends javax.swing.JPanel {
             add(cadbut, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 292, 113, -1));
 
             campocpflogin.setFormatterFactory(setFormatoData());
+            campocpflogin.setToolTipText("Entre com um CPF ja cadastrado (Somente números)");
             campocpflogin.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
             add(campocpflogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 218, 178, -1));
 
