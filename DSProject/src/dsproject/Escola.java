@@ -717,7 +717,7 @@ public class Escola {
         }
     }
 
-    public void salvarParaEnviar(ArrayList<Turma> turmas, String path) {
+    public boolean salvarParaEnviar(ArrayList<Turma> turmas, String path) {
         ArrayList<Aluno> paraEnviar = new ArrayList();
         Avaliacao tmp;
 
@@ -781,13 +781,15 @@ public class Escola {
             arquivo = new File(path);
             FileOutputStream fos = new FileOutputStream(arquivo);
             fos.write(xml.getBytes());
+            return true;
 
         } catch (IOException ex) {
             System.err.println(ex);
+            return false;
         }
     }
     
-    public void salvarParaEnviar2(ArrayList<Turma> turmas, String path) {
+    public boolean salvarParaEnviar2(ArrayList<Turma> turmas, String path) {
         ArrayList<Aluno> paraEnviar = new ArrayList();
         Avaliacao tmp;
 
@@ -801,6 +803,8 @@ public class Escola {
             }
         }
 
+        System.out.println(paraEnviar.size());
+        
         String xml = "";
 
         xml += "<prodown_envio>\n";
@@ -839,9 +843,6 @@ public class Escola {
             xml += "</avaliacao>\n";
 
             xml += "</aluno>\n";
-
-            a.inserirAvaliacao();
-            Escola.getInstance().salvarAvaliacoes(a);
         }
         xml += "</alunos>\n";
         xml += "</prodown_envio>\n";
@@ -853,10 +854,18 @@ public class Escola {
             fos.write(xml.getBytes());
             fos.close();
             arquivo.setReadOnly();
+            
+            for (Aluno a : paraEnviar){
+                a.inserirAvaliacao();
+                Escola.getInstance().salvarAvaliacoes(a);
+            }
+            return true;
 
         } catch (IOException ex) {
             System.err.println(ex);
+            return false;
         }
+        
     }
     
 }
