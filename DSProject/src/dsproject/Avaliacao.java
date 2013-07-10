@@ -5,16 +5,17 @@ import java.util.Date;
 
 public class Avaliacao implements Serializable
 {
-   private Date data;
-   private String horario;
-   private String temperatura;
+   //Informacao referente a quando foi realizado o teste
+   private Date data;//data do teste.
+   private String horario;//horario da realizacao do teste.
+   private String temperatura;//temperatura no momento do teste.
    //Testes referentes à aptidão física relacionada à saúde
-   private float massaCorporal; //em Kg com uma casa decimal
-   private float estatura; //em cm com uma casa decimal
-   private float IMC; //IMC = Massa (Kg)/ estatura (m)²
-   private float envergadura; //em cm com uma casa decimal
-   private float sentarEAlcancar; //em cm com uma casa decimal
-   private boolean sentarEAlcancarComBanco; //em cm com uma casa decimal
+   private float massaCorporal; //em Kg com uma ou duas casas decimais.
+   private float estatura; //em cm com uma casa decimal.
+   private float IMC; //IMC = Massa (Kg)/ estatura (m)².
+   private float envergadura; //em cm com uma casa decimal.
+   private float sentarEAlcancar; //em cm com uma casa decimal.
+   private boolean sentarEAlcancarComBanco; //boolean que determina se para o teste sentar e alcancar foi usado o banco.
    private int abdominal; //(abdominal) número de movimentos completos realizados em 1 minuto.
    private float _9Minutos; //resultados serão anotados em metros com aproximação às dezenas.
    private float _6Minutos; //resultados serão anotados em metros com aproximação às dezenas.
@@ -24,13 +25,16 @@ public class Avaliacao implements Serializable
    private float testeDoQuadrado; //A medida será registrada em segundos e centésimos de segundo (duas casas após a vírgula).
    private float corrida20Metros; //tempo do percurso em segundos e centésimos de segundos (duas casas após a vírgula).
    
+   //boolean que determina se a avaliacao vai ser adicionada ao xml para enviar ao servidor.
    private boolean salvoParaEnviar;
+   
+   //boolean que informa se o teste ja foi adicionado a algum xml para ser enviado ao servidor.
+   private boolean enviado;
 
     public boolean isSalvoParaEnviar() {
         return salvoParaEnviar;
     }
    
-   private boolean enviado;
 
     public boolean isEnviado() {
         return enviado;
@@ -38,9 +42,9 @@ public class Avaliacao implements Serializable
 
     public void setEnviado(boolean enviado) {
         this.enviado = enviado;
-    }
-   
-
+    }   
+    
+    //Inicializa a classe avaliacao
    public Avaliacao()
    {    
        

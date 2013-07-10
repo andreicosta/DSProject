@@ -22,32 +22,8 @@ import javax.swing.table.DefaultTableModel;
 public class TestPanel extends javax.swing.JPanel {
 
     public TestPanel() {
-        /*
-         * try {
-         * UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-         * } catch (ClassNotFoundException | InstantiationException |
-         * IllegalAccessException | UnsupportedLookAndFeelException ex) {
-         * Logger.getLogger(TestPanel.class.getName()).log(Level.SEVERE, null,
-         * ex);
-        }
-         */
-
+        //Inicializa os componentes do TestPanel.
         initComponents();
-        TestPanel.fieldTestDate.getDateEditor().getUiComponent().addFocusListener(new FocusListener() {
-
-            @Override
-            public void focusGained(FocusEvent e) {}
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                if (getCampoDataDaAvaliacao() == null) {
-                    //labelDataDaAvaliacao.setForeground(Color.red);
-                } else {
-                    labelDataDaAvaliacao.setForeground(Color.black);
-                    saveData();
-                }
-            }
-        });
     }
     
     @SuppressWarnings("unchecked")
@@ -463,11 +439,16 @@ public class TestPanel extends javax.swing.JPanel {
 
    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_buttonSaveActionPerformed
    {//GEN-HEADEREND:event_buttonSaveActionPerformed
+       //Salva todos os dados quando clica no botao salvar alteracoes.
+       //Primeramente ele testa se e valido os dados do campo data, horario e temperatuda da avaliacao.
+       //Se algum deles nao estiver correto ou em algum formato errado, as alteracoes nao sao salvar.
        saveAll();
    }//GEN-LAST:event_buttonSaveActionPerformed
 
    private void fieldTimeKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldTimeKeyTyped
    {//GEN-HEADEREND:event_fieldTimeKeyTyped
+       //Caso um nao-digito seja digitado ou se a quantidade de digitos for errado, ele nao insere o caractere digitado.
+       //Adiciona : entre as horas e os minutos no painel.
        if (!Character.isDigit(evt.getKeyChar())) {
            evt.setKeyChar('\0');
        } else {
@@ -484,6 +465,7 @@ public class TestPanel extends javax.swing.JPanel {
 
    private void fieldTemperatureKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldTemperatureKeyTyped
    {//GEN-HEADEREND:event_fieldTemperatureKeyTyped
+       //Caso um nao-digito seja digitado ou se a quantidade de digitos for errado, ele nao insere o caractere digitado.
        if (!Character.isDigit(evt.getKeyChar())) {
            evt.setKeyChar('\0');
        } else {
@@ -496,6 +478,10 @@ public class TestPanel extends javax.swing.JPanel {
 
    private void fieldBodyMassKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldBodyMassKeyTyped
    {//GEN-HEADEREND:event_fieldBodyMassKeyTyped
+       //Caso um nao-digito seja digitado ou se a quantidade de digitos for errado, ele nao insere o caractere digitado.
+       //O pattern serve para que somente possa ser digitado os numeros no formato correto. Da forma implementada
+       //ele aceita entradas contendo 0.xx valores, ou se nao comecar com 0, podendo ter ate 3 digitos antes do .,
+       //aceitando entradas de 0.00 ate 999.99.
        if (!Character.isDigit(evt.getKeyChar()) && !(evt.getKeyChar() == '.')) {
            evt.setKeyChar('\0');
        } else {
@@ -511,6 +497,7 @@ public class TestPanel extends javax.swing.JPanel {
 
    private void fieldHeightKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldHeightKeyTyped
    {//GEN-HEADEREND:event_fieldHeightKeyTyped
+       //Caso um nao-digito seja digitado ou se a quantidade de digitos for errado, ele nao insere o caractere digitado.
        if (!Character.isDigit(evt.getKeyChar())) {
            evt.setKeyChar('\0');
        } else {
@@ -523,14 +510,14 @@ public class TestPanel extends javax.swing.JPanel {
 
    private void fieldIMCKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldIMCKeyTyped
    {//GEN-HEADEREND:event_fieldIMCKeyTyped
+       //Caso um nao-digito seja digitado ou se a quantidade de digitos for errado, ele nao insere o caractere digitado.
+       //Adiciona um . apos 2 digitos serem escritos.     
        if (!Character.isDigit(evt.getKeyChar())) {
            evt.setKeyChar('\0');
        } else {
            String textoCampo = fieldIMC.getText();
-           //System.out.println("length sem ponto = " + campoIMC.getText().length());
            if (textoCampo.length() == 2) {
                fieldIMC.setText(textoCampo + ".");
-               //System.out.println("ponto colocado length = " + campoIMC.getText().length());
            } else {
                if (textoCampo.length() > 3) {
                    evt.setKeyChar('\0');
@@ -541,6 +528,7 @@ public class TestPanel extends javax.swing.JPanel {
 
    private void fieldSpreadKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldSpreadKeyTyped
    {//GEN-HEADEREND:event_fieldSpreadKeyTyped
+       //Caso um nao-digito seja digitado ou se a quantidade de digitos for errado, ele nao insere o caractere digitado.
        if (!Character.isDigit(evt.getKeyChar())) {
            evt.setKeyChar('\0');
        } else {
@@ -553,6 +541,7 @@ public class TestPanel extends javax.swing.JPanel {
 
    private void fieldSitUpKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldSitUpKeyTyped
    {//GEN-HEADEREND:event_fieldSitUpKeyTyped
+       //Caso um nao-digito seja digitado ou se a quantidade de digitos for errado, ele nao insere o caractere digitado.
        if (!Character.isDigit(evt.getKeyChar())) {
            evt.setKeyChar('\0');
        } else {
@@ -565,6 +554,8 @@ public class TestPanel extends javax.swing.JPanel {
 
    private void comboTurmaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboTurmaPopupMenuWillBecomeVisible
    {//GEN-HEADEREND:event_comboTurmaPopupMenuWillBecomeVisible
+       //Quando clicado no combobox para escolher uma turma para realizar a avaliacao, ele limpa a secao e adiciona todas
+       //as turmas cadastradas pelo professor, exceto pela turma padrao, a aba.
        this.comboTurma.removeAllItems();
        for (Turma i : Escola.getInstance().getLogado().getTurmas()) {
            if(!i.getId().equals("Sem Turma")){
@@ -574,6 +565,8 @@ public class TestPanel extends javax.swing.JPanel {
    }//GEN-LAST:event_comboTurmaPopupMenuWillBecomeVisible
 
     private void fieldBodyMassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldBodyMassFocusLost
+        //Quando clicado em qualquer coisa que nao o campo de peso apos ele ter sido selecionado, se ambos o campo peso
+        //e o campo altura estiverem preenchido, ele calcula e preenche o campo IMC automaticamente.
         if(!fieldHeight.getText().isEmpty() && !fieldBodyMass.getText().isEmpty()){
             float alt = Float.valueOf(fieldHeight.getText()) / 100;
             float mass = Float.valueOf(fieldBodyMass.getText());
@@ -583,7 +576,8 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldBodyMassFocusLost
 
     private void fieldSitAndAchieveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldSitAndAchieveKeyTyped
-        if (!Character.isDigit(evt.getKeyChar())) {
+       //Caso um nao-digito seja digitado ou se a quantidade de digitos for errado, ele nao insere o caractere digitado.
+       if (!Character.isDigit(evt.getKeyChar())) {
             evt.setKeyChar('\0');
         } else {
             String textoCampo = fieldSitAndAchieve.getText();
@@ -594,7 +588,8 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldSitAndAchieveKeyTyped
 
     private void fieldRunKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldRunKeyTyped
-        if (!Character.isDigit(evt.getKeyChar())) {
+        //Caso um nao-digito seja digitado ou se a quantidade de digitos for errado, ele nao insere o caractere digitado.
+       if (!Character.isDigit(evt.getKeyChar())) {
             evt.setKeyChar('\0');
         } else {
             String textoCampo = fieldRun.getText();
@@ -605,7 +600,8 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldRunKeyTyped
 
     private void fieldHorizontalJumpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldHorizontalJumpKeyTyped
-        if (!Character.isDigit(evt.getKeyChar())) {
+        //Caso um nao-digito seja digitado ou se a quantidade de digitos for errado, ele nao insere o caractere digitado.
+       if (!Character.isDigit(evt.getKeyChar())) {
             evt.setKeyChar('\0');
         } else {
             String textoCampo = fieldHorizontalJump.getText();
@@ -616,7 +612,8 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldHorizontalJumpKeyTyped
 
     private void fieldThrowOfMedicineBallKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldThrowOfMedicineBallKeyTyped
-        if (!Character.isDigit(evt.getKeyChar())) {
+        //Caso um nao-digito seja digitado ou se a quantidade de digitos for errado, ele nao insere o caractere digitado.
+       if (!Character.isDigit(evt.getKeyChar())) {
             evt.setKeyChar('\0');
         } else {
             String textoCampo = fieldThrowOfMedicineBall.getText();
@@ -627,7 +624,8 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldThrowOfMedicineBallKeyTyped
 
     private void fiedlSquareTestKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fiedlSquareTestKeyTyped
-        if (!Character.isDigit(evt.getKeyChar())) {
+        //Caso um nao-digito seja digitado ou se a quantidade de digitos for errado, ele nao insere o caractere digitado.
+       if (!Character.isDigit(evt.getKeyChar())) {
             evt.setKeyChar('\0');
         } else {
             String textoCampo = fiedlSquareTest.getText();
@@ -638,7 +636,8 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_fiedlSquareTestKeyTyped
 
     private void field20MetersRunKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_field20MetersRunKeyTyped
-        if (!Character.isDigit(evt.getKeyChar())) {
+        //Caso um nao-digito seja digitado ou se a quantidade de digitos for errado, ele nao insere o caractere digitado.
+       if (!Character.isDigit(evt.getKeyChar())) {
             evt.setKeyChar('\0');
         } else {
             String textoCampo = field20MetersRun.getText();
@@ -649,6 +648,8 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_field20MetersRunKeyTyped
 
     private void fieldHeightFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldHeightFocusLost
+        //Quando clicado em qualquer coisa que nao o campo de altura apos ele ter sido selecionado, se ambos o campo peso
+        //e o campo altura estiverem preenchido, ele calcula e preenche o campo IMC automaticamente.
         if(!fieldHeight.getText().isEmpty() && !fieldBodyMass.getText().isEmpty()){
             float alt = Float.valueOf(fieldHeight.getText()) / 100;
             float mass = Float.valueOf(fieldBodyMass.getText());
@@ -658,11 +659,14 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldHeightFocusLost
 
     private void comboTurmaPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_comboTurmaPopupMenuWillBecomeInvisible
+        //Apos selecionar algum aluno, limpa os campos dos dados.
         this.limpaComboNomeDoAluno();
         this.limpaCampos();
     }//GEN-LAST:event_comboTurmaPopupMenuWillBecomeInvisible
 
     private void comboNomeDoAlunoPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_comboNomeDoAlunoPopupMenuWillBecomeVisible
+        //Ao abrir o combobox dos alunos ele remove tudo do combobox e entao adiciona todos os alunos pertencentes a turma
+        //selecionada no combobox turma ao combobox aluno para escolher a qual aluno sera feito a avaliacao.
         Turma turma = (Turma) this.comboTurma.getSelectedItem();
         comboNomeDoAluno.removeAllItems();
         if (turma == null) {
@@ -677,7 +681,9 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_comboNomeDoAlunoPopupMenuWillBecomeVisible
 
     private void comboNomeDoAlunoPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_comboNomeDoAlunoPopupMenuWillBecomeInvisible
-      Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+        //Apos selecionar um aluno, se esse aluno ja possui algum dado salvo de sua avaliacao ele carrega automaticamente os dados
+        //para os campos correspondentes.
+        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
         
         this.limpaCampos();
         
@@ -812,6 +818,10 @@ public class TestPanel extends javax.swing.JPanel {
        atualizaJTable();
     }//GEN-LAST:event_controlPanelComponentShown
     
+    //Adiciona no controle de avaliacoa todas as turmas.
+    //No campo nome, mostra o nome da turma.
+    //No campo data da ultima avaliacao ele mostra a data da avaliacao mais recente feita por alguem daquela turma.
+    //No campo status ele mostra quantos alunos possuem uma avaliacao pronta para ser salva para enviar ao servidor do total de alunos da turma.
     private void atualizaJTable(){
         clearJTable();       
         
@@ -864,6 +874,7 @@ public class TestPanel extends javax.swing.JPanel {
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Pega todas as turmas selecionadas na tabela para gerar o arquivo de envio para o site e gera o .xml do arquivo.
         ArrayList<Turma> turmasSelecionadas = new ArrayList<>();
         ArrayList<Turma> turmasParaSalvar = new ArrayList<>();
         
@@ -1003,6 +1014,7 @@ public class TestPanel extends javax.swing.JPanel {
     private static boolean turmaAdicionadaComboTurma;
     private static int numeroDeTurmasAdicionadasComboTurma = 0;
 
+    //Passa como parametro o mes obtido da classe Data.getDate().ToString() e retorna o mes escrito por extenso em portugues. 
     private String returnMonth(String mes){
         String literal = "";
         switch (mes){
@@ -1080,19 +1092,14 @@ public class TestPanel extends javax.swing.JPanel {
 
     public static Date getCampoDataDaAvaliacao() {
         if (fieldTestDate.getDate() == null) {
-            //labelDataDaAvaliacao.setForeground(Color.red);
-            //JOptionPane.showMessageDialog(null, "Escolha uma " + labelDataDaAvaliacao.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
             return null;
         } else {
-            //labelDataDaAvaliacao.setForeground(Color.black);
             return fieldTestDate.getDate();
         }
     }
 
     public static String getCampoHora() {
         if (fieldTime.getText().isEmpty()) {
-            //labelHorario.setForeground(Color.red);
-            //JOptionPane.showMessageDialog(null, "Digite um " + labelHorario.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
             return null;
         } else {
             return fieldTime.getText();
@@ -1101,11 +1108,8 @@ public class TestPanel extends javax.swing.JPanel {
 
     public static String getCampoTemperatura() {
         if (fieldTemperature.getText().isEmpty()) {
-            //labelTemperatura.setForeground(Color.red);
-            //JOptionPane.showMessageDialog(null, "Digite uma " + labelTemperatura.getText(), "Erro", JOptionPane.ERROR_MESSAGE);
             return null;
         } else {
-            //labelTemperatura.setForeground(Color.black);
             return fieldTemperature.getText();
         }
     }
@@ -1271,6 +1275,7 @@ public class TestPanel extends javax.swing.JPanel {
         avaliacaoFinalizadaCheckBox.setSelected(false);
     }
     
+    //Se a data estiver invalida, pinta o label data de vermelho para saber que ha algo errado com a data.
     private boolean saveData(){
         Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
         if (student == null) {
@@ -1286,6 +1291,7 @@ public class TestPanel extends javax.swing.JPanel {
         return true;
     }
     
+    //Se o campo do horario estiver errado, ou em algum horario invalido pinta o label e o texto em vermelho para saber que ha algo errado.
     private boolean saveTime(){
         String horaDaAvaliacaoString = getCampoHora();
         boolean Error = false;
@@ -1484,10 +1490,11 @@ public class TestPanel extends javax.swing.JPanel {
     }
 
     public void clearAll() {
-        //implementar!
         this.testTabbedPane.setSelectedIndex(0);
     }
     
+    //Como o jTable nao possui metodo para limpar todos os dados escritos nele, foi implementado um metodo para passar por todos
+    //os campos escritos e limpar eles.
     private void clearJTable(){
         int i=0;
         while(true){
@@ -1502,6 +1509,10 @@ public class TestPanel extends javax.swing.JPanel {
         }
     }
     
+    //Metodo que salva todos os dados dos campos correspondentes a avaliacao do aluno.
+    //Primeiramente ele tenta salvar a data, o horario e a temperatura. Se algum deles estiver errado, ele para de salvar os dados da
+    //avaliacao. Se todos os 3 estiverem correto, ele salva todos os dados na avaliacao, limpa os campos e avisa ao usuario de que
+    //as alteracoes foram salvas com sucesso.
     private void saveAll(){
        boolean trySave = true;
        trySave = saveData() && trySave;
