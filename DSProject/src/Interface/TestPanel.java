@@ -7,6 +7,7 @@ import dsproject.Turma;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -714,7 +715,12 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldBodyMassMouseClicked
 
     private void fieldBodyMassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldBodyMassFocusLost
-
+        if(!fieldHeight.getText().isEmpty() && !fieldBodyMass.getText().isEmpty()){
+            float alt = Float.valueOf(fieldHeight.getText()) / 100;
+            float mass = Float.valueOf(fieldBodyMass.getText());
+            float calcimc = mass / (alt*alt);
+            fieldIMC.setText(new DecimalFormat("##.##").format(calcimc));                    
+        }
     }//GEN-LAST:event_fieldBodyMassFocusLost
 
     private void fieldSitAndAchieveKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldSitAndAchieveKeyTyped
@@ -802,7 +808,12 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_fieldTemperatureFocusLost
 
     private void fieldHeightFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldHeightFocusLost
-
+        if(!fieldHeight.getText().isEmpty() && !fieldBodyMass.getText().isEmpty()){
+            float alt = Float.valueOf(fieldHeight.getText()) / 100;
+            float mass = Float.valueOf(fieldBodyMass.getText());
+            float calcimc = mass / (alt*alt);
+            fieldIMC.setText(new DecimalFormat("##.##").format(calcimc));                    
+        }
     }//GEN-LAST:event_fieldHeightFocusLost
 
     private void fieldIMCFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldIMCFocusLost
