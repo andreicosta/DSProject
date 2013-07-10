@@ -100,7 +100,15 @@ public class Professor implements Serializable
     }
     
     public ArrayList<Turma> getTurmas(){
-        return this.turmas;
+        ArrayList<Turma> temp = this.turmas;
+        Collections.sort(temp, new Comparator() {
+                @Override
+                public int compare( Object obj1, Object obj2 ) {
+                    return ((((Turma)obj1).getId()).compareTo(((Turma)obj2).getId()));
+                }  
+        });
+        
+        return temp;
     }
     
     public ArrayList<Aluno> getAlunos(){
