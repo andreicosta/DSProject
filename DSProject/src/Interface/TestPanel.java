@@ -141,16 +141,6 @@ public class TestPanel extends javax.swing.JPanel {
                 comboTurmaPopupMenuWillBecomeVisible(evt);
             }
         });
-        comboTurma.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                comboTurmaItemStateChanged(evt);
-            }
-        });
-        comboTurma.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboTurmaActionPerformed(evt);
-            }
-        });
         newEditPanel.add(comboTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 18, 210, -1));
 
         comboNomeDoAluno.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
@@ -161,11 +151,6 @@ public class TestPanel extends javax.swing.JPanel {
             }
             public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
                 comboNomeDoAlunoPopupMenuWillBecomeVisible(evt);
-            }
-        });
-        comboNomeDoAluno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboNomeDoAlunoActionPerformed(evt);
             }
         });
         newEditPanel.add(comboNomeDoAluno, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 18, 350, -1));
@@ -181,21 +166,6 @@ public class TestPanel extends javax.swing.JPanel {
         newEditPanel.add(labelDataDaAvaliacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 79, -1, -1));
 
         fieldTestDate.setFocusable(false);
-        fieldTestDate.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                fieldTestDateFocusLost(evt);
-            }
-        });
-        fieldTestDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                fieldTestDatePropertyChange(evt);
-            }
-        });
-        fieldTestDate.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                fieldTestDateKeyTyped(evt);
-            }
-        });
         newEditPanel.add(fieldTestDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 69, 180, -1));
         fieldTestDate.getAccessibleContext().setAccessibleDescription("");
 
@@ -211,11 +181,6 @@ public class TestPanel extends javax.swing.JPanel {
         labelTemperatura.setText("Temperatura");
         newEditPanel.add(labelTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 74, -1, -1));
 
-        fieldTemperature.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                fieldTemperatureFocusLost(evt);
-            }
-        });
         fieldTemperature.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldTemperatureKeyTyped(evt);
@@ -238,11 +203,6 @@ public class TestPanel extends javax.swing.JPanel {
         labelSitAndAchieve.setText("Sentar-e-Alcançar");
         newEditPanel.add(labelSitAndAchieve, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 186, -1, -1));
 
-        fieldSitAndAchieve.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                fieldSitAndAchieveFocusLost(evt);
-            }
-        });
         fieldSitAndAchieve.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldSitAndAchieveKeyTyped(evt);
@@ -250,11 +210,6 @@ public class TestPanel extends javax.swing.JPanel {
         });
         newEditPanel.add(fieldSitAndAchieve, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 181, 80, -1));
 
-        fieldSpread.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                fieldSpreadFocusLost(evt);
-            }
-        });
         fieldSpread.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldSpreadKeyTyped(evt);
@@ -274,11 +229,6 @@ public class TestPanel extends javax.swing.JPanel {
         });
         newEditPanel.add(fieldHeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 181, 80, -1));
 
-        fieldBodyMass.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                fieldBodyMassMouseClicked(evt);
-            }
-        });
         fieldBodyMass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 fieldBodyMassFocusLost(evt);
@@ -293,34 +243,14 @@ public class TestPanel extends javax.swing.JPanel {
 
         radioSitAndAchieveWithSeat.setText("Com Banco");
         radioSitAndAchieveWithSeat.setSelected(true);
-        radioSitAndAchieveWithSeat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radioSitAndAchieveWithSeatActionPerformed(evt);
-            }
-        });
-        radioSitAndAchieveWithSeat.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                radioSitAndAchieveWithSeatFocusLost(evt);
-            }
-        });
         newEditPanel.add(radioSitAndAchieveWithSeat, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 182, -1, -1));
 
         radioSitAndAchieveWithoutSeat.setText("Sem Banco");
-        radioSitAndAchieveWithoutSeat.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                radioSitAndAchieveWithoutSeatFocusLost(evt);
-            }
-        });
         newEditPanel.add(radioSitAndAchieveWithoutSeat, new org.netbeans.lib.awtextra.AbsoluteConstraints(698, 182, -1, -1));
 
         labelSitUp.setText("Abdominal");
         newEditPanel.add(labelSitUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 147, -1, -1));
 
-        fieldSitUp.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                fieldSitUpFocusLost(evt);
-            }
-        });
         fieldSitUp.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldSitUpKeyTyped(evt);
@@ -331,11 +261,6 @@ public class TestPanel extends javax.swing.JPanel {
         labelRun.setText("Corrida");
         newEditPanel.add(labelRun, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 225, -1, -1));
 
-        fieldRun.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                fieldRunFocusLost(evt);
-            }
-        });
         fieldRun.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldRunKeyTyped(evt);
@@ -345,29 +270,9 @@ public class TestPanel extends javax.swing.JPanel {
 
         radio6Minutes.setText("6 minutos");
         radio6Minutes.setSelected(true);
-        radio6Minutes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radio6MinutesActionPerformed(evt);
-            }
-        });
-        radio6Minutes.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                radio6MinutesFocusLost(evt);
-            }
-        });
         newEditPanel.add(radio6Minutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 221, -1, -1));
 
         radio9Minutes.setText("9 minutos");
-        radio9Minutes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radio9MinutesActionPerformed(evt);
-            }
-        });
-        radio9Minutes.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                radio9MinutesFocusLost(evt);
-            }
-        });
         newEditPanel.add(radio9Minutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(698, 221, -1, -1));
 
         jLabel14.setText("Kg");
@@ -400,11 +305,6 @@ public class TestPanel extends javax.swing.JPanel {
         label20MetersRun.setText("Corrida de 20 metros");
         newEditPanel.add(label20MetersRun, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 391, -1, -1));
 
-        field20MetersRun.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                field20MetersRunFocusLost(evt);
-            }
-        });
         field20MetersRun.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 field20MetersRunKeyTyped(evt);
@@ -412,11 +312,6 @@ public class TestPanel extends javax.swing.JPanel {
         });
         newEditPanel.add(field20MetersRun, new org.netbeans.lib.awtextra.AbsoluteConstraints(585, 386, 80, -1));
 
-        fiedlSquareTest.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                fiedlSquareTestFocusLost(evt);
-            }
-        });
         fiedlSquareTest.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fiedlSquareTestKeyTyped(evt);
@@ -424,11 +319,6 @@ public class TestPanel extends javax.swing.JPanel {
         });
         newEditPanel.add(fiedlSquareTest, new org.netbeans.lib.awtextra.AbsoluteConstraints(585, 341, 80, -1));
 
-        fieldHorizontalJump.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                fieldHorizontalJumpFocusLost(evt);
-            }
-        });
         fieldHorizontalJump.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldHorizontalJumpKeyTyped(evt);
@@ -436,11 +326,6 @@ public class TestPanel extends javax.swing.JPanel {
         });
         newEditPanel.add(fieldHorizontalJump, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 341, 80, -1));
 
-        fieldThrowOfMedicineBall.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                fieldThrowOfMedicineBallFocusLost(evt);
-            }
-        });
         fieldThrowOfMedicineBall.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldThrowOfMedicineBallKeyTyped(evt);
@@ -472,11 +357,6 @@ public class TestPanel extends javax.swing.JPanel {
         labelHorario.setText("Horário");
         newEditPanel.add(labelHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 74, -1, -1));
 
-        fieldTime.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                fieldTimeFocusLost(evt);
-            }
-        });
         fieldTime.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldTimeKeyTyped(evt);
@@ -487,11 +367,6 @@ public class TestPanel extends javax.swing.JPanel {
         labelIMC.setText("IMC");
         newEditPanel.add(labelIMC, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 225, -1, -1));
 
-        fieldIMC.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                fieldIMCFocusLost(evt);
-            }
-        });
         fieldIMC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fieldIMCKeyTyped(evt);
@@ -500,16 +375,6 @@ public class TestPanel extends javax.swing.JPanel {
         newEditPanel.add(fieldIMC, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 220, 80, -1));
 
         avaliacaoFinalizadaCheckBox.setText("Avaliação Finalizada");
-        avaliacaoFinalizadaCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                avaliacaoFinalizadaCheckBoxActionPerformed(evt);
-            }
-        });
-        avaliacaoFinalizadaCheckBox.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                avaliacaoFinalizadaCheckBoxPropertyChange(evt);
-            }
-        });
         newEditPanel.add(avaliacaoFinalizadaCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 427, -1, -1));
 
         testTabbedPane.addTab("Nova Avaliação / Editar Avaliação", newEditPanel);
@@ -699,21 +564,6 @@ public class TestPanel extends javax.swing.JPanel {
        }
    }//GEN-LAST:event_comboTurmaPopupMenuWillBecomeVisible
 
-   private void comboTurmaItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_comboTurmaItemStateChanged
-   {//GEN-HEADEREND:event_comboTurmaItemStateChanged
-   }//GEN-LAST:event_comboTurmaItemStateChanged
-
-    private void comboTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTurmaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboTurmaActionPerformed
-
-    private void comboNomeDoAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboNomeDoAlunoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboNomeDoAlunoActionPerformed
-
-    private void fieldBodyMassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fieldBodyMassMouseClicked
-    }//GEN-LAST:event_fieldBodyMassMouseClicked
-
     private void fieldBodyMassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldBodyMassFocusLost
         if(!fieldHeight.getText().isEmpty() && !fieldBodyMass.getText().isEmpty()){
             float alt = Float.valueOf(fieldHeight.getText()) / 100;
@@ -789,24 +639,6 @@ public class TestPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_field20MetersRunKeyTyped
 
-    private void fieldTestDateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldTestDateFocusLost
-    }//GEN-LAST:event_fieldTestDateFocusLost
-
-    private void fieldTestDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fieldTestDatePropertyChange
-
-    }//GEN-LAST:event_fieldTestDatePropertyChange
-
-    private void fieldTestDateKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fieldTestDateKeyTyped
-    }//GEN-LAST:event_fieldTestDateKeyTyped
-
-    private void fieldTimeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldTimeFocusLost
-
-    }//GEN-LAST:event_fieldTimeFocusLost
-
-    private void fieldTemperatureFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldTemperatureFocusLost
-
-    }//GEN-LAST:event_fieldTemperatureFocusLost
-
     private void fieldHeightFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldHeightFocusLost
         if(!fieldHeight.getText().isEmpty() && !fieldBodyMass.getText().isEmpty()){
             float alt = Float.valueOf(fieldHeight.getText()) / 100;
@@ -815,51 +647,6 @@ public class TestPanel extends javax.swing.JPanel {
             fieldIMC.setText(new DecimalFormat("##.##").format(calcimc));                    
         }
     }//GEN-LAST:event_fieldHeightFocusLost
-
-    private void fieldIMCFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldIMCFocusLost
-
-    }//GEN-LAST:event_fieldIMCFocusLost
-
-    private void fieldSpreadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldSpreadFocusLost
-
-    }//GEN-LAST:event_fieldSpreadFocusLost
-
-    private void fieldSitUpFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldSitUpFocusLost
-
-    }//GEN-LAST:event_fieldSitUpFocusLost
-
-    private void fieldSitAndAchieveFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldSitAndAchieveFocusLost
-
-    }//GEN-LAST:event_fieldSitAndAchieveFocusLost
-
-    private void fieldRunFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldRunFocusLost
-
-    }//GEN-LAST:event_fieldRunFocusLost
-
-    private void fieldHorizontalJumpFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldHorizontalJumpFocusLost
-
-    }//GEN-LAST:event_fieldHorizontalJumpFocusLost
-
-    private void fieldThrowOfMedicineBallFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldThrowOfMedicineBallFocusLost
- 
-    }//GEN-LAST:event_fieldThrowOfMedicineBallFocusLost
-
-    private void fiedlSquareTestFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fiedlSquareTestFocusLost
-
-    }//GEN-LAST:event_fiedlSquareTestFocusLost
-
-    private void field20MetersRunFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_field20MetersRunFocusLost
-
-    }//GEN-LAST:event_field20MetersRunFocusLost
-
-    private void radioSitAndAchieveWithSeatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioSitAndAchieveWithSeatActionPerformed
-    }//GEN-LAST:event_radioSitAndAchieveWithSeatActionPerformed
-
-    private void radio6MinutesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio6MinutesActionPerformed
-    }//GEN-LAST:event_radio6MinutesActionPerformed
-
-    private void radio9MinutesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio9MinutesActionPerformed
-    }//GEN-LAST:event_radio9MinutesActionPerformed
 
     private void comboTurmaPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_comboTurmaPopupMenuWillBecomeInvisible
         this.limpaComboNomeDoAluno();
@@ -1012,22 +799,6 @@ public class TestPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_comboNomeDoAlunoPopupMenuWillBecomeInvisible
 
-    private void radioSitAndAchieveWithSeatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_radioSitAndAchieveWithSeatFocusLost
-
-    }//GEN-LAST:event_radioSitAndAchieveWithSeatFocusLost
-
-    private void radioSitAndAchieveWithoutSeatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_radioSitAndAchieveWithoutSeatFocusLost
-    
-    }//GEN-LAST:event_radioSitAndAchieveWithoutSeatFocusLost
-
-    private void radio6MinutesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_radio6MinutesFocusLost
-
-    }//GEN-LAST:event_radio6MinutesFocusLost
-
-    private void radio9MinutesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_radio9MinutesFocusLost
-
-    }//GEN-LAST:event_radio9MinutesFocusLost
-
     private void controlPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_controlPanelComponentShown
         clearJTable();       
         
@@ -1103,22 +874,6 @@ public class TestPanel extends javax.swing.JPanel {
         }
         //Escola.getInstance().getLogado().medoto(turmasParaSalvar);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void newEditPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_newEditPanelComponentShown
-
-    }//GEN-LAST:event_newEditPanelComponentShown
-
-    private void fieldBodyMassPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_fieldBodyMassPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldBodyMassPropertyChange
-
-    private void avaliacaoFinalizadaCheckBoxPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_avaliacaoFinalizadaCheckBoxPropertyChange
-
-    }//GEN-LAST:event_avaliacaoFinalizadaCheckBoxPropertyChange
-
-    private void avaliacaoFinalizadaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avaliacaoFinalizadaCheckBoxActionPerformed
- 
-    }//GEN-LAST:event_avaliacaoFinalizadaCheckBoxActionPerformed
 
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
         this.testTabbedPane.setSelectedIndex(0);
