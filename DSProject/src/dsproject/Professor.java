@@ -3,6 +3,9 @@ package dsproject;
 import java.io.File;
 import java.util.ArrayList;
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Professor implements Serializable
 {
@@ -105,6 +108,14 @@ public class Professor implements Serializable
         for(Turma i: this.turmas){
             temp.addAll(i.buscaTodosAlunos());
         }
+        
+        Collections.sort(temp, new Comparator() {
+                @Override
+                public int compare( Object obj1, Object obj2 ) {
+                    return ((((Aluno)obj1).getNome()).compareTo(((Aluno)obj2).getNome()));
+                }  
+        });
+        
         return temp;
     }
     
