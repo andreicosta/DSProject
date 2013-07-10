@@ -809,6 +809,10 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_comboNomeDoAlunoPopupMenuWillBecomeInvisible
 
     private void controlPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_controlPanelComponentShown
+       atualizaJTable();
+    }//GEN-LAST:event_controlPanelComponentShown
+    
+    private void atualizaJTable(){
         clearJTable();       
         
         int jTableRow = 0;
@@ -857,8 +861,8 @@ public class TestPanel extends javax.swing.JPanel {
                 jTableRow++;
            }   
         }
-    }//GEN-LAST:event_controlPanelComponentShown
-
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ArrayList<Turma> turmasSelecionadas = new ArrayList<>();
         ArrayList<Turma> turmasParaSalvar = new ArrayList<>();
@@ -915,6 +919,7 @@ public class TestPanel extends javax.swing.JPanel {
                 Escola.getInstance().salvarParaEnviar2(turmasParaSalvar, file.getAbsolutePath());
             }
         }
+        atualizaJTable();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
