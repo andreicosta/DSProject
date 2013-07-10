@@ -138,7 +138,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labelDataDaAvaliacao">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Data da Avalia&#xe7;&#xe3;o"/>
+                <Property name="text" type="java.lang.String" value="Data da Avalia&#xe7;&#xe3;o*"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
@@ -201,7 +201,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labelTemperatura">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Temperatura"/>
+                <Property name="text" type="java.lang.String" value="Temperatura*"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
@@ -669,7 +669,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labelHorario">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Hor&#xe1;rio"/>
+                <Property name="text" type="java.lang.String" value="Hor&#xe1;rio*"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>

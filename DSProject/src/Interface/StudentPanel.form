@@ -71,7 +71,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="labelName">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nome Completo"/>
+                <Property name="text" type="java.lang.String" value="Nome Completo*"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
@@ -84,7 +84,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labelBirthday">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Data de Nascimento"/>
+                <Property name="text" type="java.lang.String" value="Data de Nascimento*"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
@@ -110,7 +110,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labelMother">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nome Completo da M&#xe3;e"/>
+                <Property name="text" type="java.lang.String" value="Nome Completo da M&#xe3;e*"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
@@ -123,7 +123,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labelAddress">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Endere&#xe7;o"/>
+                <Property name="text" type="java.lang.String" value="Endere&#xe7;o*"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
@@ -259,7 +259,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labelGender">
               <Properties>
-                <Property name="text" type="java.lang.String" value="G&#xea;nero"/>
+                <Property name="text" type="java.lang.String" value="G&#xea;nero*"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
@@ -288,7 +288,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labelCity">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cidade/Estado"/>
+                <Property name="text" type="java.lang.String" value="Cidade/Estado*"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>

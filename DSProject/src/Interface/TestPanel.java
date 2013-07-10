@@ -168,7 +168,7 @@ public class TestPanel extends javax.swing.JPanel {
         newEditPanel.add(labelStudentName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 23, -1, -1));
         newEditPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 57, 801, -1));
 
-        labelDataDaAvaliacao.setText("Data da Avaliação");
+        labelDataDaAvaliacao.setText("Data da Avaliação*");
         newEditPanel.add(labelDataDaAvaliacao, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 79, -1, -1));
 
         fieldTestDate.setFocusable(false);
@@ -184,7 +184,7 @@ public class TestPanel extends javax.swing.JPanel {
         newEditPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 306, -1, -1));
         newEditPanel.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 126, 801, 10));
 
-        labelTemperatura.setText("Temperatura");
+        labelTemperatura.setText("Temperatura*");
         newEditPanel.add(labelTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 74, -1, -1));
 
         fieldTemperature.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -360,7 +360,7 @@ public class TestPanel extends javax.swing.JPanel {
         });
         newEditPanel.add(buttonSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(659, 425, 140, -1));
 
-        labelHorario.setText("Horário");
+        labelHorario.setText("Horário*");
         newEditPanel.add(labelHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 74, -1, -1));
 
         fieldTime.addKeyListener(new java.awt.event.KeyAdapter() {

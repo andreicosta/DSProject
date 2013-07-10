@@ -113,19 +113,19 @@ public class StudentPanel extends javax.swing.JPanel {
         });
         newStudentPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelName.setText("Nome Completo");
+        labelName.setText("Nome Completo*");
         newStudentPanel.add(labelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 45, -1, -1));
 
-        labelBirthday.setText("Data de Nascimento");
+        labelBirthday.setText("Data de Nascimento*");
         newStudentPanel.add(labelBirthday, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 112, -1, -1));
 
         labelFather.setText("Nome Completo do Pai");
         newStudentPanel.add(labelFather, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 277, -1, 14));
 
-        labelMother.setText("Nome Completo da Mãe");
+        labelMother.setText("Nome Completo da Mãe*");
         newStudentPanel.add(labelMother, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 243, -1, -1));
 
-        labelAddress.setText("Endereço");
+        labelAddress.setText("Endereço*");
         newStudentPanel.add(labelAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 177, -1, -1));
 
         labelTelephone.setText("Telefone");
@@ -167,14 +167,14 @@ public class StudentPanel extends javax.swing.JPanel {
         });
         newStudentPanel.add(createButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 417, 90, -1));
 
-        labelGender.setText("Gênero");
+        labelGender.setText("Gênero*");
         newStudentPanel.add(labelGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 144, -1, -1));
 
         gender.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
         gender.setToolTipText("Selecione o Gênero");
         newStudentPanel.add(gender, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 139, 396, -1));
 
-        labelCity.setText("Cidade/Estado");
+        labelCity.setText("Cidade/Estado*");
         newStudentPanel.add(labelCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 210, -1, -1));
 
         city.setToolTipText("Entre com a Cidade / Estado");
