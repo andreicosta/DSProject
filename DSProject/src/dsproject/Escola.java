@@ -717,9 +717,79 @@ public class Escola {
         }
     }
     
-    public void salvarParaEnviar(ArrayList<Turma> turmas){
+    public void salvarParaEnviar(ArrayList<Turma> turmas, String path){
+        ArrayList <Aluno> paraEnviar = new ArrayList();
+        Avaliacao tmp;
+        
+        for (Turma t : turmas){
+            for (Aluno a : t.buscaTodosAlunos()){
+                tmp = a.getLastAvaliation();
+                if (tmp.isSalvoParaEnviar()){
+                    tmp.setEnviado(true);
+                    paraEnviar.add(a);
+                }
+            }
+        }
+        
+        //int num = 1;
+        
+        String xml = "";
+        
+        xml += "<prodown_envio>\n";
+        xml += "<alunos>";
+        for (Aluno a : paraEnviar){
+            xml += "<aluno ";
+            xml += "nome=\"" + a.getNome()+"\" ";
+            xml += "aniversario=\"" + a.getBirthday().getTime()+"\" ";
+            xml += "genero=\"" + a.getGenero()+"\" ";
+            xml += "endereco=\"" + a.getEndereco()+"\" ";
+            xml += "cidade=\"" + a.getCidade()+"\" ";
+            xml += "nome_mae=\"" + a.getNomeMae()+"\" ";
+            xml += "nome_pai=\"" + a.getNomePai()+"\" ";
+            xml += "telefone=\"" + a.getTelefone()+"\" ";
+            xml += "celular=\"" + a.getCelular()+"\" ";
+            xml += "email=\"" + a.getEmail()+"\">";
+            
+            tmp = a.getLastAvaliation();
+            
+            xml += "\n<avaliacao ";
+            xml += "data=\"" + tmp.getData().getTime() + "\" ";
+            xml += "horario=\"" + tmp.getHorario() + "\" ";
+            xml += "temperatura=\"" + tmp.getTemperatura() + "\" ";
+            xml += "massa_corporal=\"" + tmp.getMassaCorporal() + "\" ";
+            xml += "estatura=\"" + tmp.getEstatura() + "\" ";
+            xml += "imc=\"" + tmp.getIMC() + "\" ";
+            xml += "envergadura=\"" + tmp.getEnvergadura() + "\" ";
+            xml += "abdominal=\"" + tmp.getAbdominal() + "\" ";
+            xml += "sentar_e_alcancar=\"" + tmp.getSentarEAlcancar() + "\" ";
+            xml += "seis_minutos=\"" + tmp.get6Minutos() + "\" ";
+            xml += "nove_minutos=\"" + tmp.get9Minutos() + "\" ";
+            xml += "salto_horizontal=\"" + tmp.getSaltoHorizontal() + "\" ";
+            xml += "arremesso_medicineball=\"" + tmp.getArremessoMedicineBall() + "\" ";
+            xml += "quadrado=\"" + tmp.getTesteDoQuadrado() + "\" ";
+            xml += "corrida=\"" + tmp.getCorrida20Metros() + "\" ";
+            xml += "> </avaliacao>\n";
+            
+            xml += "</aluno>\n";
+            
+            a.inserirAvaliacao();
+            Escola.getInstance().salvarAvaliacoes(a);
+        }
+        xml += "</alunos>\n";
+        xml += "</prodown_envio>\n";
         
         
+        
+        try{
+            File arquivo;
+            arquivo = new File(path);
+            FileOutputStream fos = new FileOutputStream(arquivo);
+            fos.write(xml.getBytes());
+            
+        }
+        catch(IOException ex){
+            System.err.println(ex);
+        }
     }
     
 }
