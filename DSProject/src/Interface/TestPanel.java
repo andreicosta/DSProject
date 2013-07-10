@@ -1715,9 +1715,13 @@ public class TestPanel extends javax.swing.JPanel {
             saveSquareTest();
             save20MettersRun();
             
+            Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+            Escola.getInstance().salvarAvaliacoes(student);
+            
             this.limpaCampos();
             this.limpaComboNomeDoAluno();
             this.limpaComboNomeTurma();
+            
             JOptionPane.showMessageDialog(null, "Avaliacao salva com sucesso!", "", JOptionPane.INFORMATION_MESSAGE);
         }
     }

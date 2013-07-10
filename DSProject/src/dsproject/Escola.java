@@ -433,6 +433,7 @@ public class Escola {
     }
 
     public void salvarAvaliacoes(Aluno a){
+        System.out.println(a.getNome());
         try{
             ObjectOutputStream out;
             out = new ObjectOutputStream(new FileOutputStream(a.getDir() + "/avaliacoes.dat"));
@@ -697,7 +698,12 @@ public class Escola {
                 }
                 
                 t.setAlunos(alunos);
-                turmas.add(t);
+                if ("Sem Turma".equals(t.getId()) && "1".equals(t.getAno())){
+                    turmas.add(0,t);
+                }
+                else{
+                    turmas.add(t);
+                }
             }
             
             p.setTurmas(turmas);
