@@ -141,16 +141,23 @@ public class ImportPanel extends javax.swing.JPanel {
         
         int option = arquivo.showOpenDialog(this);
         
-        if(option == JFileChooser.APPROVE_OPTION) {  
-              file = arquivo.getSelectedFile();  
-              String nomeArquivo = file.getName();
-              int e = nomeArquivo.lastIndexOf(".");  
-              String extensao = nomeArquivo.substring(e);  
-                
-              if(extensao.equals(".pdo")){
-                  Escola.getInstance().exportar(file.getAbsolutePath());
-              }  
-      }   
+        if (option == JFileChooser.APPROVE_OPTION)
+{
+	file = arquivo.getSelectedFile();
+
+	if (!file.getAbsolutePath().endsWith(".pdo"))
+	{
+            /*se o arquivo não termina com a extensão do filtro então ele põe todo o caminho do arquivo
+             * mais o nome seguido da extensão do filtro
+             */
+            file = new File(file.getAbsolutePath() + ".pdo");
+            Escola.getInstance().exportar(file.getAbsolutePath());
+	}
+	else
+	{
+            Escola.getInstance().exportar(file.getAbsolutePath());
+	}
+}   
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
