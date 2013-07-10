@@ -290,8 +290,17 @@ public class ClassPanel extends javax.swing.JPanel {
             new String [] {
                 "Aluno"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(alunosListaTurmaTable);
+        alunosListaTurmaTable.getColumnModel().getColumn(0).setResizable(false);
 
         listClassesPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 250, -1));
 
@@ -327,13 +336,23 @@ public class ClassPanel extends javax.swing.JPanel {
             new String [] {
                 "Turma", "Nº Alunos"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         turmaAlunosTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 turmaAlunosTableMouseClicked(evt);
             }
         });
         jScrollPane4.setViewportView(turmaAlunosTable);
+        turmaAlunosTable.getColumnModel().getColumn(0).setResizable(false);
+        turmaAlunosTable.getColumnModel().getColumn(1).setResizable(false);
 
         listClassesPanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 380, -1));
 
