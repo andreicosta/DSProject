@@ -854,17 +854,16 @@ public class Escola {
             fos.write(xml.getBytes());
             fos.close();
             arquivo.setReadOnly();
-            
-            for (Aluno a : paraEnviar){
-                a.inserirAvaliacao();
-                Escola.getInstance().salvarAvaliacoes(a);
-            }
-            return true;
-
         } catch (IOException ex) {
             System.err.println(ex);
             return false;
         }
+        
+        for (Aluno a : paraEnviar){
+            a.inserirAvaliacao();
+            Escola.getInstance().salvarAvaliacoes(a);
+        }
+        return true;
         
     }
     

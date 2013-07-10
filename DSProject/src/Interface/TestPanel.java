@@ -909,14 +909,22 @@ public class TestPanel extends javax.swing.JPanel {
             if (!file.getAbsolutePath().endsWith(".xml"))
             {
                 /*se o arquivo não termina com a extensão do filtro então ele põe todo o caminho do arquivo
-                 * mais o nome seguido da extensão do filtro
-                 */
+                 * mais o nome seguido da extensão do filtro*/
                 file = new File(file.getAbsolutePath() + ".xml");
-                Escola.getInstance().salvarParaEnviar2(turmasParaSalvar, file.getAbsolutePath());
             }
-            else
-            {
-                Escola.getInstance().salvarParaEnviar2(turmasParaSalvar, file.getAbsolutePath());
+            
+            if (!file.exists()){
+                boolean salvar = Escola.getInstance().salvarParaEnviar2(turmasParaSalvar, file.getAbsolutePath());
+                
+                if (salvar){
+                    JOptionPane.showMessageDialog(null, "Arquivo salvo com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Erro ao tentar salvar as avaliações!", "Erro",  JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "O arquivo já existe!", "Erro", JOptionPane.ERROR_MESSAGE);
             }
         }
         atualizaJTable();
