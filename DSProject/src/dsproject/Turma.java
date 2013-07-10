@@ -78,7 +78,7 @@ public class Turma implements Serializable, Cloneable
    }
 
    public void excluirTurma(){
-      Turma semTurma = Escola.getInstance().getLogado().getTurmas().get(0);
+      Turma semTurma = Escola.getInstance().getLogado().getTurmaDefault();
       for (Aluno i: alunos){
           try {
               semTurma.inserirAluno(i);
@@ -92,7 +92,11 @@ public class Turma implements Serializable, Cloneable
    {
       return alunos;
    }
-   
+
+    public int getAlunosSize() {
+        return alunos.size();
+    }
+
    public String getDir(){
        return this.dir;
    }

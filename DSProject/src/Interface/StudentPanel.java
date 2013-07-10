@@ -436,7 +436,7 @@ public class StudentPanel extends javax.swing.JPanel {
                newTurma.inserirAluno(student);
            } catch (Exception e) {
                try {
-                   Escola.getInstance().getLogado().getTurmas().get(0).inserirAluno(student);
+                   Escola.getInstance().getLogado().getTurmaDefault().inserirAluno(student);
                    System.out.println("aluno adicionado sem turma");
                } catch (IOException ex) {
                    System.out.println("problemas em adicionar aluno na turma");
