@@ -734,6 +734,7 @@ public class StudentPanel extends javax.swing.JPanel {
         father.setText("");
         mother.setText("");
         telephone.setText("");
+        turma.removeAllItems();
     }
 
     public void clearEditStudent() {
