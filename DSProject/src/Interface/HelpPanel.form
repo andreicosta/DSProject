@@ -70,7 +70,9 @@
                   <Font name="Tahoma" size="12" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;&lt;b&gt;Cadastrar Aluno&lt;/b&gt;&lt;br&gt;Esta parte do programa &#xe9; respons&#xe1;vel pelo cadastro de novos alunos.&lt;br&gt;&lt;/center&gt;&lt;/html&gt;"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="defAluno[0]" type="code"/>
+                </Property>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -161,7 +163,9 @@
                   <Font name="Tahoma" size="12" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;&lt;b&gt;Cadastrar Turma&lt;/b&gt;&lt;br&gt;Nesta parte do sistem s&#xe3;o cadastradas as turmas. As turmas s&#xe3;o importantes para a organiza&#xe7;&#xe3;o dos relatorios de atividade e controle do progresso dos alunos.&lt;/center&gt;&lt;/html&gt;"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="defTurma[0]" type="code"/>
+                </Property>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
               <Constraints>
@@ -240,7 +244,9 @@
                   <Font name="Tahoma" size="12" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;&lt;b&gt;Nova avalia&#xe7;&#xe3;o/Editar Avalia&#xe7;&#xe3;o&lt;/b&gt;&lt;br&gt;Nesta parte do programa s&#xe3;o criadas e editas as avalia&#xe7;&#xf5;es dos alunos. Basta selecionar uma turma, selecionar individualmente os alunos e preencher o formulario. Caso o aluno n&#xe3;o tenho realizado algum teste, deixe o campo em branco.&lt;br&gt; Caso o aluno n&#xe3;o tenha realizado nenhuma atividade, podesse criar uma avalia&#xe7;&#xe3;o totalmente em branco ou n&#xe3;o criar a avalia&#xe7;&#xe3;o.&lt;/center&gt;&lt;/html&gt;"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="defAval[0]" type="code"/>
+                </Property>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
               <Constraints>
@@ -319,7 +325,9 @@
                   <Font name="Tahoma" size="12" style="0"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;&lt;b&gt;Importar&lt;/b&gt;&lt;br&gt;Clique no bot&#xe3;o &lt;i&gt;Importar&lt;/i&gt; para abrir a janela de sele&#xe7;&#xe3;o de arquivo.&lt;/center&gt;&lt;/html&gt;"/>
+                <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="defImpExp[0]" type="code"/>
+                </Property>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
               </Properties>
               <Constraints>
