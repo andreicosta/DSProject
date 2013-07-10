@@ -662,27 +662,25 @@ public class Escola {
             out = new ObjectOutputStream(new FileOutputStream(path));
             out.writeObject(this.getLogado());
             out.close();
-            return true;
         } catch (IOException ex) {
             System.err.println(ex);
             return false;
         }
+        return true;
     }
 
     public boolean importar(String path) {
         System.out.println("Caminho: " + path);
+        ArrayList<Turma> turmas;
+        Professor p = this.logado;
         try {
-            Professor p, tmp;
+            Professor tmp;
             ObjectInputStream in;
 
             in = new ObjectInputStream(new FileInputStream(path));
             tmp = (Professor) in.readObject();
             in.close();
-
-            p = this.getLogado();
-            removeProfessor(p);
-
-            ArrayList<Turma> turmas;
+            
             ArrayList<Aluno> alunos;
 
             turmas = new ArrayList();
@@ -706,15 +704,17 @@ public class Escola {
                     turmas.add(t);
                 }
             }
-
-            p.setTurmas(turmas);
-            salvarProfessor(p, true);
-
-            return true;
+            
         } catch (IOException | ClassNotFoundException ex) {
             System.err.println(ex);
             return false;
         }
+        
+        removeProfessor(p);
+        p.setTurmas(turmas);
+        salvarProfessor(p, true);
+
+        return true;
     }
 
     public boolean salvarParaEnviar(ArrayList<Turma> turmas, String path) {
