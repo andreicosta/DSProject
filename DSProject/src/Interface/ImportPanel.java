@@ -2,7 +2,10 @@ package Interface;
 
 import dsproject.Escola;
 import java.awt.Dimension;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -20,40 +23,64 @@ public class ImportPanel extends javax.swing.JPanel {
         importPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        exportPanel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        try{
+            BufferedImage importImg = ImageIO.read(new File("images/exportaEimportar.png"));
+            jLabel3 = new javax.swing.JLabel(new ImageIcon(importImg));
+            exportPanel = new javax.swing.JPanel();
+            jLabel2 = new javax.swing.JLabel();
+            jButton2 = new javax.swing.JButton();
+            try{
+                BufferedImage exportImg = ImageIO.read(new File("images/exportaEimportar.png"));
+                jLabel4 = new javax.swing.JLabel(new ImageIcon(exportImg));
 
-        setMinimumSize(new java.awt.Dimension(833, 515));
-        setPreferredSize(new java.awt.Dimension(833, 515));
+                setMinimumSize(new java.awt.Dimension(833, 515));
+                setPreferredSize(new java.awt.Dimension(833, 515));
 
-        importPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+                importPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("<html>A parte de importação, recebe um arquivo previamente exportado, apaga os dados atuais e carrega os dados salvos neste arquivo. </html>");
-        importPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 29, 807, 54));
+                jLabel1.setText("<html>A parte de importação, recebe um arquivo previamente exportado, apaga os dados atuais e carrega os dados salvos neste arquivo. </html>");
+                importPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 29, 807, 54));
 
-        jButton1.setText("Importar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton1.setText("Importar");
+                jButton1.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        jButton1ActionPerformed(evt);
+                    }
+                });
+                importPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 90, -1, -1));
+
+                /*
+                jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                jLabel3.setText(null);
+                */
+            }catch(Exception e){
+                jLabel1.setText("");
             }
-        });
-        importPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+            importPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 995, 240));
 
-        jTabbedPane1.addTab("Importar ", importPanel);
+            jTabbedPane1.addTab("Importar ", importPanel);
 
-        exportPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+            exportPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("<html>A parte de exportação,  gera um arquivo com uma copia de todos os dados atuais (turmas, alunos e avaliações). </html>");
-        exportPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 29, 807, 54));
+            jLabel2.setText("<html>A parte de exportação,  gera um arquivo com uma copia de todos os dados atuais (turmas, alunos e avaliações). </html>");
+            exportPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 29, 807, 54));
 
-        jButton2.setText("Exportar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        exportPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+            jButton2.setText("Exportar");
+            jButton2.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jButton2ActionPerformed(evt);
+                }
+            });
+            exportPanel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 90, -1, -1));
+
+            /*
+            jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            jLabel4.setText(null);
+            */
+        }catch(Exception e){
+            jLabel1.setText("");
+        }
+        exportPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 995, 240));
 
         jTabbedPane1.addTab("Exportar", exportPanel);
 
@@ -61,11 +88,11 @@ public class ImportPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 833, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -133,6 +160,8 @@ public class ImportPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
