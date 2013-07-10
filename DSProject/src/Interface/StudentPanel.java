@@ -734,7 +734,7 @@ public class StudentPanel extends javax.swing.JPanel {
         father.setText("");
         mother.setText("");
         telephone.setText("");
-        turma.removeAllItems();
+        //turma.removeAllItems(); para facilitar que o professor cadastre vários alunos na mesma turma em sequência
     }
 
     public void clearEditStudent() {
