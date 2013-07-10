@@ -19,9 +19,9 @@ public class Professor implements Serializable
         this.nome = nome;
         this.senha = senha;
         this.turmas = new ArrayList<>();
+        cont++;
         this.num_dir = cont;
         this.dir = "professores/" + cont;
-        cont++;
         this.cadastrarTurma("Sem Turma", "1");
     }
 
@@ -138,10 +138,6 @@ public class Professor implements Serializable
         return -1;
     }
     
-    public Turma getTurmaPorDir(int num_dir){
-        return null;
-    }
-    
     public void setTurmas(ArrayList<Turma> turmas){
         this.turmas = turmas;
     }
@@ -152,6 +148,10 @@ public class Professor implements Serializable
     
     public String getDir(){
         return this.dir;
+    }
+    
+    public int getNumDir(){
+        return num_dir;
     }
     
     public static int getCont(){

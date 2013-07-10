@@ -1,7 +1,5 @@
 package Interface;
 
-import dsproject.Escola;
-import java.io.IOException;
 import javax.swing.JOptionPane;
 
 public class MainFrame extends javax.swing.JFrame {
@@ -59,12 +57,6 @@ public class MainFrame extends javax.swing.JFrame {
            int x;
            x = JOptionPane.showConfirmDialog(rootPane, "Tem certeza que quer fechar o programa? ");
            if (x == 0) {
-               Escola escola = Escola.getInstance();
-               try {
-                   escola.salvarContadores();
-               } catch (IOException ex) {
-                   System.err.println(ex);
-               }
                System.exit(x);
                /*File arquivoAlunos = new File("alunos.txt");
                 File arquivoTurmas = new File("turmas.txt");

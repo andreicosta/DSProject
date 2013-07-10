@@ -39,8 +39,8 @@ public class Aluno implements Serializable {
         this.email = email;
         this.turma = turma;
         this.avaliacoes = new ArrayList<>();
-        num_dir = cont;
         cont ++;
+        num_dir = cont;
         
         Avaliacao avaliacao = new Avaliacao();
         this.addAvaliacao(avaliacao);

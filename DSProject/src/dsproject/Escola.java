@@ -25,14 +25,8 @@ public class Escola {
     private boolean errors;
 
     private Escola() {
-        try {
-            professList = new ArrayList<>();
-            this.carregar();
-        } catch (IOException ex) {
-            System.err.println(ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Escola.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        professList = new ArrayList<>();
+        this.carregar();
     }
 
     public Professor getLogado() {
@@ -439,26 +433,37 @@ public class Escola {
         out.close();
     }
 
-    public void carregar() throws IOException, ClassNotFoundException {
+    public void carregar(){
         try {
-            carregarContadores();
+            //carregarContadores();
             File f = new File("professores");
             String lista[] = f.list();
             ArrayList<Professor> professores = new ArrayList<>();
-
+            
+            int pro_cont = 0;
+            
             Professor p;
             for (int i = 0; lista != null && i < lista.length; i++) {
                 System.out.println("Professor em: " + lista[i]);
                 p = carregarProfessor("professores/" + lista[i]);
+                
+                if (p.getNumDir() > pro_cont) pro_cont = p.getNumDir();
+                
                 professores.add(p);
             }
-
+            
             this.setProfessList(professores);
-        } catch (IOException ex) {
+            
+            if (Professor.getCont() < pro_cont) Professor.setCont(pro_cont);
+            
+            System.out.println("Contadores: " + Professor.getCont() + " " + Turma.getCont() + " " + Aluno.getCont());
+            
+        } catch (IOException | ClassNotFoundException ex) {
             System.err.println(ex);
         }
     }
 
+    /*
     public void carregarContadores() throws ClassNotFoundException {
         try {
             FileInputStream file = new FileInputStream(new File("info.dat"));
@@ -474,7 +479,7 @@ public class Escola {
             System.err.println(ex);
         }
 
-    }
+    }*/
 
     public Professor carregarProfessor(String diretorio) throws IOException, ClassNotFoundException {
         try {
@@ -494,21 +499,29 @@ public class Escola {
 
                 ArrayList<Turma> turmas = new ArrayList<>();
                 Turma t;
+                
+                int tur_cont = 0;
 
                 for (int i = 0; lista != null && i < lista.length; i++) {
                     if (!lista[i].equalsIgnoreCase("info.dat")) {
                         t = carregarTurma(diretorio + "/turmas/" + lista[i]);
-                        if ("Sem Turma".equals(t.getId()) && "0".equals(t.getAno())){
+                        
+                        if (t.getNumDir() > tur_cont) tur_cont = t.getNumDir();
+                        
+                        if ("Sem Turma".equals(t.getId()) && "1".equals(t.getAno())){
                             turmas.add(0, t);
                         }
                         else{
                             turmas.add(t);
                         }
+                                                
                         System.out.println("Turma: " + t.getId());
                     }
                 }
                 
                 p.setTurmas(turmas);
+                
+                if (Turma.getCont() < tur_cont) Turma.setCont(tur_cont);
             }
             return p;
         } catch (IOException ex) {
@@ -533,6 +546,8 @@ public class Escola {
 
             ArrayList<Aluno> alunos = new ArrayList<>();
             Aluno tmp;
+            
+            int alu_cont = 0;
 
             for (int i = 0; lista != null && i < lista.length; i++) {
                 if (!lista[i].equalsIgnoreCase("info.dat")) {
@@ -540,11 +555,15 @@ public class Escola {
                     tmp = (carregarAluno(diretorio + "/alunos/" + lista[i]));
                     alunos.add(tmp);
                     tmp.setTurma(t);
+                    
+                    if (tmp.getNumDir() > alu_cont) alu_cont = tmp.getNumDir();
                 }
             }
 
             t.setAlunos(alunos);
 
+            if (Aluno.getCont() < alu_cont) Aluno.setCont(alu_cont);
+            
             return t;
         } catch (IOException ex) {
             System.err.println(ex);
