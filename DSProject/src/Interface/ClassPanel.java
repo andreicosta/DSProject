@@ -664,13 +664,17 @@ public class ClassPanel extends javax.swing.JPanel {
         int secLinha = turmaAlunosTable.getSelectedRow();
         Turma selecTurma = (Turma) turmaAlunosTable.getValueAt(secLinha, 0);
         
+
+
+
+        if (selecTurma != null) {
+            
         int rowsTotalSize = selecTurma.getAlunosSize();
         if(rowsTotalSize > alunosListaTurmaTable.getRowCount()){
             DefaultTableModel model = (DefaultTableModel) alunosListaTurmaTable.getModel();
             model.setRowCount(rowsTotalSize);
         }
-
-        if (selecTurma != null) {
+            
             clearJTable(alunosListaTurmaTable, 1);
             int linha = 0;
             for (Aluno aluno : selecTurma.buscaTodosAlunos()) {
