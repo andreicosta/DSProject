@@ -3,14 +3,11 @@ package dsproject;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,14 +22,8 @@ public class Escola {
     private boolean errors;
 
     private Escola() {
-        try {
-            professList = new ArrayList<>();
-            this.carregar();
-        } catch (IOException ex) {
-            System.err.println(ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Escola.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        professList = new ArrayList<>();
+        this.carregar();
     }
 
     public Professor getLogado() {
@@ -242,13 +233,9 @@ public class Escola {
                 novoprof = new Professor(cpf, nome, cripto.getSenhaCriptografada());
                 errorlist.add(0); // nao possui erros
                 this.professList.add(novoprof);
-                try {
-                    this.salvarProfessor(novoprof);
+                this.salvarProfessor(novoprof);
                     //System.out.println(professList.size());
                     //return (errorlist);
-                } catch (IOException ex) {
-                    System.err.println(ex);
-                }
             }
         }
 
@@ -307,8 +294,7 @@ public class Escola {
         return this.logado;
     }
 
-    public void salvar() throws IOException {
-        salvarContadores();
+    public void salvar(){
         Professor p;
         for (int i = 0; i < professList.size(); i++) {
             p = professList.get(i);
@@ -316,6 +302,7 @@ public class Escola {
         }
     }
 
+    /*
     public void salvarContadores() throws IOException {
         ArrayList<Integer> contadores = new ArrayList<>();
 
@@ -328,12 +315,13 @@ public class Escola {
         out.writeObject(contadores);
         out.close();
     }
+    */
 
-    public void salvarProfessor(Professor p) throws IOException {
+    public void salvarProfessor(Professor p){
         salvarProfessor(p, false);
     }
 
-    public void salvarProfessor(Professor p, boolean all) throws IOException {
+    public void salvarProfessor(Professor p, boolean all){
 
         ArrayList<Turma> turmas = p.getTurmas();
         p.setTurmas(new ArrayList<Turma>());
@@ -346,25 +334,31 @@ public class Escola {
             f.mkdirs();
         }
 
-        //salva o obj professor
-        ObjectOutputStream out;
-        out = new ObjectOutputStream(new FileOutputStream(diretorio + "/info.dat"));
-        out.writeObject(p);
-        out.close();
+        try{
+            //salva o obj professor
+            ObjectOutputStream out;
+            out = new ObjectOutputStream(new FileOutputStream(diretorio + "/info.dat"));
+            out.writeObject(p);
+            out.close();
+        }
+        catch(IOException ex){
+            
+        }
         if (all) {
             for (int i = 0; i < turmas.size(); i++) {
-                t = turmas.get(i);
-                this.salvarTurma(t, true);
+                 t = turmas.get(i);
+                 this.salvarTurma(t, true);
             }
         }
+            
         p.setTurmas(turmas);
     }
 
-    public void salvarTurma(Turma t) throws IOException {
+    public void salvarTurma(Turma t){
         salvarTurma(t, false);
     }
 
-    public void salvarTurma(Turma t, boolean all) throws IOException {
+    public void salvarTurma(Turma t, boolean all){
         //salva obj
         ArrayList<Aluno> alunos = t.buscaTodosAlunos();
         t.setAlunos(new ArrayList<Aluno>());
@@ -380,10 +374,15 @@ public class Escola {
 
 
         //salva o obj turma
-        ObjectOutputStream out;
-        out = new ObjectOutputStream(new FileOutputStream(t.getDir() + "/info.dat"));
-        out.writeObject(t);
-        out.close();
+        try{
+            ObjectOutputStream out;
+            out = new ObjectOutputStream(new FileOutputStream(t.getDir() + "/info.dat"));
+            out.writeObject(t);
+            out.close();
+        }
+        catch(IOException ex){
+            
+        }
 
         if (all) {
             for (int i = 0; i < alunos.size(); i++) {
@@ -395,14 +394,14 @@ public class Escola {
         t.setAlunos(alunos);
     }
 
-    public void salvarAluno(Aluno a) throws IOException {
+    public void salvarAluno(Aluno a){
         salvarAluno(a, false);
     }
 
-    public void salvarAluno(Aluno a, boolean all) throws IOException {
+    public void salvarAluno(Aluno a, boolean all){
         //salva aluno
         //salva arrayList de avaliaÃ§Ãµes do aluno
-        try {
+        
             File f;
             f = new File(a.getDir());
             if (!f.exists()) {
@@ -415,10 +414,14 @@ public class Escola {
             a.setAvaliacoes(null);
 
             //salva o obj turma
-            ObjectOutputStream out;
-            out = new ObjectOutputStream(new FileOutputStream(a.getDir() + "/info.dat"));
-            out.writeObject(a);
-            out.close();
+            try{
+                ObjectOutputStream out;
+                out = new ObjectOutputStream(new FileOutputStream(a.getDir() + "/info.dat"));
+                out.writeObject(a);
+                out.close();
+            } catch (IOException ex) {
+                System.err.println(ex);
+            }
 
             a.setTurma(tmp);
             a.setAvaliacoes(ava);
@@ -426,39 +429,46 @@ public class Escola {
             if (all) {
                 salvarAvaliacoes(a);
             }
+        
+    }
+
+    public void salvarAvaliacoes(Aluno a){
+        try{
+            ObjectOutputStream out;
+            out = new ObjectOutputStream(new FileOutputStream(a.getDir() + "/avaliacoes.dat"));
+            out.writeObject(a.getAvaliacoes());
+            out.close();
         } catch (IOException ex) {
             System.err.println(ex);
         }
     }
 
-    public void salvarAvaliacoes(Aluno a) throws IOException {
-        ObjectOutputStream out;
-
-        out = new ObjectOutputStream(new FileOutputStream(a.getDir() + "/avaliacoes.dat"));
-        out.writeObject(a.getAvaliacoes());
-        out.close();
-    }
-
-    public void carregar() throws IOException, ClassNotFoundException {
-        try {
-            carregarContadores();
+    public void carregar(){
+            //carregarContadores();
             File f = new File("professores");
             String lista[] = f.list();
             ArrayList<Professor> professores = new ArrayList<>();
-
+            
+            int pro_cont = 0;
+            
             Professor p;
             for (int i = 0; lista != null && i < lista.length; i++) {
                 System.out.println("Professor em: " + lista[i]);
                 p = carregarProfessor("professores/" + lista[i]);
+                
+                if (p.getNumDir() > pro_cont) pro_cont = p.getNumDir();
+                
                 professores.add(p);
             }
-
+            
             this.setProfessList(professores);
-        } catch (IOException ex) {
-            System.err.println(ex);
-        }
+            
+            if (Professor.getCont() < pro_cont) Professor.setCont(pro_cont);
+            
+            System.out.println("Contadores: " + Professor.getCont() + " " + Turma.getCont() + " " + Aluno.getCont());
     }
 
+    /*
     public void carregarContadores() throws ClassNotFoundException {
         try {
             FileInputStream file = new FileInputStream(new File("info.dat"));
@@ -474,9 +484,9 @@ public class Escola {
             System.err.println(ex);
         }
 
-    }
+    }*/
 
-    public Professor carregarProfessor(String diretorio) throws IOException, ClassNotFoundException {
+    public Professor carregarProfessor(String diretorio){
         try {
             Professor p;
 
@@ -494,30 +504,38 @@ public class Escola {
 
                 ArrayList<Turma> turmas = new ArrayList<>();
                 Turma t;
+                
+                int tur_cont = 0;
 
                 for (int i = 0; lista != null && i < lista.length; i++) {
                     if (!lista[i].equalsIgnoreCase("info.dat")) {
                         t = carregarTurma(diretorio + "/turmas/" + lista[i]);
-                        if ("Sem Turma".equals(t.getId()) && "0".equals(t.getAno())){
+                        
+                        if (t.getNumDir() > tur_cont) tur_cont = t.getNumDir();
+                        
+                        if ("Sem Turma".equals(t.getId()) && "1".equals(t.getAno())){
                             turmas.add(0, t);
                         }
                         else{
                             turmas.add(t);
                         }
+                                                
                         System.out.println("Turma: " + t.getId());
                     }
                 }
                 
                 p.setTurmas(turmas);
+                
+                if (Turma.getCont() < tur_cont) Turma.setCont(tur_cont);
             }
             return p;
-        } catch (IOException ex) {
+        } catch (IOException | ClassNotFoundException ex){
             System.err.println(ex);
             return null;
         }
     }
 
-    public Turma carregarTurma(String diretorio) throws IOException, ClassNotFoundException {
+    public Turma carregarTurma(String diretorio){
         //salva obj
         try {
             Turma t;
@@ -533,6 +551,8 @@ public class Escola {
 
             ArrayList<Aluno> alunos = new ArrayList<>();
             Aluno tmp;
+            
+            int alu_cont = 0;
 
             for (int i = 0; lista != null && i < lista.length; i++) {
                 if (!lista[i].equalsIgnoreCase("info.dat")) {
@@ -540,20 +560,24 @@ public class Escola {
                     tmp = (carregarAluno(diretorio + "/alunos/" + lista[i]));
                     alunos.add(tmp);
                     tmp.setTurma(t);
+                    
+                    if (tmp.getNumDir() > alu_cont) alu_cont = tmp.getNumDir();
                 }
             }
 
             t.setAlunos(alunos);
 
+            if (Aluno.getCont() < alu_cont) Aluno.setCont(alu_cont);
+            
             return t;
-        } catch (IOException ex) {
+        } catch (IOException | ClassNotFoundException ex){
             System.err.println(ex);
             return null;
         }
 
     }
 
-    public Aluno carregarAluno(String diretorio) throws IOException, ClassNotFoundException {
+    public Aluno carregarAluno(String diretorio){
         try {
             Aluno a;
             //salva aluno
@@ -571,23 +595,28 @@ public class Escola {
             carregarAvaliacoes(a);
 
             return a;
-        } catch (IOException ex) {
+        }
+        catch (IOException | ClassNotFoundException ex){
             System.err.println(ex);
             return null;
         }
     }
 
-    public void carregarAvaliacoes(Aluno a) throws IOException, ClassNotFoundException {
-        FileInputStream file;
-        ObjectInputStream in;
+    public void carregarAvaliacoes(Aluno a){
+        try{
+            FileInputStream file;
+            ObjectInputStream in;
+            file = new FileInputStream(new File(a.getDir() + "/avaliacoes.dat"));
+            in = new ObjectInputStream(file);
 
-        file = new FileInputStream(new File(a.getDir() + "/avaliacoes.dat"));
-        in = new ObjectInputStream(file);
+            ArrayList<Avaliacao> avaliacoes = (ArrayList<Avaliacao>) in.readObject();
+            in.close();
 
-        ArrayList<Avaliacao> avaliacoes = (ArrayList<Avaliacao>) in.readObject();
-        in.close();
-
-        a.setAvaliacoes(avaliacoes);
+            a.setAvaliacoes(avaliacoes);
+        }
+        catch (IOException | ClassNotFoundException ex){
+            System.err.println(ex);
+        }
     }
 
     public void removeProfessor(Professor p) {

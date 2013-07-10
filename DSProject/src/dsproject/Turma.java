@@ -20,9 +20,10 @@ public class Turma implements Serializable, Cloneable
       this.id = id;
       this.ano = ano;
       this.alunos = new ArrayList<>();
+      cont++;
       this.num_dir = cont;
       this.dir = "turmas/" + cont;
-      cont++;
+
    }
    
    public String getId()

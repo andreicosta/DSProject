@@ -507,12 +507,8 @@ public class StudentPanel extends javax.swing.JPanel {
             student.setCelular(newMobile);
             student.setEmail(newEmail);
 
-            try {
-                Escola.getInstance().salvarAluno(student);
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "Erro ao salvar aluno", "Erro", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
+            Escola.getInstance().salvarAluno(student);
+
 
             clearEditStudent();
             JOptionPane.showMessageDialog(null, "Aluno editado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
