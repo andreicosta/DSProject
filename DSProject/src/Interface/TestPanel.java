@@ -908,11 +908,11 @@ public class TestPanel extends javax.swing.JPanel {
                  * mais o nome seguido da extensão do filtro
                  */
                 file = new File(file.getAbsolutePath() + ".xml");
-                Escola.getInstance().salvarParaEnviar(turmasParaSalvar, file.getAbsolutePath());
+                Escola.getInstance().salvarParaEnviar2(turmasParaSalvar, file.getAbsolutePath());
             }
             else
             {
-                Escola.getInstance().salvarParaEnviar(turmasParaSalvar, file.getAbsolutePath());
+                Escola.getInstance().salvarParaEnviar2(turmasParaSalvar, file.getAbsolutePath());
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
