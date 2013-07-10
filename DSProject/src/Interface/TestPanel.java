@@ -12,6 +12,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -495,11 +496,14 @@ public class TestPanel extends javax.swing.JPanel {
 
    private void fieldBodyMassKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_fieldBodyMassKeyTyped
    {//GEN-HEADEREND:event_fieldBodyMassKeyTyped
-       if (!Character.isDigit(evt.getKeyChar())) {
+       if (!Character.isDigit(evt.getKeyChar()) && !(evt.getKeyChar() == '.')) {
            evt.setKeyChar('\0');
        } else {
            String textoCampo = fieldBodyMass.getText();
-           if (textoCampo.length() > 2) {
+           textoCampo = textoCampo.concat(String.valueOf(evt.getKeyChar()));
+           String pattern = "(([0])|(([1-9])([0-9])?([0-9])?))(\\.([0-9])?([0-9])?)?";
+           Pattern pesoPattern = Pattern.compile(pattern);
+           if (!pesoPattern.matcher(textoCampo).matches()){
                evt.setKeyChar('\0');
            }
        }
@@ -574,7 +578,7 @@ public class TestPanel extends javax.swing.JPanel {
             float alt = Float.valueOf(fieldHeight.getText()) / 100;
             float mass = Float.valueOf(fieldBodyMass.getText());
             float calcimc = mass / (alt*alt);
-            fieldIMC.setText(new DecimalFormat("##.##").format(calcimc));                    
+            fieldIMC.setText(new DecimalFormat("##.##").format(calcimc).replace(",", "."));                    
         }
     }//GEN-LAST:event_fieldBodyMassFocusLost
 
@@ -649,7 +653,7 @@ public class TestPanel extends javax.swing.JPanel {
             float alt = Float.valueOf(fieldHeight.getText()) / 100;
             float mass = Float.valueOf(fieldBodyMass.getText());
             float calcimc = mass / (alt*alt);
-            fieldIMC.setText(new DecimalFormat("##.##").format(calcimc));                    
+            fieldIMC.setText(new DecimalFormat("##.##").format(calcimc).replace(",", "."));                    
         }
     }//GEN-LAST:event_fieldHeightFocusLost
 
@@ -673,7 +677,7 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_comboNomeDoAlunoPopupMenuWillBecomeVisible
 
     private void comboNomeDoAlunoPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_comboNomeDoAlunoPopupMenuWillBecomeInvisible
-        Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
+      Aluno student = (Aluno) comboNomeDoAluno.getSelectedItem();
         
         this.limpaCampos();
         
@@ -720,7 +724,7 @@ public class TestPanel extends javax.swing.JPanel {
         if (avaliacao.getEstatura() == -1) {
             fieldHeight.setText("");
         } else {
-            fieldHeight.setText(String.valueOf(avaliacao.getEstatura()));
+            fieldHeight.setText(String.valueOf((int)avaliacao.getEstatura()));
         }
 
         if (avaliacao.getIMC() == -1) {
@@ -732,7 +736,7 @@ public class TestPanel extends javax.swing.JPanel {
         if (avaliacao.getEnvergadura() == -1) {
             fieldSpread.setText("");
         } else {
-            fieldSpread.setText(String.valueOf(avaliacao.getEnvergadura()));
+            fieldSpread.setText(String.valueOf((int)avaliacao.getEnvergadura()));
         }
 
         if (avaliacao.getAbdominal() == -1) {
@@ -744,7 +748,7 @@ public class TestPanel extends javax.swing.JPanel {
         if (avaliacao.getSentarEAlcancar() == -1) {
             fieldSitAndAchieve.setText("");
         } else {
-            fieldSitAndAchieve.setText(String.valueOf(avaliacao.getSentarEAlcancar()));
+            fieldSitAndAchieve.setText(String.valueOf((int)avaliacao.getSentarEAlcancar()));
         }
 
         if (avaliacao.get6Minutos() == -1 && avaliacao.get9Minutos() == -1) {
@@ -754,11 +758,11 @@ public class TestPanel extends javax.swing.JPanel {
 
         } else {
             if (avaliacao.get6Minutos() != -1) {
-                fieldRun.setText(String.valueOf(avaliacao.get6Minutos()));
+                fieldRun.setText(String.valueOf((int)avaliacao.get6Minutos()));
                 radio6Minutes.setSelected(true);
                 radio9Minutes.setSelected(false);
             } else {
-                fieldRun.setText(String.valueOf(avaliacao.get9Minutos()));
+                fieldRun.setText(String.valueOf((int)avaliacao.get9Minutos()));
                 radio6Minutes.setSelected(false);
                 radio9Minutes.setSelected(true);
             }
@@ -767,25 +771,25 @@ public class TestPanel extends javax.swing.JPanel {
         if (avaliacao.getSaltoHorizontal() == -1) {
             fieldHorizontalJump.setText("");
         } else {
-            fieldHorizontalJump.setText(String.valueOf(avaliacao.getSaltoHorizontal()));
+            fieldHorizontalJump.setText(String.valueOf((int)avaliacao.getSaltoHorizontal()));
         }
 
         if (avaliacao.getArremessoMedicineBall() == -1) {
             fieldThrowOfMedicineBall.setText("");
         } else {
-            fieldThrowOfMedicineBall.setText(String.valueOf(avaliacao.getArremessoMedicineBall()));
+            fieldThrowOfMedicineBall.setText(String.valueOf((int)avaliacao.getArremessoMedicineBall()));
         }
 
         if (avaliacao.getTesteDoQuadrado() == -1) {
             fiedlSquareTest.setText("");
         } else {
-            fiedlSquareTest.setText(String.valueOf(avaliacao.getTesteDoQuadrado()));
+            fiedlSquareTest.setText(String.valueOf((int)avaliacao.getTesteDoQuadrado()));
         }
 
         if (avaliacao.getCorrida20Metros() == -1) {
             field20MetersRun.setText("");
         } else {
-            field20MetersRun.setText(String.valueOf(avaliacao.getCorrida20Metros()));
+            field20MetersRun.setText(String.valueOf((int)avaliacao.getCorrida20Metros()));
         }
 
         if (avaliacao.isSentarEAlcancarComBanco() == true) {
