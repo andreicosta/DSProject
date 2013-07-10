@@ -66,7 +66,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="labelTurma">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Turma"/>
+                <Property name="text" type="java.lang.String" value="Turma*"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
@@ -81,9 +81,6 @@
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value="Entre o Nome da Turma"/>
               </Properties>
-              <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoTurmaKeyTyped"/>
-              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="265" y="21" width="110" height="-1"/>
@@ -92,7 +89,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="labelAnoLetivo">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ano Letivo"/>
+                <Property name="text" type="java.lang.String" value="Ano Letivo*"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>

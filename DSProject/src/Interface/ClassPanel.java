@@ -103,18 +103,13 @@ public class ClassPanel extends javax.swing.JPanel {
         });
         newClassPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelTurma.setText("Turma");
+        labelTurma.setText("Turma*");
         newClassPanel.add(labelTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 26, -1, -1));
 
         campoTurma.setToolTipText("Entre o Nome da Turma");
-        campoTurma.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                campoTurmaKeyTyped(evt);
-            }
-        });
         newClassPanel.add(campoTurma, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 21, 110, -1));
 
-        labelAnoLetivo.setText("Ano Letivo");
+        labelAnoLetivo.setText("Ano Letivo*");
         newClassPanel.add(labelAnoLetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 26, -1, -1));
 
         campoAnoLetivo.setToolTipText("Entre com o Ano Letivo");
@@ -390,6 +385,7 @@ public class ClassPanel extends javax.swing.JPanel {
         add(classTabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 833, 515));
     }// </editor-fold>//GEN-END:initComponents
 
+    //Esse método não permite colocar números no campo Ano Letivo na aba cadastrar
    private void campoAnoLetivoKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_campoAnoLetivoKeyTyped
    {//GEN-HEADEREND:event_campoAnoLetivoKeyTyped
        if (!Character.isDigit(evt.getKeyChar())) {
@@ -401,7 +397,7 @@ public class ClassPanel extends javax.swing.JPanel {
            }
        }
    }//GEN-LAST:event_campoAnoLetivoKeyTyped
-
+   //Esse método listas as turmas na aba lista turmas
    private void listClassesPanelComponentShown(java.awt.event.ComponentEvent evt)//GEN-FIRST:event_listClassesPanelComponentShown
    {//GEN-HEADEREND:event_listClassesPanelComponentShown
        clearJTable(turmaAlunosTable, 2);
@@ -424,7 +420,7 @@ public class ClassPanel extends javax.swing.JPanel {
        }
 
    }//GEN-LAST:event_listClassesPanelComponentShown
-
+   //Esse método mostra as opções do combo da aba editar turma
    private void comboTurmaEditarTurmaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
    {//GEN-HEADEREND:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
        comboTurmaEditarTurma.removeAllItems();
@@ -436,7 +432,8 @@ public class ClassPanel extends javax.swing.JPanel {
            }
        }
    }//GEN-LAST:event_comboTurmaEditarTurmaPopupMenuWillBecomeVisible
-
+   //Esse método pega a turma selecionada no combo da aba editar turma e lista os alunos q não tem turma e os alunos
+   //da turma selecionada para que possa ser editada a turma
    private void comboTurmaEditarTurmaItemStateChanged(java.awt.event.ItemEvent evt)//GEN-FIRST:event_comboTurmaEditarTurmaItemStateChanged
    {//GEN-HEADEREND:event_comboTurmaEditarTurmaItemStateChanged
        Turma tmpTurma = (Turma) this.comboTurmaEditarTurma.getSelectedItem();
@@ -462,7 +459,7 @@ public class ClassPanel extends javax.swing.JPanel {
            listaAlunosSemTurma.addElement(students.get(i));
        }
    }//GEN-LAST:event_comboTurmaEditarTurmaItemStateChanged
-
+   //Esse método mostra as opções do combo da aba remover turma
    private void comboTurmaRemoverTurmaPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt)//GEN-FIRST:event_comboTurmaRemoverTurmaPopupMenuWillBecomeVisible
    {//GEN-HEADEREND:event_comboTurmaRemoverTurmaPopupMenuWillBecomeVisible
        comboTurmaRemoverTurma.removeAllItems();
@@ -475,11 +472,7 @@ public class ClassPanel extends javax.swing.JPanel {
        }
 
    }//GEN-LAST:event_comboTurmaRemoverTurmaPopupMenuWillBecomeVisible
-
-    private void campoTurmaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoTurmaKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoTurmaKeyTyped
-
+   //Esse método cria a turma com os alunos selecionados, caso tenha selecionado algum aluno
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
         Professor tmpProf = Escola.getInstance().getLogado();
         erroslist = tmpProf.cadastrarTurma(getCampoTurma(), getCampoAnoLetivo());
@@ -503,16 +496,6 @@ public class ClassPanel extends javax.swing.JPanel {
                     }
                 }
             }
-            /*for (int i = 0;i < listaAlunosSemTurmaCad.size(); i++) {
-             tmpAluno = (Aluno) listaAlunosSemTurmaCad.get(i);
-             if(semTurma.buscaAluno(tmpAluno) < 0){
-             try {
-             semTurma.inserirAluno(tmpAluno);
-             } catch (Exception e) {
-             JOptionPane.showMessageDialog(null, "Erro", "Erro", JOptionPane.ERROR_MESSAGE);
-             }
-             }
-             }*/
             this.superPanel.getStudentPanel().clearEditStudent();
             limpaCamposCadastrarTurma();
             this.campoTurma.requestFocus();
@@ -539,7 +522,7 @@ public class ClassPanel extends javax.swing.JPanel {
         //JOptionPane.showMessageDialog(null, "Turma cadastrada com Sucesso", "", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
-    //quando fecha o programa aparece a turma que foi deletada denovo
+    //Esse método é o método que pega a turma selecionada no combo da aba remover turma e exclui a turma
     private void botaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRemoverActionPerformed
         try {
             Turma turma = (Turma) this.comboTurmaRemoverTurma.getSelectedItem();
@@ -553,7 +536,7 @@ public class ClassPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Erro ao remover turma", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_botaoRemoverActionPerformed
-
+    //Esse método adiciona um aluno sem turma para uma turma na aba editar turma
     private void addToClassButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToClassButton2ActionPerformed
         try {
             Aluno tmpAluno = (Aluno) availableStudentList2.getSelectedValue();
@@ -566,7 +549,7 @@ public class ClassPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Erro ao adicionar aluno na turma", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_addToClassButton2ActionPerformed
-
+    //Esse método remove um aluno de uma turma e coloca ele na turma default que é sem turma, isso na aba editar turma
     private void removeStudentFromClassButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeStudentFromClassButton2ActionPerformed
         try {
             Aluno tmpAluno = (Aluno) studentInClassList2.getSelectedValue();
@@ -579,7 +562,7 @@ public class ClassPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Erro ao remover aluno na turma", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_removeStudentFromClassButton2ActionPerformed
-
+    //Esse método salva as alterações que foram feitas em turma na aba editar turma
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
         Aluno tmpAluno;
         Turma tmpTurma = (Turma) comboTurmaEditarTurma.getSelectedItem();
@@ -612,7 +595,7 @@ public class ClassPanel extends javax.swing.JPanel {
         superPanel.getStudentPanel().clearEditStudent();
         //JOptionPane.showMessageDialog(null, "Turma salva com Sucesso", "", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_botaoSalvarActionPerformed
-
+    //Esse método adiciona um aluno sem turma para uma turma na aba cadastrar turma
     private void addToClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToClassButtonActionPerformed
         try {
             Aluno tmpAluno = (Aluno) availableStudentList.getSelectedValue();
@@ -625,7 +608,7 @@ public class ClassPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Erro ao adicionar aluno na turma", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_addToClassButtonActionPerformed
-
+    //Esse método remove um aluno de uma turma e coloca ele na turma default que é sem turma, isso na aba cadastrar turma
     private void removeStudentFromClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeStudentFromClassButtonActionPerformed
         try {
             Aluno tmpAluno = (Aluno) studentInClassList.getSelectedValue();
@@ -638,14 +621,14 @@ public class ClassPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Erro ao remover aluno na turma", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_removeStudentFromClassButtonActionPerformed
-
+    //Esse método mostra os alunos na tela de cadstar turma
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         attListaAlunosCad();
         if(Escola.getInstance().getLogado() != null){
             this.campoTurma.requestFocus();
         }
     }//GEN-LAST:event_formComponentShown
-
+    
     private void newClassPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_newClassPanelComponentShown
         attListaAlunosCad();
         if(Escola.getInstance().getLogado() != null){
@@ -656,12 +639,12 @@ public class ClassPanel extends javax.swing.JPanel {
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
         classTabbedPane.setSelectedIndex(0);
     }//GEN-LAST:event_formComponentHidden
-
+    //quando é selecionada uma turma ele chama um método que lista os alunos da turma
     private void turmaAlunosTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_turmaAlunosTableMouseClicked
         listaAlunos();
     }//GEN-LAST:event_turmaAlunosTableMouseClicked
 
-
+    //Esse método lista os alunos na aba listar turmas
     public void listaAlunos() {
         int secLinha = turmaAlunosTable.getSelectedRow();
         Turma selecTurma = (Turma) turmaAlunosTable.getValueAt(secLinha, 0);
@@ -685,7 +668,7 @@ public class ClassPanel extends javax.swing.JPanel {
             }
         }
     }
-
+    //Esse método adiciona os alunos nos campos de cadastrar turma
     private void attListaAlunosCad() {
         listaAlunosSemTurmaCad.removeAllElements();
         listaAlunosMatriculadosCad.removeAllElements();
@@ -702,7 +685,7 @@ public class ClassPanel extends javax.swing.JPanel {
             }
         }
     }
-
+    //Essse método limpa a tabela do lista turma
     private void clearJTable(JTable jtable, int campos) {
 
         int i = 0;
@@ -904,7 +887,7 @@ public class ClassPanel extends javax.swing.JPanel {
     public void limpaCamposRemoverTurma() {
         comboTurmaRemoverTurma.removeAllItems();
     }
-
+    //Esse método limpa todos os campos da turmade todas as abas
     public void clearAll() {
         this.limpaCamposCadastrarTurma();
         this.limpaCamposEditarTurma();
