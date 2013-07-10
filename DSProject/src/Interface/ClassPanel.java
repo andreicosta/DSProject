@@ -5,15 +5,18 @@ import dsproject.Turma;
 import dsproject.Professor;
 import dsproject.Escola;
 import java.awt.Color;
-import java.io.IOException;
+import java.awt.Component;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.EventObject;
+import javax.swing.DefaultCellEditor;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JTable;
-import javax.swing.table.TableModel;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.CellEditorListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.TableCellEditor;
 
 public class ClassPanel extends javax.swing.JPanel {
 
@@ -292,6 +295,8 @@ public class ClassPanel extends javax.swing.JPanel {
 
         listClassesPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 250, -1));
 
+        ListSelectionModel listSelectionModel = turmaAlunosTable.getSelectionModel();
+        listSelectionModel.addListSelectionListener(new SharedListSelectionHandler());
         turmaAlunosTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -328,16 +333,7 @@ public class ClassPanel extends javax.swing.JPanel {
                 turmaAlunosTableMouseClicked(evt);
             }
         });
-        turmaAlunosTable.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                turmaAlunosTableKeyPressed(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                turmaAlunosTableKeyTyped(evt);
-            }
-        });
         jScrollPane4.setViewportView(turmaAlunosTable);
-        turmaAlunosTable.getColumnModel().getColumn(1).setHeaderValue("Nº Alunos");
 
         listClassesPanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 380, -1));
 
@@ -628,15 +624,10 @@ public class ClassPanel extends javax.swing.JPanel {
         listaAlunos();
     }//GEN-LAST:event_turmaAlunosTableMouseClicked
 
-    private void turmaAlunosTableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_turmaAlunosTableKeyPressed
-        listaAlunos();
-    }//GEN-LAST:event_turmaAlunosTableKeyPressed
+    private void turmaAlunosTableValueChanged(ListSelectionEvent evt) {
+    }
 
-    private void turmaAlunosTableKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_turmaAlunosTableKeyTyped
-        //listaAlunos();
-    }//GEN-LAST:event_turmaAlunosTableKeyTyped
-
-    private void listaAlunos() {
+    public void listaAlunos() {
         int secLinha = turmaAlunosTable.getSelectedRow();
         Turma selecTurma = (Turma) turmaAlunosTable.getValueAt(secLinha, 0);
         if (selecTurma != null) {
@@ -874,5 +865,17 @@ public class ClassPanel extends javax.swing.JPanel {
         //11this.limpaCamposListaTurma();
         this.limpaCamposRemoverTurma();
         this.classTabbedPane.setSelectedIndex(0);
+    }
+
+    
+    /* Metodo para fazer a troca de informações no Jtable
+     * quando trocado utilizando direcionais do teclado.
+     */
+    class SharedListSelectionHandler implements ListSelectionListener {
+
+        @Override
+        public void valueChanged(ListSelectionEvent e) {
+            listaAlunos();
+        }
     }
 }
