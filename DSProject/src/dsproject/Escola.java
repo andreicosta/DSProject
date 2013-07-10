@@ -851,6 +851,8 @@ public class Escola {
             arquivo = new File(path);
             FileOutputStream fos = new FileOutputStream(arquivo);
             fos.write(xml.getBytes());
+            fos.close();
+            arquivo.setReadOnly();
 
         } catch (IOException ex) {
             System.err.println(ex);
