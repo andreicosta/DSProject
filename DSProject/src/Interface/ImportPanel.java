@@ -7,6 +7,7 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -99,7 +100,7 @@ public class ImportPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        UIManager.put("FileChooser.openButtonText", "Abrir");
+        UIManager.put("FileChooser.openButtonText", "Importar");
 
         File file;
         JFileChooser arquivo = new JFileChooser();
@@ -120,14 +121,23 @@ public class ImportPanel extends javax.swing.JPanel {
             String extensao = nomeArquivo.substring(e);
 
             if (extensao.equals(".epd")) {
-                Escola.getInstance().importar(file.getAbsolutePath());
+                boolean b = Escola.getInstance().importar(file.getAbsolutePath());
+                if (b){
+                    JOptionPane.showMessageDialog(null, "Importado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Erro ao tentar importar", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Extensão nao suportada", "Erro", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        UIManager.put("FileChooser.openButtonText", "Salvar");
+        UIManager.put("FileChooser.openButtonText", "Exportar");
 
         File file;
         JFileChooser arquivo = new JFileChooser();
@@ -150,10 +160,16 @@ public class ImportPanel extends javax.swing.JPanel {
                  * mais o nome seguido da extensão do filtro
                  */
                 file = new File(file.getAbsolutePath() + ".epd");
-                Escola.getInstance().exportar(file.getAbsolutePath());
-            } else {
-                Escola.getInstance().exportar(file.getAbsolutePath());
             }
+            boolean b = Escola.getInstance().exportar(file.getAbsolutePath());
+            
+            if (b){
+                JOptionPane.showMessageDialog(null, "Exportado com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Erro ao tentar exportar", "ERRO", JOptionPane.ERROR_MESSAGE);
+            }
+            
         }
     }//GEN-LAST:event_jButton2ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
