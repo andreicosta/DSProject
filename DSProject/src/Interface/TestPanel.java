@@ -41,7 +41,7 @@ public class TestPanel extends javax.swing.JPanel {
             @Override
             public void focusLost(FocusEvent e) {
                 if (getCampoDataDaAvaliacao() == null) {
-                    labelDataDaAvaliacao.setForeground(Color.red);
+                    //labelDataDaAvaliacao.setForeground(Color.red);
                 } else {
                     labelDataDaAvaliacao.setForeground(Color.black);
                     saveData();
@@ -809,6 +809,10 @@ public class TestPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_comboNomeDoAlunoPopupMenuWillBecomeInvisible
 
     private void controlPanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_controlPanelComponentShown
+       atualizaJTable();
+    }//GEN-LAST:event_controlPanelComponentShown
+    
+    private void atualizaJTable(){
         clearJTable();       
         
         int jTableRow = 0;
@@ -857,8 +861,8 @@ public class TestPanel extends javax.swing.JPanel {
                 jTableRow++;
            }   
         }
-    }//GEN-LAST:event_controlPanelComponentShown
-
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ArrayList<Turma> turmasSelecionadas = new ArrayList<>();
         ArrayList<Turma> turmasParaSalvar = new ArrayList<>();
@@ -905,16 +909,25 @@ public class TestPanel extends javax.swing.JPanel {
             if (!file.getAbsolutePath().endsWith(".xml"))
             {
                 /*se o arquivo não termina com a extensão do filtro então ele põe todo o caminho do arquivo
-                 * mais o nome seguido da extensão do filtro
-                 */
+                 * mais o nome seguido da extensão do filtro*/
                 file = new File(file.getAbsolutePath() + ".xml");
-                Escola.getInstance().salvarParaEnviar(turmasParaSalvar, file.getAbsolutePath());
             }
-            else
-            {
-                Escola.getInstance().salvarParaEnviar(turmasParaSalvar, file.getAbsolutePath());
+            
+            if (!file.exists()){
+                boolean salvar = Escola.getInstance().salvarParaEnviar2(turmasParaSalvar, file.getAbsolutePath());
+                
+                if (salvar){
+                    JOptionPane.showMessageDialog(null, "Arquivo salvo com sucesso", "", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Erro ao tentar salvar as avaliações!", "Erro",  JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "O arquivo já existe!", "Erro", JOptionPane.ERROR_MESSAGE);
             }
         }
+        atualizaJTable();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden

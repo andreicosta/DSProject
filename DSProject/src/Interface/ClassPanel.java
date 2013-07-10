@@ -536,7 +536,7 @@ public class ClassPanel extends javax.swing.JPanel {
                 }
             }
         }
-
+        JOptionPane.showMessageDialog(null, "Turma cadastrada com Sucesso", "", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
     //quando fecha o programa aparece a turma que foi deletada denovo
@@ -548,6 +548,7 @@ public class ClassPanel extends javax.swing.JPanel {
             tmpProf.removeTurma(turma);
 
             clearAll();
+            JOptionPane.showMessageDialog(null, "Turma removida com Sucesso", "", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao remover turma", "Erro", JOptionPane.ERROR_MESSAGE);
         }
@@ -609,6 +610,7 @@ public class ClassPanel extends javax.swing.JPanel {
         }
         limpaCamposEditarTurma();
         superPanel.getStudentPanel().clearEditStudent();
+        JOptionPane.showMessageDialog(null, "Turma salva com Sucesso", "", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_botaoSalvarActionPerformed
 
     private void addToClassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToClassButtonActionPerformed

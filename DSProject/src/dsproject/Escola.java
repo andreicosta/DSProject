@@ -717,7 +717,7 @@ public class Escola {
         }
     }
 
-    public void salvarParaEnviar(ArrayList<Turma> turmas, String path) {
+    public boolean salvarParaEnviar(ArrayList<Turma> turmas, String path) {
         ArrayList<Aluno> paraEnviar = new ArrayList();
         Avaliacao tmp;
 
@@ -730,8 +730,6 @@ public class Escola {
                 }
             }
         }
-
-        //int num = 1;
 
         String xml = "";
 
@@ -778,16 +776,95 @@ public class Escola {
         xml += "</alunos>\n";
         xml += "</prodown_envio>\n";
 
+        try {
+            File arquivo;
+            arquivo = new File(path);
+            FileOutputStream fos = new FileOutputStream(arquivo);
+            fos.write(xml.getBytes());
+            return true;
 
+        } catch (IOException ex) {
+            System.err.println(ex);
+            return false;
+        }
+    }
+    
+    public boolean salvarParaEnviar2(ArrayList<Turma> turmas, String path) {
+        ArrayList<Aluno> paraEnviar = new ArrayList();
+        Avaliacao tmp;
+
+        for (Turma t : turmas) {
+            for (Aluno a : t.buscaTodosAlunos()) {
+                tmp = a.getLastAvaliation();
+                if (tmp.isSalvoParaEnviar()) {
+                    tmp.setEnviado(true);
+                    paraEnviar.add(a);
+                }
+            }
+        }
+
+        System.out.println(paraEnviar.size());
+        
+        String xml = "";
+
+        xml += "<prodown_envio>\n";
+        xml += "<alunos>";
+        for (Aluno a : paraEnviar) {
+            xml += "<aluno>\n";
+            xml += "<nome>" + a.getNome() + "</nome>\n";
+            xml += "<aniversario>" + a.getBirthday().getTime() + "</aniversario>\n";
+            xml += "<genero>" + a.getGenero() + "</genero>\n";
+            xml += "<endereco>" + a.getEndereco() + "</endereco>\n";
+            xml += "<cidade>" + a.getCidade() + "</cidade>\n";
+            xml += "<nome_mae>" + a.getNomeMae() + "</nome_mae>\n";
+            xml += "<nome_pai>" + a.getNomePai() + "</nome_pai>\n";
+            xml += "<telefone> " + a.getTelefone() + "</telefone>\n";
+            xml += "<celular> " + a.getCelular() + "</celular>\n";
+            xml += "<email> " + a.getEmail() + "</email>\n";
+
+            tmp = a.getLastAvaliation();
+
+            xml += "<avaliacao>\n";
+            xml += "<data>" + tmp.getData().getTime() + "</data>\n";
+            xml += "<horario>" + tmp.getHorario() + "</horario\n>";
+            xml += "<temperatura>" + tmp.getTemperatura() + "</temperatura>\n";
+            xml += "<massa_corporal>" + tmp.getMassaCorporal() + "</massa_corporal>\n";
+            xml += "<estatura>" + tmp.getEstatura() + "</estatura>\n";
+            xml += "<imc>" + tmp.getIMC() + "</imc>\n";
+            xml += "<envergadura>" + tmp.getEnvergadura() + "</envergadura>\n";
+            xml += "<abdominal>" + tmp.getAbdominal() + "</abdominal>\n";
+            xml += "<sentar_e_alcancar>" + tmp.getSentarEAlcancar() + "</sentar_e_alcancar>\n";
+            xml += "<seis_minutos>" + tmp.get6Minutos() + "</seis_minutos>\n";
+            xml += "<nove_minutos>" + tmp.get9Minutos() + "</nove_minutos>\n";
+            xml += "<salto_horizontal>" + tmp.getSaltoHorizontal() + "</salto_horizontal>\n";
+            xml += "<arremesso_medicineball>" + tmp.getArremessoMedicineBall() + "</arremesso_medicineball>\n";
+            xml += "<quadrado>" + tmp.getTesteDoQuadrado() + "</quadrado>\n";
+            xml += "<corrida>" + tmp.getCorrida20Metros() + "</corrida>\n";
+            xml += "</avaliacao>\n";
+
+            xml += "</aluno>\n";
+        }
+        xml += "</alunos>\n";
+        xml += "</prodown_envio>\n";
 
         try {
             File arquivo;
             arquivo = new File(path);
             FileOutputStream fos = new FileOutputStream(arquivo);
             fos.write(xml.getBytes());
-
+            fos.close();
+            arquivo.setReadOnly();
         } catch (IOException ex) {
             System.err.println(ex);
+            return false;
         }
+        
+        for (Aluno a : paraEnviar){
+            a.inserirAvaliacao();
+            Escola.getInstance().salvarAvaliacoes(a);
+        }
+        return true;
+        
     }
+    
 }
