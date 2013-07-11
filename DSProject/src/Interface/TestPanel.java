@@ -873,18 +873,24 @@ public class TestPanel extends javax.swing.JPanel {
         }
     }
     
+    //Pega as turmas selecionadas no controle de avaliação e envia para ser salvo em XML quando o botão gerar arquivo para envio é acionado
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Pega todas as turmas selecionadas na tabela para gerar o arquivo de envio para o site e gera o .xml do arquivo.
         ArrayList<Turma> turmasSelecionadas = new ArrayList<>();
         ArrayList<Turma> turmasParaSalvar = new ArrayList<>();
         
-        System.out.println(jTable1.getSelectedRows());
         for (int i : jTable1.getSelectedRows()){
             Turma tmp = (Turma) jTable1.getValueAt(i, 0);
             if(tmp != null){
                 turmasSelecionadas.add(tmp);
             }
         }
+        
+        if (turmasSelecionadas.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Nenhuma Turma Selecionada!", "Erro",  JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+            
         
         for(Turma i : turmasSelecionadas){
             for(Aluno j : i.buscaTodosAlunos()){
@@ -896,6 +902,11 @@ public class TestPanel extends javax.swing.JPanel {
                     }
                 }  
             }
+        }
+        
+        if (turmasParaSalvar.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Nenhuma avaliação apta a ser enviada!", "Erro",  JOptionPane.ERROR_MESSAGE);
+            return;
         }
         
         UIManager.put("FileChooser.openButtonText", "Salvar"); 

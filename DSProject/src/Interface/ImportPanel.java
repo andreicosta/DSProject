@@ -98,6 +98,7 @@ public class ImportPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    //Abre o jfilechooser para escolha do arquivo a ser importado, se o formato for compatível, a importação é realizada
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         UIManager.put("FileChooser.openButtonText", "Importar");
@@ -135,6 +136,7 @@ public class ImportPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    //Abre o jfilechooser para escolha do arquivo a ser exportado, se o formato for compatível, a exportação é realizada
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         UIManager.put("FileChooser.openButtonText", "Exportar");
