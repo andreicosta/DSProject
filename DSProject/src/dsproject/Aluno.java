@@ -41,11 +41,12 @@ public class Aluno implements Serializable {
         this.avaliacoes = new ArrayList<>();
         cont ++;
         num_dir = cont;
-        
+        //O Aluno tem sempre uma avaliação ativa
         Avaliacao avaliacao = new Avaliacao();
         this.addAvaliacao(avaliacao);
     }
 
+    //Verifica se estes campos passados pelo Professor estão corretos, é chamado ao criar e editar Aluno
     public static void parse(String nome, Calendar nascimento, String telefone, String celular, 
             String cidade, String nomeMae, String nomePai, String email) throws Exception {
         String temp;
