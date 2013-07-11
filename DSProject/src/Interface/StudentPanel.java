@@ -429,6 +429,7 @@ public class StudentPanel extends javax.swing.JPanel {
         if (!flag) {
 
             try {
+                //Se o Professor tem um aluno com esse nome, nao cadastra
                 if (Escola.getInstance().getProfessorLogado().haveYouAStudentWithThisName(nameNewStudent)) {
                     throw new Exception("Aluno já existente");
                 }
@@ -445,7 +446,7 @@ public class StudentPanel extends javax.swing.JPanel {
             } catch (Exception e) {
                 try {
                     Escola.getInstance().getLogado().getTurmaDefault().inserirAluno(student);
-                    System.out.println("aluno adicionado sem turma");
+                    //System.out.println("aluno adicionado sem turma");
                 } catch (IOException ex) {
                     System.out.println("problemas em adicionar aluno na turma");
                 }
@@ -486,7 +487,8 @@ public class StudentPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-
+            
+            //Troca aluno de turma
             try {
                 Turma turm = student.getTurma();
                 if (!turm.equals(newTurma)) {
