@@ -439,15 +439,18 @@ public class Escola {
         }
     }
 
+    //Carrega todo o sistema a partir dos arquivos salvo anteriormente
     public void carregar() {
-        //carregarContadores();
         File f = new File("professores");
         String lista[] = f.list();
         ArrayList<Professor> professores = new ArrayList<>();
 
         int pro_cont = 0;
 
+        
         Professor p;
+        
+        //carrega todos os professores
         for (int i = 0; lista != null && i < lista.length; i++) {
             System.out.println("Professor em: " + lista[i]);
             p = carregarProfessor("professores/" + lista[i]);
@@ -459,43 +462,30 @@ public class Escola {
             professores.add(p);
         }
 
+        //seta a lista de professores do programa
         this.setProfessList(professores);
 
+        //arruma o contador da classe professor
         if (Professor.getCont() < pro_cont) {
             Professor.setCont(pro_cont);
         }
-
-        System.out.println("Contadores: " + Professor.getCont() + " " + Turma.getCont() + " " + Aluno.getCont());
+        
     }
 
-    /*
-     public void carregarContadores() throws ClassNotFoundException {
-     try {
-     FileInputStream file = new FileInputStream(new File("info.dat"));
-     ObjectInputStream in = new ObjectInputStream(file);
-
-     ArrayList<Integer> contadores = (ArrayList<Integer>) in.readObject();
-
-     Professor.setCont(contadores.get(0));
-     Turma.setCont(contadores.get(1));
-     Aluno.setCont(contadores.get(2));
-     System.out.println("Contadores: " + contadores.get(0) + " " + contadores.get(1) + " " + contadores.get(2));
-     } catch (IOException ex) {
-     System.err.println(ex);
-     }
-
-     }*/
+    //carrega um professor salvo no diretorio passado
     public Professor carregarProfessor(String diretorio) {
         try {
             Professor p;
 
             FileInputStream file = new FileInputStream(new File(diretorio + "/info.dat"));
             ObjectInputStream in = new ObjectInputStream(file);
-
+            
+            //carrega o objeto associado ao professor do diretorio passado
             p = (Professor) in.readObject();
             in.close();
 
             File f = new File(diretorio + "/turmas");
+            //se existe uma pasta turmas no diretorio deste professor
             if (f.exists()) {
                 String lista[] = f.list();
 
@@ -505,7 +495,7 @@ public class Escola {
                 Turma t;
 
                 int tur_cont = 0;
-
+                //carrega todas as turmas deste professor
                 for (int i = 0; lista != null && i < lista.length; i++) {
                     if (!lista[i].equalsIgnoreCase("info.dat")) {
                         t = carregarTurma(diretorio + "/turmas/" + lista[i]);
@@ -523,9 +513,10 @@ public class Escola {
                         System.out.println("Turma: " + t.getId());
                     }
                 }
-
+                //seta as turmas do professor
                 p.setTurmas(turmas);
-
+                
+                //arruma o contador da classe turma
                 if (Turma.getCont() < tur_cont) {
                     Turma.setCont(tur_cont);
                 }
@@ -537,14 +528,15 @@ public class Escola {
         }
     }
 
+    //carrega uma turma do diretorio passado
     public Turma carregarTurma(String diretorio) {
-        //salva obj
         try {
             Turma t;
 
             FileInputStream file = new FileInputStream(new File(diretorio + "/info.dat"));
             ObjectInputStream in = new ObjectInputStream(file);
-
+            
+            //carrega o objeto associado a turma do diretorio passado
             t = (Turma) in.readObject();
             in.close();
 
@@ -555,7 +547,7 @@ public class Escola {
             Aluno tmp;
 
             int alu_cont = 0;
-
+            //carrega todos os alunos desta turma
             for (int i = 0; lista != null && i < lista.length; i++) {
                 if (!lista[i].equalsIgnoreCase("info.dat")) {
                     System.out.println("Aluno em: " + lista[i]);
@@ -568,9 +560,10 @@ public class Escola {
                     }
                 }
             }
-
+            //seta os alunos da turma
             t.setAlunos(alunos);
-
+            
+            //arruma o contador da classe aluno
             if (Aluno.getCont() < alu_cont) {
                 Aluno.setCont(alu_cont);
             }
@@ -583,11 +576,10 @@ public class Escola {
 
     }
 
+    //carregar um aluno do diretorio passsado
     public Aluno carregarAluno(String diretorio) {
         try {
             Aluno a;
-            //salva aluno
-            //salva arrayList de avaliaÃ§Ãµes do aluno
 
             FileInputStream file;
             ObjectInputStream in;
@@ -595,9 +587,11 @@ public class Escola {
             file = new FileInputStream(new File(diretorio + "/info.dat"));
             in = new ObjectInputStream(file);
 
+            //carrega o obejto associado ao aluno do diretorio passado
             a = (Aluno) in.readObject();
             in.close();
-
+            
+            //carrega as avaliações deste aluno
             carregarAvaliacoes(a);
 
             return a;
@@ -607,6 +601,8 @@ public class Escola {
         }
     }
 
+    
+    //carregar a avaliação de um aluno passado
     public void carregarAvaliacoes(Aluno a) {
         try {
             FileInputStream file;
@@ -614,6 +610,7 @@ public class Escola {
             file = new FileInputStream(new File(a.getDir() + "/avaliacoes.dat"));
             in = new ObjectInputStream(file);
 
+            //carrega o ArrayList de avaliações do aluno passado
             ArrayList<Avaliacao> avaliacoes = (ArrayList<Avaliacao>) in.readObject();
             in.close();
 
@@ -622,19 +619,23 @@ public class Escola {
             System.err.println(ex);
         }
     }
-
+    
+    //remove todos os arquivos associados ao professor passado
     public void removeProfessor(Professor p) {
         deleteDir(new File(p.getDir()));
     }
 
+    //remove todos os arquivos associados a turma passado
     public void removeTurma(Turma t) {
         deleteDir(new File(t.getDir()));
     }
 
+    //remove todos os arquivos associados ao aluno passado
     public void removeAluno(Aluno a) {
         deleteDir(new File(a.getDir()));
     }
-
+    
+    //Método que deleta pasta e arquivos recursivamente a partir de um diretorio passado
     public boolean deleteDir(File dir) {
         if (dir.isDirectory()) {
             String[] children = dir.list();
@@ -645,21 +646,23 @@ public class Escola {
                 }
             }
         }
-        // Agora o diretório está vazio, restando apenas deletá-lo.  
         return dir.delete();
     }
 
+    //Faz logout do sistema
     public void logout() {
         this.logado = null;
         this.islogado = false;
     }
 
+    //Exporta os dados referentes ao professor logado, salvando eles no arquivo referente ao caminho passado
     public boolean exportar(String path) {
         System.out.println("Caminho: " + path);
         try {
             System.out.println();
             ObjectOutputStream out;
             out = new ObjectOutputStream(new FileOutputStream(path));
+            //simplesmente salva o professor logado em um arquivo, assim todos os dados associados a ele serão salvos juntos
             out.writeObject(this.getLogado());
             out.close();
         } catch (IOException ex) {
@@ -669,6 +672,7 @@ public class Escola {
         return true;
     }
 
+    //Importa os dados, substituindo os dados do professor logado, carrega a partir do arquivo referente ao caminho passado
     public boolean importar(String path) {
         System.out.println("Caminho: " + path);
         ArrayList<Turma> turmas;
@@ -684,6 +688,7 @@ public class Escola {
             ArrayList<Aluno> alunos;
 
             turmas = new ArrayList();
+            //Arruma os diretorios das turmas e alunos importados
             for (Turma t : tmp.getTurmas()) {
                 t.setNumDir(Turma.getCont());
                 Turma.setCont(Turma.getCont() + 1);
@@ -709,14 +714,16 @@ public class Escola {
             System.err.println(ex);
             return false;
         }
-        
+        //apaga os dados atuais do professor logado
         removeProfessor(p);
+        //coloca os dados carregados no sistema
         p.setTurmas(turmas);
+        //salva esses dados
         salvarProfessor(p, true);
 
         return true;
     }
-
+    /*
     public boolean salvarParaEnviar(ArrayList<Turma> turmas, String path) {
         ArrayList<Aluno> paraEnviar = new ArrayList();
         Avaliacao tmp;
@@ -788,11 +795,14 @@ public class Escola {
             return false;
         }
     }
+    */
     
+    //salva as avaliações finalizadas que estão nas turmas passada, no arquivo referente ao caminho passado
     public boolean salvarParaEnviar2(ArrayList<Turma> turmas, String path) {
         ArrayList<Aluno> paraEnviar = new ArrayList();
         Avaliacao tmp;
 
+        //coloca os alunos que possuem ac=valiação finalizada em um Array
         for (Turma t : turmas) {
             for (Aluno a : t.buscaTodosAlunos()) {
                 tmp = a.getLastAvaliation();
@@ -802,11 +812,9 @@ public class Escola {
                 }
             }
         }
-
-        System.out.println(paraEnviar.size());
         
+        //Cria o que irá ser salvo no XML
         String xml = "";
-
         xml += "<prodown_envio>\n";
         xml += "<alunos>";
         for (Aluno a : paraEnviar) {
@@ -847,6 +855,7 @@ public class Escola {
         xml += "</alunos>\n";
         xml += "</prodown_envio>\n";
 
+        //salva em arquivo
         try {
             File arquivo;
             arquivo = new File(path);
