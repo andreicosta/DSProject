@@ -7,7 +7,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -801,6 +803,9 @@ public class Escola {
     public boolean salvarParaEnviar2(ArrayList<Turma> turmas, String path) {
         ArrayList<Aluno> paraEnviar = new ArrayList();
         Avaliacao tmp;
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, 1);
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
 
         //coloca os alunos que possuem ac=valiação finalizada em um Array
         for (Turma t : turmas) {
@@ -820,7 +825,7 @@ public class Escola {
         for (Aluno a : paraEnviar) {
             xml += "<aluno>\n";
             xml += "<nome>" + a.getNome() + " </nome>\n";
-            xml += "<aniversario>" + a.getBirthday().getTime() + " </aniversario>\n";
+            xml += "<nascimento>" + format1.format(a.getBirthday().getTime()) + " </nascimento>\n";
             xml += "<genero>" + a.getGenero() + " </genero>\n";
             xml += "<endereco>" + a.getEndereco() + " </endereco>\n";
             xml += "<cidade>" + a.getCidade() + " </cidade>\n";
@@ -833,8 +838,8 @@ public class Escola {
             tmp = a.getLastAvaliation();
 
             xml += "<avaliacao>\n";
-            xml += "<data>" + tmp.getData().getTime() + " </data>\n";
-            xml += "<horario>" + tmp.getHorario() + " </horario\n>";
+            xml += "<data>" + format1.format(tmp.getData().getTime()) + " </data>\n";
+            xml += "<horario>" + tmp.getHorario() + ":00 </horario\n>";
             xml += "<temperatura>" + tmp.getTemperatura() + " </temperatura>\n";
             xml += "<massa_corporal>" + tmp.getMassaCorporal() + " </massa_corporal>\n";
             xml += "<estatura>" + tmp.getEstatura() + " </estatura>\n";
@@ -842,6 +847,14 @@ public class Escola {
             xml += "<envergadura>" + tmp.getEnvergadura() + " </envergadura>\n";
             xml += "<abdominal>" + tmp.getAbdominal() + " </abdominal>\n";
             xml += "<sentar_e_alcancar>" + tmp.getSentarEAlcancar() + " </sentar_e_alcancar>\n";
+            xml += "<banco>";
+            if (tmp.isSentarEAlcancarComBanco()){
+                xml+="true";
+            }
+            else{
+                xml+="false";
+            }
+            xml += " </banco>\n";
             xml += "<seis_minutos>" + tmp.get6Minutos() + " </seis_minutos>\n";
             xml += "<nove_minutos>" + tmp.get9Minutos() + " </nove_minutos>\n";
             xml += "<salto_horizontal>" + tmp.getSaltoHorizontal() + " </salto_horizontal>\n";
